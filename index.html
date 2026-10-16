@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>US Market Live - أخبار السوق الأمريكي</title>
+<meta name="description" content="آخر أخبار السوق الأمريكي، الأسهم، وول ستريت، الكريبتو، والتحليلات المالية بشكل مباشر ومحدّث تلقائياً على مدار الساعة.">
+<meta name="keywords" content="السوق الأمريكي, وول ستريت, أسهم, كريبتو, بيتكوين, ناسداك, داو جونز, أخبار مالية">
+<meta property="og:title" content="US Market Live - أخبار السوق الأمريكي">
+<meta property="og:description" content="آخر أخبار الأسهم ووول ستريت مباشرة">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0a0e17">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <span class="logo-icon">📈</span>
+      <span class="logo-text">US Market <strong>Live</strong></span>
+    </a>
+    <nav class="nav">
+      <a href="#latest" class="nav-link" data-i18n="nav.latest">آخر الأخبار</a>
+      <a href="#stocks" class="nav-link" data-i18n="nav.stocks">الأسهم</a>
+      <a href="#crypto" class="nav-link" data-i18n="nav.crypto">كريبتو</a>
+      <a href="#about" class="nav-link" data-i18n="nav.about">من نحن</a>
+    </nav>
+    <div class="header-actions">
+      <select id="langSelect" class="lang-select" aria-label="Language">
+        <option value="ar">🇸🇦 العربية</option>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="de">🇩🇪 Deutsch</option>
+        <option value="tr">🇹🇷 Türkçe</option>
+        <option value="zh">🇨🇳 中文</option>
+      </select>
+      <button id="notifyBtn" class="notify-btn" title="تفعيل الإشعارات">
+        🔔
+      </button>
+      <div class="live-badge">
+        <span class="live-dot"></span>
+        <span data-i18n="nav.live">مباشر</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item"><span>📊 S&P 500</span> <strong id="t-sp500">--</strong></div>
+    <div class="ticker-item"><span>💻 NASDAQ</span> <strong id="t-nasdaq">--</strong></div>
+    <div class="ticker-item"><span>🏭 DOW</span> <strong id="t-dow">--</strong></div>
+    <div class="ticker-item"><span>₿ BITCOIN</span> <strong id="t-btc">--</strong></div>
+    <div class="ticker-item"><span>Ξ ETH</span> <strong id="t-eth">--</strong></div>
+    <div class="ticker-item"><span>🥇 GOLD</span> <strong id="t-gold">--</strong></div>
+    <div class="ticker-item"><span>🛢️ OIL</span> <strong id="t-oil">--</strong></div>
+    <div class="ticker-item"><span>💵 EUR/USD</span> <strong id="t-eur">--</strong></div>
+  </div>
+</section>
+
+<main class="container">
+
+  <section class="hero">
+    <h1 data-i18n="hero.title">آخر أخبار السوق الأمريكي</h1>
+    <p class="hero-sub" data-i18n="hero.subtitle">تحديثات تلقائية على مدار الساعة من أبرز المصادر المالية العالمية</p>
+    <div class="update-info">
+      <span>🕒 <span data-i18n="hero.updated">آخر تحديث</span>: <strong id="lastUpdate">--</strong></span>
+    </div>
+  </section>
+
+  <section class="featured-article" id="featured"></section>
+
+  <!-- Charts Section -->
+  <section class="charts-section">
+    <div class="section-header">
+      <h2 data-i18n="charts.title">📊 الرسوم البيانية الحية</h2>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3>S&P 500</h3>
+        <div class="tradingview-widget-container">
+          <div id="tv-sp500"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {
+            "symbol": "FOREXCOM:SPXUSD",
+            "width": "100%",
+            "height": "220",
+            "locale": "en",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": true,
+            "largeChartUrl": ""
+          }
+          </script>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>NASDAQ 100</h3>
+        <div class="tradingview-widget-container">
+          <div id="tv-nasdaq"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {
+            "symbol": "FOREXCOM:NSXUSD",
+            "width": "100%",
+            "height": "220",
+            "locale": "en",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": true
+          }
+          </script>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Bitcoin</h3>
+        <div class="tradingview-widget-container">
+          <div id="tv-btc"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {
+            "symbol": "BITSTAMP:BTCUSD",
+            "width": "100%",
+            "height": "220",
+            "locale": "en",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": true
+          }
+          </script>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>Ethereum</h3>
+        <div class="tradingview-widget-container">
+          <div id="tv-eth"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+          {
+            "symbol": "BITSTAMP:ETHUSD",
+            "width": "100%",
+            "height": "220",
+            "locale": "en",
+            "dateRange": "1D",
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "autosize": true
+          }
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section id="latest" class="news-section">
+    <div class="section-header">
+      <h2 data-i18n="news.title">📰 آخر الأخبار</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all" data-i18n="filter.all">الكل</button>
+        <button class="filter-btn" data-filter="stocks" data-i18n="filter.stocks">الأسهم</button>
+        <button class="filter-btn" data-filter="crypto" data-i18n="filter.crypto">كريبتو</button>
+        <button class="filter-btn" data-filter="economy" data-i18n="filter.economy">اقتصاد</button>
+      </div>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <div class="loading">⏳ <span data-i18n="news.loading">جاري تحميل الأخبار...</span></div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="newsletter-card">
+      <div class="newsletter-icon">📧</div>
+      <h2 data-i18n="newsletter.title">اشترك في النشرة البريدية</h2>
+      <p data-i18n="newsletter.subtitle">احصل على أهم أخبار السوق الأمريكي مباشرة في بريدك</p>
+      <form id="newsletterForm" class="newsletter-form">
+        <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني" data-i18n="newsletter.placeholder" required>
+        <button type="submit" data-i18n="newsletter.button">اشترك</button>
+      </form>
+      <p class="newsletter-note" id="newsletterMsg"></p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h2 data-i18n="about.title">عن US Market Live</h2>
+    <p data-i18n="about.p1">منصة إخبارية مخصصة لمتابعة السوق الأمريكي بشكل دوري وآلي. نجمع الأخبار من مصادر مالية موثوقة ونعرضها لك في مكان واحد، بتحديثات تلقائية على مدار الساعة دون انقطاع.</p>
+    <p data-i18n="about.p2">هدفنا توفير نظرة شاملة وسريعة على أهم ما يحرك الأسواق الأمريكية والعالمية.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>📈 US Market Live</h3>
+        <p data-i18n="footer.tagline">أخبار السوق الأمريكي بتحديثات آلية</p>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.links">روابط</h3>
+        <a href="#latest" data-i18n="nav.latest">آخر الأخبار</a>
+        <a href="#about" data-i18n="nav.about">من نحن</a>
+        <a href="sitemap.xml">Sitemap</a>
+      </div>
+      <div class="footer-col">
+        <h3 data-i18n="footer.sources">المصادر</h3>
+        <a href="https://www.cnbc.com" target="_blank" rel="noopener">CNBC</a>
+        <a href="https://www.marketwatch.com" target="_blank" rel="noopener">MarketWatch</a>
+        <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> US Market Live — <span data-i18n="footer.rights">جميع الحقوق محفوظة</span></p>
+      <p class="disclaimer" data-i18n="footer.disclaimer">⚠️ المحتوى لأغراض إخبارية فقط ولا يُعد نصيحة استثمارية</p>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" class="back-to-top" title="Back to top">↑</button>
+
+<div id="toastContainer" class="toast-container"></div>
+
+<script src="translations.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
