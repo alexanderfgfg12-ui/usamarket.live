@@ -1,0 +1,12 @@
+{
+  "name": "usamarket-live",
+  "version": "1.0.0",
+  "description": "Automated US Market news site with i18n, PWA, and notifications",
+  "main": "fetch-news.js",
+  "scripts": {
+    "fetch": "node fetch-news.js"
+  },
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}
