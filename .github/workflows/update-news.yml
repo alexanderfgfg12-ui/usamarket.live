@@ -11,25 +11,27 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 10
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        timeout-minutes: 2
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+        timeout-minutes: 2
 
       - name: Install rss-parser
         run: npm install rss-parser --no-save --no-audit --no-fund --loglevel=error
         timeout-minutes: 3
 
-      - name: Fetch and rewrite news with AI
+      - name: Fetch and rewrite with AI
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node fetch-news.js
-        timeout-minutes: 6
+        timeout-minutes: 7
         continue-on-error: true
 
       - name: Commit and push
@@ -39,4 +41,5 @@ jobs:
           git add news-data.json
           git diff --staged --quiet || git commit -m "🔄 Update news $(date -u '+%Y-%m-%d %H:%M')"
           git push
+        timeout-minutes: 2
         continue-on-error: true
