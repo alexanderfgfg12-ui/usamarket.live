@@ -11,14 +11,19 @@ const FEEDS = [
   { url: 'https://www.coindesk.com/arc/outboundfeeds/rss/', source: 'CoinDesk', category: 'crypto' }
 ];
 
-// ===== Gemini API =====
+// ===== إعدادات Gemini API =====
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const GEMINI_MODEL = 'gemini-2.5-flash';
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
+// ===== إعادة الكتابة بالذكاء الاصطناعي مع timeout =====
 async function rewriteWithAI(article) {
-  if (!GEMINI_API_KEY) return null;
+  if (!GEMINI_API_KEY) {
+    console.error('⚠️ GEMINI_API_KEY not set');
+    return null;
+  }
 
-  const prompt = `You are a financial news editor. Rewrite the following news article in clear, professional English for a US market-focused audience. 
+  const prompt = `You are a financial news editor. Rewrite the following news article in clear, professional English for a US market-focused audience.
 
 Requirements:
 1. Write a NEW compelling headline (max 80 characters)
@@ -33,6 +38,10 @@ Original title: ${article.title}
 Original description: ${article.description}`;
 
   try {
+    // Timeout 15 ثانية لكل طلب
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     const res = await fetch(GEMINI_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -43,38 +52,53 @@ Original description: ${article.description}`;
           maxOutputTokens: 500,
           responseMimeType: 'application/json'
         }
-      })
+      }),
+      signal: controller.signal
     });
 
+    clearTimeout(timeoutId);
+
     if (!res.ok) {
-      console.error(`Gemini error: ${res.status}`);
+      const errText = await res.text();
+      console.error(`   ❌ Gemini ${res.status}: ${errText.substring(0, 150)}`);
       return null;
     }
 
     const data = await res.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) return null;
+    if (!text) {
+      console.error('   ⚠️ Empty response from Gemini');
+      return null;
+    }
 
-    const parsed = JSON.parse(text);
+    // إزالة علامات markdown إن وُجدت
+    const cleaned = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
+    const parsed = JSON.parse(cleaned);
+
     return {
-      headline: parsed.headline,
-      summary: parsed.summary,
-      analysis: parsed.analysis
+      headline: parsed.headline || article.title,
+      summary: parsed.summary || article.description.substring(0, 250),
+      analysis: parsed.analysis || ''
     };
   } catch (err) {
-    console.error(`AI rewrite failed: ${err.message}`);
+    if (err.name === 'AbortError') {
+      console.error('   ⏱️ Timeout (15s)');
+    } else {
+      console.error(`   ❌ ${err.message}`);
+    }
     return null;
   }
 }
 
 // ===== جلب الأخبار =====
 async function fetchAll() {
+  console.log('🚀 Starting news fetch...\n');
   const articles = [];
 
   for (const feed of FEEDS) {
     try {
       const parsed = await parser.parseURL(feed.url);
-      const items = (parsed.items || []).slice(0, 5); // 5 لكل مصدر لتوفير API calls
+      const items = (parsed.items || []).slice(0, 6);
       for (const item of items) {
         articles.push({
           originalTitle: item.title,
@@ -85,12 +109,15 @@ async function fetchAll() {
           category: feed.category
         });
       }
-      console.log(`✅ ${feed.source}: ${items.length}`);
+      console.log(`✅ ${feed.source}: ${items.length} articles`);
     } catch (err) {
       console.error(`❌ ${feed.source}: ${err.message}`);
     }
   }
 
+  console.log(`\n📊 Total fetched: ${articles.length}`);
+
+  // ترتيب حسب الأحدث
   articles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
   // إزالة التكرار
@@ -102,17 +129,32 @@ async function fetchAll() {
     return true;
   });
 
-  // إعادة الكتابة بالذكاء الاصطناعي (أول 25 خبر فقط)
-  const top = unique.slice(0, 25);
-  console.log(`\n🤖 Rewriting ${top.length} articles with AI...`);
+  console.log(`📝 Unique articles: ${unique.length}`);
+
+  // عدد الأخبار التي نعالجها بالذكاء الاصطناعي
+  const AI_LIMIT = 20;
+  const top = unique.slice(0, AI_LIMIT);
+
+  console.log(`\n🤖 Rewriting ${top.length} articles with Gemini...\n`);
 
   const rewritten = [];
+  let successCount = 0;
+  let failCount = 0;
+
   for (let i = 0; i < top.length; i++) {
     const a = top[i];
     const ai = await rewriteWithAI({
       title: a.originalTitle,
       description: a.originalDescription
     });
+
+    if (ai) {
+      successCount++;
+      console.log(`  [${i + 1}/${top.length}] ✅ ${ai.headline.substring(0, 60)}`);
+    } else {
+      failCount++;
+      console.log(`  [${i + 1}/${top.length}] ⚠️  Using original`);
+    }
 
     rewritten.push({
       title: ai?.headline || a.originalTitle,
@@ -121,34 +163,44 @@ async function fetchAll() {
       link: a.link,
       pubDate: a.pubDate,
       source: a.source,
-      category: a.category,
-      slug: slugify(ai?.headline || a.originalTitle)
+      category: a.category
     });
 
-    console.log(`  [${i + 1}/${top.length}] ${ai ? '✅' : '⚠️ '} ${(ai?.headline || a.originalTitle).substring(0, 60)}`);
+    // تأخير بسيط بين الطلبات لتفادي rate limit
+    await new Promise(r => setTimeout(r, 400));
+  }
 
-    // تأخير بسيط لتفادي rate limit
-    await new Promise(r => setTimeout(r, 500));
+  // إضافة الأخبار المتبقية (بدون AI)
+  const remaining = unique.slice(AI_LIMIT, AI_LIMIT + 20);
+  for (const a of remaining) {
+    rewritten.push({
+      title: a.originalTitle,
+      description: a.originalDescription.substring(0, 250),
+      analysis: '',
+      link: a.link,
+      pubDate: a.pubDate,
+      source: a.source,
+      category: a.category
+    });
   }
 
   const data = {
     updated: new Date().toISOString(),
     count: rewritten.length,
+    aiProcessed: successCount,
     articles: rewritten
   };
 
   fs.writeFileSync('news-data.json', JSON.stringify(data, null, 2));
-  console.log(`\n✅ Saved ${rewritten.length} articles`);
-}
 
-function slugify(text) {
-  return text.toString().toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .substring(0, 80);
+  console.log(`\n${'='.repeat(50)}`);
+  console.log(`✅ Saved ${rewritten.length} articles total`);
+  console.log(`🤖 AI processed: ${successCount}`);
+  console.log(`⚠️  Fallback to original: ${failCount}`);
+  console.log(`${'='.repeat(50)}\n`);
 }
 
 fetchAll().catch(err => {
-  console.error('❌ Fatal:', err);
+  console.error('❌ Fatal error:', err);
   process.exit(1);
 });
