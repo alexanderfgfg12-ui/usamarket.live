@@ -1,6 +1,7 @@
 {
-  "updated": "2026-10-17T00:31:02.693Z",
-  "count": 20,
+  "updated": "2026-10-17T01:03:51.829Z",
+  "count": 24,
+  "aiProcessed": 0,
   "articles": [
     {
       "title": "Apple’s $1,999 iPhone Duo puts the company's status-symbol power to the test",
@@ -9,8 +10,7 @@
       "link": "https://www.cnbc.com/2026/10/16/apple-iphone-duo-demand-price.html",
       "pubDate": "Fri, 16 Oct 2026 22:31:26 GMT",
       "source": "CNBC",
-      "category": "markets",
-      "slug": "apple-s-1-999-iphone-duo-puts-the-company-s-status-symbol-power-to-the-test"
+      "category": "markets"
     },
     {
       "title": "Nowhere to hide: Tech selloff hits software and chip stocks alike",
@@ -19,8 +19,7 @@
       "link": "https://www.marketwatch.com/story/nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike-6d96773c?mod=mw_rss_topstories",
       "pubDate": "Fri, 16 Oct 2026 21:59:00 GMT",
       "source": "MarketWatch",
-      "category": "markets",
-      "slug": "nowhere-to-hide-tech-selloff-hits-software-and-chip-stocks-alike"
+      "category": "markets"
     },
     {
       "title": "This Senate race where data centers are a crucial issue has more spending than any other midterm clash",
@@ -29,8 +28,7 @@
       "link": "https://www.marketwatch.com/story/this-senate-race-where-data-centers-are-a-crucial-issue-has-more-spending-than-any-other-midterm-clash-5152b43d?mod=mw_rss_topstories",
       "pubDate": "Fri, 16 Oct 2026 21:43:00 GMT",
       "source": "MarketWatch",
-      "category": "markets",
-      "slug": "this-senate-race-where-data-centers-are-a-crucial-issue-has-more-spending-than-a"
+      "category": "markets"
     },
     {
       "title": "Could an Anthropic IPO put your 401(k) at risk? The AI safety debate hits a new dimension.",
@@ -39,8 +37,7 @@
       "link": "https://www.marketwatch.com/story/could-an-anthropic-ipo-put-your-401-k-at-risk-the-ai-safety-debate-hits-a-new-dimension-db3f09f7?mod=mw_rss_topstories",
       "pubDate": "Fri, 16 Oct 2026 21:35:00 GMT",
       "source": "MarketWatch",
-      "category": "markets",
-      "slug": "could-an-anthropic-ipo-put-your-401-k-at-risk-the-ai-safety-debate-hits-a-new-di"
+      "category": "markets"
     },
     {
       "title": "The bond market shrugged off two inflation shocks. Why stock investors should pay attention.",
@@ -49,8 +46,7 @@
       "link": "https://www.marketwatch.com/story/the-bond-market-shrugged-off-two-inflation-shocks-why-stock-investors-should-pay-attention-5da4f771?mod=mw_rss_topstories",
       "pubDate": "Fri, 16 Oct 2026 21:30:00 GMT",
       "source": "MarketWatch",
-      "category": "markets",
-      "slug": "the-bond-market-shrugged-off-two-inflation-shocks-why-stock-investors-should-pay"
+      "category": "markets"
     },
     {
       "title": "Katie Zacharia out as Trump's White House press secretary",
@@ -59,8 +55,7 @@
       "link": "https://www.cnbc.com/2026/10/16/trump-katie-zacharia-white-house.html",
       "pubDate": "Fri, 16 Oct 2026 21:26:15 GMT",
       "source": "CNBC",
-      "category": "markets",
-      "slug": "katie-zacharia-out-as-trump-s-white-house-press-secretary"
+      "category": "markets"
     },
     {
       "title": "New SEC rules would fleece everyday investors to enrich Wall Street",
@@ -69,8 +64,16 @@
       "link": "https://www.marketwatch.com/story/new-sec-rules-would-fleece-everyday-investors-to-enrich-wall-street-0a00fe03?mod=mw_rss_topstories",
       "pubDate": "Fri, 16 Oct 2026 21:21:00 GMT",
       "source": "MarketWatch",
-      "category": "markets",
-      "slug": "new-sec-rules-would-fleece-everyday-investors-to-enrich-wall-street"
+      "category": "markets"
+    },
+    {
+      "title": "I’m 63 and diagnosed with lymphoma. Should I take my Social Security next year?",
+      "description": "“My plan is to continue working as long as I’m able to do so and invest my Social Security benefits while I’m still earning a paycheck.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/its-a-wait-and-see-situation-im-63-and-diagnosed-with-lymphoma-should-i-take-my-social-security-next-year-ea88b419?mod=mw_rss_topstories",
+      "pubDate": "Fri, 16 Oct 2026 21:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
     },
     {
       "title": "Brent oil touches $110 as Iran escalates Hormuz attacks, Ukraine vows to hit Russian refineries",
@@ -79,8 +82,7 @@
       "link": "https://www.cnbc.com/2026/10/16/oil-price-today-iran-strait-hormuz-ukraine-russia.html",
       "pubDate": "Fri, 16 Oct 2026 20:02:21 GMT",
       "source": "CNBC",
-      "category": "markets",
-      "slug": "brent-oil-touches-110-as-iran-escalates-hormuz-attacks-ukraine-vows-to-hit-russi"
+      "category": "markets"
     },
     {
       "title": "Wall Street's fear gauge is ripping. Traders see it going even higher",
@@ -89,8 +91,7 @@
       "link": "https://www.cnbc.com/2026/10/16/wall-streets-fear-gauge-is-ripping-traders-see-it-going-even-higher.html",
       "pubDate": "Fri, 16 Oct 2026 19:28:10 GMT",
       "source": "CNBC",
-      "category": "markets",
-      "slug": "wall-street-s-fear-gauge-is-ripping-traders-see-it-going-even-higher"
+      "category": "markets"
     },
     {
       "title": "Here’s what happened in crypto today",
@@ -99,8 +100,7 @@
       "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 16 Oct 2026 19:17:04 +0000",
       "source": "Cointelegraph",
-      "category": "crypto",
-      "slug": "here-s-what-happened-in-crypto-today"
+      "category": "crypto"
     },
     {
       "title": "Why Trump and the GOP's billion-dollar midterm blitz isn’t working",
@@ -109,8 +109,7 @@
       "link": "https://www.cnbc.com/2026/10/16/republicans-midterms-spending-trump-musk-2026.html",
       "pubDate": "Fri, 16 Oct 2026 17:55:05 GMT",
       "source": "CNBC",
-      "category": "markets",
-      "slug": "why-trump-and-the-gop-s-billion-dollar-midterm-blitz-isn-t-working"
+      "category": "markets"
     },
     {
       "title": "Crypto PACs escalate spending against Sherrod Brown in Ohio Senate race",
@@ -119,8 +118,7 @@
       "link": "https://cointelegraph.com/news/crypto-pac-fairshake-spending-ohio-senate-race-sherrod-brown?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 16 Oct 2026 17:30:09 +0000",
       "source": "Cointelegraph",
-      "category": "crypto",
-      "slug": "crypto-pacs-escalate-spending-against-sherrod-brown-in-ohio-senate-race"
+      "category": "crypto"
     },
     {
       "title": "Stablecoin remittances cost 84% less than traditional transfers, report finds ",
@@ -129,8 +127,16 @@
       "link": "https://cointelegraph.com/news/stablecoin-remittances-cost-savings-traditional-transfers?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 16 Oct 2026 17:21:45 +0000",
       "source": "Cointelegraph",
-      "category": "crypto",
-      "slug": "stablecoin-remittances-cost-84-less-than-traditional-transfers-report-finds"
+      "category": "crypto"
+    },
+    {
+      "title": "U.S. presses China on Mastercard, Citigroup market access in bilateral Bangkok talks, official says",
+      "description": "The U.S. raised market access issues for Mastercard and Citigroup in China during bilateral meetings in Bangkok this week, a U.S. Treasury official says.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/16/us-china-mastercard-citigroup-market-access.html",
+      "pubDate": "Fri, 16 Oct 2026 16:46:18 GMT",
+      "source": "CNBC",
+      "category": "markets"
     },
     {
       "title": "Crypto Biz: Wall Street closes at 4. Tokenized stocks keep trading ",
@@ -139,8 +145,7 @@
       "link": "https://cointelegraph.com/news/tokenized-stocks-after-hours-trading-crypto-biz?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 16 Oct 2026 15:52:28 +0000",
       "source": "Cointelegraph",
-      "category": "crypto",
-      "slug": "crypto-biz-wall-street-closes-at-4-tokenized-stocks-keep-trading"
+      "category": "crypto"
     },
     {
       "title": "Bitcoin price steadies around $82K after Fed’s Warsh avoids rate-hike hints",
@@ -149,8 +154,7 @@
       "link": "https://cointelegraph.com/markets/bitcoin-price-steadies-82k-fed-warsh-avoids-rate-hike-hints?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 16 Oct 2026 15:45:43 +0000",
       "source": "Cointelegraph",
-      "category": "crypto",
-      "slug": "bitcoin-price-steadies-around-82k-after-fed-s-warsh-avoids-rate-hike-hints"
+      "category": "crypto"
     },
     {
       "title": "Big Tech's AI auditors will only see what they're shown",
@@ -159,8 +163,16 @@
       "link": "https://www.coindesk.com/opinion/2026/10/16/big-tech-s-ai-auditors-will-only-see-what-they-re-shown",
       "pubDate": "Fri, 16 Oct 2026 14:58:22 +0000",
       "source": "CoinDesk",
-      "category": "crypto",
-      "slug": "big-tech-s-ai-auditors-will-only-see-what-they-re-shown"
+      "category": "crypto"
+    },
+    {
+      "title": "Strategy conditionally declares daily dividends as STRC hovers below $100",
+      "description": "Strategy conditionally declared daily dividends on STRC, which continued to hover below its $100 par value.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/strategy-daily-dividends-strc-hovers-below-100?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 16 Oct 2026 14:11:03 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
     },
     {
       "title": "Traders will soon be able to bet on whether Coinbase, Robinhood and Marathon will hit their targets",
@@ -169,8 +181,7 @@
       "link": "https://www.coindesk.com/daybook-us/2026/10/16/traders-will-soon-be-able-to-bet-on-whether-coinbase-robinhood-and-marathon-will-hit-their-targets",
       "pubDate": "Fri, 16 Oct 2026 11:15:00 +0000",
       "source": "CoinDesk",
-      "category": "crypto",
-      "slug": "traders-will-soon-be-able-to-bet-on-whether-coinbase-robinhood-and-marathon-will"
+      "category": "crypto"
     },
     {
       "title": "Circle targets 40 new markets as stablecoin demand grows globally",
@@ -179,8 +190,7 @@
       "link": "https://www.coindesk.com/business/2026/10/16/circle-targets-40-new-markets-as-stablecoin-demand-grows-globally",
       "pubDate": "Fri, 16 Oct 2026 10:54:35 +0000",
       "source": "CoinDesk",
-      "category": "crypto",
-      "slug": "circle-targets-40-new-markets-as-stablecoin-demand-grows-globally"
+      "category": "crypto"
     },
     {
       "title": "Quantum Alliance forms amid warnings 6.4 million bitcoin face future quantum threat",
@@ -189,8 +199,7 @@
       "link": "https://www.coindesk.com/tech/2026/10/16/experts-agree-quantum-computers-could-put-satoshi-s-bitcoin-at-risk-but-not-on-what-s-next",
       "pubDate": "Fri, 16 Oct 2026 10:52:26 +0000",
       "source": "CoinDesk",
-      "category": "crypto",
-      "slug": "quantum-alliance-forms-amid-warnings-6-4-million-bitcoin-face-future-quantum-thr"
+      "category": "crypto"
     },
     {
       "title": "Tokenized Tesla surges as Elon Musk unveils SpaceX-powered flying Roadster prototype",
@@ -199,8 +208,16 @@
       "link": "https://www.coindesk.com/business/2026/10/16/elon-musk-s-flying-roadster-reveal-sent-tesla-crypto-trading-into-overdrive-while-stock-markets-were-closed",
       "pubDate": "Fri, 16 Oct 2026 10:48:49 +0000",
       "source": "CoinDesk",
-      "category": "crypto",
-      "slug": "tokenized-tesla-surges-as-elon-musk-unveils-spacex-powered-flying-roadster-proto"
+      "category": "crypto"
+    },
+    {
+      "title": "Altcoins outpace bitcoin as celestia jumps 16%, Warsh silent on interest-rate plans",
+      "description": "Celestia jumped 16%, injective rose 7.7% and layerzero added 7.3% while bitcoin held little changed near $82,100 and Fed Chair Warsh gave no sign on interest rates.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/16/altcoins-outpace-bitcoin-as-celestia-jumps-16-warsh-silent-on-interest-rate-plans",
+      "pubDate": "Fri, 16 Oct 2026 10:41:03 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
     }
   ]
 }
