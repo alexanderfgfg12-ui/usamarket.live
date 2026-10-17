@@ -1,8 +1,62 @@
 {
-  "updated": "2026-10-17T01:34:12.874Z",
+  "updated": "2026-10-17T08:28:38.343Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Bitget to discontinue services for some users in one-off exercise   ",
+      "description": "Bitget says user funds are safe and exchange will continue to operate during the change.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/bitget-to-discontinue-services-for-some-users-in-one-off-exercise?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Sat, 17 Oct 2026 07:26:57 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "‘Wow, it’s a real discovery’: Claude cracks a 25-year NSA number mystery",
+      "description": "Numbers the spy agency handed over in the 1990s, long suspected of hiding a backdoor, turn out to have come from a basic computer program. Bitcoin was never on that list, and its quantum problem hasn’t gone anywhere.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/tech/2026/10/17/wow-it-s-a-real-discovery-claude-cracks-a-25-year-nsa-number-mystery",
+      "pubDate": "Sat, 17 Oct 2026 06:39:48 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Trump's Russia diesel deal may offer Putin more than money — and spell trouble for Ukraine",
+      "description": "Trump's diesel deal may do little for Russia's finances, but it raises bigger questions about Ukraine's leverage, U.S. support and Putin's next moves.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/17/trump-diesel-russia-ukraine-war.html",
+      "pubDate": "Sat, 17 Oct 2026 05:46:20 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Some companies give AI to everyone. This CEO is doing the opposite",
+      "description": "Paysend CEO Ben Chisell limits AI tools to top performers as other U.K. companies push broader workplace rollouts.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/17/ai-workplace-tokenmaxxing-paysend.html",
+      "pubDate": "Sat, 17 Oct 2026 05:00:01 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Satoshi-era bitcoin faces a bigger quantum threat after Google’s new Willow breakthrough",
+      "description": "Google says its Willow chip can prepare the special quantum states needed for advanced calculations with about 40 times fewer errors, reducing one of the hardware bottlenecks behind any future attempt to crack bitcoin wallets.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/tech/2026/10/16/satoshi-era-bitcoin-faces-a-bigger-quantum-threat-after-google-s-new-willow-breakthrough",
+      "pubDate": "Sat, 17 Oct 2026 02:30:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "U.S. budget deficit swells to almost $2 trillion for fiscal 2026, up 12% in a single year",
+      "description": "The Treasury Department published the U.S. budget deficit for the 2026 fiscal year.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/16/us-budget-deficit-2026.html",
+      "pubDate": "Fri, 16 Oct 2026 22:34:29 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
     {
       "title": "Apple’s $1,999 iPhone Duo puts the company's status-symbol power to the test",
       "description": "Apple’s $1,999 iPhone Duo is drawing early demand as analysts assess whether the foldable can lift iPhone pricing and revenue.",
@@ -46,15 +100,6 @@
       "link": "https://www.marketwatch.com/story/the-bond-market-shrugged-off-two-inflation-shocks-why-stock-investors-should-pay-attention-5da4f771?mod=mw_rss_topstories",
       "pubDate": "Fri, 16 Oct 2026 21:30:00 GMT",
       "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Katie Zacharia out as Trump's White House press secretary",
-      "description": "Zacharia was on shaky ground from her first White House press conference and over questions about her claims of being a lawyer despite not passing a bar exam.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/16/trump-katie-zacharia-white-house.html",
-      "pubDate": "Fri, 16 Oct 2026 21:26:15 GMT",
-      "source": "CNBC",
       "category": "markets"
     },
     {
@@ -103,15 +148,6 @@
       "category": "crypto"
     },
     {
-      "title": "Why Trump and the GOP's billion-dollar midterm blitz isn’t working",
-      "description": "Trump-aligned groups and Elon Musk have poured hundreds of millions into the midterm election, but the GOP spending surge has barely moved polls or the map.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/16/republicans-midterms-spending-trump-musk-2026.html",
-      "pubDate": "Fri, 16 Oct 2026 17:55:05 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Crypto PACs escalate spending against Sherrod Brown in Ohio Senate race",
       "description": "At least two industry-aligned PACs have poured more than $52 million into opposing Sherrod Brown’s return to the Senate.",
       "analysis": "",
@@ -128,15 +164,6 @@
       "pubDate": "Fri, 16 Oct 2026 17:21:45 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
-    },
-    {
-      "title": "U.S. presses China on Mastercard, Citigroup market access in bilateral Bangkok talks, official says",
-      "description": "The U.S. raised market access issues for Mastercard and Citigroup in China during bilateral meetings in Bangkok this week, a U.S. Treasury official says.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/16/us-china-mastercard-citigroup-market-access.html",
-      "pubDate": "Fri, 16 Oct 2026 16:46:18 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "Crypto Biz: Wall Street closes at 4. Tokenized stocks keep trading ",
@@ -166,15 +193,6 @@
       "category": "crypto"
     },
     {
-      "title": "Strategy conditionally declares daily dividends as STRC hovers below $100",
-      "description": "Strategy conditionally declared daily dividends on STRC, which continued to hover below its $100 par value.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/strategy-daily-dividends-strc-hovers-below-100?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 16 Oct 2026 14:11:03 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
       "title": "Traders will soon be able to bet on whether Coinbase, Robinhood and Marathon will hit their targets",
       "description": "Your day-ahead look for Oct. 16, 2026",
       "analysis": "",
@@ -198,24 +216,6 @@
       "analysis": "",
       "link": "https://www.coindesk.com/tech/2026/10/16/experts-agree-quantum-computers-could-put-satoshi-s-bitcoin-at-risk-but-not-on-what-s-next",
       "pubDate": "Fri, 16 Oct 2026 10:52:26 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Tokenized Tesla surges as Elon Musk unveils SpaceX-powered flying Roadster prototype",
-      "description": "Volume in Hyperliquid’s Tesla contract hit $47 million in one hour after Elon Musk’s flying Roadster demo, up from $2.8 million, with U.S. stocks closed.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/16/elon-musk-s-flying-roadster-reveal-sent-tesla-crypto-trading-into-overdrive-while-stock-markets-were-closed",
-      "pubDate": "Fri, 16 Oct 2026 10:48:49 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Altcoins outpace bitcoin as celestia jumps 16%, Warsh silent on interest-rate plans",
-      "description": "Celestia jumped 16%, injective rose 7.7% and layerzero added 7.3% while bitcoin held little changed near $82,100 and Fed Chair Warsh gave no sign on interest rates.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/16/altcoins-outpace-bitcoin-as-celestia-jumps-16-warsh-silent-on-interest-rate-plans",
-      "pubDate": "Fri, 16 Oct 2026 10:41:03 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
