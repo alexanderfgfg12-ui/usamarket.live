@@ -1,27 +1,21 @@
 let allNews = [];
 let lastNewsTitle = '';
 
-// ============ تحميل الأخبار ============
 async function loadNews() {
   try {
     const res = await fetch('news-data.json?t=' + Date.now());
     if (!res.ok) throw new Error('No data');
     const data = await res.json();
 
-    const t = translations[getCurrentLang()] || translations.ar;
-    const dateLocale = { ar: 'ar-EG', en: 'en-US', fr: 'fr-FR', es: 'es-ES', de: 'de-DE', tr: 'tr-TR', zh: 'zh-CN' }[getCurrentLang()] || 'en-US';
-
     document.getElementById('lastUpdate').textContent =
-      new Date(data.updated).toLocaleString(dateLocale, {
-        year: 'numeric', month: 'short', day: 'numeric',
-        hour: '2-digit', minute: '2-digit'
+      new Date(data.updated).toLocaleString('en-US', {
+        month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
       });
 
-    // إشعار بالخبر الجديد
     if (data.articles[0] && lastNewsTitle && data.articles[0].title !== lastNewsTitle) {
-      showToast(t['notification.new'], data.articles[0].title.substring(0, 60) + '...');
+      showToast('🔔', 'New article available!');
       if (Notification.permission === 'granted') {
-        new Notification(t['notification.newNews'], {
+        new Notification('US Market Live', {
           body: data.articles[0].title.substring(0, 100),
           icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📈</text></svg>'
         });
@@ -29,26 +23,24 @@ async function loadNews() {
     }
     if (data.articles[0]) lastNewsTitle = data.articles[0].title;
 
-    renderFeatured(data.articles[0]);
-    renderNews(data.articles);
+    allNews = data.articles || [];
+    renderFeatured(allNews[0]);
+    renderNews(allNews);
     loadMarketData();
   } catch (err) {
     console.error('Failed to load news:', err);
-    document.getElementById('newsGrid').innerHTML =
-      '<div class="no-news">⚠️</div>';
+    document.getElementById('newsGrid').innerHTML = '<div class="no-news">⚠️ No news available</div>';
   }
 }
 
-// ============ عرض الخبر المميز ============
 function renderFeatured(article) {
   if (!article) return;
-  const t = translations[getCurrentLang()] || translations.ar;
-  const container = document.getElementById('featured');
-  container.innerHTML = `
-    <div class="featured-card">
-      <span class="featured-tag">${t['featured.tag'] || '🔥'}</span>
-      <h2><a href="${article.link}" target="_blank" rel="noopener">${escapeHtml(article.title)}</a></h2>
-      <p>${escapeHtml(article.description || '')}</p>
+  document.getElementById('featured').innerHTML = `
+    <div class="featured-card" data-index="0">
+      <span class="featured-tag">🔥 TOP STORY</span>
+      <h2><a href="#" data-index="0">${escapeHtml(article.title)}</a></h2>
+      <p>${escapeHtml(article.description)}</p>
+      ${article.analysis ? `<div class="featured-analysis">💡 ${escapeHtml(article.analysis)}</div>` : ''}
       <div class="featured-meta">
         <span>📰 ${escapeHtml(article.source)}</span>
         <span>🕒 ${formatDate(article.pubDate)}</span>
@@ -57,86 +49,107 @@ function renderFeatured(article) {
   `;
 }
 
-// ============ عرض قائمة الأخبار ============
 function renderNews(articles) {
   const grid = document.getElementById('newsGrid');
-  const t = translations[getCurrentLang()] || translations.ar;
-
   if (!articles || articles.length === 0) {
-    grid.innerHTML = '<div class="no-news">لا توجد أخبار حالياً</div>';
+    grid.innerHTML = '<div class="no-news">No news available</div>';
     return;
   }
 
-  grid.innerHTML = articles.slice(1, 30).map(a => `
-    <article class="news-card" data-category="${a.category || 'all'}">
+  grid.innerHTML = articles.slice(1, 30).map((a, i) => `
+    <article class="news-card" data-category="${a.category || 'all'}" data-index="${i + 1}">
       <span class="news-source">📰 ${escapeHtml(a.source)}</span>
-      <h3><a href="${a.link}" target="_blank" rel="noopener">${escapeHtml(a.title)}</a></h3>
-      <p>${escapeHtml(a.description || '')}</p>
+      <h3><a href="#" data-index="${i + 1}">${escapeHtml(a.title)}</a></h3>
+      <p>${escapeHtml(a.description)}</p>
+      ${a.analysis ? `<div class="news-analysis">💡 ${escapeHtml(a.analysis)}</div>` : ''}
       <div class="news-meta">
         <span>🕒 ${formatDate(a.pubDate)}</span>
-        <a href="${a.link}" target="_blank" rel="noopener" class="read-more">${t['news.readMore'] || '→'}</a>
+        <a href="#" data-index="${i + 1}" class="read-more">Read Analysis →</a>
       </div>
     </article>
   `).join('');
 }
 
-// ============ أدوات مساعدة ============
+// ===== Modal =====
+function openArticle(index) {
+  const article = allNews[index];
+  if (!article) return;
+
+  document.getElementById('modalTitle').textContent = article.title;
+  document.getElementById('modalMeta').innerHTML = `
+    <span class="news-source">📰 ${escapeHtml(article.source)}</span>
+    <span>🕒 ${formatDate(article.pubDate)}</span>
+  `;
+  document.getElementById('modalText').textContent = article.description;
+  document.getElementById('modalAnalysis').innerHTML = article.analysis
+    ? `<strong>💡 Analysis:</strong> ${escapeHtml(article.analysis)}`
+    : '';
+  document.getElementById('modalSourceLink').href = article.link;
+
+  document.getElementById('articleModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeArticle() {
+  document.getElementById('articleModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// ربط النقرات
+document.addEventListener('click', e => {
+  const link = e.target.closest('a[data-index], .featured-card');
+  if (link) {
+    e.preventDefault();
+    const index = parseInt(link.dataset.index || '0');
+    openArticle(index);
+    return;
+  }
+  if (e.target.id === 'modalClose' || e.target.id === 'articleModal') {
+    closeArticle();
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeArticle();
+});
+
+// ===== Helpers =====
 function formatDate(dateStr) {
   if (!dateStr) return '';
-  const lang = getCurrentLang();
   const diff = Date.now() - new Date(dateStr).getTime();
   const mins = Math.floor(diff / 60000);
   const hours = Math.floor(mins / 60);
   const days = Math.floor(hours / 24);
-  const labels = {
-    ar: ['دقيقة', 'ساعة', 'يوم', 'منذ'],
-    en: ['min', 'hour', 'day', 'ago'],
-    fr: ['min', 'heure', 'jour', 'il y a'],
-    es: ['min', 'hora', 'día', 'hace'],
-    de: ['Min', 'Std', 'Tag', 'vor'],
-    tr: ['dk', 'sa', 'gün', 'önce'],
-    zh: ['分钟', '小时', '天', '前']
-  };
-  const l = labels[lang] || labels.en;
-  if (lang === 'ar') {
-    if (mins < 60) return `منذ ${mins} ${l[0]}`;
-    if (hours < 24) return `منذ ${hours} ${l[1]}`;
-    if (days < 7) return `منذ ${days} ${l[2]}`;
-    return new Date(dateStr).toLocaleDateString('ar-EG');
-  }
-  if (mins < 60) return `${mins} ${l[0]} ${l[3]}`;
-  if (hours < 24) return `${hours} ${l[1]} ${l[3]}`;
-  if (days < 7) return `${days} ${l[2]} ${l[3]}`;
-  return new Date(dateStr).toLocaleDateString();
+  if (mins < 60) return `${mins}m ago`;
+  if (hours < 24) return `${hours}h ago`;
+  if (days < 7) return `${days}d ago`;
+  return new Date(dateStr).toLocaleDateString('en-US');
 }
 
 function escapeHtml(str) {
   if (!str) return '';
-  return str.replace(/[&<>"']/g, m => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  }[m]));
+  return str.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-// ============ بيانات السوق الحية ============
+// ===== Market Data =====
 async function loadMarketData() {
   try {
     const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true');
     const data = await res.json();
-
     if (data.bitcoin) {
-      const price = data.bitcoin.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-      const change = data.bitcoin.usd_24h_change;
-      document.getElementById('t-btc').innerHTML = `${price} <span style="color:${change >= 0 ? '#22c55e' : '#ef4444'};font-size:0.8rem">${change >= 0 ? '▲' : '▼'} ${Math.abs(change).toFixed(2)}%</span>`;
+      const p = data.bitcoin.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      const c = data.bitcoin.usd_24h_change;
+      document.getElementById('t-btc').innerHTML = `${p} <span style="color:${c >= 0 ? '#22c55e' : '#ef4444'};font-size:0.8rem">${c >= 0 ? '▲' : '▼'} ${Math.abs(c).toFixed(2)}%</span>`;
     }
     if (data.ethereum) {
-      const price = data.ethereum.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-      const change = data.ethereum.usd_24h_change;
-      document.getElementById('t-eth').innerHTML = `${price} <span style="color:${change >= 0 ? '#22c55e' : '#ef4444'};font-size:0.8rem">${change >= 0 ? '▲' : '▼'} ${Math.abs(change).toFixed(2)}%</span>`;
+      const p = data.ethereum.usd.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      const c = data.ethereum.usd_24h_change;
+      document.getElementById('t-eth').innerHTML = `${p} <span style="color:${c >= 0 ? '#22c55e' : '#ef4444'};font-size:0.8rem">${c >= 0 ? '▲' : '▼'} ${Math.abs(c).toFixed(2)}%</span>`;
     }
-  } catch (err) { console.log('Market data failed'); }
+  } catch (err) {}
 }
 
-// ============ فلترة الأخبار ============
+// ===== Filters =====
 document.addEventListener('click', e => {
   if (e.target.classList.contains('filter-btn')) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -148,87 +161,56 @@ document.addEventListener('click', e => {
   }
 });
 
-// ============ تبديل اللغة ============
-document.getElementById('langSelect').addEventListener('change', e => {
-  applyLanguage(e.target.value);
-  renderFeatured(allNews[0]);
-  renderNews(allNews);
-});
-
-// ============ الإشعارات ============
+// ===== Notifications =====
 document.getElementById('notifyBtn').addEventListener('click', async () => {
-  const t = translations[getCurrentLang()] || translations.ar;
-  if (!('Notification' in window)) {
-    showToast('❌', 'الإشعارات غير مدعومة', true);
-    return;
-  }
-  const permission = await Notification.requestPermission();
-  if (permission === 'granted') {
-    showToast('🔔', t['notification.enabled']);
+  if (!('Notification' in window)) { showToast('❌', 'Notifications not supported'); return; }
+  const p = await Notification.requestPermission();
+  if (p === 'granted') {
+    showToast('🔔', 'Notifications enabled');
     document.getElementById('notifyBtn').classList.add('active');
-    new Notification(t['notification.newNews'], {
-      body: 'US Market Live',
-      icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📈</text></svg>'
-    });
   } else {
-    showToast('❌', t['notification.denied'], true);
+    showToast('❌', 'Notifications denied');
   }
 });
 
-// ============ النشرة البريدية ============
-document.getElementById('newsletterForm').addEventListener('submit', async e => {
+// ===== Newsletter =====
+document.getElementById('newsletterForm').addEventListener('submit', e => {
   e.preventDefault();
   const email = document.getElementById('newsletterEmail').value;
-  const msgEl = document.getElementById('newsletterMsg');
-  const t = translations[getCurrentLang()] || translations.ar;
-
-  if (!email || !email.includes('@')) {
-    msgEl.textContent = t['newsletter.error'];
-    msgEl.style.color = '#ef4444';
+  const msg = document.getElementById('newsletterMsg');
+  if (!email.includes('@')) {
+    msg.textContent = '❌ Please enter a valid email';
+    msg.style.color = '#ef4444';
     return;
   }
-
-  // حفظ في localStorage (بديل مؤقت لعدم وجود backend)
-  const subs = JSON.parse(localStorage.getItem('newsletter_subs') || '[]');
+  const subs = JSON.parse(localStorage.getItem('subs') || '[]');
   if (!subs.includes(email)) subs.push(email);
-  localStorage.setItem('newsletter_subs', JSON.stringify(subs));
-
-  msgEl.textContent = t['newsletter.success'];
-  msgEl.style.color = '#22c55e';
+  localStorage.setItem('subs', JSON.stringify(subs));
+  msg.textContent = '✅ Subscribed successfully!';
+  msg.style.color = '#22c55e';
   document.getElementById('newsletterEmail').value = '';
-  showToast('📧', t['newsletter.success']);
 });
 
-// ============ Toast ============
-function showToast(title, body, isError = false) {
-  const container = document.getElementById('toastContainer');
-  const toast = document.createElement('div');
-  toast.className = 'toast' + (isError ? ' error' : '');
-  toast.innerHTML = `<strong>${title}</strong>${body}`;
-  container.appendChild(toast);
-  setTimeout(() => toast.remove(), 6000);
+// ===== Toast =====
+function showToast(icon, msg) {
+  const c = document.getElementById('toastContainer');
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<strong>${icon}</strong>${msg}`;
+  c.appendChild(t);
+  setTimeout(() => t.remove(), 5000);
 }
 
-// ============ Back to Top ============
+// ===== Back to top =====
 const backBtn = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  backBtn.classList.toggle('visible', window.scrollY > 500);
-});
+window.addEventListener('scroll', () => backBtn.classList.toggle('visible', window.scrollY > 500));
 backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// ============ تسجيل Service Worker (PWA) ============
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(err => console.log('SW failed', err));
-}
+// ===== SW =====
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 
-// ============ التهيئة ============
+// ===== Init =====
 document.getElementById('year').textContent = new Date().getFullYear();
-
-// تحديد اللغة الأولية
-const initialLang = getCurrentLang();
-applyLanguage(initialLang);
-
-// تحميل الأخبار
 loadNews();
 setInterval(loadNews, 5 * 60 * 1000);
 setInterval(loadMarketData, 60 * 1000);
