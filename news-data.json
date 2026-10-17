@@ -1,8 +1,26 @@
 {
-  "updated": "2026-10-17T18:57:08.741Z",
+  "updated": "2026-10-17T22:09:04.991Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Can a $55,000 robot load the dishwasher? Inside my afternoon with two humanoid housekeepers.",
+      "description": "Tau Robotics’ humanoids vacuumed my floors and wiped my counters — with some help from humans behind the scenes.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/can-a-55-000-plus-robot-load-the-dishwasher-inside-my-afternoon-with-two-humanoid-housekeepers-0a9569ab?mod=mw_rss_topstories",
+      "pubDate": "Sat, 17 Oct 2026 20:53:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Trump waives broad new Russia sanctions, Zelenskyy condemns it as 'wrong'",
+      "description": "Trump signed the Graham Bill, which targeted Russia over its invasion of Ukraine, into law in September.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/17/trump-waives-russia-related-sanctions-tariffs-before-they-take-effect-.html",
+      "pubDate": "Sat, 17 Oct 2026 19:35:18 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
     {
       "title": "Fake shopping sprees and ‘happiness insurance’: The latest fintech apps reveal our financial anxieties",
       "description": "Fintech companies are catching on to how Americans are altering their financial habits, and they’ve created new products to try to meet the moment.",
@@ -130,15 +148,6 @@
       "category": "markets"
     },
     {
-      "title": "Influencers and biohackers swear by fasting. Here’s what the science says.",
-      "description": "Fasting can help some people reduce how many calories they eat — but it’s not “effortless” as some would have you believe.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/influencers-and-biohackers-swear-by-fasting-heres-what-the-science-says-3318191f?mod=mw_rss_topstories",
-      "pubDate": "Sat, 17 Oct 2026 12:31:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Banks could slow stablecoin growth by paying savers more, BIS paper finds",
       "description": "A BIS working paper found a 1 basis point rise in U.S. bank deposit rates predicted slower stablecoin growth, cutting ten-week growth from 15% to 12%.",
       "analysis": "",
@@ -146,15 +155,6 @@
       "pubDate": "Sat, 17 Oct 2026 12:00:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "Trump waives broad new Russia sanctions and tariffs under Graham Act, citing national interest",
-      "description": "Trump signed the Graham Bill, which targeted Russia over its invasion of Ukraine, into law in September.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/17/trump-waives-russia-related-sanctions-tariffs-before-they-take-effect-.html",
-      "pubDate": "Sat, 17 Oct 2026 10:20:44 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "Circle’s Allaire says stablecoin issuer looking to enter 40 developing markets: Report",
