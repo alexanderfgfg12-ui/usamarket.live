@@ -1,8 +1,35 @@
 {
-  "updated": "2026-10-17T15:24:09.103Z",
+  "updated": "2026-10-17T18:22:25.366Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Goldman, Wells Fargo, Morgan Stanley see tokenization as a growth play, not a threat",
+      "description": "The largest banks in the world are eyeing new trading opportunities, speeding up payments and a role for advisers as tokenization takes root in Wall Street.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/17/goldman-wells-fargo-morgan-stanley-see-tokenization-as-a-growth-play-not-a-threat",
+      "pubDate": "Sat, 17 Oct 2026 17:00:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "‘Some people did everything right’: I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
+      "description": "”I earn $110,000 a year.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories",
+      "pubDate": "Sat, 17 Oct 2026 16:47:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Semiconductor market to remain solid ‘at least through next year,’ South Korea finance minister says",
+      "description": "South Korea's finance minister said semiconductor growth can last at least through 2027 as supply remains tight despite a global chip sell-off.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/17/south-korea-semiconductor-outlook-lee-hyoung-il.html",
+      "pubDate": "Sat, 17 Oct 2026 16:45:15 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
     {
       "title": "Software’s new consolidator gets big vote of confidence from Berkshire",
       "description": "Less than four months into life as a public company, Bending Spoons got a big vote of confidence this week from Berkshire Hathaway.",
@@ -40,15 +67,6 @@
       "category": "crypto"
     },
     {
-      "title": "Trump's student loan overhaul could lead to more bankruptcy filings, former judge says",
-      "description": "After nearly three decades as a bankruptcy judge, Sarah Sharer Curley writes about the legal process in her new book, \"The Price of Forgiveness.\"",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/17/trump-student-loans-bankruptcy.html",
-      "pubDate": "Sat, 17 Oct 2026 13:30:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Here’s what happened in crypto today",
       "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "analysis": "",
@@ -56,15 +74,6 @@
       "pubDate": "Sat, 17 Oct 2026 13:29:00 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
-    },
-    {
-      "title": "‘Some people did everything right’: I lost my home in the Great Recession. I rent in my 50s. Why is that judged as failure?",
-      "description": "”I earn $110,000 a year.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/i-earn-110-000-a-year-i-lost-my-home-in-the-great-recession-im-renting-in-my-50s-why-is-that-judged-as-failure-d1371d67?mod=mw_rss_topstories",
-      "pubDate": "Sat, 17 Oct 2026 13:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
     },
     {
       "title": "Meet the home buyers totally unfazed by 7% mortgage rates",
@@ -208,15 +217,6 @@
       "link": "https://cointelegraph.com/news/crypto-pac-fairshake-spending-ohio-senate-race-sherrod-brown?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 16 Oct 2026 17:30:09 +0000",
       "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Big Tech's AI auditors will only see what they're shown",
-      "description": "If the White House accord's audits are going to be worth anything, auditors should be able to choose what they test, writes Samuel Vance-Law, head of research at the Decentralization Research Center.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/opinion/2026/10/16/big-tech-s-ai-auditors-will-only-see-what-they-re-shown",
-      "pubDate": "Fri, 16 Oct 2026 14:58:22 +0000",
-      "source": "CoinDesk",
       "category": "crypto"
     }
   ]
