@@ -1,8 +1,80 @@
 {
-  "updated": "2026-10-18T04:09:28.547Z",
+  "updated": "2026-10-18T12:34:02.331Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Always on, always listening: New AI devices are pushing legal limits and could put users in jeopardy",
+      "description": "AI always-listening wearables from Apple, Amazon, Meta and other startups are getting creative with privacy rules and fueling concerns about covert recordings.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/18/ai-wearables-privacy-wiretap-laws.html",
+      "pubDate": "Sun, 18 Oct 2026 12:00:01 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "There is a silent market rotation inside the S&P 500 that’s warning of more weakness ahead",
+      "description": "A “triple-top” reversal chart pattern is pointing to a period of underperformance for the S&P 500 — perhaps a long one.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/there-is-a-silent-market-rotation-inside-the-s-p-500-thats-warning-of-more-weakness-ahead-549e7650?mod=mw_rss_topstories",
+      "pubDate": "Sun, 18 Oct 2026 12:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Crypto exchanges Binance, Coinbase join West Africa scam sweep that flagged $11 million",
+      "description": "Private-sector partners flagged $11 million in funds that could be frozen, while officials reported cryptocurrency seizures without disclosing their value.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/14/crypto-exchanges-binance-coinbase-join-west-africa-scam-sweep-that-flagged-usd11-million",
+      "pubDate": "Sun, 18 Oct 2026 12:00:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Cysic crypto bridge halted after unauthorized mint of 10M CYS",
+      "description": "Cysic said the incident was limited to bridge message processing and minting and did not affect the mainnet or other operational systems.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/cysic-crypto-bridge-halted-after-unauthorized-mint-of-10m-cys?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Sun, 18 Oct 2026 10:43:12 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Chinese suspect in $75M international crime network arrested in Bangkok",
+      "description": "Police alleged the suspect was involved in cryptocurrency and foreign-currency exchanges for criminal groups across more than 133 accounts.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/chinese-suspect-in-75m-international-crime-network-arrested-in-bangkok?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Sun, 18 Oct 2026 09:14:26 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Chip-stock bets lost $52 million in 10 minutes with Wall Street shut",
+      "description": "A 10-minute flush hit round-the-clock chip-stock contracts while U.S. markets were shut, leaving traders with no real share price to lean on.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/18/chip-stock-bets-lost-usd52-million-in-10-minutes-with-wall-street-shut",
+      "pubDate": "Sun, 18 Oct 2026 07:13:32 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Tether backs AIsa as strategic investor, completing seed extension round",
+      "description": "The round brings AIsa’s total funding to more than $9 million.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/tether-backs-aisa-as-strategic-investor-completing-seed-extension-round?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Sun, 18 Oct 2026 06:26:53 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Why hedge funds could be making a bond market shock more likely",
+      "description": "The Bank of England's deputy governor has warned that hedge funds' activities could raise the risk of a global bond market shock.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/18/hedge-funds-bond-market-turmoil.html",
+      "pubDate": "Sun, 18 Oct 2026 06:13:05 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
     {
       "title": "Circle defends USDC economics as stablecoin rivals court its partners with bigger cut",
       "description": "Coinbase, Circle’s largest USDC partner, also backs Open USD, a rival network that passes reserve income to partners after a management fee.",
@@ -76,29 +148,11 @@
       "category": "markets"
     },
     {
-      "title": "Semiconductor market to remain solid ‘at least through next year,’ South Korea finance minister says",
-      "description": "South Korea's finance minister said semiconductor growth can last at least through 2027 as supply remains tight despite a global chip sell-off.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/17/south-korea-semiconductor-outlook-lee-hyoung-il.html",
-      "pubDate": "Sat, 17 Oct 2026 16:45:15 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Software’s new consolidator gets big vote of confidence from Berkshire",
       "description": "Less than four months into life as a public company, Bending Spoons got a big vote of confidence this week from Berkshire Hathaway.",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/17/bending-spoons-wants-to-revive-software-castoffs-berkshire-investing.html",
       "pubDate": "Sat, 17 Oct 2026 15:11:30 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "'Dead money’ for a decade: Why this hedge fund approach may deliver an advantage over bonds ",
-      "description": "Investors may want to rethink their bond allocation and opt for managed futures exposure.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/17/dead-money-for-a-decade-hedge-fund-approach-that-may-trump-bonds.html",
-      "pubDate": "Sat, 17 Oct 2026 15:00:01 GMT",
       "source": "CNBC",
       "category": "markets"
     },
@@ -130,39 +184,12 @@
       "category": "crypto"
     },
     {
-      "title": "Meet the home buyers totally unfazed by 7% mortgage rates",
-      "description": "Individual investors and second-home buyers accounted for 1 in 5 home purchases in September — the highest share in a little over a year.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/meet-the-home-buyers-totally-unfazed-by-7-mortgage-rates-7a9b1cc7?mod=mw_rss_topstories",
-      "pubDate": "Sat, 17 Oct 2026 13:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Solana shows resilience, but some areas need continued observation, Fidelity says",
       "description": "Solana has had no reported mainnet outages in two years, but concentrations in stake, hosting and client software should be monitored, according to a report.",
       "analysis": "",
       "link": "https://cointelegraph.com/news/solana-shows-resilience-but-some-areas-need-continued-observation-fidelity-says?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sat, 17 Oct 2026 12:58:03 +0000",
+      "pubDate": "Sat, 17 Oct 2026 13:01:00 +0000",
       "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Berkshire shares buck market sell-off, rally to highest since Buffett said he would step down as CEO",
-      "description": "Berkshire Hathaway shares are at their highest level since Warren Buffett told shareholders at the May 2025 annual meeting he planned to step down as CEO at the end of that year.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/17/berkshire-rally-to-highest-since-buffett-announcement.html",
-      "pubDate": "Sat, 17 Oct 2026 12:46:21 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Banks could slow stablecoin growth by paying savers more, BIS paper finds",
-      "description": "A BIS working paper found a 1 basis point rise in U.S. bank deposit rates predicted slower stablecoin growth, cutting ten-week growth from 15% to 12%.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/14/banks-could-slow-stablecoin-growth-by-paying-savers-more-bis-paper-finds",
-      "pubDate": "Sat, 17 Oct 2026 12:00:00 +0000",
-      "source": "CoinDesk",
       "category": "crypto"
     },
     {
@@ -170,54 +197,27 @@
       "description": "Markets in Southeast Asia, Latin America, Africa and the Middle East see increasing demand for stablecoins.",
       "analysis": "",
       "link": "https://cointelegraph.com/news/circles-allaire-says-stablecoin-issuer-looking-to-enter-40-developing-markets-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sat, 17 Oct 2026 10:00:07 +0000",
+      "pubDate": "Sat, 17 Oct 2026 10:03:00 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Lagarde says euro-area economy is resilient, digital euro imminent",
-      "description": "“The digital euro will further stimulate innovation and competition in retail payments,” according to the ECB president.",
+      "title": "Brent oil touches $110 as Iran escalates Hormuz attacks, Ukraine vows to hit Russian refineries",
+      "description": "U.S. crude oil prices rose sharply Friday as Iran escalated attacks in the Strait of Hormuz this week.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/lagarde-says-euro-area-economy-is-resilient-digital-euro-imminent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sat, 17 Oct 2026 08:32:11 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Bitget to discontinue services for some users in one-off exercise   ",
-      "description": "Bitget says user funds are safe and exchange will continue to operate during the change.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/bitget-to-discontinue-services-for-some-users-in-one-off-exercise?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sat, 17 Oct 2026 07:26:57 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "‘Wow, it’s a real discovery’: Claude cracks a 25-year NSA number mystery",
-      "description": "Numbers the spy agency handed over in the 1990s, long suspected of hiding a backdoor, turn out to have come from a basic computer program. Bitcoin was never on that list, and its quantum problem hasn’t gone anywhere.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/tech/2026/10/17/wow-it-s-a-real-discovery-claude-cracks-a-25-year-nsa-number-mystery",
-      "pubDate": "Sat, 17 Oct 2026 06:39:48 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "5 midterm money takeaways: Democrats have candidate cash. Republicans have Elon Musk",
-      "description": "Democrats outraise Republicans in key Congress races as Elon Musk funds Ken Paxton in Texas and GOP groups aligned with Trump.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/16/midterm-election-fundraising-elon-musk.html",
-      "pubDate": "Fri, 16 Oct 2026 21:49:13 GMT",
+      "link": "https://www.cnbc.com/2026/10/16/oil-price-today-iran-strait-hormuz-ukraine-russia.html",
+      "pubDate": "Fri, 16 Oct 2026 20:02:21 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Crypto PACs escalate spending against Sherrod Brown in Ohio Senate race",
-      "description": "At least two industry-aligned PACs have poured more than $52 million into opposing Sherrod Brown’s return to the Senate.",
+      "title": "KFC to switch to Coca-Cola beverages in U.S. restaurants for the first time in decades",
+      "description": "KFC is switching from PepsiCo to Coca-Cola as its beverage supplier for U.S. restaurants.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/crypto-pac-fairshake-spending-ohio-senate-race-sherrod-brown?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 16 Oct 2026 17:30:09 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
+      "link": "https://www.cnbc.com/2026/10/15/kfc-coca-cola-pepsi-switch.html",
+      "pubDate": "Fri, 16 Oct 2026 11:02:24 GMT",
+      "source": "CNBC",
+      "category": "markets"
     }
   ]
 }
