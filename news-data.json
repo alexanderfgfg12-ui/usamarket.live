@@ -1,104 +1,32 @@
 {
-  "updated": "2026-10-20T13:30:05.004Z",
+  "updated": "2026-10-20T19:57:46.359Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "Meet the college students trying to reverse an obscure ban on trading onion futures",
-      "description": "In the U.S., investors can legally trade futures contracts tied to all sorts of commodities, from pork bellies to oil to the computing power needed to power artificial-intelligence models.",
+      "title": "Boeing wins FAA approval for 737 Max 10 after years of delays",
+      "description": "The 737 Max 10, the largest model in the family, was set to start flying in 2020, but increased scrutiny and other safety issues delayed its certification.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/meet-the-college-students-trying-to-reverse-an-obscure-ban-on-trading-onion-futures-16b8dc5d?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 13:24:00 GMT",
+      "link": "https://www.cnbc.com/2026/10/20/boeing-737-max-10-certification.html",
+      "pubDate": "Tue, 20 Oct 2026 19:41:23 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Wall Street researchers just used Claude to design a drug. The experiment has spawned a new investment thesis.",
+      "description": "For years, artificial-intelligence evangelists have boasted about the technology’s capacity to revolutionize drug development and medical research.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/wall-street-researchers-just-used-claude-to-design-a-drug-the-experiment-has-spawned-a-new-investment-thesis-6a5c3710?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 19:35:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "General Motors beats Wall Street's Q3 earnings expectations, narrows full-year guidance",
-      "description": "GM narrowed its 2026 earnings guidance and raised its adjusted automotive free cash flow outlook after beating Wall Street’s third-quarter estimates.",
+      "title": "Housing is flashing warning signs just as the Fed weighs more interest rate hikes",
+      "description": "Housing data deteriorated further in September, according to separate reports Tuesday.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/general-motors-gm-earnings-q3-2026.html",
-      "pubDate": "Tue, 20 Oct 2026 13:23:15 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Colleges raced to build massive computer-science departments. Now the boom is turning to bust.",
-      "description": "“Computer science isn’t the ticket to the American dream like people thought it was.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/colleges-raced-to-build-massive-computer-science-departments-now-the-boom-is-turning-to-bust-692cfe37?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 13:18:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "My wife says we can’t afford to retire. I vetoed her $8,000 trip to Italy. We’re in our 60s and have $4 million. Do I keep working?",
-      "description": "“I worry about healthcare, long-term care, inflation, a long bear market and living to 95.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-wife-says-we-cant-afford-to-retire-we-have-4-million-do-i-just-keep-working-f1b6b085?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 13:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "U.S. crude oil tops $105, Brent crude at five-month highs amid Mideast tensions",
-      "description": "Oil extended its rally on Tuesday as investors continued to monitor developments in the Middle East.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html",
-      "pubDate": "Tue, 20 Oct 2026 13:11:31 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "FINMA approves Switzerland’s first Bitcoin ETF for retail investors",
-      "description": "The Swiss regulator cited a growing appetite for cryptocurrency investments and said that multiple fund providers have submitted Bitcoin ETF applications.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/finma-approves-switzerlands-first-bitcoin-etf-retail?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 13:04:28 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Data center stocks slide as Korea IPO plunges 30%, pressuring tech sentiment",
-      "description": "Neocloud stocks are falling again following the sector's troubles last week",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/data-center-stocks-slide-as-korea-ipo-plunges-30percent-pressuring-tech-sentiment.html",
-      "pubDate": "Tue, 20 Oct 2026 13:03:55 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Former OpenAI exec has quietly built $1.5 billion startup, betting AI can revive U.S. manufacturing",
-      "description": "Former OpenAI executive Bob McGrew is launching Arda at a $1.5 billion.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/ex-openai-executive-builds-1point5-billion-ai-manufacturing-startup-arda.html",
-      "pubDate": "Tue, 20 Oct 2026 13:03:31 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "UK to deploy fighter jets to defend Saudi cities from Houthi attacks",
-      "description": "The U.K.'s Royal Air Force will deploy jets to assist with defensive operations, but will not engage in offensive strikes.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/uk-fighter-jets-saudi-houthi-attacks-iran.html",
-      "pubDate": "Tue, 20 Oct 2026 12:58:24 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Meta is back on offense — and its next move could signal higher AI spending across Big Tech",
-      "description": "Meta could be the first major tech company this earnings season to foreshadow higher-than-expected AI costs for next year.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/meta-is-back-on-offense-and-its-next-move-could-signal-higher-ai-spending-across-big-tech-09682ff7?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 12:56:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Novo's next-generation obesity drug shows 25% weight loss in women in late-stage analysis",
-      "description": "Novo released new evidence that its experimental CagriSema injection can improve upon the weight loss with its blockbuster GLP-1 obesity injection, Wegovy.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/novo-cagrisema-women-weight-loss-analysis.html",
-      "pubDate": "Tue, 20 Oct 2026 12:50:24 GMT",
+      "link": "https://www.cnbc.com/2026/10/20/housing-mortgage-rates-real-estate-federal-reserve.html",
+      "pubDate": "Tue, 20 Oct 2026 19:28:43 GMT",
       "source": "CNBC",
       "category": "markets"
     },
@@ -107,9 +35,171 @@
       "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "analysis": "",
       "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 12:50:13 +0000",
+      "pubDate": "Tue, 20 Oct 2026 19:17:40 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
+    },
+    {
+      "title": "Mike Bloomberg spent $80M to boost Democrats in midterms: NYT",
+      "description": "Democrats are hopeful that they will regain majority control of the House of Representatives and the Senate in November's elections.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/mike-bloomberg-democrats-house-trump.html",
+      "pubDate": "Tue, 20 Oct 2026 18:30:53 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "OKX-ICE co-chair Andrew Cuomo calls corporate objections a ‘natural response’ to tokenized stock plans",
+      "description": "The former NY governor, who co-chairs the joint venture between the crypto exchange and Intercontinental Exchange, said companies were expected to take a wait-and-see approach.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/20/okx-ice-s-andrew-cuomo-calls-issuer-objections-a-natural-response-to-tokenized-stock-plans",
+      "pubDate": "Tue, 20 Oct 2026 18:26:29 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Here’s what matters most to Tesla investors heading into earnings",
+      "description": "Financial results are somewhat of a sideshow for an investor base eagerly awaiting updates on robotaxis, robots — and the cost of all that.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/heres-what-matters-most-to-tesla-investors-heading-into-earnings-6b9e5d27?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 18:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Trump sued over 50% tariffs on Canada in latest trade challenge",
+      "description": "A new lawsuit challenges President Donald Trump's tariffs on a range of Canadian goods using Section 338 of the Tariff Act of 1930.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/trump-tariffs-canada-section-338-lawsuit.html",
+      "pubDate": "Tue, 20 Oct 2026 18:06:13 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Strive closes $630M SATS IPO, leaves Bitcoin allocation unspecified",
+      "description": "The Bitcoin treasury company could acquire an estimated 7,372 BTC with its net proceeds, potentially surpassing Metaplanet’s holdings if it allocates the full amount.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/strive-closes-630m-sats-ipo-leaves-bitcoin-allocation-unspecified?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 17:40:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Investors’ search for safety has made toothpaste stocks more expensive than tech",
+      "description": "Wall Street is fleeing tech for toothpaste and shampoo. Even those stocks are getting expensive.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/investors-search-for-safety-has-made-toothpaste-stocks-more-expensive-than-tech-57a75e56?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 17:38:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "My partner of 17 years left me his $1 million home. His children say I influenced him to do so. Should I share my inheritance?",
+      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 17:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "The Coinbase allegations expose Bitcoin's corporate governance gap",
+      "description": "Corporate adoption of bitcoin will stall as long as companies can't show who controls the money, who approves its movement, or whether it's still there, argues Onramp CEO Michael Tanguma.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/opinion/2026/10/20/the-coinbase-allegations-expose-bitcoin-s-corporate-governance-gap",
+      "pubDate": "Tue, 20 Oct 2026 17:02:31 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life — but here’s why I’m still hopeful",
+      "description": "“Ill-timed circumstances can change our financial future in unexpected ways.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 17:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "It’s not just California’s billionaire tax. Wealth is on the ballot in the midterm elections.",
+      "description": "Several states are dealing with ballot measures tied to taxing the rich — and there may be even more initiatives on this front in 2028.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/its-not-just-californias-billionaire-tax-wealth-is-on-the-ballot-in-the-midterm-elections-a50fc12c?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 16:55:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Injective, BDACS plan Korean won stablecoin settlement for tokenized assets ",
+      "description": "Injective and BDACS plan to bring won-backed stablecoin KRW1 to tokenized asset markets as South Korea develops a regulatory framework for local currency stablecoins.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/injective-bdacs-korean-won-stablecoin-tokenized-assets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 16:47:48 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Stablecoin transfers quadruple to $891B as US banks expand adoption: Report",
+      "description": "Coinbase reports growing adoption by banks and businesses, even as stablecoin market capitalization remains largely unchanged over the past year.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/stablecoins-move-400m-an-hour-as-73-of-volume-occurs-outside-banking-hours-coinbase-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 16:38:13 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Alphabet, Microsoft add objections to OKX-ICE proposed tokenized stock platform",
+      "description": "About 25% of the US-listed companies in OKXICE’s initial tokenized stock platform proposal are asking to opt-out of the venture.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/alphabet-microsoft-goldman-object-okx-ice-tokenized-stock?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 16:23:17 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Bitcoin price spikes to $83.3K as US stocks rise on Q3 earnings, oil falls ",
+      "description": "High US corporate earnings reports boosted stock markets and saw BTC price hit $83,300 before reversing at a 21-day trend line.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/markets/bitcoin-price-spikes-to-833k-as-us-stocks-rise-on-q3-earnings-oil-falls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 16:14:09 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Here's what to expect when Netflix reports earnings after the bell",
+      "description": "Investors will be looking for updates on Netflix's ad-supported business, engagement metrics and how the streaming giant continues to view potential M&A.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
+      "pubDate": "Tue, 20 Oct 2026 16:00:01 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "BlackRock seeks to shield bitcoin investors from losses after rival fund weathers 50% crash",
+      "description": "BlackRock's proposed fund follows similar products from Calamos that helped investors avoid steep losses during bitcoin's selloff.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/20/blackrock-seeks-to-shield-bitcoin-investors-from-losses-after-rival-fund-weathers-50-crash",
+      "pubDate": "Tue, 20 Oct 2026 14:28:39 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Kazakhstan court bars Coinbase, five others from unlicensed crypto services in Astana International Financial Centre",
+      "description": "The court injunctions apply strictly to users within the AIFC and do not extend across the rest of Kazakhstan.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/20/kazakhstan-court-bars-coinbase-five-others-from-unlicensed-crypto-services-in-astana-international-financial-centre",
+      "pubDate": "Tue, 20 Oct 2026 13:35:08 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Investors look to earnings to reset the bull market. The key level to watch on the S&P 500",
+      "description": "The key level traders are watching on the S&P 500 that could mean an even bigger decline is ahead.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/santoli-key-sp-500-level-to-watch.html",
+      "pubDate": "Tue, 20 Oct 2026 12:52:29 GMT",
+      "source": "CNBC",
+      "category": "markets"
     },
     {
       "title": "Microsoft, Alphabet and Goldman Sachs join objections to OKX-ICE tokenized stock trading",
@@ -121,101 +211,11 @@
       "category": "crypto"
     },
     {
-      "title": "Drift exploiter sends $61M ETH to Tornado Cash, holds $194M ",
-      "description": "The April 1 hack caused about $295 million in losses and was later attributed to a North Korean threat group in a Mandiant investigation.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/drift-exploiter-eth-tornado-cash?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 12:38:28 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Tx launches USTX stablecoin to pull RWA liquidity onto its chain ",
-      "description": "The Brale-issued token can be minted with USDC from eight networks and is designed to settle tokenized stocks and other assets on tx.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/tx-ustx-stablecoin-rwa-liquidity-chain?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 12:30:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Credit markets have entered uncharted territory as the riskiest junk bonds send a warning to investors",
-      "description": "Credit markets are sending unusually mixed messages to investors right now, and it’s making some people nervous.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/credit-markets-have-entered-uncharted-territory-as-the-riskiest-junk-bonds-send-a-warning-to-investors-816a05d5?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 12:29:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "My sister moved in with our mother, 78, and says she deserves the $925,000 family home. Is she right?",
-      "description": "“The house is worth $925,000 and mom owns it outright. She also has $480,000 in investments.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-sister-moved-in-with-our-widowed-mother-78-and-says-she-deserves-the-family-home-is-she-right-7981835d?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 12:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Lloyds and Barclays among UK banks named in crypto transfer complaints, advocacy group says",
-      "description": "UK banks are facing scrutiny over crypto transfer limits and bans as Stand With Crypto reports thousands of complaints ahead of the country’s 2027 regulatory regime.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/uk-banks-crypto-transfer-complaints-stand-with-crypto?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 12:13:44 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
       "title": "France's parliament approves vote to hit stablecoin trades with 31% capital gains tax",
       "description": "Amendment I-3898 removes tax deferral for MiCA-compliant stablecoins starting January 2027.",
       "analysis": "",
       "link": "https://www.coindesk.com/policy/2026/10/20/france-s-parliament-approves-vote-to-hit-crypto-to-stablecoin-trades-with-31-levy",
       "pubDate": "Tue, 20 Oct 2026 11:25:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Netflix FTX trailer was ‘enough to upset me’ in first 30 seconds: former FTX COO ",
-      "description": "Constance Wang criticized the streamer’s portrayal of her former FTX colleagues as not matching her own experience with Sam Bankman-Fried and Caroline Ellison.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/netflix-ftx-trailer-upset-first-30-seconds-ftx-coo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 11:23:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Equity weakness could damp demand for bitcoin after biggest ETF inflows in a month",
-      "description": "Your day-ahead look for Oct. 20, 2026",
-      "analysis": "",
-      "link": "https://www.coindesk.com/daybook-us/2026/10/20/equity-weakness-could-damp-demand-for-bitcoin-after-biggest-etf-inflows-in-a-month",
-      "pubDate": "Tue, 20 Oct 2026 11:14:21 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "JPMorgan sees 10% annual bitcoin returns, topping stocks, bonds and gold over next decade",
-      "description": "The report marks the first time JPMorgan has put a range on bitcoin returns in its research, though the bank remains cautious about BTC's role in portfolios.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/20/jpmorgan-sees-10-annual-bitcoin-returns-topping-stocks-bonds-and-gold-over-next-decade",
-      "pubDate": "Tue, 20 Oct 2026 11:10:40 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Bitcoin drops to $81,400 as Asian chip stocks tumble, options traders seek downside protection",
-      "description": "Bitcoin slipped 0.5% to around $81,400 even after the biggest daily spot ETF inflow in nearly a month as South Korea's Kospi index fell 3.7% on AI worries.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/20/bitcoin-drops-to-usd81-400-as-asian-chip-stocks-tumble-options-traders-seek-downside-protection",
-      "pubDate": "Tue, 20 Oct 2026 10:22:55 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Live updates: Market nervousness persists as the AI selloff deepens",
-      "description": "South Korea’s KOSPI fell almost 4%, accompanied by one of the weakest IPO debuts in the country’s history, with data center company Elice tumbling around 30%.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/20/live-updates-market-jitters-persist-as-the-ai-selloff-deepens",
-      "pubDate": "Tue, 20 Oct 2026 10:14:19 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
