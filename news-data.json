@@ -1,33 +1,141 @@
 {
-  "updated": "2026-10-19T21:00:14.075Z",
+  "updated": "2026-10-20T04:31:08.089Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "OpenAI bugging suspect Alfozan held without bail after Saudi government offers to pay",
-      "description": "Saudi national Abdulrahman Alfozan is accused of planting a recording device in an executive conference room at OpenAI headquarters in San Francisco.",
+      "title": "US bans DeepSeek from civilian agency IT systems",
+      "description": "The restrictions extend earlier bans within US defense and security agencies, amid concerns that DeepSeek could expose federal information to China.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/19/openai-bugging-suspect-alfozan-saudi-royal-family.html",
-      "pubDate": "Mon, 19 Oct 2026 20:54:40 GMT",
+      "link": "https://cointelegraph.com/news/us-bans-deepseek-from-civilian-agency-it-systems?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 04:07:58 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Bank Indonesia faces mounting pressure to hike after MSCI threat fuels market rout",
+      "description": "Bank Indonesia faces growing pressure to raise rates after MSCI’s threat to cut its market to standalone status triggered a rout in stocks, weakened the rupiah.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/indonesia-msci-inflation-interest-rate-.html",
+      "pubDate": "Tue, 20 Oct 2026 03:59:35 GMT",
       "source": "CNBC",
       "category": "markets"
+    },
+    {
+      "title": "BlackRock, GIC among investors chasing Indian telecom major Jio's IPO as anchor bids top $26 billion",
+      "description": "Jio Platforms plans to raise up to $3.2 billion through an IPO, which is India's largest ever in rupee terms, but the second largest in dollar terms.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/jio-ipo-gic-blackrock-.html",
+      "pubDate": "Tue, 20 Oct 2026 02:44:35 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "‘Open your doors for AI’: German chancellor urges businesses to embrace AI as Nvidia announces new investments\n",
+      "description": "Nvidia announced planned investments in four German startups as Chancellor Friedrich Merz urged businesses to embrace AI at an industry summit in Berlin.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/german-chancellor-urges-businesses-to-embrace-ai.html",
+      "pubDate": "Tue, 20 Oct 2026 02:16:25 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "JD Vance refrains from endorsing Israeli leader Netanyahu as Trump offers praise",
+      "description": "Vice President JD Vance declined to follow Trump in endorsing Netanyahu, saying he’s “not getting involved in Israeli elections” a week before Israelis vote.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/vance-israel-netanyahu-midterms-election-.html",
+      "pubDate": "Tue, 20 Oct 2026 01:53:34 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Bitcoin rally could revive treasury buying, but easy-money days over",
+      "description": "“A return to last year’s indiscriminate capital raising looks unlikely,” said Bitfinex head of derivatives Jag Kooner.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/markets/bitcoin-rally-could-revive-treasury-buying-but-easy-money-days-over?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 01:35:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Three big takeaways from the IMF-World Bank meetings",
+      "description": "Debt, AI and Ukraine dominated the conversation at the IMF-World Bank meetings in Bangkok, while China, the focus in 2018, slipped into the background.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/imf-debt-yields-russia-china-takeaway-.html",
+      "pubDate": "Tue, 20 Oct 2026 00:33:34 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Blood clots are ‘incredibly common,’ even for pro athletes like Jalen Hurts. Here’s what to know.",
+      "description": "Research has found that it can take more than six months for professional athletes to return to play after being treated for a deep-vein thrombosis or pulmonary embolism.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/blood-clots-are-incredibly-common-even-for-pro-athletes-like-jalen-hurts-heres-what-to-know-e20071ef?mod=mw_rss_topstories",
+      "pubDate": "Mon, 19 Oct 2026 21:58:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "When should you dump your target-date funds?",
+      "description": "Target-date funds aren’t necessarily built to handle many of the decisions retirees face.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/when-should-you-dump-your-target-date-funds-18082148?mod=mw_rss_topstories",
+      "pubDate": "Mon, 19 Oct 2026 21:37:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Credit markets have entered uncharted territory as the riskiest junk bonds send a warning to investors",
+      "description": "Credit markets are sending unusually mixed messages to investors right now, and it’s making some people nervous.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/credit-markets-have-entered-uncharted-territory-as-the-riskiest-junk-bonds-send-a-warning-to-investors-816a05d5?mod=mw_rss_topstories",
+      "pubDate": "Mon, 19 Oct 2026 21:36:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life — but here’s I’m still hopeful",
+      "description": "“Ill-timed circumstances can change our financial future in unexpected ways.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Mon, 19 Oct 2026 21:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "‘I’m naturally skeptical’: I receive 10 calls a day offering me $15,000 loans at 8% interest. Is this a scam?",
+      "description": "“They insist that the details will be provided after they have carried out a soft credit check.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/im-naturally-skeptical-i-receive-10-calls-a-day-offering-me-15-000-loans-at-8-interest-is-this-a-scam-825c3431?mod=mw_rss_topstories",
+      "pubDate": "Mon, 19 Oct 2026 21:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Micron and other chip stocks spring back to life after bruising selloff",
+      "description": "It’s a key week for tech stocks as Nvidia gears up for a European conference and Meta prepares to report earnings.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/micron-and-other-chip-stocks-spring-back-to-life-after-bruising-selloff-16486541?mod=mw_rss_topstories",
+      "pubDate": "Mon, 19 Oct 2026 21:06:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Solana treasury firm SkyAI sells all SOL holdings, launches $201M buyback",
+      "description": "The former medical device maker has liquidated its Solana treasury and is offering to repurchase shares and warrants using its $223.8 million cash holdings.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/solana-treasury-skyai-sells-all-sol-holdings-launches-201m-buyback?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 19 Oct 2026 21:04:34 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
     },
     {
       "title": "Trump says he'd meet with Putin and Xi, criticizes Zelenskyy",
       "description": "Tensions between Trump and Zelenskyy have steadily risen in recent weeks, while Russia, which invaded Ukraine, has received multiple breaks from the U.S.",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/19/trump-putin-xi-zelenskyy.html",
-      "pubDate": "Mon, 19 Oct 2026 20:43:57 GMT",
+      "pubDate": "Mon, 19 Oct 2026 21:00:02 GMT",
       "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Retiring abroad? Don’t cut these financial ties to the U.S.",
-      "description": "Think carefully about your Social Security, Medicare, credit cards and bank accounts before picking your new home overseas.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/retiring-abroad-dont-cut-these-financial-ties-to-the-u-s-5e7e4fc2?mod=mw_rss_topstories",
-      "pubDate": "Mon, 19 Oct 2026 20:33:00 GMT",
-      "source": "MarketWatch",
       "category": "markets"
     },
     {
@@ -58,110 +166,11 @@
       "category": "crypto"
     },
     {
-      "title": "Colleges raced to build massive computer-science departments. Now the boom is turning to bust.",
-      "description": "“Computer science isn’t the ticket to the American dream like people thought it was.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/colleges-raced-to-build-massive-computer-science-departments-now-the-boom-is-turning-to-bust-692cfe37?mod=mw_rss_topstories",
-      "pubDate": "Mon, 19 Oct 2026 19:56:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Market participants weigh in on SEC’s proposed crypto regulations",
       "description": "The financial agency is scheduled to close public comments on its ‘Regulation Crypto Assets’ proposed in August.",
       "analysis": "",
       "link": "https://cointelegraph.com/news/public-comments-us-sec-proposed-crypto-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Mon, 19 Oct 2026 19:54:38 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "SpaceX earnings will be all about AI — for better or for worse",
-      "description": "SpaceX has been renting out access to computing power, which is a big source of revenue growth but also one that comes at a high cost.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/spacex-earnings-will-be-all-about-ai-for-better-or-for-worse-89bbc772?mod=mw_rss_topstories",
-      "pubDate": "Mon, 19 Oct 2026 19:47:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Apple announces product launch event for Oct. 28. Analysts expect touchscreen laptop",
-      "description": "Apple sent invitations for an event next week, calling it \"Pro and tell.\"",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/19/apple-product-launch-event-oct-28-analysts-expect-touchscreen-laptop.html",
-      "pubDate": "Mon, 19 Oct 2026 19:46:07 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Google says it can build data centers the right way. Some experts and residents are skeptical",
-      "description": "Google says its Minnesota AI data center will add clean energy to the grid and protect ratepayers. Experts question whether grid upgrades are needed.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/19/how-data-centers-are-reshaping-americas-aging-grid-pine-island-minnesota-google.html",
-      "pubDate": "Mon, 19 Oct 2026 19:45:28 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Why the Treasury’s financing plans are sparking anxiety on Wall Street",
-      "description": "Yields on 10-year and 30-year bonds were rising again Monday after falling sharply last week.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/why-the-treasurys-financing-plans-are-sparking-anxiety-on-wall-street-b49b5e17?mod=mw_rss_topstories",
-      "pubDate": "Mon, 19 Oct 2026 19:45:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Saudi Arabia postpones big investor conference to 2027 as Iran-backed Houthis escalate attacks on kingdom",
-      "description": "Iran-backed Houthi militants have launched repeated volleys of missiles and drones at Saudi Arabia since a deadly airport attack earlier this month.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/19/saudi-arabia-postpones-fii-investor-conference-to-2027.html",
-      "pubDate": "Mon, 19 Oct 2026 19:37:51 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Why Elon Musk, Anthropic and other AI titans are giving away shares",
-      "description": "Gifts of stock can help with public relations and offer financial advantages to wealthy individuals.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/why-elon-musk-anthropic-and-other-ai-titans-are-giving-away-shares-a6709d24?mod=mw_rss_topstories",
-      "pubDate": "Mon, 19 Oct 2026 19:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "CoreWeave’s selloff is a lesson in ‘Finance 101’ — and Wall Street says the stock can recover",
-      "description": "Analysts argue CoreWeave’s underlying economics are far sturdier than nervous debt and equity investors realize.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/coreweaves-selloff-is-a-lesson-in-finance-101-and-wall-street-says-the-stock-can-recover-23ca5377?mod=mw_rss_topstories",
-      "pubDate": "Mon, 19 Oct 2026 19:17:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Visa, Mesh partner to enable crypto spending at 175M merchant locations",
-      "description": "Mesh will connect crypto and stablecoin wallets to Visa’s global payment network, allowing users to spend digital assets without a separate card.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/visa-mesh-partner-crypto-spending-175m-merchant-locations?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 19 Oct 2026 19:16:19 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Mastercard launches stablecoin risk screening for banks and payment providers ",
-      "description": "The new service combines payment data and blockchain analytics to help banks detect suspicious stablecoin transactions before settlement.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/mastercard-stablecoin-risk-screening-banks-payments?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 19 Oct 2026 19:03:23 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Revolut secures Gibraltar crypto license to support global expansion",
-      "description": "The UK-based fintech will use the authorization to offer crypto services in additional international markets, though it has not disclosed specific countries or launch dates.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/revolut-secures-gibraltar-crypto-license-to-support-global-expansion?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 19 Oct 2026 17:24:49 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
@@ -173,15 +182,6 @@
       "pubDate": "Mon, 19 Oct 2026 16:47:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "Anthropic is AI trade's last big hope for a major IPO this year",
-      "description": "On Kalshi, Anthropic is seen as the last major IPO in 2026 after OpenAI delayed its public market debut. Others have postponed too.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/19/anthropic-ipo-ai-trade.html",
-      "pubDate": "Mon, 19 Oct 2026 16:42:14 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "Zerohash rolls out a new tool to move crypto without copying wallet addresses",
