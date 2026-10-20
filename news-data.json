@@ -1,25 +1,124 @@
 {
-  "updated": "2026-10-20T19:57:46.359Z",
+  "updated": "2026-10-20T23:08:14.218Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "Boeing wins FAA approval for 737 Max 10 after years of delays",
-      "description": "The 737 Max 10, the largest model in the family, was set to start flying in 2020, but increased scrutiny and other safety issues delayed its certification.",
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life — but here’s why I’m still hopeful",
+      "description": "“Ill-timed circumstances can change our financial future in unexpected ways.”",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/boeing-737-max-10-certification.html",
-      "pubDate": "Tue, 20 Oct 2026 19:41:23 GMT",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 22:45:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Super Micro’s stock soars after surprise update — with Dell and HPE shares joining the rally",
+      "description": "Super Micro unexpectedly disclosed that its revenue and profitability could be much stronger than originally anticipated.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/super-micros-stock-soars-after-surprise-update-with-dell-and-hpe-shares-joining-the-rally-1837a69f?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 22:37:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Tesla’s stock rises as Elon Musk drops new clues about a possible SpaceX merger",
+      "description": "Special committees at both companies are assessing merger prospects but a combination is no sure thing, Musk says.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/teslas-stock-rises-as-elon-musk-drops-new-clues-about-a-possible-spacex-merger-8cc44fc2?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 22:33:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "My wife says we can’t afford to retire. I vetoed her $8,000 trip to Italy. We’re in our 60s and have $4 million. Do I keep working?",
+      "description": "“I worry about healthcare, long-term care, inflation, a long bear market and living to 95.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-wife-says-we-cant-afford-to-retire-we-have-4-million-do-i-just-keep-working-f1b6b085?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 22:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Netflix vows to revive viewership trends, but investors hit ‘sell’ on the stock",
+      "description": "Streaming service cites “intense competition’ and acknowledges ‘some investor concern about our view hours growth.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/netflix-vows-to-revive-viewership-trends-but-investors-hit-sell-on-the-stock-3e24420a?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 22:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Netflix posts third-quarter earnings beat, but shares fall on advertising and revenue guidance",
+      "description": "Wall Street and investors will be looking for Netflix to provide additional details about the company's strategy following recent organizational changes",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
+      "pubDate": "Tue, 20 Oct 2026 22:29:45 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Wall Street researchers just used Claude to design a drug. The experiment has spawned a new investment thesis.",
-      "description": "For years, artificial-intelligence evangelists have boasted about the technology’s capacity to revolutionize drug development and medical research.",
+      "title": "My partner of 17 years left me his $1 million home. His children say I influenced him to do so. Should I share my inheritance?",
+      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/wall-street-researchers-just-used-claude-to-design-a-drug-the-experiment-has-spawned-a-new-investment-thesis-6a5c3710?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 19:35:00 GMT",
+      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 22:27:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
+    },
+    {
+      "title": "Boeing wins FAA approval for 737 Max 10 after years of delays as Duffy says certification process should be faster",
+      "description": "The 737 Max 10, the largest model in the family, was set to start flying in 2020, but increased scrutiny and other safety issues delayed its certification.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/boeing-737-max-10-certification.html",
+      "pubDate": "Tue, 20 Oct 2026 22:01:11 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Utah AG sues Kalshi, pursues profits from prediction market company",
+      "description": "Derek Brown likened the prediction market company to a “public nuisance“ that was “causing a significant and substantial ongoing harm“ to state residents.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/utah-lawsuit-kalshi-susquehanna-prediction-markets-illegal-bets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 21:19:15 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "U.S. CFTC sets agenda for AI forum, exploring trading and agentic finance",
+      "description": "A Commodity Futures Trading Commission task force is scheduled for October 28 to talk about how the latest \"super intelligence\" technology may impact markets.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/policy/2026/10/20/u-s-cftc-sets-agenda-for-ai-forum-exploring-trading-and-agentic-finance",
+      "pubDate": "Tue, 20 Oct 2026 21:12:21 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Bitwise, Hyperliquid seek SEC rule changes for token trading, airdrops",
+      "description": "The firms are seeking clearer guidance on the classification of crypto assets and secondary-market trading as the SEC’s public comment period comes to a close.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/bitwise-hyperliquid-seek-sec-rule-changes-for-token-trading-airdrops?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 20:38:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "United Airlines slashes 2026 profit outlook on fuel prices, but travelers keep booking despite higher fares",
+      "description": "United Airlines cut its profit outlook for the year as fuel prices continued to climb.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/20/united-airlines-ual-3q-2026-earnings.html",
+      "pubDate": "Tue, 20 Oct 2026 20:23:58 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Crypto’s 2026 shutdown wave claims 82 projects. What went wrong? ",
+      "description": "Crypto projects are struggling to survive as falling revenues, depleted funding and security breaches force closures across DeFi, blockchain infrastructure and gaming.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/crypto-project-shutdowns-2026-what-went-wrong?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 19:59:39 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
     },
     {
       "title": "Housing is flashing warning signs just as the Fed weighs more interest rate hikes",
@@ -40,15 +139,6 @@
       "category": "crypto"
     },
     {
-      "title": "Mike Bloomberg spent $80M to boost Democrats in midterms: NYT",
-      "description": "Democrats are hopeful that they will regain majority control of the House of Representatives and the Senate in November's elections.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/mike-bloomberg-democrats-house-trump.html",
-      "pubDate": "Tue, 20 Oct 2026 18:30:53 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "OKX-ICE co-chair Andrew Cuomo calls corporate objections a ‘natural response’ to tokenized stock plans",
       "description": "The former NY governor, who co-chairs the joint venture between the crypto exchange and Intercontinental Exchange, said companies were expected to take a wait-and-see approach.",
       "analysis": "",
@@ -56,15 +146,6 @@
       "pubDate": "Tue, 20 Oct 2026 18:26:29 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "Here’s what matters most to Tesla investors heading into earnings",
-      "description": "Financial results are somewhat of a sideshow for an investor base eagerly awaiting updates on robotaxis, robots — and the cost of all that.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/heres-what-matters-most-to-tesla-investors-heading-into-earnings-6b9e5d27?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 18:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
     },
     {
       "title": "Trump sued over 50% tariffs on Canada in latest trade challenge",
@@ -85,24 +166,6 @@
       "category": "crypto"
     },
     {
-      "title": "Investors’ search for safety has made toothpaste stocks more expensive than tech",
-      "description": "Wall Street is fleeing tech for toothpaste and shampoo. Even those stocks are getting expensive.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/investors-search-for-safety-has-made-toothpaste-stocks-more-expensive-than-tech-57a75e56?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 17:38:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "My partner of 17 years left me his $1 million home. His children say I influenced him to do so. Should I share my inheritance?",
-      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 17:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "The Coinbase allegations expose Bitcoin's corporate governance gap",
       "description": "Corporate adoption of bitcoin will stall as long as companies can't show who controls the money, who approves its movement, or whether it's still there, argues Onramp CEO Michael Tanguma.",
       "analysis": "",
@@ -112,24 +175,6 @@
       "category": "crypto"
     },
     {
-      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life — but here’s why I’m still hopeful",
-      "description": "“Ill-timed circumstances can change our financial future in unexpected ways.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 17:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "It’s not just California’s billionaire tax. Wealth is on the ballot in the midterm elections.",
-      "description": "Several states are dealing with ballot measures tied to taxing the rich — and there may be even more initiatives on this front in 2028.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/its-not-just-californias-billionaire-tax-wealth-is-on-the-ballot-in-the-midterm-elections-a50fc12c?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 16:55:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Injective, BDACS plan Korean won stablecoin settlement for tokenized assets ",
       "description": "Injective and BDACS plan to bring won-backed stablecoin KRW1 to tokenized asset markets as South Korea develops a regulatory framework for local currency stablecoins.",
       "analysis": "",
@@ -137,42 +182,6 @@
       "pubDate": "Tue, 20 Oct 2026 16:47:48 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
-    },
-    {
-      "title": "Stablecoin transfers quadruple to $891B as US banks expand adoption: Report",
-      "description": "Coinbase reports growing adoption by banks and businesses, even as stablecoin market capitalization remains largely unchanged over the past year.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/stablecoins-move-400m-an-hour-as-73-of-volume-occurs-outside-banking-hours-coinbase-report?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 16:38:13 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Alphabet, Microsoft add objections to OKX-ICE proposed tokenized stock platform",
-      "description": "About 25% of the US-listed companies in OKXICE’s initial tokenized stock platform proposal are asking to opt-out of the venture.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/alphabet-microsoft-goldman-object-okx-ice-tokenized-stock?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 16:23:17 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Bitcoin price spikes to $83.3K as US stocks rise on Q3 earnings, oil falls ",
-      "description": "High US corporate earnings reports boosted stock markets and saw BTC price hit $83,300 before reversing at a 21-day trend line.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/markets/bitcoin-price-spikes-to-833k-as-us-stocks-rise-on-q3-earnings-oil-falls?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 16:14:09 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Here's what to expect when Netflix reports earnings after the bell",
-      "description": "Investors will be looking for updates on Netflix's ad-supported business, engagement metrics and how the streaming giant continues to view potential M&A.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
-      "pubDate": "Tue, 20 Oct 2026 16:00:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "BlackRock seeks to shield bitcoin investors from losses after rival fund weathers 50% crash",
@@ -207,15 +216,6 @@
       "analysis": "",
       "link": "https://www.coindesk.com/business/2026/10/19/microsoft-alphabet-and-goldman-sachs-join-objections-to-okx-ice-tokenized-stock-trading",
       "pubDate": "Tue, 20 Oct 2026 12:40:17 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "France's parliament approves vote to hit stablecoin trades with 31% capital gains tax",
-      "description": "Amendment I-3898 removes tax deferral for MiCA-compliant stablecoins starting January 2027.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/20/france-s-parliament-approves-vote-to-hit-crypto-to-stablecoin-trades-with-31-levy",
-      "pubDate": "Tue, 20 Oct 2026 11:25:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
