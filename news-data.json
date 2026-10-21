@@ -1,223 +1,223 @@
 {
-  "updated": "2026-10-21T04:21:39.377Z",
+  "updated": "2026-10-21T13:40:33.053Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "A company that vouches for websites had secret keys so weak that 8 of them were cracked",
-      "description": "Eight secret keys at eMudhra, an Indian firm that vouches for websites, were compromised. Browsers and software makers are rushing out fixes.",
+      "title": "SpaceX stock jumps 8% after earnings beat and Musk hints at Tesla tie-up",
+      "description": "SpaceX shares jumped after the company reported surging revenue growth in its third quarter, and owner Elon Musk floated a potential SpaceX-Tesla merger.",
       "analysis": "",
-      "link": "https://www.coindesk.com/tech/2026/10/21/a-company-that-vouches-for-websites-had-secret-keys-so-weak-that-8-of-them-were-cracked",
-      "pubDate": "Wed, 21 Oct 2026 04:11:58 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Bitcoin hovers around $83,000 as AI earnings revive tech, ZEC jumps 11%",
-      "description": "Strong results from SpaceX and Super Micro sent Asian chip stocks surging, and ZEC led crypto higher after developers set a date for its next network upgrade.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/21/bitcoin-hovers-around-usd83-000-as-ai-earnings-revive-tech-zec-jumps-11",
-      "pubDate": "Wed, 21 Oct 2026 04:07:07 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Australian data center operator NextDC's shares plunge 40% after it slashes earnings forecast",
-      "description": "The company cited power supply delays at its Melbourne facility amid local community and stakeholder opposition for lowering earnings forecast.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/australia-data-center-operator-nexdc-datacenter.html",
-      "pubDate": "Wed, 21 Oct 2026 02:55:38 GMT",
+      "link": "https://www.cnbc.com/2026/10/21/spacex-spcx-stock-musk-merger-tesla.html",
+      "pubDate": "Wed, 21 Oct 2026 13:35:22 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Musk says SpaceX-Tesla merger a ‘good idea’ as AI revenue jumps ninefold ",
-      "description": "A merger would bring Tesla into the same corporate group as Grok developer SpaceXAI and social media platform X.",
+      "title": "Big Tech’s eMudhra fixes may leave crypto bots exposed, CertiK warns",
+      "description": "CertiK says crypto trading bots and exchange applications may remain exposed to the eMudhra certificate flaw because browser fixes may not protect all software.",
       "analysis": "",
-      "link": "https://cointelegraph.com/markets/musk-says-spacex-tesla-merger-a-good-idea-as-ai-revenue-jumps-ninefold?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 01:19:14 +0000",
+      "link": "https://cointelegraph.com/news/certik-warning-crypto-emudhra-flaw-risks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 13:31:39 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Elice's huge stock swings show AI's spending boom is getting more investor scrutiny",
-      "description": "The AI boom is entering a more unforgiving phase, as investors question whether the billions poured into data centers will translate into sustainable profits.",
+      "title": "Goldman Sachs, JPMorgan and Morgan Stanley are dominating the AI stock boom. Here's their edge",
+      "description": "Wall Street’s Big Three have generated $52 billion in equity trading revenue this year, capturing about 80% of the market on rising margin lending to hedge funds.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/ai-boom-spending-profit.html",
-      "pubDate": "Wed, 21 Oct 2026 01:02:36 GMT",
+      "link": "https://www.cnbc.com/2026/10/21/goldman-sachs-jpmorgan-morgan-stanley-ai-trading.html",
+      "pubDate": "Wed, 21 Oct 2026 13:30:57 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Japan exports post huge miss in September as growth slows to 16.7%",
-      "description": "Japan's imports grew 18.9%, also missing expectations of 19.6% from Reuters.",
+      "title": "5 alternatives to Ledger to store your Bitcoin",
+      "description": "Hardware wallets aren’t the only way to protect your crypto, but from ETFs and passkeys to multisig accounts, each alternative has its own risks and trade-offs.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/japan-trade-exports-semiconductor-yen.html",
-      "pubDate": "Wed, 21 Oct 2026 00:44:16 GMT",
+      "link": "https://cointelegraph.com/magazine/5-alternatives-to-ledger-to-store-your-bitcoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 13:30:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Nvidia announces plug and play Vera Rubin racks that can be shipped on a truck ",
+      "description": "Nvidia says its DSX Pod AI Factory, which combines seven Vera Rubin racks in a shipping container, could cut the time to start serving AI tokens to 14 days.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/nvidia-announces-vera-rubin-racks-that-can-be-shipped-on-a-truck-.html",
+      "pubDate": "Wed, 21 Oct 2026 12:43:49 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Bull markets tend to peak with a whimper, not a bang — but a 15% correction for the S&P 500 may be next",
-      "description": "Unlike bear-market bottoms, which typically end with a spasm of despair as traders throw in the towel, bull-market tops are far more gradual and less dramatic.",
+      "title": "Tokenized stock trading takes off overseas as Goldman, other U.S. companies object",
+      "description": "Tokenized stocks are gaining momentum in international markets, even as major U.S. companies are pushing back against efforts to introduce them domestically.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/bull-markets-tend-to-peak-with-a-whimper-not-a-bang-but-a-15-correction-for-the-s-p-500-may-be-next-dab40e2c?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 00:24:00 GMT",
+      "link": "https://www.cnbc.com/2026/10/21/tokenized-stocks-us-companies-object.html",
+      "pubDate": "Wed, 21 Oct 2026 12:33:34 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Heckler disrupts Nvidia CEO Huang’s speech at Berlin conference",
+      "description": "The person shouted something that could not be heard on the company’s livestream about 20 minutes into the address, before being removed from the auditorium.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/heckler-disrupts-nvidia-ceo-huangs-speech-at-berlin-conference-fc461a82?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 12:32:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "Super Micro’s stock soars after surprise update — with Dell and HPE shares joining the rally",
-      "description": "Super Micro unexpectedly disclosed that its revenue and profitability could be much stronger than originally anticipated.",
+      "title": "OCC finalizes GENIUS Act rules for stablecoin issuers and custody ",
+      "description": "The Office of the Comptroller of the Currency’s final rule covers payment stablecoin issuance and some custody activities, with the GENIUS Act framework taking effect in mid-January.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/super-micros-stock-soars-after-surprise-update-with-dell-and-hpe-shares-joining-the-rally-1837a69f?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 00:15:00 GMT",
-      "source": "MarketWatch",
+      "link": "https://cointelegraph.com/news/occ-finalizes-genius-act-rules-stablecoin-issuers-custody?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 12:26:58 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity",
+      "description": "Vault12 raised $17.45 million selling VGT in 2018 and says it met or dropped every promise, yet the token has never traded on a centralized exchange.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/policy/2026/10/21/why-centralized-exchanges-refuse-to-list-legacy-crypto-tokens-without-explicit-sec-immunity",
+      "pubDate": "Wed, 21 Oct 2026 12:12:36 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Japanese visitors may be able to pay with yen stablecoins in South Korea under Shinhan-SBI pact",
+      "description": "The collaboration will explore card-linked merchant payments for Japanese visitors in South Korea and peer-to-peer wallet transfers among broader cross-border trade remittances.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/21/japanese-visitors-may-be-able-to-pay-with-yen-stablecoins-in-south-korea-under-shinhan-sbi-pact",
+      "pubDate": "Wed, 21 Oct 2026 12:10:39 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "United Airlines set to open its biggest airport lounge in $2.6 billion overhaul at Houston hub",
+      "description": "United is opening a 54,000-square-foot lounge as part of the revamp of Houston's George Bush Intercontinental Airport.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/united-airlines-biggest-airport-lounge-houston.html",
+      "pubDate": "Wed, 21 Oct 2026 12:09:51 GMT",
+      "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Tesla’s stock rises as Elon Musk drops new clues about a possible SpaceX merger",
-      "description": "Special committees at both companies are assessing merger prospects but a combination is no sure thing, Musk says.",
+      "title": "Standard Chartered signs definitive deal to acquire Zodia Custody",
+      "description": "The signing follows shareholders’ acceptance of Standard Chartered’s non-binding offer in May, with regulatory approvals still pending.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/teslas-stock-rises-as-elon-musk-drops-new-clues-about-a-possible-spacex-merger-8cc44fc2?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 00:14:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Netflix vows to revive viewership trends, but investors hit ‘sell’ on the stock",
-      "description": "Streaming service cites “intense competition’ and acknowledges ‘some investor concern about our view hours growth.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/netflix-vows-to-revive-viewership-trends-but-investors-hit-sell-on-the-stock-3e24420a?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 00:12:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Qubic restarts blockchain, opens recovery claims after $1.4M hack",
-      "description": "The network’s validators approved a recovery plan and opened claims until May 1, 2027.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/qubic-restarts-blockchain-opens-recovery-claims-after-14m-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 23:26:02 +0000",
+      "link": "https://cointelegraph.com/news/standard-chartered-acquire-zodia-custody-uk?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 12:06:23 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
       "title": "Why SpaceX’s stock is surging — and lifting the broader AI universe along with it",
-      "description": "SpaceX just gave Wall Street a big reason to believe in the AI boom as demand for its computing power is off the charts.",
+      "description": "SpaceX just gave Wall Street a big reason to believe in the artificial-intelligence boom as demand for its computing power is off the charts.",
       "analysis": "",
       "link": "https://www.marketwatch.com/story/why-spacexs-stock-is-surging-and-lifting-the-broader-ai-universe-along-with-it-0cd62f39?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 23:10:00 GMT",
+      "pubDate": "Wed, 21 Oct 2026 12:06:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life — but here’s why I’m still hopeful",
-      "description": "“Ill-timed circumstances can change our financial future in unexpected ways.”",
+      "title": "Dogecoin wallet, app teams unite in push to give DOGE more everyday uses",
+      "description": "Dogecoin Labs will combine MyDoge, DogeOS and merchant payment tools as developers try to turn coin holders into customers for applications and businesses.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/tech/2026/10/21/dogecoin-wallet-app-teams-unite-in-push-to-give-doge-more-everyday-uses",
+      "pubDate": "Wed, 21 Oct 2026 12:00:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Musk says he’s exploring a SpaceX-Tesla megamerger. What would a combined company be worth?",
+      "description": "SpaceX and Super Micro Computer help revive Wall Street’s flagging enthusiasm, with more key earnings on tap.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/musk-says-hes-exploring-a-spacex-tesla-megamerger-what-would-a-combined-company-be-worth-f35566aa?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 11:39:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
+      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
       "analysis": "",
       "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 22:45:00 GMT",
+      "pubDate": "Wed, 21 Oct 2026 11:15:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "Netflix posts third-quarter earnings beat, but shares fall on advertising and revenue guidance",
-      "description": "Wall Street and investors will be looking for Netflix to provide additional details about the company's strategy following recent organizational changes",
+      "title": "Bitcoin risk management grows more popular as the 'just bet on price' era fades",
+      "description": "Your day-ahead look for Oct. 21, 2026",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
-      "pubDate": "Tue, 20 Oct 2026 22:29:45 GMT",
-      "source": "CNBC",
+      "link": "https://www.coindesk.com/daybook-us/2026/10/21/bitcoin-risk-management-grows-more-popular-as-the-just-bet-on-price-era-fades",
+      "pubDate": "Wed, 21 Oct 2026 11:15:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "I receive 10 calls a day promising me $15,000 loans at 8% interest. Are these legitimate offers?",
+      "description": "“They insist that the details will be provided after they have carried out a soft credit check.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/im-naturally-skeptical-i-receive-10-calls-a-day-offering-me-15-000-loans-at-8-interest-is-this-a-scam-825c3431?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 11:00:00 GMT",
+      "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "Boeing wins FAA approval for 737 Max 10 after years of delays as Duffy says certification process should be faster",
-      "description": "The 737 Max 10, the largest model in the family, was set to start flying in 2020, but increased scrutiny and other safety issues delayed its certification.",
+      "title": "OCC's final rule to start fresh in weighing stablecoin rewards against GENIUS Act ban",
+      "description": "The U.S. Office of the Comptroller of the Currency is the first of several federal agencies to finish writing regulations under the act.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/boeing-737-max-10-certification.html",
-      "pubDate": "Tue, 20 Oct 2026 22:01:11 GMT",
-      "source": "CNBC",
+      "link": "https://www.coindesk.com/policy/2026/10/21/occ-s-final-rule-to-start-fresh-in-weighing-stablecoin-rewards-against-genius-act-ban",
+      "pubDate": "Wed, 21 Oct 2026 11:00:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Opposition to data centers will drive up inflation, says BlackRock’s Larry Fink",
+      "description": "Fight the data centers at your economic peril, says BlackRock CEO Larry Fink.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/opposition-to-data-centers-will-drive-up-inflation-says-blackrocks-larry-fink-831c25b9?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 10:59:00 GMT",
+      "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "Utah AG sues Kalshi, pursues profits from prediction market company",
-      "description": "Derek Brown likened the prediction market company to a “public nuisance“ that was “causing a significant and substantial ongoing harm“ to state residents.",
+      "title": "PancakeSwap TVL tops $380M as major fee overhaul heads to vote ",
+      "description": "PancakeSwap’s proposed fee-sharing overhaul would give liquidity providers 88% of swap fees and cut CAKE emissions by 69%, as BNB Chain’s DeFi activity expands.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/utah-lawsuit-kalshi-susquehanna-prediction-markets-illegal-bets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 21:19:15 +0000",
+      "link": "https://cointelegraph.com/markets/pancakeswap-tvl-jumps-19-percent-fee-overhaul?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 10:50:52 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "U.S. CFTC sets agenda for AI forum, exploring trading and agentic finance",
-      "description": "A Commodity Futures Trading Commission task force is scheduled for October 28 to talk about how the latest \"super intelligence\" technology may impact markets.",
+      "title": "France proposes liability for crypto exchanges offering DeFi access",
+      "description": "French authorities want crypto exchanges to conduct checks on DeFi protocols and face liability for certain customer losses under proposed changes to EU crypto rules.",
       "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/20/u-s-cftc-sets-agenda-for-ai-forum-exploring-trading-and-agentic-finance",
-      "pubDate": "Tue, 20 Oct 2026 21:12:21 +0000",
+      "link": "https://cointelegraph.com/news/france-liability-crypto-exchange-defi-access?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 10:46:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Crypto rises with Asian tech stocks, zcash extends gain after setting upgrade date",
+      "description": "Bitcoin rose to a one-week high as Asian tech stocks rebounded and SpaceX and Tesla formed committees to explore a merger.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/21/crypto-rises-with-asian-tech-stocks-zcash-extends-gain-after-setting-upgrade-date",
+      "pubDate": "Wed, 21 Oct 2026 10:34:37 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     },
     {
-      "title": "Bitwise, Hyperliquid seek SEC rule changes for token trading, airdrops",
-      "description": "The firms are seeking clearer guidance on the classification of crypto assets and secondary-market trading as the SEC’s public comment period comes to a close.",
+      "title": "OpenAI's most powerful AI models disabled their own safety monitoring — and one lied about it",
+      "description": "Warnings about the risks of developing increasingly advanced AI systems have ramped up in recent months, amid cyberattacks from rogue AI models.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/bitwise-hyperliquid-seek-sec-rule-changes-for-token-trading-airdrops?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 20:38:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "United Airlines slashes 2026 profit outlook on fuel prices, but travelers keep booking despite higher fares",
-      "description": "United Airlines cut its profit outlook for the year as fuel prices continued to climb.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/united-airlines-ual-3q-2026-earnings.html",
-      "pubDate": "Tue, 20 Oct 2026 20:23:58 GMT",
+      "link": "https://www.cnbc.com/2026/10/21/openai-ai-models-safety-monitoring.html",
+      "pubDate": "Wed, 21 Oct 2026 07:49:48 GMT",
       "source": "CNBC",
       "category": "markets"
-    },
-    {
-      "title": "Crypto’s 2026 shutdown wave claims 82 projects. What went wrong? ",
-      "description": "Crypto projects are struggling to survive as falling revenues, depleted funding and security breaches force closures across DeFi, blockchain infrastructure and gaming.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/crypto-project-shutdowns-2026-what-went-wrong?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 19:59:39 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Here’s what happened in crypto today",
-      "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 19:17:40 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "OKX-ICE co-chair Andrew Cuomo calls corporate objections a ‘natural response’ to tokenized stock plans",
-      "description": "The former NY governor, who co-chairs the joint venture between the crypto exchange and Intercontinental Exchange, said companies were expected to take a wait-and-see approach.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/20/okx-ice-s-andrew-cuomo-calls-issuer-objections-a-natural-response-to-tokenized-stock-plans",
-      "pubDate": "Tue, 20 Oct 2026 18:26:29 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "The Coinbase allegations expose Bitcoin's corporate governance gap",
-      "description": "Corporate adoption of bitcoin will stall as long as companies can't show who controls the money, who approves its movement, or whether it's still there, argues Onramp CEO Michael Tanguma.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/opinion/2026/10/20/the-coinbase-allegations-expose-bitcoin-s-corporate-governance-gap",
-      "pubDate": "Tue, 20 Oct 2026 17:02:31 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "BlackRock seeks to shield bitcoin investors from losses after rival fund weathers 50% crash",
-      "description": "BlackRock's proposed fund follows similar products from Calamos that helped investors avoid steep losses during bitcoin's selloff.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/20/blackrock-seeks-to-shield-bitcoin-investors-from-losses-after-rival-fund-weathers-50-crash",
-      "pubDate": "Tue, 20 Oct 2026 14:28:39 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
     }
   ]
 }
