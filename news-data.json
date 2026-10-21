@@ -1,8 +1,116 @@
 {
-  "updated": "2026-10-20T23:08:14.218Z",
+  "updated": "2026-10-21T04:21:39.377Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "A company that vouches for websites had secret keys so weak that 8 of them were cracked",
+      "description": "Eight secret keys at eMudhra, an Indian firm that vouches for websites, were compromised. Browsers and software makers are rushing out fixes.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/tech/2026/10/21/a-company-that-vouches-for-websites-had-secret-keys-so-weak-that-8-of-them-were-cracked",
+      "pubDate": "Wed, 21 Oct 2026 04:11:58 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Bitcoin hovers around $83,000 as AI earnings revive tech, ZEC jumps 11%",
+      "description": "Strong results from SpaceX and Super Micro sent Asian chip stocks surging, and ZEC led crypto higher after developers set a date for its next network upgrade.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/21/bitcoin-hovers-around-usd83-000-as-ai-earnings-revive-tech-zec-jumps-11",
+      "pubDate": "Wed, 21 Oct 2026 04:07:07 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Australian data center operator NextDC's shares plunge 40% after it slashes earnings forecast",
+      "description": "The company cited power supply delays at its Melbourne facility amid local community and stakeholder opposition for lowering earnings forecast.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/australia-data-center-operator-nexdc-datacenter.html",
+      "pubDate": "Wed, 21 Oct 2026 02:55:38 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Musk says SpaceX-Tesla merger a ‘good idea’ as AI revenue jumps ninefold ",
+      "description": "A merger would bring Tesla into the same corporate group as Grok developer SpaceXAI and social media platform X.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/markets/musk-says-spacex-tesla-merger-a-good-idea-as-ai-revenue-jumps-ninefold?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 01:19:14 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Elice's huge stock swings show AI's spending boom is getting more investor scrutiny",
+      "description": "The AI boom is entering a more unforgiving phase, as investors question whether the billions poured into data centers will translate into sustainable profits.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/ai-boom-spending-profit.html",
+      "pubDate": "Wed, 21 Oct 2026 01:02:36 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Japan exports post huge miss in September as growth slows to 16.7%",
+      "description": "Japan's imports grew 18.9%, also missing expectations of 19.6% from Reuters.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/japan-trade-exports-semiconductor-yen.html",
+      "pubDate": "Wed, 21 Oct 2026 00:44:16 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Bull markets tend to peak with a whimper, not a bang — but a 15% correction for the S&P 500 may be next",
+      "description": "Unlike bear-market bottoms, which typically end with a spasm of despair as traders throw in the towel, bull-market tops are far more gradual and less dramatic.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/bull-markets-tend-to-peak-with-a-whimper-not-a-bang-but-a-15-correction-for-the-s-p-500-may-be-next-dab40e2c?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 00:24:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Super Micro’s stock soars after surprise update — with Dell and HPE shares joining the rally",
+      "description": "Super Micro unexpectedly disclosed that its revenue and profitability could be much stronger than originally anticipated.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/super-micros-stock-soars-after-surprise-update-with-dell-and-hpe-shares-joining-the-rally-1837a69f?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 00:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Tesla’s stock rises as Elon Musk drops new clues about a possible SpaceX merger",
+      "description": "Special committees at both companies are assessing merger prospects but a combination is no sure thing, Musk says.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/teslas-stock-rises-as-elon-musk-drops-new-clues-about-a-possible-spacex-merger-8cc44fc2?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 00:14:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Netflix vows to revive viewership trends, but investors hit ‘sell’ on the stock",
+      "description": "Streaming service cites “intense competition’ and acknowledges ‘some investor concern about our view hours growth.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/netflix-vows-to-revive-viewership-trends-but-investors-hit-sell-on-the-stock-3e24420a?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 00:12:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Qubic restarts blockchain, opens recovery claims after $1.4M hack",
+      "description": "The network’s validators approved a recovery plan and opened claims until May 1, 2027.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/qubic-restarts-blockchain-opens-recovery-claims-after-14m-hack?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Tue, 20 Oct 2026 23:26:02 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Why SpaceX’s stock is surging — and lifting the broader AI universe along with it",
+      "description": "SpaceX just gave Wall Street a big reason to believe in the AI boom as demand for its computing power is off the charts.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/why-spacexs-stock-is-surging-and-lifting-the-broader-ai-universe-along-with-it-0cd62f39?mod=mw_rss_topstories",
+      "pubDate": "Tue, 20 Oct 2026 23:10:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
     {
       "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life — but here’s why I’m still hopeful",
       "description": "“Ill-timed circumstances can change our financial future in unexpected ways.”",
@@ -13,57 +121,12 @@
       "category": "markets"
     },
     {
-      "title": "Super Micro’s stock soars after surprise update — with Dell and HPE shares joining the rally",
-      "description": "Super Micro unexpectedly disclosed that its revenue and profitability could be much stronger than originally anticipated.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/super-micros-stock-soars-after-surprise-update-with-dell-and-hpe-shares-joining-the-rally-1837a69f?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 22:37:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Tesla’s stock rises as Elon Musk drops new clues about a possible SpaceX merger",
-      "description": "Special committees at both companies are assessing merger prospects but a combination is no sure thing, Musk says.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/teslas-stock-rises-as-elon-musk-drops-new-clues-about-a-possible-spacex-merger-8cc44fc2?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 22:33:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "My wife says we can’t afford to retire. I vetoed her $8,000 trip to Italy. We’re in our 60s and have $4 million. Do I keep working?",
-      "description": "“I worry about healthcare, long-term care, inflation, a long bear market and living to 95.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-wife-says-we-cant-afford-to-retire-we-have-4-million-do-i-just-keep-working-f1b6b085?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 22:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Netflix vows to revive viewership trends, but investors hit ‘sell’ on the stock",
-      "description": "Streaming service cites “intense competition’ and acknowledges ‘some investor concern about our view hours growth.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/netflix-vows-to-revive-viewership-trends-but-investors-hit-sell-on-the-stock-3e24420a?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 22:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Netflix posts third-quarter earnings beat, but shares fall on advertising and revenue guidance",
       "description": "Wall Street and investors will be looking for Netflix to provide additional details about the company's strategy following recent organizational changes",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html",
       "pubDate": "Tue, 20 Oct 2026 22:29:45 GMT",
       "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "My partner of 17 years left me his $1 million home. His children say I influenced him to do so. Should I share my inheritance?",
-      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
-      "pubDate": "Tue, 20 Oct 2026 22:27:00 GMT",
-      "source": "MarketWatch",
       "category": "markets"
     },
     {
@@ -121,15 +184,6 @@
       "category": "crypto"
     },
     {
-      "title": "Housing is flashing warning signs just as the Fed weighs more interest rate hikes",
-      "description": "Housing data deteriorated further in September, according to separate reports Tuesday.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/housing-mortgage-rates-real-estate-federal-reserve.html",
-      "pubDate": "Tue, 20 Oct 2026 19:28:43 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Here’s what happened in crypto today",
       "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "analysis": "",
@@ -148,24 +202,6 @@
       "category": "crypto"
     },
     {
-      "title": "Trump sued over 50% tariffs on Canada in latest trade challenge",
-      "description": "A new lawsuit challenges President Donald Trump's tariffs on a range of Canadian goods using Section 338 of the Tariff Act of 1930.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/trump-tariffs-canada-section-338-lawsuit.html",
-      "pubDate": "Tue, 20 Oct 2026 18:06:13 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Strive closes $630M SATS IPO, leaves Bitcoin allocation unspecified",
-      "description": "The Bitcoin treasury company could acquire an estimated 7,372 BTC with its net proceeds, potentially surpassing Metaplanet’s holdings if it allocates the full amount.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/strive-closes-630m-sats-ipo-leaves-bitcoin-allocation-unspecified?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 17:40:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
       "title": "The Coinbase allegations expose Bitcoin's corporate governance gap",
       "description": "Corporate adoption of bitcoin will stall as long as companies can't show who controls the money, who approves its movement, or whether it's still there, argues Onramp CEO Michael Tanguma.",
       "analysis": "",
@@ -175,47 +211,11 @@
       "category": "crypto"
     },
     {
-      "title": "Injective, BDACS plan Korean won stablecoin settlement for tokenized assets ",
-      "description": "Injective and BDACS plan to bring won-backed stablecoin KRW1 to tokenized asset markets as South Korea develops a regulatory framework for local currency stablecoins.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/injective-bdacs-korean-won-stablecoin-tokenized-assets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Tue, 20 Oct 2026 16:47:48 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
       "title": "BlackRock seeks to shield bitcoin investors from losses after rival fund weathers 50% crash",
       "description": "BlackRock's proposed fund follows similar products from Calamos that helped investors avoid steep losses during bitcoin's selloff.",
       "analysis": "",
       "link": "https://www.coindesk.com/markets/2026/10/20/blackrock-seeks-to-shield-bitcoin-investors-from-losses-after-rival-fund-weathers-50-crash",
       "pubDate": "Tue, 20 Oct 2026 14:28:39 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Kazakhstan court bars Coinbase, five others from unlicensed crypto services in Astana International Financial Centre",
-      "description": "The court injunctions apply strictly to users within the AIFC and do not extend across the rest of Kazakhstan.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/20/kazakhstan-court-bars-coinbase-five-others-from-unlicensed-crypto-services-in-astana-international-financial-centre",
-      "pubDate": "Tue, 20 Oct 2026 13:35:08 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Investors look to earnings to reset the bull market. The key level to watch on the S&P 500",
-      "description": "The key level traders are watching on the S&P 500 that could mean an even bigger decline is ahead.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/20/santoli-key-sp-500-level-to-watch.html",
-      "pubDate": "Tue, 20 Oct 2026 12:52:29 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Microsoft, Alphabet and Goldman Sachs join objections to OKX-ICE tokenized stock trading",
-      "description": "Seven more issuers have opted out of being listed on the planned tokenized stock venue under the SEC's framework, bringing its disclosed objection count to 16.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/19/microsoft-alphabet-and-goldman-sachs-join-objections-to-okx-ice-tokenized-stock-trading",
-      "pubDate": "Tue, 20 Oct 2026 12:40:17 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
