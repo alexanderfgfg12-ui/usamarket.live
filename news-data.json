@@ -1,77 +1,203 @@
 {
-  "updated": "2026-10-21T13:40:33.053Z",
+  "updated": "2026-10-21T20:01:53.017Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "SpaceX stock jumps 8% after earnings beat and Musk hints at Tesla tie-up",
-      "description": "SpaceX shares jumped after the company reported surging revenue growth in its third quarter, and owner Elon Musk floated a potential SpaceX-Tesla merger.",
+      "title": "BlackRock's Rick Rieder sees 'historic' opportunity in high-quality bonds",
+      "description": "Rick Rieder, BlackRock's CIO of global fixed income, lays out his expectations for the fourth quarter and where he sees the best opportunities.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/spacex-spcx-stock-musk-merger-tesla.html",
-      "pubDate": "Wed, 21 Oct 2026 13:35:22 GMT",
+      "link": "https://www.cnbc.com/2026/10/21/rick-rieder-investment-grade-bonds.html",
+      "pubDate": "Wed, 21 Oct 2026 19:54:16 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Big Tech’s eMudhra fixes may leave crypto bots exposed, CertiK warns",
-      "description": "CertiK says crypto trading bots and exchange applications may remain exposed to the eMudhra certificate flaw because browser fixes may not protect all software.",
+      "title": "GM aims to develop vehicles in as little as two years with AI, software push",
+      "description": "General Motors is targeting a roughly two-year vehicle development cycle as it expands its use of artificial intelligence, simulation and vehicle software.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/certik-warning-crypto-emudhra-flaw-risks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 13:31:39 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Goldman Sachs, JPMorgan and Morgan Stanley are dominating the AI stock boom. Here's their edge",
-      "description": "Wall Street’s Big Three have generated $52 billion in equity trading revenue this year, capturing about 80% of the market on rising margin lending to hedge funds.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/goldman-sachs-jpmorgan-morgan-stanley-ai-trading.html",
-      "pubDate": "Wed, 21 Oct 2026 13:30:57 GMT",
+      "link": "https://www.cnbc.com/2026/10/21/gm-vehicle-development-ai-software.html",
+      "pubDate": "Wed, 21 Oct 2026 19:44:50 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "5 alternatives to Ledger to store your Bitcoin",
-      "description": "Hardware wallets aren’t the only way to protect your crypto, but from ETFs and passkeys to multisig accounts, each alternative has its own risks and trade-offs.",
+      "title": "‘Super’ El Niño may soon make your coffee super expensive",
+      "description": "Agricultural markets around the world are already dealing with record-high diesel prices and high fertilizer costs. A “super” El Niño is almost guaranteed to make matters worse for farmers and consumers.",
       "analysis": "",
-      "link": "https://cointelegraph.com/magazine/5-alternatives-to-ledger-to-store-your-bitcoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 13:30:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Nvidia announces plug and play Vera Rubin racks that can be shipped on a truck ",
-      "description": "Nvidia says its DSX Pod AI Factory, which combines seven Vera Rubin racks in a shipping container, could cut the time to start serving AI tokens to 14 days.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/nvidia-announces-vera-rubin-racks-that-can-be-shipped-on-a-truck-.html",
-      "pubDate": "Wed, 21 Oct 2026 12:43:49 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Tokenized stock trading takes off overseas as Goldman, other U.S. companies object",
-      "description": "Tokenized stocks are gaining momentum in international markets, even as major U.S. companies are pushing back against efforts to introduce them domestically.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/tokenized-stocks-us-companies-object.html",
-      "pubDate": "Wed, 21 Oct 2026 12:33:34 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Heckler disrupts Nvidia CEO Huang’s speech at Berlin conference",
-      "description": "The person shouted something that could not be heard on the company’s livestream about 20 minutes into the address, before being removed from the auditorium.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/heckler-disrupts-nvidia-ceo-huangs-speech-at-berlin-conference-fc461a82?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 12:32:00 GMT",
+      "link": "https://www.marketwatch.com/story/super-el-nino-risks-driving-up-the-price-of-your-caffeine-fix-bb1d58b1?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 19:24:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "OCC finalizes GENIUS Act rules for stablecoin issuers and custody ",
-      "description": "The Office of the Comptroller of the Currency’s final rule covers payment stablecoin issuance and some custody activities, with the GENIUS Act framework taking effect in mid-January.",
+      "title": "Meta ordered to pay $25 billion penalty in New Mexico Cambridge Analytica case",
+      "description": "Meta to pay $25 billion in penalties related to Cambridge Analytica scandal in New Mexico.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/occ-finalizes-genius-act-rules-stablecoin-issuers-custody?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 12:26:58 +0000",
+      "link": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
+      "pubDate": "Wed, 21 Oct 2026 19:20:53 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Cardano Foundation urges EU against expanding MiCA rules to DeFi and staking",
+      "description": "The foundation called for regulation based on financial risks rather than technology, warning that overlapping rules could create uncertainty for crypto businesses across the EU.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/cardano-foundation-urges-eu-against-expanding-mica-rules-to-defi-and-staking?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 17:57:39 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "How Ukraine’s drone strikes on Russia crippled the world’s second-largest diesel supplier",
+      "description": "President Donald Trump has blamed Ukraine for surging diesel prices that are hurting Republicans' election chances with the midterms just two weeks away.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/ukraine-russia-drone-diesel-refinery-trump-putin-zelenskyy.html",
+      "pubDate": "Wed, 21 Oct 2026 17:27:34 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "UK financial watchdog opens consultations for DeFi guidance, crypto laws",
+      "description": "The UK Financial Conduct Authority consultations came just weeks after the agency opened applications for companies under its new crypto regulatory regime.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/uk-fca-consultations-defi-crypto-laws?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 17:25:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Treasury Secretary Bessent likens GENIUS Act to Lincoln-era banking reform ",
+      "description": "The OCC has finalized rules for stablecoin reserves and redemptions, with Bessent calling the GENIUS Act a “watershed moment for American finance.”",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/occ-finalizes-stablecoin-rules-genius-act-bessent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 17:10:54 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Medicare is a bargain. What America can’t afford is private health insurance.",
+      "description": "Private insurance costs way more for the same results — or worse.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/medicare-is-a-bargain-what-america-cant-afford-is-private-health-insurance-8a834023?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 16:34:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Trump to throw spotlight on overseas crypto abuses at White House event",
+      "description": "The president is hosting a cybercrime event that will highlight U.S. authorities' efforts to crack down on crypto scams run by foreign criminal organizations.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/policy/2026/10/21/trump-to-throw-spotlight-on-overseas-crypto-abuses-in-white-house-event",
+      "pubDate": "Wed, 21 Oct 2026 16:23:44 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Chainlink, Cardano, other blockchain groups push SEC for clearer crypto rules ",
+      "description": "Six major blockchain organizations urged the SEC to formally recognize digital commodities as non-securities in its proposed regulatory framework.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/chainlink-cardano-and-other-blockchain-groups-push-sec-for-clearer-crypto-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 16:09:26 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "SpaceX stock jumps 10% after earnings beat and Musk hints at Tesla tie-up",
+      "description": "SpaceX shares jumped after the company reported surging revenue growth in its third quarter, and owner Elon Musk floated a potential SpaceX-Tesla merger.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/spacex-spcx-stock-musk-merger-tesla.html",
+      "pubDate": "Wed, 21 Oct 2026 16:08:50 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Tesla earnings loom after Musk calls SpaceX merger a 'good idea'",
+      "description": "A day after Elon Musk's SpaceX reported third-quarter results, Tesla is scheduled to update investors.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/21/tesla-tsla-q3-2026-earnings-report.html",
+      "pubDate": "Wed, 21 Oct 2026 16:01:25 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Polymarket traders see a 10% chance the AI bubble bursts before New Year’s Day",
+      "description": "For investors worried that the runaway artificial-intelligence trade might be about to hit the skids, prediction markets are already starting to reflect that anxiety.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/polymarket-traders-see-a-10-chance-the-ai-bubble-bursts-before-new-years-day-ad33258b?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 15:59:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Elon Musk promised a SpaceX share to every kid in America — don’t hold your breath",
+      "description": "Trick or treat? Musk has a long record of saying things have little relation to reality.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/elon-musk-promised-a-spacex-share-to-every-kid-in-america-dont-hold-your-breath-d6572cdf?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 15:50:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "AI stocks are probably in a bubble — but might be worth holding on to, says Citadel’s Ken Griffin",
+      "description": "Investors are for sure facing “bubbles,” but Ken Griffin isn’t telling investors to dump those stocks.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/ai-stocks-are-probably-in-a-bubble-but-might-be-worth-holding-onto-says-citadels-ken-griffin-87f535ce?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 15:27:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "How a16z-backed DATA is rethinking its blockchain strategy after $30 million Sui deal",
+      "description": "The startup is retiring its own blockchain and moving to Sui with a $30 million investment as it narrows its focus to AI training data.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/21/how-a16z-backed-data-is-rethinking-its-blockchain-strategy-after-usd30-million-sui-deal",
+      "pubDate": "Wed, 21 Oct 2026 15:22:46 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "My partner of 17 years left me his $1 million home. His children say I influenced him to do so. Should I share my inheritance?",
+      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 15:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Bitcoin price tags $84.6K as US stocks head higher on SpaceX Q3 earnings beat ",
+      "description": "Bitcoin extended gains to approach $85,000 after US stock markets reacted to higher-than-expected SpaceX earnings.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/markets/bitcoin-price-tags-846k-as-us-stocks-head-higher-on-spacex-q3-earnings-beat?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 15:13:17 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Bybit will look for big broker partnerships to take on Robinhood in the U.S.",
+      "description": "When it comes to the U.S., Bybit will look to work with with someone like Interactive Brokers (IB), for example, said CEO Ben Zhou.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/16/bybit-will-look-for-big-broker-partnerships-to-take-on-robinhood-in-the-u-s",
+      "pubDate": "Wed, 21 Oct 2026 15:09:22 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Crypto Long & Short: Why real-world assets need fixed-rate loans onchain",
+      "description": "Real-world assets already back the largest stablecoins, yet borrowing against them onchain still runs through variable-rate pools. Peter Gaffney of O2O Capital Partners explains why fixed-rate, fixed-term lending is the missing piece, and how a 5% sh",
+      "analysis": "",
+      "link": "https://www.coindesk.com/coindesk-indices/2026/10/21/crypto-long-and-short-why-real-world-assets-need-fixed-rate-loans-onchain",
+      "pubDate": "Wed, 21 Oct 2026 15:00:53 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Solana’s Alpenglow launches on mainnet, targets 99% faster finality ",
+      "description": "Solana’s first major consensus upgrade is targeting 99% finality reduction, seeking to offer users near-immediate transaction settlement and more responsive applications.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/solanas-alpenglow-launches-mainnet-99-faster-finality?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 13:57:14 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
@@ -92,132 +218,6 @@
       "pubDate": "Wed, 21 Oct 2026 12:10:39 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "United Airlines set to open its biggest airport lounge in $2.6 billion overhaul at Houston hub",
-      "description": "United is opening a 54,000-square-foot lounge as part of the revamp of Houston's George Bush Intercontinental Airport.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/united-airlines-biggest-airport-lounge-houston.html",
-      "pubDate": "Wed, 21 Oct 2026 12:09:51 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Standard Chartered signs definitive deal to acquire Zodia Custody",
-      "description": "The signing follows shareholders’ acceptance of Standard Chartered’s non-binding offer in May, with regulatory approvals still pending.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/standard-chartered-acquire-zodia-custody-uk?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 12:06:23 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Why SpaceX’s stock is surging — and lifting the broader AI universe along with it",
-      "description": "SpaceX just gave Wall Street a big reason to believe in the artificial-intelligence boom as demand for its computing power is off the charts.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/why-spacexs-stock-is-surging-and-lifting-the-broader-ai-universe-along-with-it-0cd62f39?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 12:06:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Dogecoin wallet, app teams unite in push to give DOGE more everyday uses",
-      "description": "Dogecoin Labs will combine MyDoge, DogeOS and merchant payment tools as developers try to turn coin holders into customers for applications and businesses.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/tech/2026/10/21/dogecoin-wallet-app-teams-unite-in-push-to-give-doge-more-everyday-uses",
-      "pubDate": "Wed, 21 Oct 2026 12:00:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Musk says he’s exploring a SpaceX-Tesla megamerger. What would a combined company be worth?",
-      "description": "SpaceX and Super Micro Computer help revive Wall Street’s flagging enthusiasm, with more key earnings on tap.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/musk-says-hes-exploring-a-spacex-tesla-megamerger-what-would-a-combined-company-be-worth-f35566aa?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 11:39:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
-      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 11:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Bitcoin risk management grows more popular as the 'just bet on price' era fades",
-      "description": "Your day-ahead look for Oct. 21, 2026",
-      "analysis": "",
-      "link": "https://www.coindesk.com/daybook-us/2026/10/21/bitcoin-risk-management-grows-more-popular-as-the-just-bet-on-price-era-fades",
-      "pubDate": "Wed, 21 Oct 2026 11:15:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "I receive 10 calls a day promising me $15,000 loans at 8% interest. Are these legitimate offers?",
-      "description": "“They insist that the details will be provided after they have carried out a soft credit check.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/im-naturally-skeptical-i-receive-10-calls-a-day-offering-me-15-000-loans-at-8-interest-is-this-a-scam-825c3431?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 11:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "OCC's final rule to start fresh in weighing stablecoin rewards against GENIUS Act ban",
-      "description": "The U.S. Office of the Comptroller of the Currency is the first of several federal agencies to finish writing regulations under the act.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/21/occ-s-final-rule-to-start-fresh-in-weighing-stablecoin-rewards-against-genius-act-ban",
-      "pubDate": "Wed, 21 Oct 2026 11:00:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Opposition to data centers will drive up inflation, says BlackRock’s Larry Fink",
-      "description": "Fight the data centers at your economic peril, says BlackRock CEO Larry Fink.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/opposition-to-data-centers-will-drive-up-inflation-says-blackrocks-larry-fink-831c25b9?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 10:59:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "PancakeSwap TVL tops $380M as major fee overhaul heads to vote ",
-      "description": "PancakeSwap’s proposed fee-sharing overhaul would give liquidity providers 88% of swap fees and cut CAKE emissions by 69%, as BNB Chain’s DeFi activity expands.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/markets/pancakeswap-tvl-jumps-19-percent-fee-overhaul?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 10:50:52 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "France proposes liability for crypto exchanges offering DeFi access",
-      "description": "French authorities want crypto exchanges to conduct checks on DeFi protocols and face liability for certain customer losses under proposed changes to EU crypto rules.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/france-liability-crypto-exchange-defi-access?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 10:46:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Crypto rises with Asian tech stocks, zcash extends gain after setting upgrade date",
-      "description": "Bitcoin rose to a one-week high as Asian tech stocks rebounded and SpaceX and Tesla formed committees to explore a merger.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/21/crypto-rises-with-asian-tech-stocks-zcash-extends-gain-after-setting-upgrade-date",
-      "pubDate": "Wed, 21 Oct 2026 10:34:37 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "OpenAI's most powerful AI models disabled their own safety monitoring — and one lied about it",
-      "description": "Warnings about the risks of developing increasingly advanced AI systems have ramped up in recent months, amid cyberattacks from rogue AI models.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/openai-ai-models-safety-monitoring.html",
-      "pubDate": "Wed, 21 Oct 2026 07:49:48 GMT",
-      "source": "CNBC",
-      "category": "markets"
     }
   ]
 }
