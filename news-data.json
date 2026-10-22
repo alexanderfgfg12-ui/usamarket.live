@@ -1,34 +1,151 @@
 {
-  "updated": "2026-10-22T19:57:22.947Z",
+  "updated": "2026-10-22T23:11:58.409Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "Elon Musk invests about $1 billion in Skydance",
-      "description": "David Ellison's father, billionaire and Oracle co-founder Larry Ellison, has a history with Musk.",
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
+      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/elon-musk-skydance-investment.html",
-      "pubDate": "Thu, 22 Oct 2026 19:34:46 GMT",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 23:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "CoreWeave set off a wave of anxiety — but Wall Street’s dire prognosis is premature",
+      "description": "Stop listening to market pundits and start looking at market performance.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/coreweave-set-off-a-wave-of-anxiety-but-wall-streets-dire-prognosis-is-premature-edc3f5dd?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 22:54:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "New DeepSeek ban in US, Swiss-Asia crypto ties deepen: Asia Express",
+      "description": "DeepSeek banned from US federal civilian agencies over spying fears. Singapore firm behind Europe’s first spot Bitcoin ETF, as Switzerland partners with Vietnam on crypto tech.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/magazine/new-deepseek-ban-in-us-swiss-asia-crypto-ties-deepen-asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Thu, 22 Oct 2026 22:50:22 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Senate's top Democratic investigator looking into Tether payments to Bo Hines' firm",
+      "description": "Senator Richard Blumenthal, the ranking Democrat on the investigations subcommittee, added a probe of the ex-White House crypto adviser to his list of crypto interests.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/policy/2026/10/22/senate-s-top-democratic-investigator-looking-into-tether-payments-to-bo-hines-firm",
+      "pubDate": "Thu, 22 Oct 2026 22:43:36 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Meta’s deal to keep Zuckerberg in California adds fuel to wealth tax debate ahead of election",
+      "description": "With less than two weeks before the midterm elections, Meta made clear that Mark Zuckerberg is staying in California if the wealth tax passes.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/meta-mark-zuckerberg-california-billionaire-tax.html",
+      "pubDate": "Thu, 22 Oct 2026 22:21:08 GMT",
       "source": "CNBC",
       "category": "markets"
+    },
+    {
+      "title": "The U.S. stock market is fracturing into two camps, and it’s leaving investors with a brutal case of whiplash",
+      "description": "The artificial-intelligence trade is on the ropes. CNN’s “Fear & Greed” index is screaming fear, and the yield on the 10-year Treasury note just clinched its biggest daily drop since the collapse of Silicon Valley Bank.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/the-u-s-stock-market-is-fracturing-into-two-camps-and-its-leaving-investors-with-a-brutal-case-of-whiplash-e8580a99?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 22:17:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here’s what’s going on.",
+      "description": "‘It’s a take-back trade,’ says PGIM’s Tipp. ‘Not an all-out fear of recession type of situation.’",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/treasury-yields-see-extreme-plunge-why-investors-are-ducking-for-cover-60044c66?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 22:07:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Moderna shares plunge after cancer vaccine data leaks — despite positive results",
+      "description": "Moderna released full data on its closely watched cancer vaccine developed with Merck.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/moderna-stock-cancer-vaccine-data-leak.html",
+      "pubDate": "Thu, 22 Oct 2026 21:52:02 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Circle shareholder sues Trump, World Liberty and Steve Witkoff over crypto deals",
+      "description": "According to a Circle shareholder, the US president’s “corruption” through USD1 left the company unable to compete with stablecoins, harming USDC.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/circle-shareholder-lawsuit-donald-trump-world-liberty-financial-steve-witkoff-crypto-corruption?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Thu, 22 Oct 2026 21:39:18 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Americans are having fewer babies — and pampering them with luxury diapers",
+      "description": "“Fewer babies in each household means parents spend more per baby,” Procter & Gamble’s CFO says.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/americans-are-having-fewer-babies-and-pampering-them-with-luxury-diapers-a84222cd?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 21:28:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "3 big reasons Micron and other chip stocks fell hard on Thursday",
+      "description": "Investors are spooked by Tesla’s lower spending target, Lam Research’s weaker-than-expected forecast and a fresh reminder that the AI boom relies on outside funding.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/two-big-reasons-micron-and-other-chip-stocks-are-falling-on-thursday-312f1fb2?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 21:19:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Trump asked Musk to lift Starlink slowdown, WSJ reports",
+      "description": "Elon Musk, a critic of Ukrainian President Volodymyr Zelenskyy, had ordered the slowdown of SpaceX's Starlink, The Wall Street Journal previously reported.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/trump-musk-starlink-ukraine.html",
+      "pubDate": "Thu, 22 Oct 2026 21:02:07 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "OpenAI nears up to $30 billion funding round at $1.25 trillion valuation led by UAE investors ",
+      "description": "OpenAI is close to finalizing a new funding round that is meant to be a bridge to its 2027 IPO, sources familiar with the matter tell CNBC.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html",
+      "pubDate": "Thu, 22 Oct 2026 20:41:37 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Dune launches real-time data feeds covering 200 onchain trading venues ",
+      "description": "The new service aims to bring onchain trading data into institutional financial systems as tokenized stock markets expand and face growing scrutiny.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/dune-launches-real-time-data-feeds-covering-200-onchain-trading-venues?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Thu, 22 Oct 2026 20:36:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
     },
     {
       "title": "Trump defends Ramaswamy ad with Acton's estranged mom after bipartisan criticism",
       "description": "Ohio Gov. Mike DeWine said GOP gubernatorial nominee Vivek Ramaswamy should remove the ad featuring the mother of Democratic nominee Amy Acton.",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/22/trump-ramaswamy-ad-acton-mother-ad.html",
-      "pubDate": "Thu, 22 Oct 2026 19:34:18 GMT",
+      "pubDate": "Thu, 22 Oct 2026 20:26:48 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Moderna’s cancer vaccine hits its targets, but an embargo breach rattles investors and the stock tumbles",
-      "description": "A “sell-the-news reaction?” The experimental treatment helped prevent the return of cancer or death in melanoma patients by 42% after two years.",
+      "title": "Here’s what happened in crypto today",
+      "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/modernas-stock-tumbles-after-reported-leak-of-data-for-cancer-vaccine-dcc897c1?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 19:31:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
+      "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Thu, 22 Oct 2026 20:09:59 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
     },
     {
       "title": "Winklevoss PAC moves into Texas Senate race with $81K ad buy ",
@@ -38,42 +155,6 @@
       "pubDate": "Thu, 22 Oct 2026 19:29:53 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
-    },
-    {
-      "title": "Moderna shares plunge after leak of cancer vaccine data despite positive results",
-      "description": "Moderna's stock fell even though the full data, released later Thursday, appeared positive based on Wall Street expectations ahead of the release.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/moderna-stock-cancer-vaccine-data-leak.html",
-      "pubDate": "Thu, 22 Oct 2026 19:26:33 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Is getting a wedding band from Quince a bad idea? ‘It’s a third of the price.’",
-      "description": "“I am slightly anxious about purchasing something so big.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/is-getting-a-wedding-band-from-quince-a-bad-idea-its-a-third-of-the-price-fa89c9b2?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 19:25:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "SpaceX and Tesla have high election stakes as Elon Musk pours $366 million into campaigns",
-      "description": "Musk’s biggest political bet is on the Senate, where control could shape future investigations, federal spending and regulations affecting SpaceX and Tesla.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/elon-musk-midterm-election-spacex-tesla.html",
-      "pubDate": "Thu, 22 Oct 2026 19:09:11 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Trump asked Musk to lift Starlink slowdown, WSJ reports",
-      "description": "Elon Musk, a critic of Ukrainian President Volodymyr Zelenskyy, had ordered the slowdown of SpaceX's Starlink, The Wall Street Journal previously reported.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/trump-musk-starlink-ukraine.html",
-      "pubDate": "Thu, 22 Oct 2026 19:05:32 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech",
@@ -94,74 +175,11 @@
       "category": "markets"
     },
     {
-      "title": "Elon Musk promised a SpaceX share to every kid in America — don’t hold your breath",
-      "description": "Trick or treat? Musk has a long record of saying things have little relation to reality.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/elon-musk-promised-a-spacex-share-to-every-kid-in-america-dont-hold-your-breath-d6572cdf?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 17:29:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Underdog taps zerohash to bring crypto deposits to prediction markets ",
       "description": "The new funding option, expected to launch later this year, will allow eligible Underdog users to deposit digital assets around the clock.",
       "analysis": "",
       "link": "https://cointelegraph.com/news/underdog-taps-zerohash-to-bring-crypto-deposits-to-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Thu, 22 Oct 2026 17:24:49 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "The Social Security Administration wants more babies signed up for ‘Trump accounts.’ But there’s still a catch.",
-      "description": "Social Security is looking to reverse an initially slow uptake on Trump accounts",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/the-social-security-administration-wants-more-babies-signed-up-for-trump-accounts-but-theres-still-a-catch-4096f16e?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 17:24:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Young investors are betting on prediction markets and crypto. But this bestselling author says the boring money moves still work.",
-      "description": "Beth Kobliner, author of “Get a Financial Life,” explains why today’s young people face a tougher financial world and reveals the three money moves she would make first.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/young-investors-are-betting-on-prediction-markets-and-crypto-but-this-bestselling-author-says-the-boring-money-moves-still-work-cd9d350a?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 17:21:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "‘AI is on trial’: Bond yields sink below 5% as investors look for safety",
-      "description": "Investors are flooding back into Treasurys for safety to hedge the risks of more AI fallout in stock and credit markets.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/ai-is-on-trial-bond-yields-sink-below-5-as-investors-look-for-safety-dbc86ee9?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 17:16:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Bitcoin hashrate hits seven-month high as AI shift fails to ease mining competition ",
-      "description": "According to BlocksBridge, Bitcoin’s mining difficulty is rising despite the industry’s AI transition, with smaller operators potentially absorbing equipment abandoned by larger competitors.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/bitcoin-mining-difficulty-hashrate-recovery-ai-shift?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 16:50:51 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Irish cenbank fines Coinbase arm $3.6M for oversight, safeguard failures",
-      "description": "According to the Central Bank of Ireland, Coinbase Ireland had agreed with the facts around the enforcement action and will be subject to fines and sanctions upon approval by a high court.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/ireland-central-bank-coinbase-oversight-safeguard-failure?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 16:48:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Bitcoin circles $81.5K ETF cost basis as Trump Iran comments send stocks lower ",
-      "description": "Bitcoin extended daily losses to 3% as US stocks came under pressure from President Donald Trump’s comments on Iran military action.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/markets/bitcoin-circles-815k-etf-cost-basis-as-trump-iran-comments-send-stocks-lower?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 16:20:35 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
@@ -184,15 +202,6 @@
       "category": "crypto"
     },
     {
-      "title": "Fireblocks disputes report of $2.5B Visa acquisition talks",
-      "description": "Fireblocks told Cointelegraph that reports of a potential $2.5 billion acquisition by Visa are “not true at present time,” while Visa declined to comment on the reported talks.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/fireblocks-disputes-report-of-25b-visa-acquisition-talks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 14:41:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
       "title": "Crypto custody specialist Fireblocks denies it's in talks to be acquired by Visa ",
       "description": "The company is in talks with Visa over a potential $2.5 billion acquisition, Axios reported.",
       "analysis": "",
@@ -207,15 +216,6 @@
       "analysis": "",
       "link": "https://www.coindesk.com/news-analysis/2026/10/21/crypto-is-making-a-splash-in-u-s-elections-but-chiefly-in-jabs-about-industry-influence",
       "pubDate": "Thu, 22 Oct 2026 13:00:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Ethereum’s four-minute settlement plan could lower the cost of moving crypto",
-      "description": "A new draft targets a fourfold cut in the time it takes Ethereum transactions to become final, which could free up money transfer services tie up while customers’ payments clear.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/tech/2026/10/22/ethereum-s-four-minute-settlement-plan-could-lower-the-cost-of-moving-crypto",
-      "pubDate": "Thu, 22 Oct 2026 12:14:29 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
