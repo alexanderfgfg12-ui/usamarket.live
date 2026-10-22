@@ -1,43 +1,169 @@
 {
-  "updated": "2026-10-21T20:01:53.017Z",
+  "updated": "2026-10-22T04:22:07.433Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "BlackRock's Rick Rieder sees 'historic' opportunity in high-quality bonds",
-      "description": "Rick Rieder, BlackRock's CIO of global fixed income, lays out his expectations for the fourth quarter and where he sees the best opportunities.",
+      "title": "China's stock market sinks into bear territory as CSI 300 extends 10-week rout ",
+      "description": "China's benchmark CSI 300 index has entered bear-market territory, falling 20% from its June peak, as a prolonged selloff in mainland equities deepens.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/rick-rieder-investment-grade-bonds.html",
-      "pubDate": "Wed, 21 Oct 2026 19:54:16 GMT",
+      "link": "https://www.cnbc.com/2026/10/22/chinas-stock-market-csi-300-bear-market.html",
+      "pubDate": "Thu, 22 Oct 2026 04:02:18 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "GM aims to develop vehicles in as little as two years with AI, software push",
-      "description": "General Motors is targeting a roughly two-year vehicle development cycle as it expands its use of artificial intelligence, simulation and vehicle software.",
+      "title": "Bitcoin gives back its run at $85,000 as Tesla and Meta fail to calm AI nerves",
+      "description": "BTC broke through its $84,000 ceiling late Wednesday, then slid back to the $82,500 support analysts are watching as tech futures fell.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/gm-vehicle-development-ai-software.html",
-      "pubDate": "Wed, 21 Oct 2026 19:44:50 GMT",
-      "source": "CNBC",
-      "category": "markets"
+      "link": "https://www.coindesk.com/markets/2026/10/22/bitcoin-gives-back-its-run-at-usd85-000-as-tesla-and-meta-fail-to-calm-ai-nerves",
+      "pubDate": "Thu, 22 Oct 2026 03:51:34 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
     },
     {
-      "title": "‘Super’ El Niño may soon make your coffee super expensive",
-      "description": "Agricultural markets around the world are already dealing with record-high diesel prices and high fertilizer costs. A “super” El Niño is almost guaranteed to make matters worse for farmers and consumers.",
+      "title": "My father-in-law, 81, sold his $75,000 home and paid off his daughter’s $50,000 debt. What happens to him now?",
+      "description": "“Nothing has been set aside for his needs.”",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/super-el-nino-risks-driving-up-the-price-of-your-caffeine-fix-bb1d58b1?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 19:24:00 GMT",
+      "link": "https://www.marketwatch.com/story/my-father-in-law-81-sold-his-75-000-home-and-paid-off-his-daughters-50-000-debt-what-happens-to-him-now-60e8fc72?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 03:15:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "Meta ordered to pay $25 billion penalty in New Mexico Cambridge Analytica case",
-      "description": "Meta to pay $25 billion in penalties related to Cambridge Analytica scandal in New Mexico.",
+      "title": "Sovereign wealth funds' China and Hong Kong investments surge 190% after a bruising slump",
+      "description": "Sovereign wealth funds are pouring billions of dollars back into China after a sharp investment slump.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/meta-new-mexico-cambridge-analytica-penalty.html",
-      "pubDate": "Wed, 21 Oct 2026 19:20:53 GMT",
+      "link": "https://www.cnbc.com/2026/10/22/sovereign-wealth-funds-china-hong-kong.html",
+      "pubDate": "Thu, 22 Oct 2026 02:20:50 GMT",
       "source": "CNBC",
       "category": "markets"
+    },
+    {
+      "title": "Bank of Korea holds rates after President Lee calls for boosting housing supply",
+      "description": "Economists polled by Reuters had forecast the Bank of Korea to hold rates.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/bok-rate-decision-seoul-property.html",
+      "pubDate": "Thu, 22 Oct 2026 02:18:29 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Southeast Asia is hungry for AI — and the money isn't just in subscriptions \n",
+      "description": "Southeast Asia's rapid AI adoption is creating business opportunities beyond paid consumer subscriptions, a partner at Bain & Company, told CNBC.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/southeasaisa-singapore-bain-temasek-google-.html",
+      "pubDate": "Thu, 22 Oct 2026 02:01:48 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "The Social Security Administration wants more babies signed up for ‘Trump accounts.’ But there’s still a catch.",
+      "description": "Social Security is looking to reverse an initially slow uptake on Trump accounts",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/the-social-security-administration-wants-more-babies-signed-up-for-trump-accounts-but-theres-still-a-catch-4096f16e?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 01:50:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "James Talarico fires back at Elon Musk in Texas Senate race feud",
+      "description": "Musk in September donated $158 million to a Republican Super PAC, which sent that cash to a PAC backing GOP Senate nominee Ken Paxton, Talarico's opponent.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/james-talarico-elon-musk-ken-paxton-texas-senate-race.html",
+      "pubDate": "Thu, 22 Oct 2026 01:21:10 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Critical web security flaws spark global alarm as Google, OpenAI and Amazon respond \n",
+      "description": "Critical PHP security flaws trigger global warnings as Google, OpenAI and Amazon respond to potential cyber threats.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/php-google-openai-and-amazon-cyber.html",
+      "pubDate": "Thu, 22 Oct 2026 01:05:15 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "This wonky maneuver kept Mark Zuckerberg from fleeing a California billionaire tax",
+      "description": "Facing a potentially giant tax bill that could threaten his voting power, Zuckerberg was days away from listing his Palo Alto home when Meta agreed to create a new class of stock.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/this-wonky-maneuver-kept-mark-zuckerberg-from-fleeing-a-california-billionaire-tax-1de34562?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 00:48:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "PHP Foundation admits ‘structural failure’ delayed critical security fix ",
+      "description": "Government websites and online services were disrupted after concerns about a PHP bug that could allow attackers to take control of vulnerable servers.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/php-foundation-admits-structural-failure-delayed-critical-security-fix?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Thu, 22 Oct 2026 00:44:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Tesla’s stock falls as Elon Musk leaves investors wanting more",
+      "description": "SpaceX merger commentary is arguably the biggest thing on the minds of Tesla investors right now — and Musk had nothing new to offer on Wednesday.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/teslas-stock-falls-as-elon-musk-leaves-investors-wanting-more-eb347f38?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 23:29:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Meta’s stock rises as investors glimpse an opportunity that could dwarf the ad business",
+      "description": "Meta’s core advertising business delivered a strong quarter, but investors are eyeing promising new businesses around the Muse personal assistant",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/metas-stock-rises-as-investors-glimpse-an-opportunity-that-could-dwarf-the-ad-business-89369c6c?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 23:07:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "American Bankers Association: OCC’s GENIUS rules ‘undermine’ US Congress ",
+      "description": "Banking advocacy organizations are pushing back against the OCC’s finalized rules on a stablecoin law, arguing against changes to provisions on yield.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/american-bankers-association-occ-genius-rules-stablecoins?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 21:53:48 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Why investors should be skeptical of a potential Tesla-SpaceX merger",
+      "description": "Wall Street is all abuzz over a possible merger between Tesla and SpaceX. But there is a high probability that such a merger would be a bad idea.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/why-investors-should-be-skeptical-of-a-potential-tesla-spacex-merger-9e119d32?mod=mw_rss_topstories",
+      "pubDate": "Wed, 21 Oct 2026 21:44:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Tether backs Bolivian fintech bringing USDT payments to food delivery and banking",
+      "description": "The investment will support Peso’s expansion across four Latin American markets, where it connects stablecoin payments to merchant services and local banking networks.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/tether-backs-bolivian-fintech-bringing-usdt-payments-to-food-delivery-and-banking?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 20:26:07 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Trump didn‘t mention ‘crypto’ once in White House cybercrime roundtable",
+      "description": "The US President detailed many schemes defrauding Americans, but referred only to “cybercurrency“ related to scams.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/white-house-cybercrime-roundtable-donald-trump-crypto-ventures?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 20:19:39 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Here’s what happened in crypto today",
+      "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Wed, 21 Oct 2026 20:10:47 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
     },
     {
       "title": "Cardano Foundation urges EU against expanding MiCA rules to DeFi and staking",
@@ -49,42 +175,6 @@
       "category": "crypto"
     },
     {
-      "title": "How Ukraine’s drone strikes on Russia crippled the world’s second-largest diesel supplier",
-      "description": "President Donald Trump has blamed Ukraine for surging diesel prices that are hurting Republicans' election chances with the midterms just two weeks away.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/ukraine-russia-drone-diesel-refinery-trump-putin-zelenskyy.html",
-      "pubDate": "Wed, 21 Oct 2026 17:27:34 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "UK financial watchdog opens consultations for DeFi guidance, crypto laws",
-      "description": "The UK Financial Conduct Authority consultations came just weeks after the agency opened applications for companies under its new crypto regulatory regime.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/uk-fca-consultations-defi-crypto-laws?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 17:25:00 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Treasury Secretary Bessent likens GENIUS Act to Lincoln-era banking reform ",
-      "description": "The OCC has finalized rules for stablecoin reserves and redemptions, with Bessent calling the GENIUS Act a “watershed moment for American finance.”",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/occ-finalizes-stablecoin-rules-genius-act-bessent?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 17:10:54 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Medicare is a bargain. What America can’t afford is private health insurance.",
-      "description": "Private insurance costs way more for the same results — or worse.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/medicare-is-a-bargain-what-america-cant-afford-is-private-health-insurance-8a834023?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 16:34:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Trump to throw spotlight on overseas crypto abuses at White House event",
       "description": "The president is hosting a cybercrime event that will highlight U.S. authorities' efforts to crack down on crypto scams run by foreign criminal organizations.",
       "analysis": "",
@@ -94,84 +184,12 @@
       "category": "crypto"
     },
     {
-      "title": "Chainlink, Cardano, other blockchain groups push SEC for clearer crypto rules ",
-      "description": "Six major blockchain organizations urged the SEC to formally recognize digital commodities as non-securities in its proposed regulatory framework.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/chainlink-cardano-and-other-blockchain-groups-push-sec-for-clearer-crypto-rules?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 16:09:26 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "SpaceX stock jumps 10% after earnings beat and Musk hints at Tesla tie-up",
-      "description": "SpaceX shares jumped after the company reported surging revenue growth in its third quarter, and owner Elon Musk floated a potential SpaceX-Tesla merger.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/spacex-spcx-stock-musk-merger-tesla.html",
-      "pubDate": "Wed, 21 Oct 2026 16:08:50 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Tesla earnings loom after Musk calls SpaceX merger a 'good idea'",
-      "description": "A day after Elon Musk's SpaceX reported third-quarter results, Tesla is scheduled to update investors.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/21/tesla-tsla-q3-2026-earnings-report.html",
-      "pubDate": "Wed, 21 Oct 2026 16:01:25 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Polymarket traders see a 10% chance the AI bubble bursts before New Year’s Day",
-      "description": "For investors worried that the runaway artificial-intelligence trade might be about to hit the skids, prediction markets are already starting to reflect that anxiety.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/polymarket-traders-see-a-10-chance-the-ai-bubble-bursts-before-new-years-day-ad33258b?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 15:59:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Elon Musk promised a SpaceX share to every kid in America — don’t hold your breath",
-      "description": "Trick or treat? Musk has a long record of saying things have little relation to reality.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/elon-musk-promised-a-spacex-share-to-every-kid-in-america-dont-hold-your-breath-d6572cdf?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 15:50:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "AI stocks are probably in a bubble — but might be worth holding on to, says Citadel’s Ken Griffin",
-      "description": "Investors are for sure facing “bubbles,” but Ken Griffin isn’t telling investors to dump those stocks.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/ai-stocks-are-probably-in-a-bubble-but-might-be-worth-holding-onto-says-citadels-ken-griffin-87f535ce?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 15:27:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "How a16z-backed DATA is rethinking its blockchain strategy after $30 million Sui deal",
       "description": "The startup is retiring its own blockchain and moving to Sui with a $30 million investment as it narrows its focus to AI training data.",
       "analysis": "",
       "link": "https://www.coindesk.com/business/2026/10/21/how-a16z-backed-data-is-rethinking-its-blockchain-strategy-after-usd30-million-sui-deal",
       "pubDate": "Wed, 21 Oct 2026 15:22:46 +0000",
       "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "My partner of 17 years left me his $1 million home. His children say I influenced him to do so. Should I share my inheritance?",
-      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
-      "pubDate": "Wed, 21 Oct 2026 15:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Bitcoin price tags $84.6K as US stocks head higher on SpaceX Q3 earnings beat ",
-      "description": "Bitcoin extended gains to approach $85,000 after US stock markets reacted to higher-than-expected SpaceX earnings.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/markets/bitcoin-price-tags-846k-as-us-stocks-head-higher-on-spacex-q3-earnings-beat?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 15:13:17 +0000",
-      "source": "Cointelegraph",
       "category": "crypto"
     },
     {
@@ -193,29 +211,11 @@
       "category": "crypto"
     },
     {
-      "title": "Solana’s Alpenglow launches on mainnet, targets 99% faster finality ",
-      "description": "Solana’s first major consensus upgrade is targeting 99% finality reduction, seeking to offer users near-immediate transaction settlement and more responsive applications.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/solanas-alpenglow-launches-mainnet-99-faster-finality?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Wed, 21 Oct 2026 13:57:14 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
       "title": "Why centralized exchanges refuse to list legacy crypto tokens without explicit SEC immunity",
       "description": "Vault12 raised $17.45 million selling VGT in 2018 and says it met or dropped every promise, yet the token has never traded on a centralized exchange.",
       "analysis": "",
       "link": "https://www.coindesk.com/policy/2026/10/21/why-centralized-exchanges-refuse-to-list-legacy-crypto-tokens-without-explicit-sec-immunity",
       "pubDate": "Wed, 21 Oct 2026 12:12:36 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Japanese visitors may be able to pay with yen stablecoins in South Korea under Shinhan-SBI pact",
-      "description": "The collaboration will explore card-linked merchant payments for Japanese visitors in South Korea and peer-to-peer wallet transfers among broader cross-border trade remittances.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/21/japanese-visitors-may-be-able-to-pay-with-yen-stablecoins-in-south-korea-under-shinhan-sbi-pact",
-      "pubDate": "Wed, 21 Oct 2026 12:10:39 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
