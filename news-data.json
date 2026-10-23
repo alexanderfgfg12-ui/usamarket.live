@@ -1,24 +1,114 @@
 {
-  "updated": "2026-10-23T19:55:18.212Z",
+  "updated": "2026-10-23T23:01:10.361Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "Musk's SpaceX is still restricting Starlink in Ukraine and the toll is rising",
-      "description": "Since last week, Ukraine has reported restrictions on Starshield, a version of SpaceX's Starlink, hampering its military operations against Russia.",
+      "title": "Moody's holds steady on France's credit rating as country grapples with turmoil and higher yields",
+      "description": "Moody's left its credit rating on France at Aa3, giving the country some relief in a week of unrest.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/ukraine-says-starlink-restrictions-remain-despite-trump-assurances.html",
-      "pubDate": "Fri, 23 Oct 2026 19:50:26 GMT",
+      "link": "https://www.cnbc.com/2026/10/23/moodys-holds-steady-on-frances-credit-rating-as-country-grapples-with-turmoil-and-higher-yields.html",
+      "pubDate": "Fri, 23 Oct 2026 22:49:42 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Even the wealthy increasingly want all-inclusive resorts",
-      "description": "Nearly 80% of all-inclusive resorts have become ‘luxury or upper upscale,’ Bernstein analysts say, as the industry seeks higher-income travelers able to weather inflation.",
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
+      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/even-the-wealthy-increasingly-want-all-inclusive-resorts-118caa9b?mod=mw_rss_topstories",
-      "pubDate": "Fri, 23 Oct 2026 19:49:00 GMT",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 22:49:00 GMT",
       "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Trump's executive order targets mortgage insurance, refinance costs. What it means for borrowers",
+      "description": "Trump's executive order on housing aims to lower mortgage costs. Here's what it means for homeowners and buyers.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/trump-mortgage-executive-order-costs.html",
+      "pubDate": "Fri, 23 Oct 2026 22:27:06 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Will Anthropic pull off a November IPO? Time is running out to file key paperwork.",
+      "description": "If market pressures keep building, Anthropic “could reasonably decide it is better to stay private and wait for a better opportunity,” one portfolio manager says.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/will-anthropic-pull-off-a-november-ipo-time-is-running-out-to-file-key-paperwork-52677343?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 22:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Investors piled a record sum into a leveraged semiconductor ETF last week. Things didn’t work out.",
+      "description": "Traders making bullish bets on chip stocks are getting walloped this month, as renewed fears emerged about investment returns on the buildout of artificial intelligence.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/investors-piled-a-record-sum-into-a-leveraged-semiconductor-etf-last-week-things-didnt-work-out-4680b2f3?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 21:46:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Wells Fargo and five others object to OKX-ICE tokenized stock listings: Report",
+      "description": "As of Friday, 22 companies had filed objections as part of the joint venture’s proposed tokenized stock platform under the SEC’s innovation exemption.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/nasdaq-companies-object-tokenized-stock-listings-okx-ice?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 21:32:16 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Trump dropping some Canada tariffs but 'replacing' them with other products",
+      "description": "Sen. Susan Collins announced Canada was dropping Canadian tariffs, but the White House later said it was \"replacing\" the ones removed from the list.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/trump-tariffs-canada-susan-collins.html",
+      "pubDate": "Fri, 23 Oct 2026 21:26:59 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "This hot AI-fueled stock has been in a rut. It just beat earnings expectations by 36%.",
+      "description": "A company beating earnings expectations by 36% and revenue expectations by 15% would usually see a postresults bump. But not for Bloom Energy, the fuel-cell maker that has flourished due to data-center demand.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/this-hot-ai-fueled-stock-has-been-in-a-rut-it-just-beat-earnings-expectations-by-36-4a4188cb?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 21:13:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "The mobile ambitions of SpaceX are hitting telecom stocks again. Here’s what the latest developments mean.",
+      "description": "Reports of Starlink’s discussions with cell-tower owners were noticed by shareholders of Verizon, AT&T and T-Mobile.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/the-mobile-ambitions-of-spacex-see-telecom-stocks-get-hit-again-what-the-latest-developments-mean-9a4159b5?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 21:11:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "The real test for Moderna’s cancer vaccine isn’t about beating Keytruda. It’s keeping cancer from coming back in the long term.",
+      "description": "The first Phase 3 data for a cancer vaccine has raised questions about whether the potential new treatment is needed.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/the-real-test-for-modernas-cancer-vaccine-isnt-about-beating-keytruda-its-keeping-cancer-from-coming-back-in-the-long-term-da9af99f?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 21:06:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "IRS plans lower tax disclosure penalties, including for crypto: Forbes",
+      "description": "The US tax agency is targeting faster resolutions and more flexible payment options for taxpayers voluntarily disclosing past tax violations under a planned program overhaul.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/irs-plans-lower-penalties-for-crypto-tax-disclosures-forbes-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 20:54:17 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Scalpers offer Apple iPhone Duo buyers hundreds extra outside Beijing launch",
+      "description": "Apple's global launch of the foldable iPhone Duo brought scalpers to the Beijing flagship store looking to pay big for the already pricey devices.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/apple-iphone-duo-china-launch.html",
+      "pubDate": "Fri, 23 Oct 2026 20:06:37 GMT",
+      "source": "CNBC",
       "category": "markets"
     },
     {
@@ -31,60 +121,6 @@
       "category": "markets"
     },
     {
-      "title": "Qatar deal to buy U.S. natural gas shows how Iran war has redrawn global energy markets",
-      "description": "The Iran war is transforming global energy markets and benefiting U.S. companies, especially liquefied natural gas exporters.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/cheniere-qatar-energy-lng-natural-gas-iran-war-strait-hormuz.html",
-      "pubDate": "Fri, 23 Oct 2026 19:19:08 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "‘She’s living the dream’: My stepmother said I can buy my childhood home for $850,000. Is she taking advantage of me?",
-      "description": "“My late father bought our house for $250,000 in the 1990s.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/shes-living-the-dream-my-stepmother-said-i-can-buy-my-childhood-home-for-850-000-is-she-taking-advantage-of-me-1fdda7b5?mod=mw_rss_topstories",
-      "pubDate": "Fri, 23 Oct 2026 19:16:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "The real test for Moderna’s cancer vaccine isn’t about beating Keytruda. It’s keeping cancer from coming back in the long term.",
-      "description": "The first Phase 3 data for a cancer vaccine has raised questions about whether the potential new treatment is needed.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/the-real-test-for-modernas-cancer-vaccine-isnt-about-beating-keytruda-its-keeping-cancer-from-coming-back-in-the-long-term-da9af99f?mod=mw_rss_topstories",
-      "pubDate": "Fri, 23 Oct 2026 18:58:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "U.S. dropping some Canada tariffs, Susan Collins says as trade war looms over Maine Senate race",
-      "description": "The U.S. will issue tariff exemptions on several categories of Canadian imports, Sen. Susan Collins announced Friday.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/trump-tariffs-canada-susan-collins.html",
-      "pubDate": "Fri, 23 Oct 2026 18:54:16 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "In hunt for Starlink alternative, Ukraine partners with Nokia and satellite maker ICEYE",
-      "description": "With SpaceX imposing speed limits on Starlink in Ukraine and hampering military operations, Kyiv is looking for alternatives.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/ukraine-partners-with-nokia-and-iceye-for-starlink-alternative.html",
-      "pubDate": "Fri, 23 Oct 2026 18:52:37 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Think annuities are a rip-off? Now might be the perfect time to reconsider.",
-      "description": "Also in Weekend Reads: How to change your approach as the stock-market seesaws, some good news for home buyers, and advice from The Moneyist.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/think-annuities-are-a-rip-off-now-might-be-the-perfect-time-to-reconsider-6b3a2f88?mod=mw_rss_topstories",
-      "pubDate": "Fri, 23 Oct 2026 18:43:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Initia halts blockchain after exploit reportedly drains over $2.6M",
       "description": "The blockchain suspended its layer-1 network and rollups after security researchers identified unauthorized token minting and millions in assets transferred to Ethereum.",
       "analysis": "",
@@ -92,24 +128,6 @@
       "pubDate": "Fri, 23 Oct 2026 18:39:02 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
-    },
-    {
-      "title": "Oil markets are on edge ahead of the weekend, as midterm elections near and fresh U.S. strikes on Iran are predicted",
-      "description": "Oil has climbed back to an Iran-war high and may soon go higher, if the U.S. and Israel strike Iran after their respective voters go to the polls in the coming days.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/oil-markets-are-on-edge-ahead-of-the-weekend-as-midterm-elections-near-and-fresh-u-s-strikes-on-iran-are-predicted-8c27e634?mod=mw_rss_topstories",
-      "pubDate": "Fri, 23 Oct 2026 18:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Can Nvidia’s stock become a safe haven as Wall Street rethinks the AI trade?",
-      "description": "Investors favored flashier AI plays earlier this year, but some analysts say Nvidia’s dependability could now hold more appeal.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/can-nvidias-stock-become-a-safe-haven-as-wall-street-rethinks-the-ai-trade-64862936?mod=mw_rss_topstories",
-      "pubDate": "Fri, 23 Oct 2026 18:19:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
     },
     {
       "title": "US senator probes Tether after reported deal with ex-Trump crypto adviser",
@@ -154,24 +172,6 @@
       "link": "https://www.coindesk.com/markets/2026/10/23/robinhood-sees-surge-in-bitcoin-gold-prediction-markets-as-traders-move-beyond-sports",
       "pubDate": "Fri, 23 Oct 2026 13:58:56 +0000",
       "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Here’s what happened in crypto today",
-      "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 13:38:53 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "China targets 2030 for its national blockchain network buildout",
-      "description": "China’s five-year digital development plan calls for wider blockchain use in trade and manufacturing alongside stronger technical standards.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/china-2030-national-blockchain-network-buildout?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 13:21:07 +0000",
-      "source": "Cointelegraph",
       "category": "crypto"
     },
     {
