@@ -1,8 +1,71 @@
 {
-  "updated": "2026-10-22T23:11:58.409Z",
+  "updated": "2026-10-23T04:25:55.930Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "SK Hynix shares rebound after initial drop on scrapped Solidigm IPO plans",
+      "description": "SK Hynix shares rebound after an inital drop in early trading, following halted review of Solidigm IPO plans in the U.S.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/sk-hynix-solidigm-ipo-.html",
+      "pubDate": "Fri, 23 Oct 2026 04:05:35 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Bitcoin, gold trim early losses as yen gives up gains. Oil stays near $100",
+      "description": "Bitcoin and gold pared early losses as the yen gave up gains and Asian stocks rebounded, though oil near $100 keeps inflation risks in focus.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/23/bitcoin-gold-trim-early-losses-as-yen-gives-up-gains-oil-stays-near-usd100",
+      "pubDate": "Fri, 23 Oct 2026 03:13:01 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Wealthy Chinese move offshore money to U.S. banks as Beijing’s tax net widens",
+      "description": "Bankers and lawyers say Chinese clients' demand for U.S. bank accounts has gathered pace as Beijing tightens the screws on Chinese offshore wealth.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/wealthy-chinese-tax-offshore-trusts-capital-control-.html",
+      "pubDate": "Fri, 23 Oct 2026 01:23:12 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Switzerland approves first spot Bitcoin ETF for retail investors",
+      "description": "BIT Asset Management’s Bitcoin Fund ETF is expected to begin trading on SIX Swiss Exchange in November, with its public offering restricted to Switzerland.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/switzerland-approves-first-spot-bitcoin-etf-for-retail-investors?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 00:59:35 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "SpaceX records $561 million investment gain from stake in Elon Musk's Boring Co. ",
+      "description": "SpaceX's stake in Boring Co. helped boost its net income in the third quarter.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/22/spacex-records-561-million-investment-gain-from-stake-in-boring-co.html",
+      "pubDate": "Fri, 23 Oct 2026 00:46:09 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Pentagon bans US forces from using military info to bet in prediction markets",
+      "description": "Hegseth warned that prediction market wagers could expose military operations to adversaries.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/pentagon-bans-us-forces-from-using-military-info-to-bet-in-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Thu, 22 Oct 2026 23:50:42 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "My partner of 17 years left me his $1 million home. His children are crying foul. Am I obliged to split it with them?",
+      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
+      "pubDate": "Thu, 22 Oct 2026 23:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
     {
       "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
       "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
@@ -23,7 +86,7 @@
     },
     {
       "title": "New DeepSeek ban in US, Swiss-Asia crypto ties deepen: Asia Express",
-      "description": "DeepSeek banned from US federal civilian agencies over spying fears. Singapore firm behind Europe’s first spot Bitcoin ETF, as Switzerland partners with Vietnam on crypto tech.",
+      "description": "DeepSeek banned from US federal civilian agencies over spying fears. Singapore firm behind Europe’s only spot Bitcoin ETF, as Switzerland partners with Vietnam on crypto tech.",
       "analysis": "",
       "link": "https://cointelegraph.com/magazine/new-deepseek-ban-in-us-swiss-asia-crypto-ties-deepen-asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Thu, 22 Oct 2026 22:50:22 +0000",
@@ -38,15 +101,6 @@
       "pubDate": "Thu, 22 Oct 2026 22:43:36 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "Meta’s deal to keep Zuckerberg in California adds fuel to wealth tax debate ahead of election",
-      "description": "With less than two weeks before the midterm elections, Meta made clear that Mark Zuckerberg is staying in California if the wealth tax passes.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/meta-mark-zuckerberg-california-billionaire-tax.html",
-      "pubDate": "Thu, 22 Oct 2026 22:21:08 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "The U.S. stock market is fracturing into two camps, and it’s leaving investors with a brutal case of whiplash",
@@ -94,29 +148,11 @@
       "category": "markets"
     },
     {
-      "title": "3 big reasons Micron and other chip stocks fell hard on Thursday",
-      "description": "Investors are spooked by Tesla’s lower spending target, Lam Research’s weaker-than-expected forecast and a fresh reminder that the AI boom relies on outside funding.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/two-big-reasons-micron-and-other-chip-stocks-are-falling-on-thursday-312f1fb2?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 21:19:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Trump asked Musk to lift Starlink slowdown, WSJ reports",
       "description": "Elon Musk, a critic of Ukrainian President Volodymyr Zelenskyy, had ordered the slowdown of SpaceX's Starlink, The Wall Street Journal previously reported.",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/22/trump-musk-starlink-ukraine.html",
       "pubDate": "Thu, 22 Oct 2026 21:02:07 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "OpenAI nears up to $30 billion funding round at $1.25 trillion valuation led by UAE investors ",
-      "description": "OpenAI is close to finalizing a new funding round that is meant to be a bridge to its 2027 IPO, sources familiar with the matter tell CNBC.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html",
-      "pubDate": "Thu, 22 Oct 2026 20:41:37 GMT",
       "source": "CNBC",
       "category": "markets"
     },
@@ -130,15 +166,6 @@
       "category": "crypto"
     },
     {
-      "title": "Trump defends Ramaswamy ad with Acton's estranged mom after bipartisan criticism",
-      "description": "Ohio Gov. Mike DeWine said GOP gubernatorial nominee Vivek Ramaswamy should remove the ad featuring the mother of Democratic nominee Amy Acton.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/trump-ramaswamy-ad-acton-mother-ad.html",
-      "pubDate": "Thu, 22 Oct 2026 20:26:48 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Here’s what happened in crypto today",
       "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "analysis": "",
@@ -148,13 +175,13 @@
       "category": "crypto"
     },
     {
-      "title": "Winklevoss PAC moves into Texas Senate race with $81K ad buy ",
-      "description": "While crypto-aligned PACs have stepped up spending in Ohio, a committee launched by the co-founders of crypto exchange Gemini made one of its first forays into the Lone Star State.",
+      "title": "10-year Treasury yield tumbles below 5% to lowest level in nearly a month",
+      "description": "Treasury yields dove dramatically lower on Thursday as investors monitored a slump in stocks and surging oil prices.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/winklevoss-pac-texas-senate-race-media-paxton-talarico?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 19:29:53 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
+      "link": "https://www.cnbc.com/2026/10/22/treasurys-bonds-ai-yields.html",
+      "pubDate": "Thu, 22 Oct 2026 20:05:13 GMT",
+      "source": "CNBC",
+      "category": "markets"
     },
     {
       "title": "A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech",
@@ -163,24 +190,6 @@
       "link": "https://www.coindesk.com/business/2026/10/22/a16z-is-the-latest-vc-giant-to-widen-bets-beyond-crypto-and-into-ai-and-emerging-tech",
       "pubDate": "Thu, 22 Oct 2026 18:30:57 +0000",
       "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Bill Ackman says 2027 will be an amazing year for stocks as wars, inflation ease",
-      "description": "\"We're going to have an amazing 2027,\" he said.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/bill-ackman-talks-meta-and-markets-with-cnbc.html",
-      "pubDate": "Thu, 22 Oct 2026 17:53:08 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Underdog taps zerohash to bring crypto deposits to prediction markets ",
-      "description": "The new funding option, expected to launch later this year, will allow eligible Underdog users to deposit digital assets around the clock.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/underdog-taps-zerohash-to-bring-crypto-deposits-to-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 17:24:49 +0000",
-      "source": "Cointelegraph",
       "category": "crypto"
     },
     {
@@ -207,15 +216,6 @@
       "analysis": "",
       "link": "https://www.coindesk.com/business/2026/10/22/crypto-custody-specialist-fireblocks-denies-its-in-talks-to-be-acquired-by-visa",
       "pubDate": "Thu, 22 Oct 2026 14:37:12 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Crypto is making a splash in U.S. elections — but chiefly in jabs about industry influence",
-      "description": "Boosters often say crypto voters can swing elections, but Democrats are seeking mileage out of tying crypto to Trump, corruption and attempts to buy seats in Congress.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/news-analysis/2026/10/21/crypto-is-making-a-splash-in-u-s-elections-but-chiefly-in-jabs-about-industry-influence",
-      "pubDate": "Thu, 22 Oct 2026 13:00:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
