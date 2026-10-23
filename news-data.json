@@ -1,222 +1,222 @@
 {
-  "updated": "2026-10-23T04:25:55.930Z",
+  "updated": "2026-10-23T13:22:26.507Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "SK Hynix shares rebound after initial drop on scrapped Solidigm IPO plans",
-      "description": "SK Hynix shares rebound after an inital drop in early trading, following halted review of Solidigm IPO plans in the U.S.",
+      "title": "10-year Treasury yield drops back to 5% this week as investors seek cover from AI worries",
+      "description": "The 10-year Treasury yield stayed below 5% Friday after AI-driven tech selling sent investors into government bonds.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/sk-hynix-solidigm-ipo-.html",
-      "pubDate": "Fri, 23 Oct 2026 04:05:35 GMT",
+      "link": "https://www.cnbc.com/2026/10/23/bonds-yields-us-treasurys.html",
+      "pubDate": "Fri, 23 Oct 2026 13:13:58 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Bitcoin, gold trim early losses as yen gives up gains. Oil stays near $100",
-      "description": "Bitcoin and gold pared early losses as the yen gave up gains and Asian stocks rebounded, though oil near $100 keeps inflation risks in focus.",
+      "title": "Over 40% of Americans are heading toward retirement ‘blind’ — with no plan",
+      "description": "Nearly half of Americans haven’t calculated what they’ll need in retirement.",
       "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/23/bitcoin-gold-trim-early-losses-as-yen-gives-up-gains-oil-stays-near-usd100",
-      "pubDate": "Fri, 23 Oct 2026 03:13:01 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
+      "link": "https://www.marketwatch.com/story/over-40-of-americans-are-heading-toward-retirement-blind-with-no-plan-e49b502f?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 13:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
     },
     {
-      "title": "Wealthy Chinese move offshore money to U.S. banks as Beijing’s tax net widens",
-      "description": "Bankers and lawyers say Chinese clients' demand for U.S. bank accounts has gathered pace as Beijing tightens the screws on Chinese offshore wealth.",
+      "title": "U.S. oil rises above $100, Brent at five-month high as Iran says it’s prepared for warfare",
+      "description": "U.S. President Donald Trump accused Iran on Thursday of trying to manipulate the oil market.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/wealthy-chinese-tax-offshore-trusts-capital-control-.html",
-      "pubDate": "Fri, 23 Oct 2026 01:23:12 GMT",
+      "link": "https://www.cnbc.com/2026/10/23/oil-price-brent-wti-iran-war-saudi-arabia.html",
+      "pubDate": "Fri, 23 Oct 2026 12:46:11 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Switzerland approves first spot Bitcoin ETF for retail investors",
-      "description": "BIT Asset Management’s Bitcoin Fund ETF is expected to begin trading on SIX Swiss Exchange in November, with its public offering restricted to Switzerland.",
+      "title": "New York AG seeks $1.37B from NovaTech founders over Ponzi scheme",
+      "description": "The request follows an August 2025 default judgment, with the AG also announcing nearly $6 million in settlements with four promoters.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/switzerland-approves-first-spot-bitcoin-etf-for-retail-investors?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 00:59:35 +0000",
+      "link": "https://cointelegraph.com/news/new-york-ag-novatech-founders-companies-crypto-ponzi?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 12:33:37 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "SpaceX records $561 million investment gain from stake in Elon Musk's Boring Co. ",
-      "description": "SpaceX's stake in Boring Co. helped boost its net income in the third quarter.",
+      "title": "Smart financial advisers are dropping ROI, NAV and QCD for plain English when talking to clients",
+      "description": "Not everyone is familiar with the ABCs of financial planning",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/spacex-records-561-million-investment-gain-from-stake-in-boring-co.html",
-      "pubDate": "Fri, 23 Oct 2026 00:46:09 GMT",
+      "link": "https://www.marketwatch.com/story/smart-financial-advisers-are-dropping-roi-nav-and-qcd-for-plain-english-when-talking-to-clients-2a16fc6f?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 12:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Bitcoin consolidates after 3% loss as AI fears stoke fresh stock-market weakness",
+      "description": "Bitcoin price volatility cooled as stock markets battled another day of resurgent AI fears during Friday’s Asia trading session.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/markets/bitcoin-consolidates-after-3-loss-as-ai-fears-stoke-fresh-stock-market-weakness?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 12:23:58 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "It’s been a painful month for hedge funds. To turn it around, they are shorting U.S. stocks.",
+      "description": "In response to losses on popular trades, hedge funds are now shorting U.S. stocks aggressively to try and win back some performance.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/its-been-a-painful-month-for-hedge-funds-to-turn-it-around-they-are-shorting-u-s-stocks-d36ee922?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 12:23:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Silicon Valley Democrats demand investigation into Starlink restrictions in Ukraine",
+      "description": "A letter demanding an investigation indicates Democrats will make investigating Starlink's interruption a top priority if they win control of the U.S. House.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/starlink-ukraine-musk-trump-congress.html",
+      "pubDate": "Fri, 23 Oct 2026 12:22:10 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Pentagon bans US forces from using military info to bet in prediction markets",
-      "description": "Hegseth warned that prediction market wagers could expose military operations to adversaries.",
+      "title": "My spouse was awarded $90,000 from my 401(k) in our divorce. How is that fair?",
+      "description": "“I retired in 2020 and subsequently went through a divorce a few years later.”",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/pentagon-bans-us-forces-from-using-military-info-to-bet-in-prediction-markets?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 23:50:42 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "My partner of 17 years left me his $1 million home. His children are crying foul. Am I obliged to split it with them?",
-      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 23:15:00 GMT",
+      "link": "https://www.marketwatch.com/story/my-spouse-was-awarded-90-000-from-my-401-k-in-our-divorce-how-is-that-fair-dc839aa3?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 12:16:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
-      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
+      "title": "Fewer people are flying as airfare soars. Here's why airlines aren't worried",
+      "description": "Airlines are reporting fewer people flew in the third quarter as airfare surged on fuel costs, but executives say travelers are mostly swallowing higher fares.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 23:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "CoreWeave set off a wave of anxiety — but Wall Street’s dire prognosis is premature",
-      "description": "Stop listening to market pundits and start looking at market performance.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/coreweave-set-off-a-wave-of-anxiety-but-wall-streets-dire-prognosis-is-premature-edc3f5dd?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 22:54:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "New DeepSeek ban in US, Swiss-Asia crypto ties deepen: Asia Express",
-      "description": "DeepSeek banned from US federal civilian agencies over spying fears. Singapore firm behind Europe’s only spot Bitcoin ETF, as Switzerland partners with Vietnam on crypto tech.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/magazine/new-deepseek-ban-in-us-swiss-asia-crypto-ties-deepen-asia-express?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 22:50:22 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Senate's top Democratic investigator looking into Tether payments to Bo Hines' firm",
-      "description": "Senator Richard Blumenthal, the ranking Democrat on the investigations subcommittee, added a probe of the ex-White House crypto adviser to his list of crypto interests.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/22/senate-s-top-democratic-investigator-looking-into-tether-payments-to-bo-hines-firm",
-      "pubDate": "Thu, 22 Oct 2026 22:43:36 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "The U.S. stock market is fracturing into two camps, and it’s leaving investors with a brutal case of whiplash",
-      "description": "The artificial-intelligence trade is on the ropes. CNN’s “Fear & Greed” index is screaming fear, and the yield on the 10-year Treasury note just clinched its biggest daily drop since the collapse of Silicon Valley Bank.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/the-u-s-stock-market-is-fracturing-into-two-camps-and-its-leaving-investors-with-a-brutal-case-of-whiplash-e8580a99?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 22:17:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here’s what’s going on.",
-      "description": "‘It’s a take-back trade,’ says PGIM’s Tipp. ‘Not an all-out fear of recession type of situation.’",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/treasury-yields-see-extreme-plunge-why-investors-are-ducking-for-cover-60044c66?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 22:07:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Moderna shares plunge after cancer vaccine data leaks — despite positive results",
-      "description": "Moderna released full data on its closely watched cancer vaccine developed with Merck.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/moderna-stock-cancer-vaccine-data-leak.html",
-      "pubDate": "Thu, 22 Oct 2026 21:52:02 GMT",
+      "link": "https://www.cnbc.com/2026/10/23/airfare-airline-capacity.html",
+      "pubDate": "Fri, 23 Oct 2026 12:11:48 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Circle shareholder sues Trump, World Liberty and Steve Witkoff over crypto deals",
-      "description": "According to a Circle shareholder, the US president’s “corruption” through USD1 left the company unable to compete with stablecoins, harming USDC.",
+      "title": "Was crypto self-custody ever designed for beginners?",
+      "description": "Recent hardware wallet security incidents have renewed debate over whether self-custody is suitable for beginners, as multisig and seedless designs carry their own risks.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/circle-shareholder-lawsuit-donald-trump-world-liberty-financial-steve-witkoff-crypto-corruption?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 21:39:18 +0000",
+      "link": "https://cointelegraph.com/news/self-custody-crypto-beginners-mainstream-adoption?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 11:47:47 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Americans are having fewer babies — and pampering them with luxury diapers",
-      "description": "“Fewer babies in each household means parents spend more per baby,” Procter & Gamble’s CFO says.",
+      "title": "The mobile ambitions of SpaceX are hitting telecom stocks again. Here’s what the latest developments mean.",
+      "description": "Reports of Starlink’s discussions with cell-tower owners were noticed by shareholders of Verizon, AT&T and T-Mobile.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/americans-are-having-fewer-babies-and-pampering-them-with-luxury-diapers-a84222cd?mod=mw_rss_topstories",
-      "pubDate": "Thu, 22 Oct 2026 21:28:00 GMT",
+      "link": "https://www.marketwatch.com/story/the-mobile-ambitions-of-spacex-see-telecom-stocks-get-hit-again-what-the-latest-developments-mean-9a4159b5?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 11:32:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
     {
-      "title": "Trump asked Musk to lift Starlink slowdown, WSJ reports",
-      "description": "Elon Musk, a critic of Ukrainian President Volodymyr Zelenskyy, had ordered the slowdown of SpaceX's Starlink, The Wall Street Journal previously reported.",
+      "title": "The stock market is splitting in two. Is that signaling trouble ahead, or just a new set of winners?",
+      "description": "Tech stocks are slumping — even as more than 300 S&P 500 constituents rose Thursday — and Treasurys are rallying. Here’s what may be changing.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/trump-musk-starlink-ukraine.html",
-      "pubDate": "Thu, 22 Oct 2026 21:02:07 GMT",
+      "link": "https://www.marketwatch.com/story/the-stock-market-is-splitting-in-two-is-that-signaling-trouble-ahead-or-just-a-new-set-of-winners-f51aaeab?mod=mw_rss_topstories",
+      "pubDate": "Fri, 23 Oct 2026 11:24:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Bitcoin's price is as jumpy as Nvidia's and eight times more turbulent than the euro",
+      "description": "Your day-ahead look for Oct. 23, 2026",
+      "analysis": "",
+      "link": "https://www.coindesk.com/daybook-us/2026/10/23/bitcoin-s-volatility-is-well-above-euro-dollar-gyrations-though-it-has-calmed-to-rival-nvidia-s",
+      "pubDate": "Fri, 23 Oct 2026 11:22:33 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Live updates: Bitcoin holds above $81,000 as markets calm, oil continues to gain",
+      "description": "South Korea's Kospi was flat overnight, suggesting some steadying in the AI trade. Nasdaq 100 futures are steady as well, but oil continues its climb.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/23/live-updates-bitcoin-holds-above-usd81-000-as-the-ai-rout-fades-and-oil-climbs",
+      "pubDate": "Fri, 23 Oct 2026 11:13:01 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "With earnings in rearview mirror, SpaceX-Tesla merger chatter takes center stage",
+      "description": "A Tesla-SpaceX merger may be in the works, but the companies face a long road of negotiations and regulatory reviews.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/spacex-tesla-merger-chatter-takes-center-stage-after-earnings.html",
+      "pubDate": "Fri, 23 Oct 2026 11:00:01 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Dune launches real-time data feeds covering 200 onchain trading venues ",
-      "description": "The new service aims to bring onchain trading data into institutional financial systems as tokenized stock markets expand and face growing scrutiny.",
+      "title": "Bitcoin steadies near $81,700 as altcoins rebound, pepe climbs 13%",
+      "description": "Bitcoin rose 0.5% to around $81,700 since midnight UTC while the CoinDesk 80 gained 1.4% and memecoins climbed 2.9%.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/dune-launches-real-time-data-feeds-covering-200-onchain-trading-venues?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 20:36:00 +0000",
+      "link": "https://www.coindesk.com/markets/2026/10/23/bitcoin-steadies-near-usd81-700-as-altcoins-rebound-pepe-climbs-13",
+      "pubDate": "Fri, 23 Oct 2026 10:54:41 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Bitcoin appears to have decoupled from midterm cycle bottom history ",
+      "description": "Previous bitcoin bear-market lows followed U.S. midterms, but this year’s recovery raises the possibility that the bottom arrived months earlier.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/23/bitcoin-approaches-midterms-as-july-low-challenges-historical-cycle-pattern",
+      "pubDate": "Fri, 23 Oct 2026 10:53:09 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "HSBC rolls out its first stablecoin to over 3 million everyday app users",
+      "description": "HSBC and Standard Chartered-led Anchorpoint received Hong Kong’s first stablecoin issuer licenses in April. Anchorpoint began rolling out HKDAP in August.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/23/hsbc-rolls-out-its-first-stablecoin-to-over-3-million-everyday-app-users",
+      "pubDate": "Fri, 23 Oct 2026 10:22:56 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Cysic dangles a 10% bounty, hacker pours loot into Tornado Cash",
+      "description": "The attacker moved $744,000 in ETH and BNB to Tornado Cash after exploiting Cysic’s bridge to mint 10 million tokens on BNB Smart Chain.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/cysic-exploiter-eth-tornado-cash-white-hat-offer?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 10:13:06 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Here’s what happened in crypto today",
-      "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
+      "title": "Corruption is voters' top issue ahead of midterm election, CNBC survey shows",
+      "description": "Democrats have worked to contrast economic hardship with President Trump's surging net worth and his family's lucrative business dealings.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Thu, 22 Oct 2026 20:09:59 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "10-year Treasury yield tumbles below 5% to lowest level in nearly a month",
-      "description": "Treasury yields dove dramatically lower on Thursday as investors monitored a slump in stocks and surging oil prices.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/22/treasurys-bonds-ai-yields.html",
-      "pubDate": "Thu, 22 Oct 2026 20:05:13 GMT",
+      "link": "https://www.cnbc.com/2026/10/23/corruption-midterm-election-cnbc-poll-trump.html",
+      "pubDate": "Fri, 23 Oct 2026 10:00:01 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "A16z is the latest VC giant to widen bets beyond crypto and into AI and emerging tech",
-      "description": "The venture investor behind early bets on Coinbase, Solana and Uniswap said is broadening its focus, joining other crypto investment firms looking beyond blockchain to artificial intelligence and tech themes.",
+      "title": "Bybit secures first full Dubai license for spot trading services",
+      "description": "Bybit’s new VARA licence authorizes spot trading services in Dubai, but the exchange must complete additional regulatory requirements before launching.",
       "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/22/a16z-is-the-latest-vc-giant-to-widen-bets-beyond-crypto-and-into-ai-and-emerging-tech",
-      "pubDate": "Thu, 22 Oct 2026 18:30:57 +0000",
+      "link": "https://cointelegraph.com/news/bybit-first-full-dubai-spot-trading-license?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 09:50:04 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Sweden’s central bank revives e-krona debate as stablecoins and digital euro loom",
+      "description": "The Riksbank sees an e-krona as critical to securing national payments and monetary control.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/23/sweden-s-central-bank-revives-e-krona-debate-as-stablecoins-and-digital-euro-loom",
+      "pubDate": "Fri, 23 Oct 2026 08:57:34 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     },
     {
-      "title": "Irish central bank fines Coinbase Ireland $3.6 million over fund safeguarding failures",
-      "description": "When Silvergate was on the verge of collapse in 2023, Coinbase instructed 30 customers to deposit funds into an alternate account held by Coinbase at another U.S. bank.",
+      "title": "HSBC launches Hong Kong dollar stablecoin for retail payments",
+      "description": "HSBC is rolling out RedCoin wallets to PayMe users, with plans to support tokenized investment subscriptions and expand into institutional uses.",
       "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/22/irish-central-bank-fines-coinbase-ireland-usd3-6-million-over-fund-safeguarding-failures",
-      "pubDate": "Thu, 22 Oct 2026 15:40:25 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Crypto for Advisors: Stablecoins are ready for prime time",
-      "description": "",
-      "analysis": "",
-      "link": "https://www.coindesk.com/coindesk-indices/2026/10/22/crypto-for-advisors-stablecoins-are-ready-for-prime-time",
-      "pubDate": "Thu, 22 Oct 2026 14:58:31 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Crypto custody specialist Fireblocks denies it's in talks to be acquired by Visa ",
-      "description": "The company is in talks with Visa over a potential $2.5 billion acquisition, Axios reported.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/22/crypto-custody-specialist-fireblocks-denies-its-in-talks-to-be-acquired-by-visa",
-      "pubDate": "Thu, 22 Oct 2026 14:37:12 +0000",
-      "source": "CoinDesk",
+      "link": "https://cointelegraph.com/news/hsbc-launches-redcoin-hong-kong-dollar-stablecoin-payme?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Fri, 23 Oct 2026 08:47:34 +0000",
+      "source": "Cointelegraph",
       "category": "crypto"
     }
   ]
