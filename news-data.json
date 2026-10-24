@@ -1,8 +1,17 @@
 {
-  "updated": "2026-10-23T23:01:10.361Z",
+  "updated": "2026-10-24T04:15:50.609Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Turmoil hits AI buildout as neoclouds face pressure, credit risks mount and Solidigm pulls IPO",
+      "description": "Stock slumps, pulled IPOs and rising spreads on credit default swaps this week sets stage for hyperscaler earnings.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/23/ai-turmoil-neoclouds-struggle-credit-risks-jump-solidigm-pulls-ipo.html",
+      "pubDate": "Sat, 24 Oct 2026 01:57:24 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
     {
       "title": "Moody's holds steady on France's credit rating as country grapples with turmoil and higher yields",
       "description": "Moody's left its credit rating on France at Aa3, giving the country some relief in a week of unrest.",
@@ -108,15 +117,6 @@
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/23/apple-iphone-duo-china-launch.html",
       "pubDate": "Fri, 23 Oct 2026 20:06:37 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Meta shares are down 9% this week. Here's why Mike Khouw is buying now",
-      "description": "Meta shares just had their worst week in four years. Here's why Mike Khouw is buying now",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/23/meta-shares-rough-week-mike-khouw-is-buying.html",
-      "pubDate": "Fri, 23 Oct 2026 19:25:18 GMT",
       "source": "CNBC",
       "category": "markets"
     },
