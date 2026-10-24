@@ -1,8 +1,62 @@
 {
-  "updated": "2026-10-24T18:46:11.149Z",
+  "updated": "2026-10-24T22:24:00.395Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "After SpaceX restores high-speed service, Musk claims Ukraine violated Starlink agreement",
+      "description": "Ukraine says restrictions on Starlink and Starshield have been lifted, restoring connectivity to fast-moving military systems after disruptions.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/24/ukraine-starlink-starshield-service-restored.html",
+      "pubDate": "Sat, 24 Oct 2026 20:38:30 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "My father-in-law, 81, sold his $75,000 home to pay his daughter’s $50,000 debt. How can I keep him from becoming destitute?",
+      "description": "“Nothing has been set aside for his needs.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-father-in-law-81-sold-his-75-000-home-and-paid-off-his-daughters-50-000-debt-what-happens-to-him-now-60e8fc72?mod=mw_rss_topstories",
+      "pubDate": "Sat, 24 Oct 2026 20:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "‘She’s living the dream’: My stepmother said I can buy my childhood home for $850,000. Is she taking advantage of me?",
+      "description": "“My late father bought our house for $250,000 in the 1990s.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/shes-living-the-dream-my-stepmother-said-i-can-buy-my-childhood-home-for-850-000-is-she-taking-advantage-of-me-1fdda7b5?mod=mw_rss_topstories",
+      "pubDate": "Sat, 24 Oct 2026 20:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Democrats, voting-rights groups challenge Trump's bid to block Alaska Senate certification",
+      "description": "Lawsuits filed by candidate Mary Peltola and a voters' rights group challenge Trump's preemptive efforts to block a Democratic Senate victory in Alaska.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/24/alaska-senate-doj-certification-lawsuit.html",
+      "pubDate": "Sat, 24 Oct 2026 19:57:24 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "My husband wants to sell our $1.5 million home and invest the proceeds. But this is where we raised our kids — and I can’t bear to leave.",
+      "description": "“He wants to buy something for $600,000 now that we are empty-nesters.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-husband-wants-to-sell-our-1-5-million-home-and-invest-the-proceeds-but-this-is-where-we-raised-our-kids-and-i-cant-bear-to-leave-4feb46ed?mod=mw_rss_topstories",
+      "pubDate": "Sat, 24 Oct 2026 19:45:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Young Americans are giving up on car ownership. It’s a path to financial freedom for some.",
+      "description": "With vehicle prices soaring and ownership increasingly out of reach, some young adults are discovering that life without a car leaves them with breathing room to spend on other things.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/young-americans-are-giving-up-their-cars-its-a-path-to-financial-freedom-for-some-3cce491c?mod=mw_rss_topstories",
+      "pubDate": "Sat, 24 Oct 2026 18:45:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
     {
       "title": "I’m 58 and hate annuities. How can I get dependable income in retirement?",
       "description": "For a person looking to make their portfolio more conservative, a TIPS ladder may achieve the same effect",
@@ -18,42 +72,6 @@
       "analysis": "",
       "link": "https://www.marketwatch.com/story/i-want-to-pay-off-4-500-in-credit-card-debt-in-2-months-is-this-possible-059d9a21?mod=mw_rss_topstories",
       "pubDate": "Sat, 24 Oct 2026 17:39:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Over 40% of Americans are heading toward retirement ‘blind’ — with no plan",
-      "description": "Nearly half of Americans haven’t calculated what they’ll need in retirement.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/over-40-of-americans-are-heading-toward-retirement-blind-with-no-plan-e49b502f?mod=mw_rss_topstories",
-      "pubDate": "Sat, 24 Oct 2026 17:23:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Elon Musk promised a SpaceX share to every kid in America — don’t hold your breath",
-      "description": "Trick or treat? Musk has a long record of saying things have little relation to reality.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/elon-musk-promised-a-spacex-share-to-every-kid-in-america-dont-hold-your-breath-d6572cdf?mod=mw_rss_topstories",
-      "pubDate": "Sat, 24 Oct 2026 16:59:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "The Social Security Administration wants more babies signed up for ‘Trump accounts.’ But there’s still a catch.",
-      "description": "Social Security is looking to reverse an initially slow uptake on Trump accounts",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/the-social-security-administration-wants-more-babies-signed-up-for-trump-accounts-but-theres-still-a-catch-4096f16e?mod=mw_rss_topstories",
-      "pubDate": "Sat, 24 Oct 2026 16:46:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Walmart, Best Buy and other stores now use digital price tags. Critics say they could lead to different prices for different shoppers.",
-      "description": "Store aisles are getting a digital makeover.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/walmart-best-buy-and-other-stores-now-use-digital-price-tags-critics-say-they-could-lead-to-different-prices-for-different-shoppers-19e2f4da?mod=mw_rss_topstories",
-      "pubDate": "Sat, 24 Oct 2026 16:18:00 GMT",
       "source": "MarketWatch",
       "category": "markets"
     },
@@ -92,15 +110,6 @@
       "pubDate": "Sat, 24 Oct 2026 15:11:24 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "Retail investors are not more sophisticated than 30 years ago, says former hedge fund manager",
-      "description": "Retail investors trying to beat the market by buying individual stocks and complex exchange-traded funds may be better off with broad market index funds.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/stock-picking-could-hurt-investors-warns-former-hedge-fund-manager.html",
-      "pubDate": "Sat, 24 Oct 2026 15:00:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "Why McDonalds, Microsoft and Google saying no to tokenized stocks isn't a dealbreaker",
@@ -144,15 +153,6 @@
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
       "pubDate": "Sat, 24 Oct 2026 11:00:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Trump is pushing a massive AI buildout. His own voters are wary of what comes with it",
-      "description": "A new CNBC survey finds broad voter opposition to nearby AI data centers, creating a political challenge for Trump and Republicans ahead of the midterm election.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/trump-ai-data-centers-voter-backlash-midterms.html",
-      "pubDate": "Sat, 24 Oct 2026 10:59:16 GMT",
       "source": "CNBC",
       "category": "markets"
     },
