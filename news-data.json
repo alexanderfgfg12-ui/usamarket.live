@@ -1,8 +1,44 @@
 {
-  "updated": "2026-10-25T18:52:50.862Z",
+  "updated": "2026-10-25T22:26:27.227Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Blanche defends Trump-ordered lawsuit over Alaska Senate election certification",
+      "description": "Democrats have maintained they have no connection to Daniel J. Sullivan.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/25/blanche-doj-alaska-senate-certification-lawsuit.html",
+      "pubDate": "Sun, 25 Oct 2026 20:28:55 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "‘She’s living the dream’: My stepmother said I can buy my childhood home for $850,000. Is she taking advantage of me?",
+      "description": "“My late father bought our house for $250,000 in the 1990s.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/shes-living-the-dream-my-stepmother-said-i-can-buy-my-childhood-home-for-850-000-is-she-taking-advantage-of-me-1fdda7b5?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 20:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
+      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 20:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "We stopped helping our neighbors with free home repairs and our friendship cooled. Who’s to blame?",
+      "description": "“Last summer, they complained about needing to replace their roof. A few months later, they bought a new SUV.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-whos-to-blame-d20b0720?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 19:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
     {
       "title": "Ukraine disputes Elon Musk’s claim that its military violated Starlink terms during drone operations",
       "description": "Ukraine challenged Musk’s claim that its military violated Starlink terms, arguing that commercial Starlink limits prevented medium- and long-range strike use.",
@@ -40,24 +76,6 @@
       "category": "markets"
     },
     {
-      "title": "We stopped helping our neighbors with free home repairs and our friendship cooled. Who’s to blame?",
-      "description": "“Last summer, they complained about needing to replace their roof. A few months later, they bought a new SUV.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-whos-to-blame-d20b0720?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 17:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
-      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 16:45:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
       "description": "Audi's CEO defended the company's plans for a $4 billion plant in Georgia, calling it a business decision to grow sales and reduce exposure to U.S. tariffs.",
       "analysis": "",
@@ -85,29 +103,11 @@
       "category": "crypto"
     },
     {
-      "title": "My spouse was awarded $90,000 from my 401(k) in our divorce. How is that fair?",
-      "description": "“I retired in 2020 and subsequently went through a divorce a few years later.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-spouse-was-awarded-90-000-from-my-401-k-in-our-divorce-how-is-that-fair-dc839aa3?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 14:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "In pictures: Initially peaceful protests across France over inequality again descend into violence ",
       "description": "Protests over inequality and living costs drew an estimated 410,000 people across France, with clashes in several cities for a second straight weekend.",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/25/france-protests-paris-cost-of-living-inequality.html",
       "pubDate": "Sun, 25 Oct 2026 14:14:23 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Saudi Arabia says it intercepted missiles and drones from Iran-backed Houthis",
-      "description": "Saudi Arabia says it intercepted Houthi missiles and drones, while the Houthis claimed attacks on airports and energy sites amid rising regional supply risks.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/saudi-arabia-houthi-missile-drone-interceptions.html",
-      "pubDate": "Sun, 25 Oct 2026 13:41:37 GMT",
       "source": "CNBC",
       "category": "markets"
     },
@@ -119,24 +119,6 @@
       "pubDate": "Sun, 25 Oct 2026 13:00:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "What Democrats and Republicans fear most about each other: CNBC survey has the answers",
-      "description": "The economy is still a key issue in the 2026 election, but voters are concerned about Trump testing the bounds of the office and Democratic Socialist polices.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/cnbc-survey-midterm-election-voter-fears.html",
-      "pubDate": "Sun, 25 Oct 2026 12:00:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Marc Lore’s Wonder bets on Texas, automation and user-built restaurants as it mulls IPO",
-      "description": "Wonder is leaning into automation and user-built restaurants as founder Marc Lore prepares the startup for a potential IPO.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/wonder-ipo-texas-automation.html",
-      "pubDate": "Sun, 25 Oct 2026 12:00:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "Netanyahu floats use of blockchain as solution to potential financial sanctions",
@@ -166,6 +148,15 @@
       "category": "crypto"
     },
     {
+      "title": "Why popular airplanes are getting scrapped years early",
+      "description": "Airplanes are getting dismantled for parts years ahead of schedule because engines and other components are in short supply.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/24/spirit-airlines-planes-scrapped-engine-shortage.html",
+      "pubDate": "Sat, 24 Oct 2026 15:18:30 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
       "title": "Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East evacuations",
       "description": "Bitcoin has sunk to its weakest level in more than one month.",
       "analysis": "",
@@ -182,6 +173,15 @@
       "pubDate": "Sat, 24 Oct 2026 15:00:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
+    },
+    {
+      "title": "Nvidia's role as AI financier faces first big test as neoclouds take market hit",
+      "description": "As Nvidia has gone from chipmaker to industry financier, some investors see the company taking on outsized risk tied to the AI buildout.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
+      "pubDate": "Sat, 24 Oct 2026 11:00:01 GMT",
+      "source": "CNBC",
+      "category": "markets"
     },
     {
       "title": "Wells Fargo and five others object to OKX-ICE tokenized stock listings: Report",
