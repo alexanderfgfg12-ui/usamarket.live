@@ -1,15 +1,114 @@
 {
-  "updated": "2026-10-25T13:08:18.535Z",
+  "updated": "2026-10-25T18:52:50.862Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "Worried about this stock-market selloff? Relief may be coming after the midterms — no matter who wins.",
-      "description": "The nine months between Election Day and June 30 have seen the S&P 500 deliver an average return of 15.5% going back to 1950.",
+      "title": "Ukraine disputes Elon Musk’s claim that its military violated Starlink terms during drone operations",
+      "description": "Ukraine challenged Musk’s claim that its military violated Starlink terms, arguing that commercial Starlink limits prevented medium- and long-range strike use.",
       "analysis": "",
-      "link": "https://www.marketwatch.com/story/worried-about-this-stock-market-selloff-relief-may-be-coming-after-the-midterms-no-matter-who-wins-39322c07?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 13:00:00 GMT",
+      "link": "https://www.cnbc.com/2026/10/25/ukraine-musk-starlink-terms-dispute.html",
+      "pubDate": "Sun, 25 Oct 2026 18:18:49 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "My father-in-law, 81, sold his $75,000 home to pay his daughter’s $50,000 debt. How can I keep him from becoming destitute?",
+      "description": "“Nothing has been set aside for his needs.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-father-in-law-81-sold-his-75-000-home-and-paid-off-his-daughters-50-000-debt-what-happens-to-him-now-60e8fc72?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 18:00:00 GMT",
       "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "My partner of 17 years left me his $1 million home. His children are livid. Am I obliged to split it with them?",
+      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 17:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "We have a $300,000 mortgage with a 2.75% interest rate. I want to pay it off. My husband says I’m crazy. Who’s right?",
+      "description": "“I don’t want to enter retirement owing six figures when we have the cash to clear it.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/we-have-a-300-000-mortgage-with-a-2-75-interest-rate-i-want-to-pay-it-off-my-husband-says-im-crazy-whos-right-4ed15226?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 17:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "We stopped helping our neighbors with free home repairs and our friendship cooled. Who’s to blame?",
+      "description": "“Last summer, they complained about needing to replace their roof. A few months later, they bought a new SUV.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-whos-to-blame-d20b0720?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 17:00:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
+      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 16:45:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
+      "description": "Audi's CEO defended the company's plans for a $4 billion plant in Georgia, calling it a business decision to grow sales and reduce exposure to U.S. tariffs.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/25/audi-georgia-us-plant-tariffs-volkswagen.html",
+      "pubDate": "Sun, 25 Oct 2026 16:42:42 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "ECB official sees digital euro as key to protecting EU ‘sovereignty’",
+      "description": "Piero Cipollone said the bloc is on track to test real transactions in 2027 and roll out a digital euro as early as 2029, pending legislation this year.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/ecb-official-sees-digital-euro-tool-to-protect-eu-sovereignty?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Sun, 25 Oct 2026 15:11:00 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Latvia targets tokenization rules in 2027 with commercial property in focus",
+      "description": "Economics Minister Viktors Valainis says rules could arrive in the first half of next year, but an overdue assessment remains unfinished and no sovereign-bond issuance was identified.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/business/2026/10/25/latvia-targets-tokenization-rules-in-2027-with-commercial-property-in-focus",
+      "pubDate": "Sun, 25 Oct 2026 15:00:00 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "My spouse was awarded $90,000 from my 401(k) in our divorce. How is that fair?",
+      "description": "“I retired in 2020 and subsequently went through a divorce a few years later.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-spouse-was-awarded-90-000-from-my-401-k-in-our-divorce-how-is-that-fair-dc839aa3?mod=mw_rss_topstories",
+      "pubDate": "Sun, 25 Oct 2026 14:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "In pictures: Initially peaceful protests across France over inequality again descend into violence ",
+      "description": "Protests over inequality and living costs drew an estimated 410,000 people across France, with clashes in several cities for a second straight weekend.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/25/france-protests-paris-cost-of-living-inequality.html",
+      "pubDate": "Sun, 25 Oct 2026 14:14:23 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Saudi Arabia says it intercepted missiles and drones from Iran-backed Houthis",
+      "description": "Saudi Arabia says it intercepted Houthi missiles and drones, while the Houthis claimed attacks on airports and energy sites amid rising regional supply risks.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/25/saudi-arabia-houthi-missile-drone-interceptions.html",
+      "pubDate": "Sun, 25 Oct 2026 13:41:37 GMT",
+      "source": "CNBC",
       "category": "markets"
     },
     {
@@ -20,24 +119,6 @@
       "pubDate": "Sun, 25 Oct 2026 13:00:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "Saudi Arabia says it intercepted missiles and drones from Iran-backed Houthis",
-      "description": "Saudi Arabia says it intercepted Houthi missiles and drones, while the Houthis claimed attacks on airports and energy sites amid rising regional supply risks.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/saudi-arabia-houthi-missile-drone-interceptions.html",
-      "pubDate": "Sun, 25 Oct 2026 12:49:33 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "‘Nonanswers’ aren’t working. This is what investors really need from the Fed.",
-      "description": "What really matters to investors, economists say, is for Fed Chairman Kevin Warsh to prove he can successfully communicate the central bank’s strategy.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/non-answers-arent-working-this-is-what-investors-really-need-from-the-fed-673a9dce?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 12:44:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
     },
     {
       "title": "What Democrats and Republicans fear most about each other: CNBC survey has the answers",
@@ -58,15 +139,6 @@
       "category": "markets"
     },
     {
-      "title": "Why economic health no longer dictates stock-market returns",
-      "description": "There is a wide disconnect between Wall Street and Main Street, and AI could drive them even further apart",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/why-economic-health-no-longer-dictates-stock-market-returns-c44b88f2?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 12:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Netanyahu floats use of blockchain as solution to potential financial sanctions",
       "description": "Ahead of elections, Prime Minister Benjamin Netanyahu said Israel could turn to blockchain and crypto to skirt potential international sanctions, to the dismay of opponents and the country’s central banker.",
       "analysis": "",
@@ -74,51 +146,6 @@
       "pubDate": "Sun, 25 Oct 2026 11:42:00 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
-    },
-    {
-      "title": "Here’s the real signal to watch for the Fed’s next move",
-      "description": "Investors should focus not on the rate itself, but on where financial conditions are",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/heres-the-real-signal-to-watch-for-the-feds-next-move-9189cb51?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 11:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "What next for France as riots rattle markets? Three questions facing investors ahead of more protests",
-      "description": "French unrest pushed bond yields to a 24-year high as investors weigh budget, growth and sectors risks ahead of more protests.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/france-riots-paris-unrest-debt-budget.html",
-      "pubDate": "Sun, 25 Oct 2026 08:06:11 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "My father-in-law, 81, sold his $75,000 home to pay his daughter’s $50,000 debt. How can I keep him from becoming destitute?",
-      "description": "“Nothing has been set aside for his needs.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-father-in-law-81-sold-his-75-000-home-and-paid-off-his-daughters-50-000-debt-what-happens-to-him-now-60e8fc72?mod=mw_rss_topstories",
-      "pubDate": "Sat, 24 Oct 2026 20:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "‘She’s living the dream’: My stepmother said I can buy my childhood home for $850,000. Is she taking advantage of me?",
-      "description": "“My late father bought our house for $250,000 in the 1990s.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/shes-living-the-dream-my-stepmother-said-i-can-buy-my-childhood-home-for-850-000-is-she-taking-advantage-of-me-1fdda7b5?mod=mw_rss_topstories",
-      "pubDate": "Sat, 24 Oct 2026 20:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Biotech stocks are surging. How investors can play the new drug innovation boom",
-      "description": "Biotech stocks are rallying as clinical wins, M&A and new drug technologies revive the sector. Here are the ETFs and stocks analysts favor.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/biotech-stocks-drug-innovation-rally.html",
-      "pubDate": "Sat, 24 Oct 2026 18:56:29 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends",
@@ -157,24 +184,6 @@
       "category": "crypto"
     },
     {
-      "title": "Argentina drops criminal probe into President Milei over crashed memecoin LIBRA",
-      "description": "The judge found that Milei's promotion of LIBRA did not constitute fraud, despite the attention his support drew to the token.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/24/argentina-drops-criminal-probe-into-president-milei-over-crashed-memecoin-libra",
-      "pubDate": "Sat, 24 Oct 2026 14:38:47 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Amgen says drug combo cuts risk of death by 58% in patients with aggressive lung cancer",
-      "description": "A drug from Amgen could give patients with an aggressive form of lung cancer significantly more time to live when added to an immunotherapy from AstraZeneca.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/amgen-imdelltra-lung-cancer-data.html",
-      "pubDate": "Sat, 24 Oct 2026 14:30:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Wells Fargo and five others object to OKX-ICE tokenized stock listings: Report",
       "description": "As of Friday, 22 companies had filed objections as part of the joint venture’s proposed tokenized stock platform under the SEC’s innovation exemption.",
       "analysis": "",
@@ -207,15 +216,6 @@
       "analysis": "",
       "link": "https://cointelegraph.com/news/us-senator-probe-bo-hines-trump-crypto-adviser-tether-deal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
       "pubDate": "Fri, 23 Oct 2026 17:42:12 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "SEC flags tokenization as high-risk area in 2027 market examinations",
-      "description": "The SEC’s latest priorities highlight tokenization as an emerging market risk, while cryptocurrencies remain absent as a standalone examination category.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/sec-adds-tokenized-securities-to-2027-examination-priorities?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 16:08:40 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     }
