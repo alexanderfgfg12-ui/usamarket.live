@@ -1,3 +1,9 @@
+// ===== 1. المؤقت القاتل (لمنع تعليق GitHub Actions) =====
+setTimeout(() => {
+  console.error('⏱️ [FORCE EXIT] Process hung for too long. Killing to save GitHub minutes.');
+  process.exit(1);
+}, 6 * 60 * 1000); // يقتل العملية قسرياً بعد 6 دقائق
+
 const Parser = require('rss-parser');
 const fs = require('fs');
 const path = require('path');
@@ -14,7 +20,7 @@ const FEEDS = [
 
 // ===== إعدادات Gemini API =====
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = 'gemini-1.5-flash'; // تم التعديل لنموذج مستقر
+const GEMINI_MODEL = 'gemini-1.5-flash'; // النموذج المستقر
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
 // ===== إعادة الكتابة بالذكاء الاصطناعي (مقال كامل) =====
@@ -40,7 +46,7 @@ Original text: ${article.description}`;
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 25000); // زيادة الوقت للمقالات الطويلة
+    const timeoutId = setTimeout(() => controller.abort(), 25000); // 25 ثانية مهلة للطلب الواحد
 
     const res = await fetch(GEMINI_URL, {
       method: 'POST',
@@ -49,7 +55,7 @@ Original text: ${article.description}`;
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 1500, // زيادة عدد الكلمات المسموح بها
+          maxOutputTokens: 1500,
           responseMimeType: 'application/json'
         }
       }),
@@ -58,8 +64,14 @@ Original text: ${article.description}`;
 
     clearTimeout(timeoutId);
 
+    // التحقق من تجاوز الحصة (429)
+    if (res.status === 429) {
+      console.error('   🚫 429: Quota exceeded. Skipping this article.');
+      return null;
+    }
+
     if (!res.ok) {
-      console.error(`   ❌ Gemini ${res.status}`);
+      console.error(`   ❌ Gemini Error ${res.status}`);
       return null;
     }
 
@@ -106,7 +118,7 @@ function generateArticleHTML(article) {
   </div>
 
   <div class="article-content" style="line-height: 1.8; font-size: 1.1rem;">
-    ${article.content || `<p>${article.description}</p>`}
+    ${article.content ? article.content : `<p>${article.description}</p>`}
   </div>
 
   ${article.analysis ? `<div style="background: #1e293b; padding: 15px; border-radius: 8px; margin-top: 20px;"><strong>💡 Market Analysis:</strong> ${article.analysis}</div>` : ''}
@@ -136,7 +148,7 @@ async function fetchAll() {
   for (const feed of FEEDS) {
     try {
       const parsed = await parser.parseURL(feed.url);
-      const items = (parsed.items || []).slice(0, 4); // تقليل العدد لتجنب تجاوز حدود API
+      const items = (parsed.items || []).slice(0, 3); // جلب 3 أخبار من كل مصدر لتجنب الضغط
       for (const item of items) {
         articles.push({
           originalTitle: item.title,
@@ -163,15 +175,14 @@ async function fetchAll() {
     return true;
   });
 
-  // معالجة 10 أخبار فقط بالذكاء الاصطناعي لتجنب الحظر وتجاوز الوقت
-  const AI_LIMIT = 10;
+  // معالجة 5 أخبار فقط بالذكاء الاصطناعي (لتوفير الحصة المجانية)
+  const AI_LIMIT = 5;
   const top = unique.slice(0, AI_LIMIT);
 
   console.log(`\n🤖 Generating full articles for ${top.length} news...\n`);
 
   const rewritten = [];
   
-  // إنشاء مجلد الأخبار إذا لم يكن موجوداً
   if (!fs.existsSync('news')) fs.mkdirSync('news');
 
   for (let i = 0; i < top.length; i++) {
@@ -181,7 +192,6 @@ async function fetchAll() {
       description: a.originalDescription
     });
 
-    // إنشاء رابط (Slug) من العنوان
     const rawTitle = ai?.headline || a.originalTitle;
     const slug = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now();
     const fileName = `news/${slug}.html`;
@@ -198,21 +208,21 @@ async function fetchAll() {
       category: a.category
     };
 
-    // 1. حفظ صفحة HTML للمقال
+    // حفظ صفحة HTML للمقال
     fs.writeFileSync(fileName, generateArticleHTML(articleData));
     console.log(`  [${i + 1}/${top.length}] ✅ ${rawTitle.substring(0, 50)} -> ${fileName}`);
 
-    // 2. إضافة الخبر للبيانات
     rewritten.push(articleData);
 
-    await new Promise(r => setTimeout(r, 2000)); // تأخير ثانيتين بين كل طلب
+    // تأخير ثانيتين بين الطلبات لتجنب الحظر
+    await new Promise(r => setTimeout(r, 2000));
   }
 
-  // إضافة الأخبار المتبقية (بدون AI)
-  const remaining = unique.slice(AI_LIMIT, AI_LIMIT + 20);
+  // إضافة الأخبار المتبقية كبيانات فقط (بدون إنشاء صفحات HTML لها لتوفير الوقت)
+  const remaining = unique.slice(AI_LIMIT, AI_LIMIT + 15);
   for (const a of remaining) {
     rewritten.push({
-      id: a.originalTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now(),
+      id: null, // لا يوجد ID لأنه لا توجد صفحة HTML
       title: a.originalTitle,
       description: a.originalDescription.substring(0, 250),
       content: `<p>${a.originalDescription}</p>`,
