@@ -85,11 +85,12 @@ function openArticle(index) {
     ? `<strong>💡 Analysis:</strong> ${escapeHtml(article.analysis)}`
     : '';
   
-  // تحديث أزرار النافذة المنبثقة لإضافة رابط الصفحة المستقلة
+  // تحديث أزرار النافذة المنبثقة
   const modalFooter = document.getElementById('modalFooter');
   if (modalFooter) {
-    // نستخدم العنوان (title) كمعرف للمقال في الرابط لأنه أكثر وضوحاً
-    const articleUrl = `article.html?id=${encodeURIComponent(article.title)}`;
+    // التحقق مما إذا كان للمقال ملف HTML مستقل (id)
+    // إذا لم يكن هناك id، نستخدم الرابط القديم كاحتياط
+    const articleUrl = article.id ? `news/${article.id}.html` : `article.html?id=${encodeURIComponent(article.title)}`;
     
     modalFooter.innerHTML = `
       <a href="${articleUrl}" class="btn-source" style="background: #e11d48; color: white; margin-right: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; font-weight: bold;">
