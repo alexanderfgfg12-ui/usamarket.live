@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article - US Market Live</title>
+<link rel="stylesheet" href="style.css">
+<!-- كود AdSense الأساسي -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">📈 US Market Live</a>
+    <nav class="nav"><a href="/" class="nav-link">← Back to Home</a></nav>
+  </div>
+</header>
+
+<main class="container" id="articleContainer" style="padding: 40px 20px; max-width: 800px; margin: auto;">
+  <div class="loading">⏳ Loading article...</div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-bottom">
+    <p>© <span id="year"></span> US Market Live — <a href="/privacy.html" style="color:#888">Privacy</a> | <a href="/about.html" style="color:#888">About</a> | <a href="/contact.html" style="color:#888">Contact</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const urlParams = new URLSearchParams(window.location.search);
+  const articleId = urlParams.get('id');
+
+  if (!articleId) {
+    document.getElementById('articleContainer').innerHTML = '<h2>Article not found</h2><a href="/">Go Home</a>';
+  } else {
+    fetch('news-data.json').then(res => res.json()).then(data => {
+      // نبحث عن المقال باستخدام الـ id أو العنوان
+      const article = data.find(a => a.id == articleId || a.title === articleId);
+      if (!article) {
+        document.getElementById('articleContainer').innerHTML = '<h2>Article not found</h2><a href="/">Go Home</a>';
+        return;
+      }
+      document.title = article.title + ' - US Market Live';
+      
+      // كود الإعلان
+      const adCode = `<div style="margin: 20px 0; text-align: center;">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3583305975597231" data-ad-slot="ضع_رقم_الوحدة_هنا" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+      </div>`;
+
+      document.getElementById('articleContainer').innerHTML = `
+        <h1>${article.title}</h1>
+        <p style="color: #888; margin-bottom: 20px;">${article.pubDate || ''} | Source: ${article.source || 'US Market Live'}</p>
+        ${adCode}
+        <div class="modal-text" style="line-height: 1.8; font-size: 1.1rem;">${article.content || article.description || ''}</div>
+        ${adCode}
+        <p style="margin-top: 30px;"><a href="${article.link}" target="_blank" style="color: #e11d48; font-weight: bold;">Read Full Story at Source →</a></p>
+      `;
+    }).catch(() => {
+      document.getElementById('articleContainer').innerHTML = '<h2>Error loading article</h2>';
+    });
+  }
+</script>
+</body>
+</html>
