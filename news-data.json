@@ -1,8 +1,89 @@
 {
-  "updated": "2026-10-25T22:26:27.227Z",
+  "updated": "2026-10-26T04:23:28.350Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
+    {
+      "title": "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede",
+      "description": "It's the first time since Brazil returned to direct elections in 1989 that a candidate has won the final runoff after losing in the first round.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
+      "pubDate": "Mon, 26 Oct 2026 04:09:41 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Hong Kong names Nasdaq-listed Solana Company a strategic enterprise",
+      "description": "The Nasdaq-listed firm said it plans to establish Solana validator operations in Hong Kong.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/hong-kong-names-nasdaq-listed-solana-company-a-strategic-enterprise?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 03:21:26 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Elon Musk issues a warning for 'AI neoclouds' as SpaceX borrows $40 billion for chips",
+      "description": "SpaceX has raised $40 billion in debt to buy GPUs, while Musk predicts a major shakeout among smaller AI cloud providers.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/26/elon-musk-confirms-usd40-billion-spacex-debt-deal-for-ai-chips-warns-of-neocloud-shakeout",
+      "pubDate": "Mon, 26 Oct 2026 03:11:39 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Keystone says website breach exposed hardware wallet buyers’ addresses",
+      "description": "A security researcher warned that the leaked shipping details could expose crypto holders to targeted scams and physical attacks.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/keystone-says-website-breach-exposed-hardware-wallet-buyers-addresses?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 02:24:04 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Musk says SpaceX landed a $40 billion debt deal — and forecasts doom for some AI rivals",
+      "description": "SpaceX is rapidly growing an AI business that rents out access to advanced chips.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/musk-says-spacex-landed-a-40-billion-debt-deal-and-forecasts-doom-for-some-ai-rivals-a0a4991e?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 01:50:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "SpaceX closes $40 billion debt deal for AI chips, Elon Musk says\n",
+      "description": "Elon Musk said in an X post that SpaceX has closed $40 billion in debt financing to purchase GPUs.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/26/spacex-closes-40-billion-debt-deal-for-ai-chips-elon-musk-.html",
+      "pubDate": "Mon, 26 Oct 2026 00:37:51 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Standard Chartered-led Anchorpoint says it’s not rushing retail stablecoin",
+      "description": "The Standard Chartered and Animoca Brands joint venture previously targeted retail access as early as the end of 2026, but its CEO declined to reaffirm that timeline.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/standard-chartered-led-anchorpoint-says-its-not-rushing-retail-stablecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 00:13:29 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "‘Ticking time bomb’: The world's pension funds face an ageing crisis",
+      "description": "The world's pension systems are confronting a demographic crisis as longer lifespans and dwindling birth rates threaten to stretch retirement finances.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/26/pension-funds-ageing-crisis-risk-investment.html",
+      "pubDate": "Mon, 26 Oct 2026 00:03:20 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "AI agents help rescue ETH’s Glamsterdam fork, ‘Steal My Bitcoin’ site: Hodler’s Digest",
+      "description": "Similar to the Hugging Face hack, Ethereum researchers have set up an AI Agent message board to help rescue the Glamsterdam fork. ‘Steal My Bitcoin’ site successfully hacked.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/magazine/ai-agents-help-rescue-eths-glamsterdam-fork-steal-my-bitcoin-site-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Sun, 25 Oct 2026 22:48:40 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
     {
       "title": "Blanche defends Trump-ordered lawsuit over Alaska Senate election certification",
       "description": "Democrats have maintained they have no connection to Daniel J. Sullivan.",
@@ -67,15 +148,6 @@
       "category": "markets"
     },
     {
-      "title": "We have a $300,000 mortgage with a 2.75% interest rate. I want to pay it off. My husband says I’m crazy. Who’s right?",
-      "description": "“I don’t want to enter retirement owing six figures when we have the cash to clear it.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/we-have-a-300-000-mortgage-with-a-2-75-interest-rate-i-want-to-pay-it-off-my-husband-says-im-crazy-whos-right-4ed15226?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 17:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
       "title": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
       "description": "Audi's CEO defended the company's plans for a $4 billion plant in Georgia, calling it a business decision to grow sales and reduce exposure to U.S. tariffs.",
       "analysis": "",
@@ -101,15 +173,6 @@
       "pubDate": "Sun, 25 Oct 2026 15:00:00 +0000",
       "source": "CoinDesk",
       "category": "crypto"
-    },
-    {
-      "title": "In pictures: Initially peaceful protests across France over inequality again descend into violence ",
-      "description": "Protests over inequality and living costs drew an estimated 410,000 people across France, with clashes in several cities for a second straight weekend.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/france-protests-paris-cost-of-living-inequality.html",
-      "pubDate": "Sun, 25 Oct 2026 14:14:23 GMT",
-      "source": "CNBC",
-      "category": "markets"
     },
     {
       "title": "UK banks face 10,000 complaints in 3 months over crypto restrictions",
@@ -148,75 +211,12 @@
       "category": "crypto"
     },
     {
-      "title": "Why popular airplanes are getting scrapped years early",
-      "description": "Airplanes are getting dismantled for parts years ahead of schedule because engines and other components are in short supply.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/spirit-airlines-planes-scrapped-engine-shortage.html",
-      "pubDate": "Sat, 24 Oct 2026 15:18:30 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
       "title": "Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East evacuations",
       "description": "Bitcoin has sunk to its weakest level in more than one month.",
       "analysis": "",
       "link": "https://www.coindesk.com/markets/2026/10/24/crypto-under-weekend-pressure-bitcoin-slides-below-usd80-000-on-u-s-middle-east-evacuations",
       "pubDate": "Sat, 24 Oct 2026 15:11:24 +0000",
       "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Why McDonalds, Microsoft and Google saying no to tokenized stocks isn't a dealbreaker",
-      "description": "Some of the world's biggest companies objected to being listed on the first tokenized securities trading venue under the SEC's innovation exemption. But the early pushback may say more about issuer caution than about rejection of tokenization itself.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/23/why-mcdonalds-microsoft-and-google-saying-no-to-tokenized-stocks-isn-t-a-dealbreaker",
-      "pubDate": "Sat, 24 Oct 2026 15:00:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Nvidia's role as AI financier faces first big test as neoclouds take market hit",
-      "description": "As Nvidia has gone from chipmaker to industry financier, some investors see the company taking on outsized risk tied to the AI buildout.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/24/nvidias-role-as-ai-financier-faces-first-big-test-as-neoclouds-take-market-hit.html",
-      "pubDate": "Sat, 24 Oct 2026 11:00:01 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "Wells Fargo and five others object to OKX-ICE tokenized stock listings: Report",
-      "description": "As of Friday, 22 companies had filed objections as part of the joint venture’s proposed tokenized stock platform under the SEC’s innovation exemption.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/nasdaq-companies-object-tokenized-stock-listings-okx-ice?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 21:32:16 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "IRS plans lower tax disclosure penalties, including for crypto: Forbes",
-      "description": "The US tax agency is targeting faster resolutions and more flexible payment options for taxpayers voluntarily disclosing past tax violations under a planned program overhaul.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/irs-plans-lower-penalties-for-crypto-tax-disclosures-forbes-reports?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 20:54:17 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Initia halts blockchain after exploit reportedly drains over $2.6M",
-      "description": "The blockchain suspended its layer-1 network and rollups after security researchers identified unauthorized token minting and millions in assets transferred to Ethereum.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/initia-halts-blockchain-exploit-drained?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 18:39:02 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "US senator probes Tether after reported deal with ex-Trump crypto adviser",
-      "description": "The Democratic ranking member of the Senate Permanent Subcommittee on Investigations asked Paolo Ardoino for records related to a reported deal between Tether and Nxum.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/us-senator-probe-bo-hines-trump-crypto-adviser-tether-deal?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Fri, 23 Oct 2026 17:42:12 +0000",
-      "source": "Cointelegraph",
       "category": "crypto"
     }
   ]
