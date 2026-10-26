@@ -12,17 +12,6 @@ async function loadNews() {
         month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
       });
 
-    if (data.articles[0] && lastNewsTitle && data.articles[0].title !== lastNewsTitle) {
-      showToast('🔔', 'New article available!');
-      if (Notification.permission === 'granted') {
-        new Notification('US Market Live', {
-          body: data.articles[0].title.substring(0, 100),
-          icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">📈</text></svg>'
-        });
-      }
-    }
-    if (data.articles[0]) lastNewsTitle = data.articles[0].title;
-
     allNews = data.articles || [];
     renderFeatured(allNews[0]);
     renderNews(allNews);
@@ -70,7 +59,7 @@ function renderNews(articles) {
   `).join('');
 }
 
-// ===== Modal =====
+// ===== Modal (النافذة المنبثقة) =====
 function openArticle(index) {
   const article = allNews[index];
   if (!article) return;
@@ -80,24 +69,22 @@ function openArticle(index) {
     <span class="news-source">📰 ${escapeHtml(article.source)}</span>
     <span>🕒 ${formatDate(article.pubDate)}</span>
   `;
-  document.getElementById('modalText').textContent = article.description;
+  
+  // السطر الأهم: عرض المحتوى الكامل (content) داخل الموقع نفسه
+  document.getElementById('modalText').innerHTML = article.content ? article.content : `<p>${escapeHtml(article.description)}</p>`;
+  
   document.getElementById('modalAnalysis').innerHTML = article.analysis
     ? `<strong>💡 Analysis:</strong> ${escapeHtml(article.analysis)}`
     : '';
   
-  // تحديث أزرار النافذة المنبثقة
   const modalFooter = document.getElementById('modalFooter');
   if (modalFooter) {
-    // إذا كان للمقال ID، نوجهه لصفحة مجلد news. وإلا نستخدم صفحة article.html
-    const articleUrl = article.id ? `news/${article.id}.html` : `article.html?id=${encodeURIComponent(article.title)}`;
+    // إذا كان هناك صفحة داخلية (مجلد news)، نضع زراً لفتحها
+    const articleUrl = article.id ? `news/${article.id}.html` : null;
     
     modalFooter.innerHTML = `
-      <a href="${articleUrl}" class="btn-source" style="background: #e11d48; color: white; margin-right: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; font-weight: bold;">
-        Read Full Article
-      </a>
-      <a href="${article.link}" target="_blank" rel="noopener" class="btn-source" style="background: transparent; border: 1px solid #555; color: #ccc;">
-        Read at Source →
-      </a>
+      ${articleUrl ? `<a href="${articleUrl}" class="btn-source" style="background: #e11d48; color: white; margin-right: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; font-weight: bold;">Open Full Page</a>` : ''}
+      <a href="${article.link}" target="_blank" rel="noopener" class="btn-source" style="background: transparent; border: 1px solid #555; color: #ccc;">Read at Source (${article.source}) →</a>
     `;
   }
 
@@ -178,13 +165,10 @@ document.addEventListener('click', e => {
 
 // ===== Notifications =====
 document.getElementById('notifyBtn').addEventListener('click', async () => {
-  if (!('Notification' in window)) { showToast('❌', 'Notifications not supported'); return; }
+  if (!('Notification' in window)) { alert('Notifications not supported'); return; }
   const p = await Notification.requestPermission();
   if (p === 'granted') {
-    showToast('🔔', 'Notifications enabled');
     document.getElementById('notifyBtn').classList.add('active');
-  } else {
-    showToast('❌', 'Notifications denied');
   }
 });
 
@@ -198,23 +182,10 @@ document.getElementById('newsletterForm').addEventListener('submit', e => {
     msg.style.color = '#ef4444';
     return;
   }
-  const subs = JSON.parse(localStorage.getItem('subs') || '[]');
-  if (!subs.includes(email)) subs.push(email);
-  localStorage.setItem('subs', JSON.stringify(subs));
   msg.textContent = '✅ Subscribed successfully!';
   msg.style.color = '#22c55e';
   document.getElementById('newsletterEmail').value = '';
 });
-
-// ===== Toast =====
-function showToast(icon, msg) {
-  const c = document.getElementById('toastContainer');
-  const t = document.createElement('div');
-  t.className = 'toast';
-  t.innerHTML = `<strong>${icon}</strong>${msg}`;
-  c.appendChild(t);
-  setTimeout(() => t.remove(), 5000);
-}
 
 // ===== Back to top =====
 const backBtn = document.getElementById('backToTop');
