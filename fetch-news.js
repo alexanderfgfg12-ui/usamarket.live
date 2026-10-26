@@ -1,5 +1,6 @@
 const Parser = require('rss-parser');
 const fs = require('fs');
+const path = require('path');
 const parser = new Parser({ timeout: 15000 });
 
 // ===== مصادر الأخبار =====
@@ -13,34 +14,33 @@ const FEEDS = [
 
 // ===== إعدادات Gemini API =====
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = 'gemini-3.8-flash';
+const GEMINI_MODEL = 'gemini-1.5-flash'; // تم التعديل لنموذج مستقر
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
 
-// ===== إعادة الكتابة بالذكاء الاصطناعي مع timeout =====
+// ===== إعادة الكتابة بالذكاء الاصطناعي (مقال كامل) =====
 async function rewriteWithAI(article) {
   if (!GEMINI_API_KEY) {
     console.error('⚠️ GEMINI_API_KEY not set');
     return null;
   }
 
-  const prompt = `You are a financial news editor. Rewrite the following news article in clear, professional English for a US market-focused audience.
+  const prompt = `You are a professional financial news editor. Write a detailed, original news article in English based on the following source text.
 
 Requirements:
-1. Write a NEW compelling headline (max 80 characters)
-2. Write a 2-3 sentence summary (max 280 characters) explaining the news
-3. Add ONE sentence of analysis (max 150 characters) explaining why this matters to investors
-4. Keep facts accurate, do not invent data
-5. Return ONLY valid JSON in this exact format, nothing else:
+1. Write a compelling headline (max 80 characters).
+2. Write a 2-3 sentence summary (max 280 characters).
+3. Write a full article body (300-500 words) with 2-3 paragraphs. Do NOT copy the original text; rewrite and expand it in a professional journalistic tone.
+4. Add a short "Market Analysis" paragraph (max 150 characters) explaining why this matters to investors.
+5. Keep facts accurate. Return ONLY valid JSON in this exact format:
 
-{"headline":"...","summary":"...","analysis":"..."}
+{"headline":"...","summary":"...","content":"<p>Paragraph 1...</p><p>Paragraph 2...</p>","analysis":"..."}
 
 Original title: ${article.title}
-Original description: ${article.description}`;
+Original text: ${article.description}`;
 
   try {
-    // Timeout 15 ثانية لكل طلب
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
+    const timeoutId = setTimeout(() => controller.abort(), 25000); // زيادة الوقت للمقالات الطويلة
 
     const res = await fetch(GEMINI_URL, {
       method: 'POST',
@@ -49,7 +49,7 @@ Original description: ${article.description}`;
         contents: [{ parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 500,
+          maxOutputTokens: 1500, // زيادة عدد الكلمات المسموح بها
           responseMimeType: 'application/json'
         }
       }),
@@ -59,35 +59,73 @@ Original description: ${article.description}`;
     clearTimeout(timeoutId);
 
     if (!res.ok) {
-      const errText = await res.text();
-      console.error(`   ❌ Gemini ${res.status}: ${errText.substring(0, 150)}`);
+      console.error(`   ❌ Gemini ${res.status}`);
       return null;
     }
 
     const data = await res.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) {
-      console.error('   ⚠️ Empty response from Gemini');
-      return null;
-    }
+    if (!text) return null;
 
-    // إزالة علامات markdown إن وُجدت
     const cleaned = text.replace(/```json\n?/g, '').replace(/```\n?/g, '').trim();
-    const parsed = JSON.parse(cleaned);
-
-    return {
-      headline: parsed.headline || article.title,
-      summary: parsed.summary || article.description.substring(0, 250),
-      analysis: parsed.analysis || ''
-    };
+    return JSON.parse(cleaned);
   } catch (err) {
-    if (err.name === 'AbortError') {
-      console.error('   ⏱️ Timeout (15s)');
-    } else {
-      console.error(`   ❌ ${err.message}`);
-    }
+    console.error(`   ❌ ${err.message}`);
     return null;
   }
+}
+
+// ===== دالة إنشاء صفحة HTML للمقال =====
+function generateArticleHTML(article) {
+  return `<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${article.title} - US Market Live</title>
+<meta name="description" content="${article.description}">
+<link rel="stylesheet" href="../style.css">
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">📈 US Market Live</a>
+    <nav class="nav"><a href="../index.html" class="nav-link">← Back to Home</a></nav>
+  </div>
+</header>
+<main class="container" style="padding: 40px 20px; max-width: 800px; margin: auto;">
+  <h1>${article.title}</h1>
+  <p style="color: #888; margin-bottom: 20px;">${article.pubDate} | Source: ${article.source}</p>
+  
+  <!-- إعلان أعلى المقال -->
+  <div style="margin: 20px 0; text-align: center;">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3583305975597231" data-ad-slot="ضع_رقم_الوحدة_هنا" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+  </div>
+
+  <div class="article-content" style="line-height: 1.8; font-size: 1.1rem;">
+    ${article.content || `<p>${article.description}</p>`}
+  </div>
+
+  ${article.analysis ? `<div style="background: #1e293b; padding: 15px; border-radius: 8px; margin-top: 20px;"><strong>💡 Market Analysis:</strong> ${article.analysis}</div>` : ''}
+
+  <!-- إعلان أسفل المقال -->
+  <div style="margin: 30px 0; text-align: center;">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3583305975597231" data-ad-slot="ضع_رقم_الوحدة_هنا" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>
+  </div>
+
+  <p style="margin-top: 30px;"><a href="${article.link}" target="_blank" style="color: #e11d48; font-weight: bold;">Read Original Story at ${article.source} →</a></p>
+</main>
+<footer class="footer">
+  <div class="container footer-bottom">
+    <p>© ${new Date().getFullYear()} US Market Live — <a href="../privacy.html" style="color:#888">Privacy</a> | <a href="../about.html" style="color:#888">About</a> | <a href="../contact.html" style="color:#888">Contact</a></p>
+  </div>
+</footer>
+</body>
+</html>`;
 }
 
 // ===== جلب الأخبار =====
@@ -98,12 +136,12 @@ async function fetchAll() {
   for (const feed of FEEDS) {
     try {
       const parsed = await parser.parseURL(feed.url);
-      const items = (parsed.items || []).slice(0, 6);
+      const items = (parsed.items || []).slice(0, 4); // تقليل العدد لتجنب تجاوز حدود API
       for (const item of items) {
         articles.push({
           originalTitle: item.title,
           link: item.link,
-          originalDescription: (item.contentSnippet || item.content || '').substring(0, 400).trim(),
+          originalDescription: (item.contentSnippet || item.content || '').substring(0, 800).trim(),
           pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
           source: feed.source,
           category: feed.category
@@ -115,12 +153,8 @@ async function fetchAll() {
     }
   }
 
-  console.log(`\n📊 Total fetched: ${articles.length}`);
-
-  // ترتيب حسب الأحدث
   articles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-  // إزالة التكرار
+  
   const seen = new Set();
   const unique = articles.filter(a => {
     const key = a.originalTitle.toLowerCase().substring(0, 50);
@@ -129,17 +163,16 @@ async function fetchAll() {
     return true;
   });
 
-  console.log(`📝 Unique articles: ${unique.length}`);
-
-  // عدد الأخبار التي نعالجها بالذكاء الاصطناعي
-  const AI_LIMIT = 20;
+  // معالجة 10 أخبار فقط بالذكاء الاصطناعي لتجنب الحظر وتجاوز الوقت
+  const AI_LIMIT = 10;
   const top = unique.slice(0, AI_LIMIT);
 
-  console.log(`\n🤖 Rewriting ${top.length} articles with Gemini...\n`);
+  console.log(`\n🤖 Generating full articles for ${top.length} news...\n`);
 
   const rewritten = [];
-  let successCount = 0;
-  let failCount = 0;
+  
+  // إنشاء مجلد الأخبار إذا لم يكن موجوداً
+  if (!fs.existsSync('news')) fs.mkdirSync('news');
 
   for (let i = 0; i < top.length; i++) {
     const a = top[i];
@@ -148,34 +181,41 @@ async function fetchAll() {
       description: a.originalDescription
     });
 
-    if (ai) {
-      successCount++;
-      console.log(`  [${i + 1}/${top.length}] ✅ ${ai.headline.substring(0, 60)}`);
-    } else {
-      failCount++;
-      console.log(`  [${i + 1}/${top.length}] ⚠️  Using original`);
-    }
+    // إنشاء رابط (Slug) من العنوان
+    const rawTitle = ai?.headline || a.originalTitle;
+    const slug = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now();
+    const fileName = `news/${slug}.html`;
 
-    rewritten.push({
-      title: ai?.headline || a.originalTitle,
+    const articleData = {
+      id: slug,
+      title: rawTitle,
       description: ai?.summary || a.originalDescription.substring(0, 250),
+      content: ai?.content || `<p>${a.originalDescription}</p>`,
       analysis: ai?.analysis || '',
       link: a.link,
       pubDate: a.pubDate,
       source: a.source,
       category: a.category
-    });
+    };
 
-    // تأخير بسيط بين الطلبات لتفادي rate limit
-    await new Promise(r => setTimeout(r, 400));
+    // 1. حفظ صفحة HTML للمقال
+    fs.writeFileSync(fileName, generateArticleHTML(articleData));
+    console.log(`  [${i + 1}/${top.length}] ✅ ${rawTitle.substring(0, 50)} -> ${fileName}`);
+
+    // 2. إضافة الخبر للبيانات
+    rewritten.push(articleData);
+
+    await new Promise(r => setTimeout(r, 2000)); // تأخير ثانيتين بين كل طلب
   }
 
   // إضافة الأخبار المتبقية (بدون AI)
   const remaining = unique.slice(AI_LIMIT, AI_LIMIT + 20);
   for (const a of remaining) {
     rewritten.push({
+      id: a.originalTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + Date.now(),
       title: a.originalTitle,
       description: a.originalDescription.substring(0, 250),
+      content: `<p>${a.originalDescription}</p>`,
       analysis: '',
       link: a.link,
       pubDate: a.pubDate,
@@ -187,17 +227,11 @@ async function fetchAll() {
   const data = {
     updated: new Date().toISOString(),
     count: rewritten.length,
-    aiProcessed: successCount,
     articles: rewritten
   };
 
   fs.writeFileSync('news-data.json', JSON.stringify(data, null, 2));
-
-  console.log(`\n${'='.repeat(50)}`);
-  console.log(`✅ Saved ${rewritten.length} articles total`);
-  console.log(`🤖 AI processed: ${successCount}`);
-  console.log(`⚠️  Fallback to original: ${failCount}`);
-  console.log(`${'='.repeat(50)}\n`);
+  console.log(`\n✅ Saved ${rewritten.length} articles. Generated ${top.length} HTML pages.`);
 }
 
 fetchAll().catch(err => {
