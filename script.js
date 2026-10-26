@@ -84,7 +84,22 @@ function openArticle(index) {
   document.getElementById('modalAnalysis').innerHTML = article.analysis
     ? `<strong>💡 Analysis:</strong> ${escapeHtml(article.analysis)}`
     : '';
-  document.getElementById('modalSourceLink').href = article.link;
+  
+  // تحديث أزرار النافذة المنبثقة لإضافة رابط الصفحة المستقلة
+  const modalFooter = document.getElementById('modalFooter');
+  if (modalFooter) {
+    // نستخدم العنوان (title) كمعرف للمقال في الرابط لأنه أكثر وضوحاً
+    const articleUrl = `article.html?id=${encodeURIComponent(article.title)}`;
+    
+    modalFooter.innerHTML = `
+      <a href="${articleUrl}" class="btn-source" style="background: #e11d48; color: white; margin-right: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; font-weight: bold;">
+        Read Full Article
+      </a>
+      <a href="${article.link}" target="_blank" rel="noopener" class="btn-source">
+        Read at Source →
+      </a>
+    `;
+  }
 
   document.getElementById('articleModal').classList.add('active');
   document.body.style.overflow = 'hidden';
