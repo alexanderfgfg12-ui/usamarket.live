@@ -1,9 +1,20 @@
 {
-  "updated": "2026-10-26T23:04:58.269Z",
-  "count": 16,
+  "updated": "2026-10-26T23:37:30.324Z",
+  "count": 12,
   "articles": [
     {
-      "id": "you-need-only-watch-episodes-of-judge-judy-i-m-in-my-70s-why-do-people-keep-making-the-same-avoidable-financial-mistakes-1793055877234",
+      "id": "from-wall-street-to-silicon-valley-anthropic-ipo-poised-to-have-massive-trickle-down-effect-1793057839969",
+      "title": "From Wall Street to Silicon Valley, Anthropic IPO poised to have massive 'trickle-down effect'",
+      "description": "With the AI trade sputtering of late and interest rates on the rise, Anthropic's IPO is taking on outsized importance.",
+      "content": "<p>With the AI trade sputtering of late and interest rates on the rise, Anthropic's IPO is taking on outsized importance.</p>",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/26/anthropic-ipo-might-trigger-tech-reset-if-ipo-underperforms.html",
+      "pubDate": "Mon, 26 Oct 2026 22:50:07 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "id": "you-need-only-watch-episodes-of-judge-judy-i-m-in-my-70s-why-do-people-keep-making-the-same-avoidable-financial-mistakes-1793057842065",
       "title": "‘You need only watch episodes of Judge Judy’: I’m in my 70s. Why do people keep making the same avoidable financial mistakes?",
       "description": "“Consider some familiar examples of poor decisions: accumulating credit-card debt or failing to plan for retirement.”",
       "content": "<p>“Consider some familiar examples of poor decisions: accumulating credit-card debt or failing to plan for retirement.”</p>",
@@ -14,7 +25,7 @@
       "category": "markets"
     },
     {
-      "id": "doj-charges-ex-fbi-director-james-comey-in-new-case-1793055879352",
+      "id": "doj-charges-ex-fbi-director-james-comey-in-new-case-1793057844148",
       "title": "DOJ charges ex-FBI Director James Comey in new case",
       "description": "Comey for years has been targeted by President Donald Trump, who fired him as FBI director in 2017.",
       "content": "<p>Comey for years has been targeted by President Donald Trump, who fired him as FBI director in 2017.</p>",
@@ -25,7 +36,7 @@
       "category": "markets"
     },
     {
-      "id": "dividend-stocks-are-having-an-excellent-october-as-tech-sector-struggles-1793055881474",
+      "id": "dividend-stocks-are-having-an-excellent-october-as-tech-sector-struggles-1793057846237",
       "title": "Dividend stocks are having an excellent October as tech sector struggles",
       "description": "ETFs focused on dividend stocks are seeing a powerful rally in October, adding to huge gains in 2026.",
       "content": "<p>ETFs focused on dividend stocks are seeing a powerful rally in October, adding to huge gains in 2026.</p>",
@@ -36,7 +47,7 @@
       "category": "markets"
     },
     {
-      "id": "options-traders-are-seizing-control-of-the-s-p-500-1793055883593",
+      "id": "options-traders-are-seizing-control-of-the-s-p-500-1793057848325",
       "title": "Options traders are seizing control of the S&P 500",
       "description": "There’s a reason the index hasn’t moved much since June, according to a team at UBS.",
       "content": "<p>There’s a reason the index hasn’t moved much since June, according to a team at UBS.</p>",
@@ -47,18 +58,7 @@
       "category": "markets"
     },
     {
-      "id": "tiktok-parent-bytedance-s-chatbot-is-now-giving-travel-booking-sites-a-run-for-their-money-and-yours-1793055885706",
-      "title": "TikTok parent ByteDance’s chatbot is now giving travel-booking sites a run for their money. And yours.",
-      "description": "Consumers in China are starting to wonder — for good reason — whether the emerging AI travel agents have a hidden agenda.",
-      "content": "<p>Consumers in China are starting to wonder — for good reason — whether the emerging AI travel agents have a hidden agenda.</p>",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/tiktok-parent-bytedances-chatbot-is-now-giving-travel-booking-sites-a-run-for-their-money-and-yours-028e4aa0?mod=mw_rss_topstories",
-      "pubDate": "Mon, 26 Oct 2026 22:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "id": "us-occ-calls-on-community-banks-to-become-payment-stablecoin-issuers-1793055887840",
+      "id": null,
       "title": "US OCC calls on community banks to become payment stablecoin issuers",
       "description": "The announcement followed the banking regulator finalizing its rules for the GENIUS Act, a stablecoin law to be implemented in January",
       "content": "<p>The announcement followed the banking regulator finalizing its rules for the GENIUS Act, a stablecoin law to be implemented in January</p>",
@@ -69,7 +69,7 @@
       "category": "crypto"
     },
     {
-      "id": "injective-launches-onchain-futures-market-tracking-nvidia-gpu-rental-costs-1793055889950",
+      "id": null,
       "title": "Injective launches onchain futures market tracking Nvidia GPU rental costs ",
       "description": "The new index tracks rental prices for five Nvidia GPUs, offering leveraged trading and potential hedging against fluctuations in AI computing costs.",
       "content": "<p>The new index tracks rental prices for five Nvidia GPUs, offering leveraged trading and potential hedging against fluctuations in AI computing costs.</p>",
@@ -80,18 +80,7 @@
       "category": "crypto"
     },
     {
-      "id": "jetblue-posts-bigger-loss-on-fuel-costs-but-ceo-says-margins-improving-1793055892060",
-      "title": "JetBlue posts bigger loss on fuel costs, but CEO says margins improving ",
-      "description": "JetBlue Airways is in the middle of a plan that aims to cut costs and increase premium revenue.",
-      "content": "<p>JetBlue Airways is in the middle of a plan that aims to cut costs and increase premium revenue.</p>",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/26/jetblue-jblu-3q-2026-earnings.html",
-      "pubDate": "Mon, 26 Oct 2026 21:18:07 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "id": "microsoft-offers-voluntary-buyouts-to-60-000-employees-as-ai-leads-to-efficiency-push-1793055894166",
+      "id": null,
       "title": "Microsoft offers voluntary buyouts to 60,000 employees as AI leads to efficiency push",
       "description": "Microsoft is trying to balance a rapid AI infrastructure build-out with capital efficiency.",
       "content": "<p>Microsoft is trying to balance a rapid AI infrastructure build-out with capital efficiency.</p>",
@@ -102,7 +91,7 @@
       "category": "markets"
     },
     {
-      "id": "canada-opens-consultation-on-stablecoins-citing-us-genius-act-1793055896269",
+      "id": null,
       "title": "Canada opens consultation on stablecoins, citing US GENIUS Act",
       "description": "As part of the potential implementation of its Stablecoin Act, the Canadian government will hear from the public on a proposed framework for tokens from non-financial institutions.",
       "content": "<p>As part of the potential implementation of its Stablecoin Act, the Canadian government will hear from the public on a proposed framework for tokens from non-financial institutions.</p>",
@@ -113,29 +102,7 @@
       "category": "crypto"
     },
     {
-      "id": "ai-company-anthropic-announces-ipo-expected-as-early-as-november-1793055898269",
-      "title": "AI company Anthropic announces IPO, expected as early as November",
-      "description": "The artificial intelligence company disclosed more than $16 billion in revenue and an $80 billion net loss for the first half of 2026.",
-      "content": "<p>The artificial intelligence company disclosed more than $16 billion in revenue and an $80 billion net loss for the first half of 2026.</p>",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/anthropic-artificial-intelligence-ipo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 26 Oct 2026 18:42:41 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "id": "the-arc-of-trump-how-the-president-lost-the-coalition-that-put-him-in-the-white-house-1793055898269",
-      "title": "The arc of Trump: How the president lost the coalition that put him in the White House",
-      "description": "President Trump forged an extraordinary coalition to win office in 2024. A new CNBC survey shows that coalition is now seriously weakened.",
-      "content": "<p>President Trump forged an extraordinary coalition to win office in 2024. A new CNBC survey shows that coalition is now seriously weakened.</p>",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/26/trump-approval-midterms-cnbc-survey.html",
-      "pubDate": "Mon, 26 Oct 2026 17:36:55 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "id": "tom-lee-s-bitmine-favors-share-buybacks-to-ether-purchases-as-crypto-declines-1793055898269",
+      "id": null,
       "title": "Tom Lee's Bitmine favors share buybacks to ether purchases as crypto declines",
       "description": "The Ethereum treasury firm spent $46 million buying back shares as Chairman Tom Lee said crypto has held up better than AI stocks during the recent market pullback.",
       "content": "<p>The Ethereum treasury firm spent $46 million buying back shares as Chairman Tom Lee said crypto has held up better than AI stocks during the recent market pullback.</p>",
@@ -146,7 +113,7 @@
       "category": "crypto"
     },
     {
-      "id": "nba-joins-pro-sports-leagues-on-cftc-prediction-markets-bandwagon-while-nfl-balks-1793055898269",
+      "id": null,
       "title": "NBA joins pro sports leagues on CFTC prediction markets bandwagon while NFL balks",
       "description": "The U.S. derivatives regulator, which has championed the arrival of prediction market firms such as Kalshi, has been gathering allied sports leagues.",
       "content": "<p>The U.S. derivatives regulator, which has championed the arrival of prediction market firms such as Kalshi, has been gathering allied sports leagues.</p>",
@@ -157,24 +124,13 @@
       "category": "crypto"
     },
     {
-      "id": "occ-calls-on-community-banks-to-enter-the-stablecoin-payments-market-1793055898269",
+      "id": null,
       "title": "OCC calls on community banks to enter the stablecoin payments market",
       "description": "The U.S. banking regulator is encouraging smaller lenders to develop stablecoin services as new federal licensing requirements approach.",
       "content": "<p>The U.S. banking regulator is encouraging smaller lenders to develop stablecoin services as new federal licensing requirements approach.</p>",
       "analysis": "",
       "link": "https://www.coindesk.com/policy/2026/10/26/occ-calls-on-community-banks-to-enter-the-stablecoin-payments-market",
       "pubDate": "Mon, 26 Oct 2026 15:45:51 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "id": "south-korea-weighs-fourth-delay-on-its-crypto-gains-tax-pushing-it-to-2029-1793055898269",
-      "title": "South Korea weighs fourth delay on its crypto gains tax, pushing it to 2029",
-      "description": "Officials are concerned users of domestic exchanges would bear the tax burden because the U.S. won’t share crypto trading data until 2029.",
-      "content": "<p>Officials are concerned users of domestic exchanges would bear the tax burden because the U.S. won’t share crypto trading data until 2029.</p>",
-      "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/26/south-korea-weighs-fourth-delay-on-its-crypto-gains-tax-pushing-it-to-2029",
-      "pubDate": "Mon, 26 Oct 2026 14:51:07 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     }
