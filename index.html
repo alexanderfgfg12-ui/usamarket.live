@@ -16,7 +16,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S95EDYLHGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-S95EDYLHGF');
+</script>
 </head>
 <body>
 
@@ -147,10 +158,12 @@
         <h3>Links</h3>
         <a href="#latest">Latest</a>
         <a href="#charts">Charts</a>
-        <a href="#about">About</a>
+        <a href="/about.html">About Us</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
       <div class="footer-col">
-        <h3>Sources</h3>
+        <h3>Legal & Sources</h3>
+        <a href="/privacy.html">Privacy Policy</a>
         <a href="https://www.cnbc.com" target="_blank" rel="noopener">CNBC</a>
         <a href="https://www.marketwatch.com" target="_blank" rel="noopener">MarketWatch</a>
         <a href="https://finance.yahoo.com" target="_blank" rel="noopener">Yahoo Finance</a>
@@ -172,7 +185,7 @@
       <h2 id="modalTitle"></h2>
       <div class="modal-text" id="modalText"></div>
       <div class="modal-analysis" id="modalAnalysis"></div>
-      <div class="modal-footer">
+      <div class="modal-footer" id="modalFooter">
         <a id="modalSourceLink" href="#" target="_blank" rel="noopener" class="btn-source">
           Read Full Story at Source →
         </a>
