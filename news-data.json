@@ -1,222 +1,222 @@
 {
-  "updated": "2026-10-26T04:23:28.350Z",
+  "updated": "2026-10-26T15:07:25.521Z",
   "count": 24,
   "aiProcessed": 0,
   "articles": [
     {
-      "title": "Brazil's Lula wins historic presidential election; Bolsonaro reportedly refuses to concede",
+      "title": "Alaska Senate: Peltola seeks quick dismissal of DOJ election lawsuit before midterm",
+      "description": "The winner of the Alaska Senate election could determine whether Republicans or Democrats have a majority in the Senate in the next Congress.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/26/alaska-senate-peltola-doj-lawsuit-election-sullivan.html",
+      "pubDate": "Mon, 26 Oct 2026 15:01:18 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "Young Americans are giving up on car ownership. It’s a path to financial freedom for some.",
+      "description": "With vehicle prices soaring and ownership increasingly out of reach, some young adults are discovering that life without a car leaves them with breathing room to spend on other things.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/young-americans-are-giving-up-their-cars-its-a-path-to-financial-freedom-for-some-3cce491c?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 15:01:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "South Korea weighs fourth delay on its crypto gains tax, pushing it to 2029",
+      "description": "Officials are concerned users of domestic exchanges would bear the tax burden because the U.S. won’t share crypto trading data until 2029.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/policy/2026/10/26/south-korea-weighs-fourth-delay-on-its-crypto-gains-tax-pushing-it-to-2029",
+      "pubDate": "Mon, 26 Oct 2026 14:51:07 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "Two stock picks to capitalize on Wall Street’s misguided AI fears",
+      "description": "Sowmdeb Sen of Silvant Capital Management highlights companies poised to benefit from the acceleration of AI spending.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/two-stock-picks-to-capitalize-on-wall-streets-misguided-ai-fears-41f81755?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 14:47:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Trump says he'll soon decide whether to ‘make a deal’ with Iran or ‘finish it off'",
+      "description": "Trump said he is weighing a deal with Iran against renewed military action as tensions escalate across the Middle East.",
+      "analysis": "",
+      "link": "https://www.cnbc.com/2026/10/26/us-iran-war-hormuz.html",
+      "pubDate": "Mon, 26 Oct 2026 14:36:03 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "PHP flaw shows AI ‘vulnerability apocalypse’ is on schedule: Immunefi CEO ",
+      "description": "Mitchell Amador warned internet users that websites could remain compromised for weeks, particularly smaller websites slower to adopt the emergency upgrades.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/php-flaw-ai-vulnerability-apocalypse-immunefi-ceo?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 14:25:22 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Canada opens consultation on draft stablecoin rules, maintains ban on yields",
+      "description": "Under the draft rules, non-bank stablecoin issuers must back tokens 1:1 with reserves held at qualified Canadian institutions and settle redemptions within three business days.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/policy/2026/10/26/canada-opens-consultation-on-draft-stablecoin-rules-maintains-ban-on-yields",
+      "pubDate": "Mon, 26 Oct 2026 14:23:41 +0000",
+      "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "My wife has only $80,000 saved for retirement. I have $2.2 million. Am I wrong to be shocked?",
+      "description": "“When I brought up retiring last spring, she said she was ready whenever I was, and I took that to mean we were in good shape.”",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/my-wife-has-only-80-000-saved-for-retirement-i-have-2-2-million-am-i-wrong-to-be-shocked-3e27b490?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 14:15:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Brazilian stocks rocked as Lula wins presidential election, Bolsonaro reportedly refuses to concede",
       "description": "It's the first time since Brazil returned to direct elections in 1989 that a candidate has won the final runoff after losing in the first round.",
       "analysis": "",
       "link": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html",
-      "pubDate": "Mon, 26 Oct 2026 04:09:41 GMT",
+      "pubDate": "Mon, 26 Oct 2026 14:09:38 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Hong Kong names Nasdaq-listed Solana Company a strategic enterprise",
-      "description": "The Nasdaq-listed firm said it plans to establish Solana validator operations in Hong Kong.",
+      "title": "Meta announces $95 billion stock offering to fund AI expansion",
+      "description": "Meta plans to raise $95 billion to fund AI infrastructure and superintelligence, as Nvidia, AMD and Broadcom eye up to $5 billion in shares.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/hong-kong-names-nasdaq-listed-solana-company-a-strategic-enterprise?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 26 Oct 2026 03:21:26 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Elon Musk issues a warning for 'AI neoclouds' as SpaceX borrows $40 billion for chips",
-      "description": "SpaceX has raised $40 billion in debt to buy GPUs, while Musk predicts a major shakeout among smaller AI cloud providers.",
-      "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/26/elon-musk-confirms-usd40-billion-spacex-debt-deal-for-ai-chips-warns-of-neocloud-shakeout",
-      "pubDate": "Mon, 26 Oct 2026 03:11:39 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Keystone says website breach exposed hardware wallet buyers’ addresses",
-      "description": "A security researcher warned that the leaked shipping details could expose crypto holders to targeted scams and physical attacks.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/keystone-says-website-breach-exposed-hardware-wallet-buyers-addresses?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 26 Oct 2026 02:24:04 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
-    },
-    {
-      "title": "Musk says SpaceX landed a $40 billion debt deal — and forecasts doom for some AI rivals",
-      "description": "SpaceX is rapidly growing an AI business that rents out access to advanced chips.",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/musk-says-spacex-landed-a-40-billion-debt-deal-and-forecasts-doom-for-some-ai-rivals-a0a4991e?mod=mw_rss_topstories",
-      "pubDate": "Mon, 26 Oct 2026 01:50:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "SpaceX closes $40 billion debt deal for AI chips, Elon Musk says\n",
-      "description": "Elon Musk said in an X post that SpaceX has closed $40 billion in debt financing to purchase GPUs.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/26/spacex-closes-40-billion-debt-deal-for-ai-chips-elon-musk-.html",
-      "pubDate": "Mon, 26 Oct 2026 00:37:51 GMT",
+      "link": "https://www.cnbc.com/2026/10/26/meta-stock-offering-ai.html",
+      "pubDate": "Mon, 26 Oct 2026 14:05:36 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "Standard Chartered-led Anchorpoint says it’s not rushing retail stablecoin",
-      "description": "The Standard Chartered and Animoca Brands joint venture previously targeted retail access as early as the end of 2026, but its CEO declined to reaffirm that timeline.",
+      "title": "The excitement around Moderna’s cancer vaccine is cooling. Here’s why.",
+      "description": "Investors had “incredibly high” expectations around the Phase 3 data for the drugmaker’s experimental cancer treatment.",
       "analysis": "",
-      "link": "https://cointelegraph.com/news/standard-chartered-led-anchorpoint-says-its-not-rushing-retail-stablecoin?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Mon, 26 Oct 2026 00:13:29 +0000",
-      "source": "Cointelegraph",
-      "category": "crypto"
+      "link": "https://www.marketwatch.com/story/the-excitement-around-modernas-cancer-vaccine-is-cooling-heres-why-994b205f?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 13:50:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
     },
     {
-      "title": "‘Ticking time bomb’: The world's pension funds face an ageing crisis",
-      "description": "The world's pension systems are confronting a demographic crisis as longer lifespans and dwindling birth rates threaten to stretch retirement finances.",
+      "title": "Neocloud stocks fall as Elon Musk says more than 200 of them face 'guppy-level death'",
+      "description": "Investors are already questioning the debt-fueled expansion of neoclouds and whether the large AI infrastructure build-out will generate long-term returns.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/26/pension-funds-ageing-crisis-risk-investment.html",
-      "pubDate": "Mon, 26 Oct 2026 00:03:20 GMT",
+      "link": "https://www.cnbc.com/2026/10/26/neocloud-stocks-today-coreweave-nebius-iren-elon-musk.html",
+      "pubDate": "Mon, 26 Oct 2026 13:43:14 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "title": "AI agents help rescue ETH’s Glamsterdam fork, ‘Steal My Bitcoin’ site: Hodler’s Digest",
-      "description": "Similar to the Hugging Face hack, Ethereum researchers have set up an AI Agent message board to help rescue the Glamsterdam fork. ‘Steal My Bitcoin’ site successfully hacked.",
+      "title": "Retail investors are getting cold feet about stocks, just when the market needs them most",
+      "description": "Last week’s carnage for hedge funds highlighted  the relative decline in trading activity among retail investors.",
       "analysis": "",
-      "link": "https://cointelegraph.com/magazine/ai-agents-help-rescue-eths-glamsterdam-fork-steal-my-bitcoin-site-hodlers-digest?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sun, 25 Oct 2026 22:48:40 +0000",
+      "link": "https://www.marketwatch.com/story/retail-investors-are-getting-cold-feet-about-stocks-just-when-the-market-needs-them-most-00a5c9c8?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 13:37:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "The stock market’s biggest test in weeks is here",
+      "description": "Here’s what’s I’m watching this morning: A week chockablock with enough catalysts that we might finally get some answers about the direction of the market by the end of it.",
+      "analysis": "",
+      "link": "https://www.marketwatch.com/story/the-stock-markets-biggest-test-in-weeks-is-here-256f5a37?mod=mw_rss_topstories",
+      "pubDate": "Mon, 26 Oct 2026 13:33:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "title": "Strategy skips Bitcoin purchases, spends $205M on STRC buybacks",
+      "description": "Strategy made no Bitcoin purchases or sales last week, as its STRC preferred stock buybacks reduced its USD Cash balance by 46% to $242.4 million.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/news/strategy-skips-btc-buy-205-million-strc-buyback?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 13:27:38 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Blanche defends Trump-ordered lawsuit over Alaska Senate election certification",
-      "description": "Democrats have maintained they have no connection to Daniel J. Sullivan.",
+      "title": "Here’s what happened in crypto today",
+      "description": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
       "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/blanche-doj-alaska-senate-certification-lawsuit.html",
-      "pubDate": "Sun, 25 Oct 2026 20:28:55 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "‘She’s living the dream’: My stepmother said I can buy my childhood home for $850,000. Is she taking advantage of me?",
-      "description": "“My late father bought our house for $250,000 in the 1990s.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/shes-living-the-dream-my-stepmother-said-i-can-buy-my-childhood-home-for-850-000-is-she-taking-advantage-of-me-1fdda7b5?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 20:15:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "‘I don’t feel sorry for myself’: I’m 64 and will be renting for the rest of my life. Is that so bad?",
-      "description": "“I married a wonderful man with a good income. He left his job due to health issues and suffered a massive stroke at 53.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-husband-suffered-a-massive-stroke-at-53-im-64-and-will-rent-for-the-rest-of-my-life-but-im-still-hopeful-46bd6ce9?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 20:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "We stopped helping our neighbors with free home repairs and our friendship cooled. Who’s to blame?",
-      "description": "“Last summer, they complained about needing to replace their roof. A few months later, they bought a new SUV.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-whos-to-blame-d20b0720?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 19:30:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Ukraine disputes Elon Musk’s claim that its military violated Starlink terms during drone operations",
-      "description": "Ukraine challenged Musk’s claim that its military violated Starlink terms, arguing that commercial Starlink limits prevented medium- and long-range strike use.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/ukraine-musk-starlink-terms-dispute.html",
-      "pubDate": "Sun, 25 Oct 2026 18:18:49 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "My father-in-law, 81, sold his $75,000 home to pay his daughter’s $50,000 debt. How can I keep him from becoming destitute?",
-      "description": "“Nothing has been set aside for his needs.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-father-in-law-81-sold-his-75-000-home-and-paid-off-his-daughters-50-000-debt-what-happens-to-him-now-60e8fc72?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 18:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "My partner of 17 years left me his $1 million home. His children are livid. Am I obliged to split it with them?",
-      "description": "“I never paid rent, although I put about $45,000 toward a new kitchen and a roof.”",
-      "analysis": "",
-      "link": "https://www.marketwatch.com/story/my-unmarried-partner-of-17-years-left-me-his-1-1-million-home-his-three-children-are-livid-should-i-share-my-inheritance-a11d593d?mod=mw_rss_topstories",
-      "pubDate": "Sun, 25 Oct 2026 17:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "title": "Audi defends plans for a $4 billion Georgia plant amid VW restructuring, tariffs",
-      "description": "Audi's CEO defended the company's plans for a $4 billion plant in Georgia, calling it a business decision to grow sales and reduce exposure to U.S. tariffs.",
-      "analysis": "",
-      "link": "https://www.cnbc.com/2026/10/25/audi-georgia-us-plant-tariffs-volkswagen.html",
-      "pubDate": "Sun, 25 Oct 2026 16:42:42 GMT",
-      "source": "CNBC",
-      "category": "markets"
-    },
-    {
-      "title": "ECB official sees digital euro as key to protecting EU ‘sovereignty’",
-      "description": "Piero Cipollone said the bloc is on track to test real transactions in 2027 and roll out a digital euro as early as 2029, pending legislation this year.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/ecb-official-sees-digital-euro-tool-to-protect-eu-sovereignty?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sun, 25 Oct 2026 15:11:00 +0000",
+      "link": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 13:26:47 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Latvia targets tokenization rules in 2027 with commercial property in focus",
-      "description": "Economics Minister Viktors Valainis says rules could arrive in the first half of next year, but an overdue assessment remains unfinished and no sovereign-bond issuance was identified.",
+      "title": "AI giant Anthropic files for blockbuster IPO",
+      "description": "The maker of Claude reported $16.3 billion in first-half revenue and an $80.7 billion net loss as it aims to price its offering in mid-November.",
       "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/25/latvia-targets-tokenization-rules-in-2027-with-commercial-property-in-focus",
-      "pubDate": "Sun, 25 Oct 2026 15:00:00 +0000",
+      "link": "https://www.coindesk.com/business/2026/10/26/ai-giant-anthropic-files-for-blockbuster-ipo",
+      "pubDate": "Mon, 26 Oct 2026 13:22:09 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     },
     {
-      "title": "UK banks face 10,000 complaints in 3 months over crypto restrictions",
-      "description": "The U.K. claims to aspire to become a global cryptocurrency hub, an ambition that would appear to be at odds with the attitude to crypto purchases of its major banks.",
+      "title": "HOOD’s prediction markets to add $1.7B to revenue, exceed crypto by 2028: Bernstein",
+      "description": "Bernstein analysts raised Robinhood’s revenue estimates through 2026 and 2028, while maintaining their HOOD price target unchanged at $160.",
       "analysis": "",
-      "link": "https://www.coindesk.com/policy/2026/10/22/uk-banks-face-10-000-complaints-in-3-months-over-crypto-restrictions",
-      "pubDate": "Sun, 25 Oct 2026 13:00:00 +0000",
-      "source": "CoinDesk",
-      "category": "crypto"
-    },
-    {
-      "title": "Netanyahu floats use of blockchain as solution to potential financial sanctions",
-      "description": "Ahead of elections, Prime Minister Benjamin Netanyahu said Israel could turn to blockchain and crypto to skirt potential international sanctions, to the dismay of opponents and the country’s central banker.",
-      "analysis": "",
-      "link": "https://cointelegraph.com/news/netanyahu-floats-use-of-blockchain-as-solution-to-potential-financial-sanctions?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "pubDate": "Sun, 25 Oct 2026 11:42:00 +0000",
+      "link": "https://cointelegraph.com/news/prediction-markets-17b-robinhood-exceed-crypto-revenue-2028-bernstein?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 13:12:41 +0000",
       "source": "Cointelegraph",
       "category": "crypto"
     },
     {
-      "title": "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends",
-      "description": "The securities have financed purchases of nearly 136,000 bitcoin, opening a funding channel that analysts expect to complement the larger ETF market.",
+      "title": "Apollo to buy nearly 10% stake in Abu Dhabi-backed alternative asset manager Mubadala Capital",
+      "description": "The deal further advances Apollo Global's ambitions in Abu Dhabi, often called the \"capital of capital.\"",
       "analysis": "",
-      "link": "https://www.coindesk.com/business/2026/10/24/strategy-strive-face-balancing-act-between-bitcoin-buying-and-preferred-stock-dividends",
-      "pubDate": "Sat, 24 Oct 2026 16:00:00 +0000",
+      "link": "https://www.cnbc.com/2026/10/26/apollo-mubadala-capital-stake.html",
+      "pubDate": "Mon, 26 Oct 2026 13:09:26 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "title": "A $68 million bitcoin bet is targeting a post-midterm election breakout to $90,000",
+      "description": "Your day-ahead look for Oct. 26, 2026",
+      "analysis": "",
+      "link": "https://www.coindesk.com/daybook-us/2026/10/26/a-usd68-million-bitcoin-bet-is-targeting-a-post-midterm-election-breakout-to-usd90-000",
+      "pubDate": "Mon, 26 Oct 2026 11:53:07 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     },
     {
-      "title": "Block's new voice AI sounds eerily human, sparking awe and scam fears",
-      "description": "Reactions split between amazement at how human it sounds and fears it could fuel scams and deception, with CZ eyeing uses in children’s education.",
+      "title": "Aviva Investors launches tokenized share class of $29B Sterling fund on XRP Ledger ",
+      "description": "The move marks Aviva’s second fund to list tokenized shares, part of a broader collaboration to bring more tokenized funds to the XRP Ledger.",
       "analysis": "",
-      "link": "https://www.coindesk.com/tech/2026/10/24/block-s-new-voice-ai-sounds-eerily-human-sparking-awe-and-scam-fears",
-      "pubDate": "Sat, 24 Oct 2026 15:21:06 +0000",
+      "link": "https://cointelegraph.com/news/aviva-investors-launches-tokenized-share-class-of-sterling-fund-on-xrp-ledger?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 11:39:27 +0000",
+      "source": "Cointelegraph",
+      "category": "crypto"
+    },
+    {
+      "title": "Bitcoin holds near $80,000 as oil retreats and the Fed decision looms",
+      "description": "Bitcoin was little changed near $80,400 since midnight UTC while the DeFi index was the only CoinDesk index to gain, with the Fed due to decide on Wednesday.",
+      "analysis": "",
+      "link": "https://www.coindesk.com/markets/2026/10/26/bitcoin-holds-near-usd80-000-as-oil-retreats-and-the-fed-decision-looms",
+      "pubDate": "Mon, 26 Oct 2026 11:24:33 +0000",
       "source": "CoinDesk",
       "category": "crypto"
     },
     {
-      "title": "Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East evacuations",
-      "description": "Bitcoin has sunk to its weakest level in more than one month.",
+      "title": "Live news: Bitcoin slips below $80,000 as Anthropic files for massive IPO",
+      "description": "Alongside Anthropic raising as much as $100 billion, Meta on Monday announced a $95 billion share sale to fund its own AI ambitions.",
       "analysis": "",
-      "link": "https://www.coindesk.com/markets/2026/10/24/crypto-under-weekend-pressure-bitcoin-slides-below-usd80-000-on-u-s-middle-east-evacuations",
-      "pubDate": "Sat, 24 Oct 2026 15:11:24 +0000",
+      "link": "https://www.coindesk.com/tech/2026/10/26/live-news-brent-crude-slides-below-usd110-as-iran-deal-hopes-grow-and-brazil-stocks-sink",
+      "pubDate": "Mon, 26 Oct 2026 11:05:31 +0000",
       "source": "CoinDesk",
+      "category": "crypto"
+    },
+    {
+      "title": "BTC price risks $80K loss into FOMC, earnings: Three things to know in Bitcoin this week ",
+      "description": "Bitcoin bulls fought for $80,000 support over the weekend ahead of a heavy week of US tech earnings and inflation data.",
+      "analysis": "",
+      "link": "https://cointelegraph.com/markets/btc-price-risks-80k-loss-into-fomc-earnings-three-things-to-know-in-bitcoin-this-week?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "pubDate": "Mon, 26 Oct 2026 10:49:55 +0000",
+      "source": "Cointelegraph",
       "category": "crypto"
     }
   ]
