@@ -11,7 +11,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15 # زيادة المهلة الإجمالية للعملية
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node fetch-news.js
-        timeout-minutes: 8
+        timeout-minutes: 12 # زيادة المهلة لأن توليد المقالات يأخذ وقتاً
         continue-on-error: true
 
       - name: Commit and push
@@ -39,7 +39,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add news-data.json
-          git diff --staged --quiet || git commit -m "🔄 Update news $(date -u '+%Y-%m-%d %H:%M')"
+          git add news/
+          git diff --staged --quiet || git commit -m "🔄 Update news & articles $(date -u '+%Y-%m-%d %H:%M')"
           git push
-        timeout-minutes: 2
+        timeout-minutes: 3
         continue-on-error: true
