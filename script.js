@@ -88,15 +88,14 @@ function openArticle(index) {
   // تحديث أزرار النافذة المنبثقة
   const modalFooter = document.getElementById('modalFooter');
   if (modalFooter) {
-    // التحقق مما إذا كان للمقال ملف HTML مستقل (id)
-    // إذا لم يكن هناك id، نستخدم الرابط القديم كاحتياط
+    // إذا كان للمقال ID، نوجهه لصفحة مجلد news. وإلا نستخدم صفحة article.html
     const articleUrl = article.id ? `news/${article.id}.html` : `article.html?id=${encodeURIComponent(article.title)}`;
     
     modalFooter.innerHTML = `
       <a href="${articleUrl}" class="btn-source" style="background: #e11d48; color: white; margin-right: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; font-weight: bold;">
         Read Full Article
       </a>
-      <a href="${article.link}" target="_blank" rel="noopener" class="btn-source">
+      <a href="${article.link}" target="_blank" rel="noopener" class="btn-source" style="background: transparent; border: 1px solid #555; color: #ccc;">
         Read at Source →
       </a>
     `;
