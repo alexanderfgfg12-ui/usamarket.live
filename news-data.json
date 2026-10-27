@@ -1,7 +1,18 @@
 {
-  "updated": "2026-10-27T21:16:21.087Z",
-  "count": 5,
+  "updated": "2026-10-27T21:19:06.111Z",
+  "count": 6,
   "articles": [
+    {
+      "id": "news-2",
+      "title": "Federal Reserve Signals Patience on Rate Cuts as Inflation Cools Slowly",
+      "description": "The Federal Reserve indicated on Wednesday that it is in no rush to cut interest rates, citing a gradual cooling in inflation and a surprisingly resil...",
+      "content": "<p>The Federal Reserve indicated on Wednesday that it is in no rush to cut interest rates, citing a gradual cooling in inflation and a surprisingly resilient labor market. Policymakers emphasized that they need \"greater confidence\" that inflation is moving sustainably toward the 2% target before easing monetary policy.</p><p>In recent weeks, economic data has painted a mixed picture. While consumer price growth has slowed from its peak, services inflation remains stubbornly high. Meanwhile, the unemployment rate has stayed near historic lows, giving the central bank room to maintain its restrictive stance.</p><p>Market participants reacted by adjusting their expectations for the first rate cut, pushing it further into the second half of the year. Treasury yields ticked higher, and the US dollar strengthened against major currencies. Equity markets, however, showed resilience, with investors focusing on strong corporate earnings that continue to beat expectations.</p><p>Analysts warn that holding rates too high for too long could risk a sharper economic slowdown. However, Fed officials maintain that the risk of cutting too early—and allowing inflation to reignite—outweighs the risk of keeping rates elevated. The next policy meeting will be closely watched for updated economic projections.</p>",
+      "analysis": "",
+      "link": "#",
+      "pubDate": "2026-10-27T21:19:06.111Z",
+      "source": "US Market Live",
+      "category": "markets"
+    },
     {
       "id": "news-1",
       "title": "US Tech Stocks Rally as AI Optimism Drives Market to New Highs",
@@ -9,7 +20,7 @@
       "content": "<p>US technology stocks surged on Tuesday, pushing major indexes to record highs, as renewed optimism surrounding artificial intelligence and strong corporate earnings fueled a broad market rally. The tech-heavy NASDAQ composite climbed over 2%, led by gains in semiconductor and software companies.</p><p>Investors reacted positively to recent developments in AI infrastructure spending, with several major cloud providers announcing expanded data center investments. This news has reignited confidence in the long-term growth prospects of the technology sector, which has been the primary driver of the bull market over the past year.</p><p>Market analysts suggest that the rally is being supported by a combination of factors, including resilient consumer spending and a slight easing in inflation expectations. The Federal Reserve's cautious approach to interest rate adjustments has also provided a favorable environment for growth-oriented stocks.</p><p>As we look ahead, market participants will be closely watching upcoming earnings reports from industry giants for further clues about the health of the US economy and the sustainability of this tech-driven momentum.</p>",
       "analysis": "",
       "link": "#",
-      "pubDate": "2026-10-27T21:16:21.084Z",
+      "pubDate": "2026-10-27T21:19:06.107Z",
       "source": "US Market Live",
       "category": "stocks"
     },
