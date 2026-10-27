@@ -148,7 +148,7 @@ async function fetchAll() {
   for (const feed of FEEDS) {
     try {
       const parsed = await parser.parseURL(feed.url);
-      const items = (parsed.items || []).slice(0, 3); // جلب 3 أخبار من كل مصدر لتجنب الضغط
+      const items = (parsed.items || []).slice(0, 3); // جلب 3 أخبار فقط من كل مصدر
       for (const item of items) {
         articles.push({
           originalTitle: item.title,
@@ -175,7 +175,7 @@ async function fetchAll() {
     return true;
   });
 
-  // معالجة 5 أخبار فقط بالذكاء الاصطناعي (لتوفير الحصة المجانية)
+  // معالجة 5 أخبار فقط بالذكاء الاصطناعي
   const AI_LIMIT = 5;
   const top = unique.slice(0, AI_LIMIT);
 
@@ -192,16 +192,22 @@ async function fetchAll() {
       description: a.originalDescription
     });
 
-    const rawTitle = ai?.headline || a.originalTitle;
+    // إذا فشل الذكاء الاصطناعي، لا نضيف الخبر إطلاقاً (حتى لا يظهر كملخص ناقص)
+    if (!ai) {
+      console.log(`  [${i + 1}/${top.length}] ⏭️ Skipped (AI failed or quota exceeded)`);
+      continue; 
+    }
+
+    const rawTitle = ai.headline || a.originalTitle;
     const slug = rawTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') + '-' + Date.now();
     const fileName = `news/${slug}.html`;
 
     const articleData = {
       id: slug,
       title: rawTitle,
-      description: ai?.summary || a.originalDescription.substring(0, 250),
-      content: ai?.content || `<p>${a.originalDescription}</p>`,
-      analysis: ai?.analysis || '',
+      description: ai.summary || a.originalDescription.substring(0, 250),
+      content: ai.content || `<p>${a.originalDescription}</p>`,
+      analysis: ai.analysis || '',
       link: a.link,
       pubDate: a.pubDate,
       source: a.source,
@@ -214,24 +220,8 @@ async function fetchAll() {
 
     rewritten.push(articleData);
 
-    // تأخير ثانيتين بين الطلبات لتجنب الحظر
+    // تأخير ثانيتين بين الطلبات
     await new Promise(r => setTimeout(r, 2000));
-  }
-
-  // إضافة الأخبار المتبقية كبيانات فقط (بدون إنشاء صفحات HTML لها لتوفير الوقت)
-  const remaining = unique.slice(AI_LIMIT, AI_LIMIT + 15);
-  for (const a of remaining) {
-    rewritten.push({
-      id: null, // لا يوجد ID لأنه لا توجد صفحة HTML
-      title: a.originalTitle,
-      description: a.originalDescription.substring(0, 250),
-      content: `<p>${a.originalDescription}</p>`,
-      analysis: '',
-      link: a.link,
-      pubDate: a.pubDate,
-      source: a.source,
-      category: a.category
-    });
   }
 
   const data = {
@@ -241,7 +231,7 @@ async function fetchAll() {
   };
 
   fs.writeFileSync('news-data.json', JSON.stringify(data, null, 2));
-  console.log(`\n✅ Saved ${rewritten.length} articles. Generated ${top.length} HTML pages.`);
+  console.log(`\n✅ Saved ${rewritten.length} full articles. Generated ${rewritten.length} HTML pages.`);
 }
 
 fetchAll().catch(err => {
