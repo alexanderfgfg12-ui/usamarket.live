@@ -1,7 +1,97 @@
 {
-  "updated": "2026-10-27T22:02:57.403Z",
-  "count": 24,
+  "updated": "2026-10-27T22:07:26.962Z",
+  "count": 34,
   "articles": [
+    {
+      "id": "chipmaker-tsmc-reports-strong-demand-for-ai-processors-1793138846971",
+      "title": "Chipmaker TSMC Reports Strong Demand for AI Processors",
+      "description": "Taiwan Semiconductor Manufacturing Company (TSMC), the world's largest contract chipmaker, reported robust demand for its advanced AI processors. The ...",
+      "content": "<p>Taiwan Semiconductor Manufacturing Company (TSMC), the world's largest contract chipmaker, reported robust demand for its advanced AI processors. The company's results are often seen as a bellwether for the global tech industry.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>TSMC's high-performance computing segment, which includes AI chips, experienced significant growth, driven by orders from major tech giants like Nvidia, Apple, and AMD. The company is investing heavily in expanding its manufacturing capacity to meet the surging demand.</p><p>However, geopolitical tensions continue to pose a risk to TSMC's operations. The company is expanding its production footprint outside of Taiwan to diversify its supply chain and mitigate potential disruptions. This includes building new factories in the US and Japan.</p><p>Analysts are optimistic about TSMC's long-term prospects, given its dominant position in advanced chip manufacturing. However, they also note that the high capital expenditure required to maintain its technological lead could impact its short-term profitability.</p>",
+      "pubDate": "2026-10-27T22:07:26.962Z",
+      "source": "US Market Live",
+      "category": "technology"
+    },
+    {
+      "id": "bank-of-japan-adjusts-monetary-policy-yen-strengthens-1793138846970",
+      "title": "Bank of Japan Adjusts Monetary Policy, Yen Strengthens",
+      "description": "The Bank of Japan (BOJ) adjusted its ultra-loose monetary policy slightly, marking a small step toward normalization. The central bank raised its yiel...",
+      "content": "<p>The Bank of Japan (BOJ) adjusted its ultra-loose monetary policy slightly, marking a small step toward normalization. The central bank raised its yield curve control (YCC) band, allowing long-term interest rates to rise slightly.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>The move caught some investors off guard, leading to a sharp strengthening of the yen against the dollar. However, the BOJ was quick to reassure markets that it would remain accommodative and that the adjustment was not a sign of imminent tightening.</p><p>Japanese officials are grappling with a delicate economic situation. While inflation has picked up, it has been driven primarily by external factors such as energy and food prices, rather than domestic demand. The central bank wants to ensure that any policy shift does not derail the country's fragile economic recovery.</p><p>Global markets were also affected by the news, as Japan's ultra-low interest rates have been a key factor in global liquidity flows. A significant change in Japanese policy could have major implications for asset prices worldwide.</p>",
+      "pubDate": "2026-10-27T22:07:26.962Z",
+      "source": "US Market Live",
+      "category": "forex"
+    },
+    {
+      "id": "inflation-data-shows-mixed-picture-for-us-economy-1793138846969",
+      "title": "Inflation Data Shows Mixed Picture for US Economy",
+      "description": "The latest inflation data released by the US government presented a mixed picture of the economy. While the headline inflation rate declined slightly,...",
+      "content": "<p>The latest inflation data released by the US government presented a mixed picture of the economy. While the headline inflation rate declined slightly, core inflation, which excludes volatile food and energy prices, remained stubbornly high.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>The decline in headline inflation was primarily driven by lower energy prices, but prices for services, housing, and medical care continued to rise. This suggests that inflation is becoming more entrenched in the economy, which could complicate the Federal Reserve's efforts to bring it down.</p><p>Markets reacted to the data by adjusting their expectations for the Fed's next move. Investors are now pricing in a longer period of high interest rates, which could weigh on economic growth and corporate earnings.</p><p>The report underscores the challenges facing policymakers as they try to navigate the delicate balance between fighting inflation and supporting economic growth. The Fed will need to carefully analyze the data to determine its next course of action.</p>",
+      "pubDate": "2026-10-27T22:07:26.962Z",
+      "source": "US Market Live",
+      "category": "economy"
+    },
+    {
+      "id": "spotify-reports-strong-subscriber-growth-boosts-profit-outlook-1793138846967",
+      "title": "Spotify Reports Strong Subscriber Growth, Boosts Profit Outlook",
+      "description": "Spotify reported better-than-expected subscriber growth in its latest quarterly results, sending its shares higher. The music streaming giant added mi...",
+      "content": "<p>Spotify reported better-than-expected subscriber growth in its latest quarterly results, sending its shares higher. The music streaming giant added millions of new premium subscribers, driven by strong performance in its global markets and the success of its podcast and audiobook offerings.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>The company also raised its profit outlook for the year, citing improved cost management and higher revenue per user. Spotify has been focused on improving its margins by renegotiating licensing deals and expanding its advertising business.</p><p>Despite the positive results, the company faces stiff competition from tech giants like Apple and Amazon, both of which have their own streaming services. However, Spotify's focus on user experience and personalized recommendations has helped it maintain its position as the market leader.</p><p>Investors are optimistic about the company's future, particularly as it continues to innovate its product offerings and expand into new markets. The profitability narrative has been a key focus for Spotify, and the recent results demonstrate that it is making significant progress in that area.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "technology"
+    },
+    {
+      "id": "small-business-optimism-rises-as-inflation-fears-ease-slightly-1793138846966",
+      "title": "Small Business Optimism Rises as Inflation Fears Ease Slightly",
+      "description": "Optimism among small business owners in the US improved slightly this month, as concerns about inflation and labor shortages eased. The increase in th...",
+      "content": "<p>Optimism among small business owners in the US improved slightly this month, as concerns about inflation and labor shortages eased. The increase in the optimism index suggests that small businesses are feeling more confident about their prospects.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>While the overall mood improved, many business owners still cite inflation as their biggest challenge. Rising costs for raw materials, inventory, and labor continue to squeeze margins, forcing owners to raise prices to maintain profitability.</p><p>The labor market remains a double-edged sword for small businesses. While finding qualified workers has become slightly easier, the need to offer competitive wages is putting additional pressure on their finances. This is particularly challenging for smaller firms that have less room to maneuver than larger corporations.</p><p>The report is closely watched as a gauge of the health of the small business sector, which is a crucial engine of job creation and economic growth in the US. A sustained improvement in sentiment could bode well for the broader economy.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "economy"
+    },
+    {
+      "id": "european-central-bank-signals-potential-rate-cut-in-the-coming-months-1793138846965",
+      "title": "European Central Bank Signals Potential Rate Cut in the Coming Months",
+      "description": "The European Central Bank (ECB) has signaled that it may be open to cutting interest rates in the coming months, provided inflation continues to cool....",
+      "content": "<p>The European Central Bank (ECB) has signaled that it may be open to cutting interest rates in the coming months, provided inflation continues to cool. This marks a shift in tone from the central bank, which has previously emphasized the need for sustained high rates.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>ECB officials noted that while inflation remains above target, the pace of price increases has slowed significantly, particularly in the energy and goods sectors. However, wage growth remains a concern, as it could fuel inflation in the services sector.</p><p>The euro weakened against the dollar following the announcement, as investors adjusted their expectations for the path of interest rates. European bond yields also fell, reflecting increased demand for fixed-income assets.</p><p>Economists suggest that the ECB is trying to balance the need to support economic growth, which has been sluggish in the region, with its mandate to maintain price stability. The upcoming inflation data will be critical in determining the timing of any potential rate cuts.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "markets"
+    },
+    {
+      "id": "amazon-sees-record-cloud-revenue-but-retail-growth-slows-1793138846964",
+      "title": "Amazon Sees Record Cloud Revenue but Retail Growth Slows",
+      "description": "Amazon reported record revenues from its cloud computing division, AWS, but growth in its core retail business slowed more than expected. The mixed re...",
+      "content": "<p>Amazon reported record revenues from its cloud computing division, AWS, but growth in its core retail business slowed more than expected. The mixed results highlight the divergent performance of the company's different segments.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>AWS continued to be the primary profit driver, benefiting from the surge in AI-related demand. Enterprise customers are increasingly migrating their workloads to the cloud and investing in advanced data analytics and machine learning tools.</p><p>However, the retail segment faced headwinds as consumers became more cautious with their spending. Higher prices and economic uncertainty have led to a decrease in discretionary purchases, impacting Amazon's e-commerce sales growth.</p><p>The company is also facing intense competition from rivals like Walmart, which has been investing heavily in its own e-commerce and fulfillment capabilities. Investors are watching to see if Amazon can successfully navigate these challenges and maintain its dominant position in both retail and cloud computing.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "technology"
+    },
+    {
+      "id": "us-consumer-confidence-dips-amid-inflation-and-rate-concerns-1793138846963",
+      "title": "US Consumer Confidence Dips Amid Inflation and Rate Concerns",
+      "description": "Consumer confidence in the US declined unexpectedly this month, reflecting growing unease about inflation and the impact of higher interest rates. The...",
+      "content": "<p>Consumer confidence in the US declined unexpectedly this month, reflecting growing unease about inflation and the impact of higher interest rates. The drop was driven primarily by a deterioration in consumer expectations for the future, particularly regarding income and business conditions.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>While the labor market remains strong, consumers are increasingly worried about the rising cost of living. Essential expenses such as housing, healthcare, and food have seen significant price increases, eroding household purchasing power and forcing many to tighten their budgets.</p><p>Retailers are already feeling the effects, with some reporting a shift in consumer behavior toward discount brands and value offerings. This trend could have broader implications for the economy, as consumer spending is the primary driver of US economic growth.</p><p>Economists are monitoring these developments closely, as a sustained decline in consumer confidence could signal a slowdown in spending. The Federal Reserve's policy decisions in the coming months will be crucial in determining the direction of consumer sentiment.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "economy"
+    },
+    {
+      "id": "tesla-faces-pressure-as-ev-price-war-intensifies-in-china-1793138846962",
+      "title": "Tesla Faces Pressure as EV Price War Intensifies in China",
+      "description": "Tesla is facing mounting pressure in the Chinese market as a price war among electric vehicle manufacturers intensifies. The company recently cut pric...",
+      "content": "<p>Tesla is facing mounting pressure in the Chinese market as a price war among electric vehicle manufacturers intensifies. The company recently cut prices on its Model 3 and Model Y vehicles in China, responding to aggressive pricing strategies from local competitors like BYD and Nio.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>The price cuts have squeezed Tesla's margins, raising concerns among investors about the company's profitability. While the strategy aims to boost sales volumes, it comes at a significant cost, especially as Tesla ramps up production at its Shanghai factory.</p><p>China is a critical market for Tesla, accounting for a substantial portion of its global sales and production. However, the company faces challenges beyond pricing, including regulatory scrutiny, data security concerns, and a wave of new, highly competitive EV models from domestic brands.</p><p>Industry analysts suggest that the EV market is transitioning from a period of rapid growth to a more mature phase, where cost efficiency and brand loyalty will be key differentiators. Tesla's ability to navigate this shift will be closely watched by investors.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "automotive"
+    },
+    {
+      "id": "microsoft-expands-ai-cloud-infrastructure-with-new-data-centers-1793138846961",
+      "title": "Microsoft Expands AI Cloud Infrastructure with New Data Centers",
+      "description": "Microsoft announced a major expansion of its cloud infrastructure this week, unveiling plans to build new data centers dedicated to artificial intelli...",
+      "content": "<p>Microsoft announced a major expansion of its cloud infrastructure this week, unveiling plans to build new data centers dedicated to artificial intelligence workloads. The move is part of the company's broader strategy to meet the surging demand for AI computing power from enterprise customers.</p><div style=\"margin: 30px 0; text-align: center; overflow-x: auto;\"><script>atOptions = { 'key' : '1dfb3499e1ac651f7c3142c05db57d13', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };</script><script src=\"https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13\"></script></div><p>The new data centers will be equipped with advanced GPUs and specialized networking hardware, designed to train and run large language models efficiently. Microsoft has committed billions of dollars to this initiative, underscoring its confidence in the long-term growth potential of AI.</p><p>Analysts view this investment as a necessary step to maintain Microsoft's competitive edge against rivals like Amazon Web Services and Google Cloud. However, the high capital expenditure raises questions about the timeline for returns and the potential impact on profit margins.</p><p>Investors reacted positively to the news, sending Microsoft shares higher. The company's stock has been one of the top performers in the S&P 500 this year, driven by its early lead in AI commercialization.</p>",
+      "pubDate": "2026-10-27T22:07:26.961Z",
+      "source": "US Market Live",
+      "category": "technology"
+    },
     {
       "id": "bank-earnings-show-resilience-but-credit-quality-concerns-linger-1793138577412",
       "title": "Bank Earnings Show Resilience but Credit Quality Concerns Linger",
