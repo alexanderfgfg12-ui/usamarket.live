@@ -1,9 +1,19 @@
 {
-  "updated": "2026-10-27T00:38:28.235Z",
+  "updated": "2026-10-27T01:05:20.259Z",
   "count": 4,
   "articles": [
     {
-      "id": "from-wall-street-to-silicon-valley-anthropic-ipo-poised-to-have-massive-trickle-down-effect--0",
+      "id": "microsoft-offers-voluntary-buyouts-to-60-000-employees-as-ai-leads-to-efficiency-push-0",
+      "title": "Microsoft offers voluntary buyouts to 60,000 employees as AI leads to efficiency push",
+      "description": "Microsoft is trying to balance a rapid AI infrastructure build-out with capital efficiency.",
+      "content": "<p>Microsoft is trying to balance a rapid AI infrastructure build-out with capital efficiency.</p>",
+      "link": "https://www.cnbc.com/2026/10/26/microsoft-msft-voluntary-buyouts.html",
+      "pubDate": "Tue, 27 Oct 2026 01:05:06 GMT",
+      "source": "CNBC",
+      "category": "markets"
+    },
+    {
+      "id": "from-wall-street-to-silicon-valley-anthropic-ipo-poised-to-have-massive-trickle-down-effect--1",
       "title": "From Wall Street to Silicon Valley, Anthropic IPO poised to have massive 'trickle-down effect'",
       "description": "With the AI trade sputtering of late and interest rates on the rise, Anthropic's IPO is taking on outsized importance.",
       "content": "<p>With the AI trade sputtering of late and interest rates on the rise, Anthropic's IPO is taking on outsized importance.</p>",
@@ -13,7 +23,7 @@
       "category": "markets"
     },
     {
-      "id": "-you-need-only-watch-episodes-of-judge-judy-i-m-in-my-70s-why-do-people-keep-making-the-same-avoidable-financial-mistakes--1",
+      "id": "-you-need-only-watch-episodes-of-judge-judy-i-m-in-my-70s-why-do-people-keep-making-the-same-avoidable-financial-mistakes--2",
       "title": "‘You need only watch episodes of Judge Judy’: I’m in my 70s. Why do people keep making the same avoidable financial mistakes?",
       "description": "“Consider some familiar examples of poor decisions: accumulating credit-card debt or failing to plan for retirement.”",
       "content": "<p>“Consider some familiar examples of poor decisions: accumulating credit-card debt or failing to plan for retirement.”</p>",
@@ -23,23 +33,13 @@
       "category": "markets"
     },
     {
-      "id": "dividend-stocks-are-having-an-excellent-october-as-tech-sector-struggles-2",
+      "id": "dividend-stocks-are-having-an-excellent-october-as-tech-sector-struggles-3",
       "title": "Dividend stocks are having an excellent October as tech sector struggles",
       "description": "ETFs focused on dividend stocks are seeing a powerful rally in October, adding to huge gains in 2026.",
       "content": "<p>ETFs focused on dividend stocks are seeing a powerful rally in October, adding to huge gains in 2026.</p>",
       "link": "https://www.marketwatch.com/story/dividend-stocks-are-having-an-excellent-october-as-tech-sector-struggles-5ae40b02?mod=mw_rss_topstories",
       "pubDate": "Mon, 26 Oct 2026 22:10:00 GMT",
       "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "id": "microsoft-offers-voluntary-buyouts-to-60-000-employees-as-ai-leads-to-efficiency-push-3",
-      "title": "Microsoft offers voluntary buyouts to 60,000 employees as AI leads to efficiency push",
-      "description": "Microsoft is trying to balance a rapid AI infrastructure build-out with capital efficiency.",
-      "content": "<p>Microsoft is trying to balance a rapid AI infrastructure build-out with capital efficiency.</p>",
-      "link": "https://www.cnbc.com/2026/10/26/microsoft-msft-voluntary-buyouts.html",
-      "pubDate": "Mon, 26 Oct 2026 20:44:50 GMT",
-      "source": "CNBC",
       "category": "markets"
     }
   ]
