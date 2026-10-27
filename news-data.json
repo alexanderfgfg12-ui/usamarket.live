@@ -1,7 +1,18 @@
 {
-  "updated": "2026-10-27T21:19:06.111Z",
-  "count": 6,
+  "updated": "2026-10-27T21:19:40.851Z",
+  "count": 7,
   "articles": [
+    {
+      "id": "news-3",
+      "title": "AI Chip Demand Propels Nvidia and Semiconductor Stocks to New Records",
+      "description": "Semiconductor stocks rallied sharply this week, led by Nvidia, as demand for artificial intelligence chips continues to outstrip supply. Nvidia's shar...",
+      "content": "<p>Semiconductor stocks rallied sharply this week, led by Nvidia, as demand for artificial intelligence chips continues to outstrip supply. Nvidia's shares hit an all-time high after the company reported record data center revenue, driven by massive orders from cloud service providers and enterprise clients building out AI infrastructure.</p><p>The broader semiconductor index also gained, with Advanced Micro Devices, Broadcom, and TSMC benefiting from the same trend. Analysts note that the AI boom has created a structural shift in the chip industry, with data center GPU demand now rivaling traditional consumer markets.</p><p>However, concerns about valuation and concentration risk are growing. Nvidia alone accounts for a significant portion of the S&P 500's recent gains, leading some investors to question whether the market has become too dependent on a single stock. Others argue that the earnings growth justifies the premium, and that the AI investment cycle is still in its early stages.</p><p>Looking ahead, the sector will be sensitive to supply chain developments, export restrictions, and the pace of AI adoption across industries. For now, bullish sentiment remains strong, but volatility is likely to persist.</p>",
+      "analysis": "",
+      "link": "#",
+      "pubDate": "2026-10-27T21:19:40.851Z",
+      "source": "US Market Live",
+      "category": "stocks"
+    },
     {
       "id": "news-2",
       "title": "Federal Reserve Signals Patience on Rate Cuts as Inflation Cools Slowly",
@@ -9,7 +20,7 @@
       "content": "<p>The Federal Reserve indicated on Wednesday that it is in no rush to cut interest rates, citing a gradual cooling in inflation and a surprisingly resilient labor market. Policymakers emphasized that they need \"greater confidence\" that inflation is moving sustainably toward the 2% target before easing monetary policy.</p><p>In recent weeks, economic data has painted a mixed picture. While consumer price growth has slowed from its peak, services inflation remains stubbornly high. Meanwhile, the unemployment rate has stayed near historic lows, giving the central bank room to maintain its restrictive stance.</p><p>Market participants reacted by adjusting their expectations for the first rate cut, pushing it further into the second half of the year. Treasury yields ticked higher, and the US dollar strengthened against major currencies. Equity markets, however, showed resilience, with investors focusing on strong corporate earnings that continue to beat expectations.</p><p>Analysts warn that holding rates too high for too long could risk a sharper economic slowdown. However, Fed officials maintain that the risk of cutting too early—and allowing inflation to reignite—outweighs the risk of keeping rates elevated. The next policy meeting will be closely watched for updated economic projections.</p>",
       "analysis": "",
       "link": "#",
-      "pubDate": "2026-10-27T21:19:06.111Z",
+      "pubDate": "2026-10-27T21:19:40.851Z",
       "source": "US Market Live",
       "category": "markets"
     },
@@ -20,7 +31,7 @@
       "content": "<p>US technology stocks surged on Tuesday, pushing major indexes to record highs, as renewed optimism surrounding artificial intelligence and strong corporate earnings fueled a broad market rally. The tech-heavy NASDAQ composite climbed over 2%, led by gains in semiconductor and software companies.</p><p>Investors reacted positively to recent developments in AI infrastructure spending, with several major cloud providers announcing expanded data center investments. This news has reignited confidence in the long-term growth prospects of the technology sector, which has been the primary driver of the bull market over the past year.</p><p>Market analysts suggest that the rally is being supported by a combination of factors, including resilient consumer spending and a slight easing in inflation expectations. The Federal Reserve's cautious approach to interest rate adjustments has also provided a favorable environment for growth-oriented stocks.</p><p>As we look ahead, market participants will be closely watching upcoming earnings reports from industry giants for further clues about the health of the US economy and the sustainability of this tech-driven momentum.</p>",
       "analysis": "",
       "link": "#",
-      "pubDate": "2026-10-27T21:19:06.107Z",
+      "pubDate": "2026-10-27T21:19:40.847Z",
       "source": "US Market Live",
       "category": "stocks"
     },
