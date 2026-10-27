@@ -1,44 +1,44 @@
 {
-  "updated": "2026-10-27T14:18:48.750Z",
+  "updated": "2026-10-27T20:34:00.012Z",
   "count": 4,
   "articles": [
     {
-      "id": "coca-cola-hikes-earnings-outlook-even-as-it-sees-lackluster-demand-in-north-america-0",
-      "title": "Coca-Cola hikes earnings outlook, even as it sees lackluster demand in North America",
-      "description": "Coca-Cola stock has climbed about 32% so far this year, raising the beverage company's market cap to roughly $398 billion.",
-      "content": "<p>Coca-Cola stock has climbed about 32% so far this year, raising the beverage company's market cap to roughly $398 billion.</p>",
-      "link": "https://www.cnbc.com/2026/10/27/coca-cola-ko-q3-2026-earnings.html",
-      "pubDate": "Tue, 27 Oct 2026 14:03:59 GMT",
+      "id": "we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-who-s-to-blame--0",
+      "title": "We stopped helping our neighbors with free home repairs and our friendship cooled. Who’s to blame?",
+      "description": "“Last summer, they complained about needing to replace their roof. A few months later, they bought a new SUV.”",
+      "content": "<p>“Last summer, they complained about needing to replace their roof. A few months later, they bought a new SUV.”</p>",
+      "link": "https://www.marketwatch.com/story/we-stopped-helping-our-neighbors-with-free-home-repairs-and-our-friendship-cooled-whos-to-blame-d20b0720?mod=mw_rss_topstories",
+      "pubDate": "Tue, 27 Oct 2026 20:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "id": "what-gold-and-platinum-are-telling-us-about-the-stock-market-s-direction-1",
+      "title": "What gold and platinum are telling us about the stock market’s direction",
+      "description": "The gold-platinum ratio has one of the best historical records predicting the stock market’s subsequent 12-month return",
+      "content": "<p>The gold-platinum ratio has one of the best historical records predicting the stock market’s subsequent 12-month return</p>",
+      "link": "https://www.marketwatch.com/story/what-gold-and-platinum-are-telling-us-about-the-stock-markets-direction-81405633?mod=mw_rss_topstories",
+      "pubDate": "Tue, 27 Oct 2026 20:30:00 GMT",
+      "source": "MarketWatch",
+      "category": "markets"
+    },
+    {
+      "id": "speaker-mike-johnson-calls-election-transfer-concerns-absurd--2",
+      "title": "Speaker Mike Johnson calls election-transfer concerns ‘absurd’ ",
+      "description": "Democrats and voting rights groups have raised concerns that President Donald Trump and congressional Republicans could challenge election results if they lose.",
+      "content": "<p>Democrats and voting rights groups have raised concerns that President Donald Trump and congressional Republicans could challenge election results if they lose.</p>",
+      "link": "https://www.cnbc.com/2026/10/27/speaker-johnson-peaceful-transfer-midterms.html",
+      "pubDate": "Tue, 27 Oct 2026 20:28:56 GMT",
       "source": "CNBC",
       "category": "markets"
     },
     {
-      "id": "-when-do-i-sell-my-stocks-ignore-the-noise-and-focus-on-these-things--1",
-      "title": "‘When do I sell my stocks?’ Ignore the noise and focus on these things.",
-      "description": "Before you sell, ask whether a rising or falling stock price actually represents a change in the company’s business prospects",
-      "content": "<p>Before you sell, ask whether a rising or falling stock price actually represents a change in the company’s business prospects</p>",
-      "link": "https://www.marketwatch.com/story/when-do-i-sell-my-stocks-ignore-the-noise-and-focus-on-these-things-5f4ca5aa?mod=mw_rss_topstories",
-      "pubDate": "Tue, 27 Oct 2026 14:00:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "id": "meet-the-financial-literacy-teacher-who-helps-high-school-students-open-their-own-roth-iras-2",
-      "title": "Meet the financial-literacy teacher who helps high-school students open their own Roth IRAs",
-      "description": "Christopher Jackson got hurt before his first NFL game. He now coaches teens on building wealth.",
-      "content": "<p>Christopher Jackson got hurt before his first NFL game. He now coaches teens on building wealth.</p>",
-      "link": "https://www.marketwatch.com/story/meet-the-financial-literacy-teacher-who-helps-high-school-students-open-their-own-roth-iras-652d56a8?mod=mw_rss_topstories",
-      "pubDate": "Tue, 27 Oct 2026 13:54:00 GMT",
-      "source": "MarketWatch",
-      "category": "markets"
-    },
-    {
-      "id": "from-wall-street-to-silicon-valley-anthropic-ipo-poised-to-have-massive-trickle-down-effect--3",
-      "title": "From Wall Street to Silicon Valley, Anthropic IPO poised to have massive 'trickle-down effect'",
-      "description": "With the AI trade sputtering of late and interest rates on the rise, Anthropic's IPO is taking on outsized importance.",
-      "content": "<p>With the AI trade sputtering of late and interest rates on the rise, Anthropic's IPO is taking on outsized importance.</p>",
-      "link": "https://www.cnbc.com/2026/10/26/anthropic-ipo-might-trigger-tech-reset-if-ipo-underperforms.html",
-      "pubDate": "Mon, 26 Oct 2026 22:50:07 GMT",
+      "id": "early-third-quarter-earnings-show-a-resilient-u-s-consumer-with-signs-of-strain-3",
+      "title": "Early third-quarter earnings show a 'resilient' U.S. consumer, with signs of strain",
+      "description": "Companies from Royal Caribbean to Coca-Cola and UPS say they are seeing steady consumer spending despite high inflation.",
+      "content": "<p>Companies from Royal Caribbean to Coca-Cola and UPS say they are seeing steady consumer spending despite high inflation.</p>",
+      "link": "https://www.cnbc.com/2026/10/27/q3-earnings-resilient-consumer.html",
+      "pubDate": "Tue, 27 Oct 2026 20:25:48 GMT",
       "source": "CNBC",
       "category": "markets"
     }
