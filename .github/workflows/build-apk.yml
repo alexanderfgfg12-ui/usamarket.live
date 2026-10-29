@@ -1,0 +1,42 @@
+name: Build Android App
+on:
+  workflow_dispatch: # لتشغيله يدوياً
+  push:
+    paths:
+      - 'app.html'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Cordova
+        run: npm install -g cordova
+
+      - name: Create Cordova Project
+        run: |
+          cordova create myapp com.usamarket.live "US Market Live"
+          cd myapp
+          cordova platform add android
+
+      - name: Copy Website to App
+        run: |
+          cp app.html myapp/www/index.html
+
+      - name: Build APK
+        run: |
+          cd myapp
+          cordova build android
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: US-Market-Live-App
+          path: myapp/platforms/android/app/build/outputs/apk/debug/app-debug.apk
