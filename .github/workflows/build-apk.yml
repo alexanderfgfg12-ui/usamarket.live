@@ -1,6 +1,6 @@
-name: Build Android App
+name: Build Signed Android App
 on:
-  workflow_dispatch: # لتشغيله يدوياً
+  workflow_dispatch:
   push:
     paths:
       - 'app.html'
@@ -30,13 +30,20 @@ jobs:
         run: |
           cp app.html myapp/www/index.html
 
-      - name: Build APK
+      # إنشاء مفتاح التوقيع (Keystore) تلقائياً
+      - name: Generate Keystore
         run: |
           cd myapp
-          cordova build android
+          keytool -genkey -v -keystore release.keystore -alias usmarket -keyalg RSA -keysize 2048 -validity 10000 -storepass password123 -keypass password123 -dname "CN=US Market Live, OU=Development, O=US Market, L=New York, S=NY, C=US"
 
-      - name: Upload APK
+      # بناء التطبيق الموقّع
+      - name: Build Signed APK
+        run: |
+          cd myapp
+          cordova build android --release -- --keystore=release.keystore --storePassword=password123 --alias=usmarket --password=password123
+
+      - name: Upload Signed APK
         uses: actions/upload-artifact@v4
         with:
-          name: US-Market-Live-App
-          path: myapp/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+          name: US-Market-Live-Release
+          path: myapp/platforms/android/app/build/outputs/apk/release/app-release.apk
