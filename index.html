@@ -10,6 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
+<!-- ربط تطبيق PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a0e17">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 <!-- Google AdSense (احتفظنا به كأساس) -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
 </head>
@@ -97,6 +103,17 @@
 <!-- Adsterra Popunder (النوافذ المنبثقة) -->
 <script data-cfasync="false" src="https://abscloud.org/1/98edaa5f9784b392c4d4edd549e1230d"></script>
 <script src="https://araplhn.org/4/9da444c80a95bec4567e71a4e9ed57dc"></script>
+
+<!-- تشغيل تطبيق PWA (Service Worker) -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(registration => console.log('SW registered'))
+        .catch(err => console.log('SW registration failed', err));
+    });
+  }
+</script>
 
 </body>
 </html>
