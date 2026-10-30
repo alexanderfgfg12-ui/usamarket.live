@@ -1,0 +1,26 @@
+{
+  "packageId": "com.usamarket.live",
+  "host": "https://usamarket.live",
+  "name": "US Market Live",
+  "launcherName": "US Market",
+  "display": "standalone",
+  "orientation": "portrait",
+  "themeColor": "#081026",
+  "themeColorDark": "#081026",
+  "navigationColor": "#081026",
+  "navigationColorDark": "#081026",
+  "backgroundColor": "#081026",
+  "startUrl": "/index.html",
+  "iconUrl": "https://usamarket.live/usmarket-live-icon-512.png",
+  "maskableIconUrl": "https://usamarket.live/usmarket-live-icon-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "enableNotifications": false,
+  "enableSiteSettingsShortcut": true,
+  "appVersionName": "1.0.0",
+  "appVersionCode": 1,
+  "webManifestUrl": "https://usamarket.live/manifest.json",
+  "signingKey": {
+    "path": "android.keystore",
+    "alias": "usmarket"
+  }
+}
