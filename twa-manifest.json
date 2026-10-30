@@ -1,6 +1,6 @@
 {
   "packageId": "com.usamarket.live",
-  "host": "https://usamarket.live",
+  "host": "usamarket.live",
   "name": "US Market Live",
   "launcherName": "US Market",
   "display": "standalone",
@@ -16,8 +16,8 @@
   "splashScreenFadeOutDuration": 300,
   "enableNotifications": false,
   "enableSiteSettingsShortcut": true,
-  "appVersionName": "1.0.0",
-  "appVersionCode": 1,
+  "appVersionName": "1.0.1",
+  "appVersionCode": 2,
   "webManifestUrl": "https://usamarket.live/manifest.json",
   "signingKey": {
     "path": "android.keystore",
