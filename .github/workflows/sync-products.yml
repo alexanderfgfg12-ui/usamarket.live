@@ -1,0 +1,33 @@
+name: Sync affiliate products
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: affiliate-product-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Import partner product feeds
+        env:
+          AFFILIATE_FEED_URLS: ${{ secrets.AFFILIATE_FEED_URLS }}
+        run: node scripts/sync-products.js
+      - name: Commit catalogue when changed
+        run: |
+          if git diff --quiet -- shop/products.json; then
+            echo "Catalogue unchanged."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add shop/products.json
+          git commit -m "chore: sync affiliate product catalogue"
+          git push
