@@ -30,23 +30,42 @@ jobs:
 
       - name: Initialize and Build App
         env:
+          JAVA_HOME: ${{ env.JAVA_HOME }}
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
-          # إنشاء مجلد التطبيق وتوليد الإعدادات تلقائياً
+          # 1. إعداد بيئة Bubblewrap لاستخدام JDK المثبت مسبقاً (لتجنب السؤال التفاعلي)
+          mkdir -p ~/.bubblewrap
+          echo '{"jdkPath":"'"$JAVA_HOME"'","androidSdkPath":"/usr/local/lib/android/sdk"}' > ~/.bubblewrap/config.json
+          
+          # 2. إنشاء مجلد التطبيق
           mkdir myapp && cd myapp
-          bubblewrap init --manifest="https://usamarket.live/manifest.json" --directory=. --skipPwaValidation || true
           
-          # تعديل ملف الإعدادات ليشير إلى مفتاح التوقيع الذي أنشأناه
-          node -e "
-            const fs = require('fs');
-            let manifest = JSON.parse(fs.readFileSync('twa-manifest.json', 'utf8'));
-            manifest.signingKey = { path: '../android.keystore', alias: '${{ secrets.KEY_ALIAS }}' };
-            manifest.packageId = 'com.usamarket.live';
-            fs.writeFileSync('twa-manifest.json', JSON.stringify(manifest, null, 2));
-          "
+          # 3. إنشاء ملف twa-manifest.json يدوياً (لتجاوز أداة init التفاعلية)
+          cat <<EOF > twa-manifest.json
+          {
+            "packageId": "com.usamarket.live",
+            "host": "usamarket.live",
+            "name": "US Market Live",
+            "launcherName": "US Market",
+            "display": "standalone",
+            "themeColor": "#0a0e17",
+            "backgroundColor": "#0a0e17",
+            "startUrl": "/index.html",
+            "webManifestUrl": "https://usamarket.live/manifest.json",
+            "iconUrl": "https://usamarket.live/icon-512.png",
+            "appVersionName": "1.0.0",
+            "appVersionCode": 1,
+            "enableNotifications": true,
+            "shortcuts": [],
+            "signingKey": {
+              "path": "../android.keystore",
+              "alias": "${{ secrets.KEY_ALIAS }}"
+            }
+          }
+          EOF
           
-          # بناء التطبيق
+          # 4. بناء التطبيق (مع تخطي التحقق من PWA لأننا نعلم أنه يعمل)
           bubblewrap build --skipPwaValidation
 
       - name: Upload APK
