@@ -69,7 +69,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          yes "" | bubblewrap init --manifest=https://raw.githubusercontent.com/alexanderfgfg12-ui/usamarket.live/main/manifest.json --directory=android
+          yes "" | bubblewrap init --manifest=https://raw.githubusercontent.com/alexanderfgfg12-ui/usamarket.live/main/manifest.json --directory=android || test -s android/twa-manifest.json
 
       - name: Apply repository TWA configuration and build signed APK
         shell: bash
