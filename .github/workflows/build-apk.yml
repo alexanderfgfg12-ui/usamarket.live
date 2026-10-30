@@ -15,33 +15,30 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Cordova
-        run: npm install -g cordova
+      - name: Install Cordova and ImageMagick
+        run: |
+          npm install -g cordova
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
 
       - name: Create Cordova Project
         run: |
           cordova create myapp com.usamarket.live "US Market Live"
           cd myapp
           cordova platform add android
+          # تثبيت إضافة الأيقونات رسمياً
+          cordova plugin add cordova-plugin-app-icon
 
-      - name: Copy Website to App
+      - name: Copy Website and Icons
         run: |
           cp app.html myapp/www/index.html
-
-      # الخطوة السحرية: نسخ الأيقونات إلى مجلد Cordova
-      - name: Inject App Icons
-        run: |
-          # استبدال الأيقونات الافتراضية بأيقونات الموقع
-          cp icon-192.png myapp/res/icon/android/ldpi.png
-          cp icon-192.png myapp/res/icon/android/mdpi.png
-          cp icon-192.png myapp/res/icon/android/hdpi.png
-          cp icon-192.png myapp/res/icon/android/xhdpi.png
-          cp icon-192.png myapp/res/icon/android/xxhdpi.png
-          cp icon-512.png myapp/res/icon/android/xxxhdpi.png
+          cp icon-512.png myapp/icon.png
 
       - name: Build APK
         run: |
           cd myapp
+          # استخدام الإضافة لتغيير الأيقونة من داخل المشروع
+          cordova prepare
           cordova build android
 
       - name: Upload APK
