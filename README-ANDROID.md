@@ -14,7 +14,12 @@ Open this repository in Android Studio (Hedgehog or newer), sync Gradle, then ru
 
 The website remains unchanged. This first milestone uses the published JSON feed because the current site is static and does not expose a dedicated backend API. Authentication, server-side personalization, and other dynamic capabilities require API endpoints before they can be implemented natively.
 
+## Release signing
 
-## New release signing
+The GitHub Actions release workflow reuses the repository's existing secrets:
+- `KEYSTORE_BASE64`
+- `KEYSTORE_PASSWORD`
+- `KEY_PASSWORD`
+- `KEY_ALIAS`
 
-The release workflow expects a newly generated upload/signing keystore stored as GitHub Actions secrets: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_PASSWORD`, and `ANDROID_KEY_ALIAS`. Do not commit the keystore or passwords. The new certificate differs from the previous TWA certificate, so users must uninstall the previous app before installing this replacement; Android will not accept it as an in-place update. The previous Google Play listing/release is not deleted automatically.
+Do not commit the keystore or passwords. The app keeps the existing application ID so it can be upgraded in place only if this key matches the certificate expected by the installed app. If Google Play App Signing is enabled, verify the Play app-signing certificate separately; the repository key may be an upload key rather than the app-signing key. The Google Play listing and published releases are managed separately and are not deleted or replaced by repository changes.
