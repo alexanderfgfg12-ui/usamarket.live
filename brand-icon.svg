@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<rect width="512" height="512" rx="96" fill="#fff"/>
-<text x="256" y="330" text-anchor="middle" fill="#102b4e" font-family="Georgia,serif" font-size="245" font-weight="700">UML</text>
-<path d="M105 375 L205 290 L275 315 L395 165" fill="none" stroke="#bd9445" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M330 165 H405 V240" fill="none" stroke="#bd9445" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="72" fill="#fff"/><text x="256" y="330" text-anchor="middle" fill="#102b4e" font-family="Georgia,'Times New Roman',serif" font-size="245" font-weight="700" letter-spacing="-16">UML</text><path d="M188 378 L270 270 L324 309 L415 184" fill="none" stroke="#bd9445" stroke-width="20" stroke-linejoin="miter"/><path d="M367 185 L425 171 L413 230" fill="none" stroke="#bd9445" stroke-width="20" stroke-linejoin="miter"/></svg>
