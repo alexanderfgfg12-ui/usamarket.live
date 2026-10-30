@@ -2,10 +2,10 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>US Market Live - Real-Time US Market News</title>
 <meta name="description" content="Real-time US stock market news, analysis, and insights.">
-<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="icon" type="image/png" href="/usmarket-live-icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.json">
@@ -64,7 +64,7 @@
     <h1>Latest US Market News</h1>
     <div class="update-info"><span>🕒 Last updated: <strong id="lastUpdate">--</strong></span></div>
     <div style="text-align: center; margin: 20px 0;">
-      <a href="app-debug.apk" download class="download-btn">📱 Download Android App</a>
+      <button id="installAppBtn" class="download-btn" type="button" hidden>📱 Install US Market Live</button>
     </div>
   </section>
 
@@ -116,5 +116,6 @@ function changeLanguage() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script src="script.js"></script>
+<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(error => console.error("Service worker registration failed:", error))); }</script>
 </body>
 </html>

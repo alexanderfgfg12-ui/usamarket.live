@@ -16,8 +16,8 @@ async function loadNews() {
   try {
     const res = await fetch('news-data.json?t=' + Date.now());
     const data = await res.json();
-    document.getElementById('lastUpdate').textContent = new Date(data.updated).toLocaleString('en-US');
-    allNews = data.articles || [];
+    document.getElementById('lastUpdate').textContent = (data.updated ? new Date(data.updated).toLocaleString('en-US') : '—');
+    allNews = Array.isArray(data) ? data : (Array.isArray(data.articles) ? data.articles : []);
     renderNews(allNews);
   } catch (err) {
     document.getElementById('newsGrid').innerHTML = '<div style="text-align:center; padding:20px;">Error loading news.</div>';
@@ -60,14 +60,14 @@ function filterCategory(category, event) {
   if (category === 'all') {
     renderNews(allNews);
   } else {
-    const filtered = allNews.filter(a => a.category === category);
+    const filtered = allNews.filter(a => String(a.category || '').toLowerCase() === category);
     renderNews(filtered);
   }
 }
 
 function filterNews() {
   const query = document.getElementById('searchInput').value.toLowerCase();
-  const filtered = allNews.filter(a => a.title.toLowerCase().includes(query) || a.description.toLowerCase().includes(query));
+  const filtered = allNews.filter(a => String(a.title || '').toLowerCase().includes(query) || String(a.description || '').toLowerCase().includes(query));
   renderNews(filtered);
 }
 
@@ -91,3 +91,29 @@ document.getElementById('year').textContent = new Date().getFullYear();
 loadNews();
 loadMarketData();
 setInterval(loadMarketData, 60000);
+
+
+// PWA installation prompt (supported browsers only).
+let deferredInstallPrompt = null;
+window.addEventListener('beforeinstallprompt', event => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  const button = document.getElementById('installAppBtn');
+  if (button) button.hidden = false;
+});
+window.addEventListener('appinstalled', () => {
+  deferredInstallPrompt = null;
+  const button = document.getElementById('installAppBtn');
+  if (button) button.hidden = true;
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('installAppBtn');
+  if (!button) return;
+  button.addEventListener('click', async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    button.hidden = true;
+  });
+});
