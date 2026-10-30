@@ -1,15 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-labelledby="title">
-<title id="title">US Market Live</title>
-<defs>
- <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#168BFF"/><stop offset="1" stop-color="#0751C8"/></linearGradient>
- <linearGradient id="green" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#00A96B"/><stop offset="1" stop-color="#38E58C"/></linearGradient>
-</defs>
-<g transform="translate(8 9)">
- <path d="M12 9h20v43c0 19 10 30 27 30s27-11 27-30V9h20v44c0 31-18 49-47 49S12 84 12 53z" fill="url(#blue)"/>
- <path d="M104 85 130 58l18 14 31-43" fill="none" stroke="url(#green)" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
- <path d="m168 29 17-5-4 18" fill="none" stroke="url(#green)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
- <path d="M112 95h10V82h10V68h10V55h10V43h10V30h10v65z" fill="#102B55" opacity=".10"/>
-</g>
-<text x="215" y="60" font-family="Inter,Arial,sans-serif" font-size="38" font-weight="800" fill="#102B55">US Market</text>
-<text x="215" y="96" font-family="Inter,Arial,sans-serif" font-size="29" font-weight="800" fill="#0878E8">LIVE</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 132" role="img" aria-labelledby="title desc">
+<title id="title">US Market Live</title><desc id="desc">Navy UML monogram crossed by a rising gold market arrow.</desc>
+<rect width="560" height="132" fill="#fff"/>
+<g fill="#102b4e" font-family="Georgia, 'Times New Roman', serif" font-weight="700">
+<text x="12" y="91" font-size="82" letter-spacing="-9">UML</text></g>
+<path d="M105 96 L190 54 L239 67 L322 10" fill="none" stroke="#bd9445" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M293 12 L327 7 L322 41" fill="none" stroke="#bd9445" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="345" y="57" fill="#102b4e" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="1.1">US MARKET</text>
+<text x="345" y="84" fill="#bd9445" font-family="Arial,sans-serif" font-size="24" font-weight="800" letter-spacing="2">LIVE</text>
+<path d="M345 98 H538" stroke="#e8dfcd" stroke-width="2"/>
 </svg>

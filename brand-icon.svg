@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#168BFF"/><stop offset="1" stop-color="#073A91"/></linearGradient><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#00A96B"/><stop offset="1" stop-color="#38E58C"/></linearGradient></defs>
-<rect width="512" height="512" rx="112" fill="#07172E"/>
-<path d="M76 112h72v152c0 65 35 101 94 101s94-36 94-101V112h72v155c0 108-64 171-166 171S76 375 76 267z" fill="url(#b)"/>
-<path d="m264 370 62-65 43 33 79-115" fill="none" stroke="url(#g)" stroke-width="25" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="m422 223 36-10-7 38" fill="none" stroke="url(#g)" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<rect width="512" height="512" rx="96" fill="#fff"/>
+<text x="256" y="330" text-anchor="middle" fill="#102b4e" font-family="Georgia,serif" font-size="245" font-weight="700">UML</text>
+<path d="M105 375 L205 290 L275 315 L395 165" fill="none" stroke="#bd9445" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M330 165 H405 V240" fill="none" stroke="#bd9445" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
