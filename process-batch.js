@@ -26,7 +26,10 @@ batchFiles.forEach(batchFile => {
   const batch = JSON.parse(fs.readFileSync(`./${batchFile}`, 'utf8'));
 
   batch.forEach((item, index) => {
+    // إنشاء رابط فريد لكل خبر
     const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.floor(Math.random() * 100000);
+    
+    // التحقق من التكرار
     if (newsData.articles.find(a => a.title === item.title)) return;
 
     const imageUrl = getRandomImage(item.category);
@@ -60,6 +63,7 @@ batchFiles.forEach(batchFile => {
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
       </head>
       <body>
+        <!-- الهيدر -->
         <header class="header">
           <div class="container header-inner" style="justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
             <a href="../index.html"><img src="../logo.png" alt="US Market Live" style="height:45px;"></a>
