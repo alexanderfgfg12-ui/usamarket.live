@@ -49,7 +49,10 @@ private fun MarketApp() {
     var category by remember { mutableStateOf("all") }
     var selected by remember { mutableStateOf<Article?>(null) }
     var error by remember { mutableStateOf<String?>(null) }
-    LaunchedEffect(Unit) {
+    var refreshKey by remember { mutableIntStateOf(0) }
+    LaunchedEffect(refreshKey) {
+        loading = true
+        error = null
         try { articles = fetchArticles() } catch (e: Exception) { error = "تعذر تحميل الأخبار. تحقق من اتصال الإنترنت." }
         loading = false
     }
@@ -70,7 +73,10 @@ private fun MarketApp() {
                     Spacer(Modifier.height(12.dp))
                     Text(android.text.Html.fromHtml(selected!!.content,android.text.Html.FROM_HTML_MODE_COMPACT).toString(), style=MaterialTheme.typography.bodyLarge)
                 } else {
-                    Text("أخبار الأسواق الأمريكية", style=MaterialTheme.typography.headlineSmall, fontWeight=FontWeight.Bold)
+                    Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween, verticalAlignment = Alignment.CenterVertically) {
+                        Text("أخبار الأسواق الأمريكية", style=MaterialTheme.typography.headlineSmall, fontWeight=FontWeight.Bold)
+                        TextButton(onClick = { refreshKey++ }, enabled = !loading) { Text("تحديث") }
+                    }
                     Spacer(Modifier.height(10.dp))
                     OutlinedTextField(query,{query=it},Modifier.fillMaxWidth(),singleLine=true,label={Text("ابحث في الأخبار")})
                     Spacer(Modifier.height(8.dp))
@@ -81,7 +87,10 @@ private fun MarketApp() {
                     }
                     when {
                         loading -> Box(Modifier.fillMaxSize(),contentAlignment=androidx.compose.ui.Alignment.Center){CircularProgressIndicator()}
-                        error != null -> Text(error!!,color=MaterialTheme.colorScheme.error)
+                        error != null -> Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                            Text(error!!, color = MaterialTheme.colorScheme.error)
+                            Button(onClick = { refreshKey++ }) { Text("إعادة المحاولة") }
+                        }
                         filtered.isEmpty() -> Text("لا توجد أخبار مطابقة.")
                         else -> LazyColumn(verticalArrangement=Arrangement.spacedBy(12.dp),contentPadding=PaddingValues(vertical=12.dp)) {
                             items(filtered) { article ->
