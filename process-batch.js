@@ -30,7 +30,11 @@ batchFiles.forEach(batchFile => {
   }
 
 
-  batch.forEach((item, index) => {\n    if (!item || typeof item.title !== 'string' || !item.title.trim() || typeof item.content !== 'string' || !item.content.trim()) {\n      console.warn(`Skipping invalid item ${index + 1} in ${batchFile}: title and content are required.`);\n      return;\n    }
+  batch.forEach((item, index) => {
+    if (!item || typeof item.title !== 'string' || !item.title.trim() || typeof item.content !== 'string' || !item.content.trim()) {
+      console.warn(`Skipping invalid item ${index + 1} in ${batchFile}: title and content are required.`);
+      return;
+    }
     // توليد رابط فريد (Slug) لتجنب التكرار
     const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.floor(Math.random() * 100000);
     
