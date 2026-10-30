@@ -3,7 +3,7 @@ package live.usamarket.nativeapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.Image\nimport androidx.compose.ui.res.painterResource\nimport androidx.compose.ui.Alignment\nimport androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -56,7 +56,7 @@ private fun MarketApp() {
     }
     MaterialTheme(colorScheme = lightColorScheme(primary = androidx.compose.ui.graphics.Color(0xFF102B55))) {
         Scaffold(topBar = {
-            TopAppBar(title = { Text("US Market Live", fontWeight = FontWeight.Bold) })
+            TopAppBar(title = { Row(verticalAlignment = Alignment.CenterVertically) { Image(painterResource(R.drawable.ic_market_logo), contentDescription = "US Market Live", modifier = Modifier.size(36.dp)); Spacer(Modifier.width(10.dp)); Text("US Market Live", fontWeight = FontWeight.Bold) } })
         }) { padding ->
             Column(Modifier.fillMaxSize().padding(padding).padding(horizontal=16.dp)) {
                 if (selected != null) {
