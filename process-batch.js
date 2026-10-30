@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 let newsData = { updated: new Date().toISOString(), count: 0, articles: [] };
 if (fs.existsSync('./news-data.json')) {
@@ -35,11 +36,11 @@ batchFiles.forEach(batchFile => {
       console.warn(`Skipping invalid item ${index + 1} in ${batchFile}: title and content are required.`);
       return;
     }
-    // توليد رابط فريد (Slug) لتجنب التكرار
-    const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.floor(Math.random() * 100000);
-    
-    // التحقق من وجود الخبر مسبقاً (بناءً على العنوان) لتجنب التكرار في ملف JSON
+    // Keep existing article URLs stable; use a deterministic ID for new articles.
     if (newsData.articles.find(a => a.title === item.title)) return;
+    const baseSlug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 100) || 'market-news';
+    const suffix = crypto.createHash('sha256').update(item.title).digest('hex').slice(0, 8);
+    const slug = `${baseSlug}-${suffix}`;
 
     const imageUrl = getRandomImage(item.category);
     const paragraphs = item.content.split('\n\n');
@@ -66,6 +67,11 @@ batchFiles.forEach(batchFile => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>${item.title} - US Market Live</title>
+        <meta name="description" content="${String(item.content).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 155).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}">
+        <link rel="canonical" href="https://usamarket.live/news/${slug}.html">
+        <meta property="og:title" content="${item.title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')} - US Market Live">
+        <meta property="og:description" content="${String(item.content).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 155).replace(/&/g, '&amp;').replace(/"/g, '&quot;')}">
+        <meta property="og:url" content="https://usamarket.live/news/${slug}.html">
         <meta property="og:image" content="${imageUrl}">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../style.css">
