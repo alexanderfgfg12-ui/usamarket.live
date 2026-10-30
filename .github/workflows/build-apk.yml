@@ -1,4 +1,4 @@
-name: Build Android App (Cordova)
+name: Build Android App
 
 on:
   workflow_dispatch:
@@ -26,8 +26,18 @@ jobs:
 
       - name: Copy Website to App
         run: |
-          # نسخ ملف app.html ليكون هو الواجهة الرئيسية داخل التطبيق
           cp app.html myapp/www/index.html
+
+      # الخطوة السحرية: نسخ الأيقونات إلى مجلد Cordova
+      - name: Inject App Icons
+        run: |
+          # استبدال الأيقونات الافتراضية بأيقونات الموقع
+          cp icon-192.png myapp/res/icon/android/ldpi.png
+          cp icon-192.png myapp/res/icon/android/mdpi.png
+          cp icon-192.png myapp/res/icon/android/hdpi.png
+          cp icon-192.png myapp/res/icon/android/xhdpi.png
+          cp icon-192.png myapp/res/icon/android/xxhdpi.png
+          cp icon-512.png myapp/res/icon/android/xxxhdpi.png
 
       - name: Build APK
         run: |
