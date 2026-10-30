@@ -69,15 +69,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in $(seq 1 30); do
-            if curl --fail --silent --show-error https://usamarket.live/usmarket-live-icon-512.png >/dev/null 2>&1; then
-              break
-            fi
-            echo "Waiting for the updated site assets to finish deploying ($attempt/30)..."
-            sleep 10
-          done
-          curl --fail --silent --show-error https://usamarket.live/usmarket-live-icon-512.png >/dev/null
-          yes "" | bubblewrap init --manifest=https://usamarket.live/manifest.json --directory=android
+          yes "" | bubblewrap init --manifest=https://raw.githubusercontent.com/alexanderfgfg12-ui/usamarket.live/main/manifest.json --directory=android
 
       - name: Apply repository TWA configuration and build signed APK
         shell: bash
