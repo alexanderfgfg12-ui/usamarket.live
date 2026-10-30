@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.usamarket.live",
+      "sha256_cert_fingerprints": [
+        "7E:DE:B3:69:36:22:33:E2:B3:4B:52:1C:36:4F:B2:EB:06:82:E0:43:3B:25:A0:6B:CB:DB:A5:49:6C:FA:8E:63"
+      ]
+    }
+  }
+]
