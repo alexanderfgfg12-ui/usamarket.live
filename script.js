@@ -29,8 +29,8 @@ function renderNews(articles) {
       <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 10px;">
         <span class="read-more">Read Article →</span>
         <div style="display: flex; gap: 5px;" onclick="event.stopPropagation();">
-          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(a.title)}&url=https://usamarket.live/news/${a.id}.html" target="_blank" style="background:#000; color:#fff; padding:5px 8px; border-radius:4px; font-size:0.8rem; text-decoration:none;">X</a>
-          <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(a.title)}%20https://usamarket.live/news/${a.id}.html" target="_blank" style="background:#25D366; color:#fff; padding:5px 8px; border-radius:4px; font-size:0.8rem; text-decoration:none;">WA</a>
+          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(a.title)}&url=https://usamarket.live/news/${a.id}.html" target="_blank" style="background:#000; color:#fff; padding:5px 10px; border-radius:4px; font-size:0.8rem; text-decoration:none;">𝕏</a>
+          <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(a.title)}%20https://usamarket.live/news/${a.id}.html" target="_blank" style="background:#25D366; color:#fff; padding:5px 10px; border-radius:4px; font-size:0.8rem; text-decoration:none;">💬</a>
         </div>
       </div>
     </article>
@@ -68,10 +68,12 @@ async function loadMarketData() {
 
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('backToTop');
-  if (window.scrollY > 300) {
-    btn.style.display = 'block';
-  } else {
-    btn.style.display = 'none';
+  if (btn) {
+    if (window.scrollY > 300) {
+      btn.style.display = 'block';
+    } else {
+      btn.style.display = 'none';
+    }
   }
 });
 
