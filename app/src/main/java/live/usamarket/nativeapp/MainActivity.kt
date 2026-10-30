@@ -1,4 +1,4 @@
-package live.usamarket.nativeapp
+package com.usamarket.live
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
