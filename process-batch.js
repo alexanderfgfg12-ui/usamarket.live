@@ -30,7 +30,7 @@ batchFiles.forEach(batchFile => {
   }
 
 
-  if (!Array.isArray(batch)) throw new Error(`${batchFile} must contain a JSON array of news items.`);\n\n  batch.forEach((item, index) => {\n    if (!item || typeof item.title !== 'string' || !item.title.trim() || typeof item.content !== 'string' || !item.content.trim()) {\n      console.warn(`Skipping invalid item ${index + 1} in ${batchFile}: title and content are required.`);\n      return;\n    }
+  batch.forEach((item, index) => {\n    if (!item || typeof item.title !== 'string' || !item.title.trim() || typeof item.content !== 'string' || !item.content.trim()) {\n      console.warn(`Skipping invalid item ${index + 1} in ${batchFile}: title and content are required.`);\n      return;\n    }
     // توليد رابط فريد (Slug) لتجنب التكرار
     const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.floor(Math.random() * 100000);
     
@@ -91,7 +91,7 @@ batchFiles.forEach(batchFile => {
 
         <div class="article-container" style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
           <h1 style="font-size: 2.2rem; font-weight: 900; color: #1a1a1a; line-height: 1.3;">${item.title}</h1>
-          <div style="color: #666; margin-bottom: 20px; font-weight: 600;">📰 ${item.category.toUpperCase()} | US Market Live</div>
+          <div style="color: #666; margin-bottom: 20px; font-weight: 600;">📰 ${String(item.category || 'markets').toUpperCase()} | US Market Live</div>
           
           <img src="${imageUrl}" style="width: 100%; border-radius: 10px; margin-bottom: 25px;" alt="${item.title}">
 
@@ -154,7 +154,7 @@ batchFiles.forEach(batchFile => {
       image: imageUrl,
       pubDate: new Date().toISOString(),
       source: 'US Market Live',
-      category: item.category
+      category: item.category || 'markets'
     });
     totalAdded++;
   });
