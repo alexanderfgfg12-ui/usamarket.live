@@ -3,53 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>US Market Live - Real-Time US Market News & Analysis</title>
-<meta name="description" content="Real-time US stock market news, analysis, and insights. Updated automatically every 4 hours.">
-<meta property="og:title" content="US Market Live - Real-Time US Market News">
-
-<!-- الأيقونة (يجب رفع ملف logo.png إلى مستودعك) -->
-<link rel="icon" type="image/png" href="logo.png">
-
+<title>US Market Live - Real-Time US Market News</title>
+<meta name="description" content="Real-time US stock market news, analysis, and insights.">
+<link rel="icon" type="image/png" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
-<!-- أكواد PWA (للتطبيق) -->
+<!-- PWA -->
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0B132B">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#ffffff">
 
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
 </head>
 <body>
 
-<header class="header" style="background-color: #081026; border-bottom: 1px solid #1C2541; padding: 15px 0;">
-  <div class="container header-inner" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <!-- الشعار الجديد -->
-    <a href="/" class="logo" style="display: flex; align-items: center; text-decoration: none;">
-      <img src="logo.png" alt="US Market Live" style="height: 40px; margin-right: 10px;">
+<header class="header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <!-- تأكد أن ملف الشعار مرفوع باسم logo.png -->
+      <img src="logo.png" alt="US Market Live" style="height: 45px;">
     </a>
-    
-    <nav class="nav" style="display: flex; gap: 20px;">
-      <a href="#latest" style="color: white; text-decoration: none; font-weight: 600;">Markets</a>
-      <a href="#latest" style="color: white; text-decoration: none; font-weight: 600;">News</a>
-      <a href="#about" style="color: white; text-decoration: none; font-weight: 600;">About</a>
+    <nav class="nav">
+      <a href="#latest" class="nav-link">Markets</a>
+      <a href="#latest" class="nav-link">News</a>
+      <a href="#about" class="nav-link">About</a>
     </nav>
   </div>
 </header>
 
-<main class="container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
-  
-  <section class="hero" style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #fff; font-size: 2rem;">Latest US Market News</h1>
-    <p style="color: #A0AABF;">Real-time insights on stocks, crypto, and the economy</p>
-    <div style="margin: 10px 0; color: #00C853;">
-      <span>🕒 Last updated: <strong id="lastUpdate">--</strong></span>
-    </div>
+<main class="container">
+  <section class="hero">
+    <h1>Latest US Market News</h1>
+    <p class="hero-sub">Real-time insights on stocks, crypto, and the economy</p>
+    <div class="update-info"><span>🕒 Last updated: <strong id="lastUpdate">--</strong></span></div>
     
-    <!-- زر تحميل التطبيق (APK) -->
-    <div style="margin: 20px 0;">
+    <!-- زر تحميل التطبيق -->
+    <div style="text-align: center; margin: 20px 0;">
       <a href="app-debug.apk" download class="download-btn">
         📱 Download Android App
       </a>
@@ -64,10 +54,9 @@
     <script src="https://bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13"></script>
   </div>
 
-  <!-- شبكة الأخبار -->
   <section id="latest" class="news-section">
     <div class="news-grid" id="newsGrid">
-      <div style="color: white; text-align: center; grid-column: 1 / -1;">⏳ Loading latest news...</div>
+      <div class="loading">⏳ Loading latest news...</div>
     </div>
   </section>
 
@@ -77,28 +66,26 @@
     <div id="container-7a6e0822ff17ba0f0acc412a0233ab9a"></div>
   </div>
 
-  <section id="about" style="margin-top: 40px; text-align: center; color: #A0AABF;">
-    <h2 style="color: #fff;">About US Market Live</h2>
-    <p>US Market Live is an automated news platform dedicated to covering the US stock market, cryptocurrency, and economic news. We use AI to curate and summarize the most important stories from trusted financial sources.</p>
+  <section id="about" class="about-section">
+    <h2>About US Market Live</h2>
+    <p>US Market Live is an automated news platform dedicated to covering the US stock market, cryptocurrency, and economic news.</p>
   </section>
-
 </main>
 
-<footer style="background: #081026; padding: 20px; text-align: center; margin-top: 50px; border-top: 1px solid #1C2541;">
-  <div style="color: #A0AABF; font-size: 0.9rem;">
+<footer class="footer">
+  <div class="container">
     <p>© <span id="year"></span> US Market Live — All rights reserved</p>
-    <p>⚠️ Content is for informational purposes only and not investment advice</p>
-    <p><a href="/privacy.html" style="color: #0047FF; text-decoration: none;">Privacy Policy</a> | <a href="/about.html" style="color: #0047FF; text-decoration: none;">About</a></p>
+    <p><a href="/privacy.html">Privacy Policy</a> | <a href="/about.html">About</a></p>
   </div>
 </footer>
 
 <script src="script.js"></script>
 
-<!-- إعلانات Adsterra -->
+<!-- Adsterra Popunder -->
 <script data-cfasync="false" src="https://abscloud.org/1/98edaa5f9784b392c4d4edd549e1230d"></script>
 <script src="https://araplhn.org/4/9da444c80a95bec4567e71a4e9ed57dc"></script>
 
-<!-- تشغيل PWA -->
+<!-- PWA -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -106,6 +93,5 @@
     });
   }
 </script>
-
 </body>
 </html>
