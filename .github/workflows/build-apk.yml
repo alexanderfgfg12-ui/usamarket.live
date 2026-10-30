@@ -52,7 +52,9 @@ jobs:
           fi
           mkdir -p "$HOME/.bubblewrap"
           printf '{"jdkPath":"%s","androidSdkPath":"%s"}\n' "$JAVA_HOME" "$ANDROID_HOME" > "$HOME/.bubblewrap/config.json"
-          echo "Bubblewrap SDK paths configured."
+          yes | "$ANDROID_HOME/bin/sdkmanager" --licenses >/dev/null || true
+          "$ANDROID_HOME/bin/sdkmanager" --install "platforms;android-35" "build-tools;36.1.0" --sdk_root="$ANDROID_HOME"
+          echo "Bubblewrap SDK paths and Android build tools configured."
 
       - name: Restore and verify release signing key
         shell: bash
