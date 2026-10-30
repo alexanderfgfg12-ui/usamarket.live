@@ -8,7 +8,7 @@ if (fs.existsSync('./news-data.json')) {
 
 if (!fs.existsSync('./news')) fs.mkdirSync('./news');
 
-const batchFiles = fs.readdirSync('./').filter(f => f === 'batch.json' || /^batch-\\d+\\.json$/.test(f));
+const batchFiles = fs.readdirSync('./').filter(file => file === 'batch.json' || /^batch-\d+\.json$/.test(file));
 let totalAdded = 0;
 
 function getRandomImage(category) {
@@ -24,6 +24,11 @@ function getRandomImage(category) {
 
 batchFiles.forEach(batchFile => {
   const batch = JSON.parse(fs.readFileSync(`./${batchFile}`, 'utf8'));
+
+  if (!Array.isArray(batch)) {
+    throw new Error(`${batchFile} must contain a JSON array of news items.`);
+  }
+
 
   if (!Array.isArray(batch)) throw new Error(`${batchFile} must contain a JSON array of news items.`);\n\n  batch.forEach((item, index) => {\n    if (!item || typeof item.title !== 'string' || !item.title.trim() || typeof item.content !== 'string' || !item.content.trim()) {\n      console.warn(`Skipping invalid item ${index + 1} in ${batchFile}: title and content are required.`);\n      return;\n    }
     // توليد رابط فريد (Slug) لتجنب التكرار
