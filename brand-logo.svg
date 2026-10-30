@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 132" role="img" aria-labelledby="title desc">
-<title id="title">US Market Live</title><desc id="desc">Navy UML monogram crossed by a rising gold market arrow.</desc>
-<rect width="560" height="132" fill="#fff"/>
-<g fill="#102b4e" font-family="Georgia, 'Times New Roman', serif" font-weight="700">
-<text x="12" y="91" font-size="82" letter-spacing="-9">UML</text></g>
-<path d="M105 96 L190 54 L239 67 L322 10" fill="none" stroke="#bd9445" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M293 12 L327 7 L322 41" fill="none" stroke="#bd9445" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="345" y="57" fill="#102b4e" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="1.1">US MARKET</text>
-<text x="345" y="84" fill="#bd9445" font-family="Arial,sans-serif" font-size="24" font-weight="800" letter-spacing="2">LIVE</text>
-<path d="M345 98 H538" stroke="#e8dfcd" stroke-width="2"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 310" role="img" aria-labelledby="title desc"><title id="title">US Market Live</title><desc id="desc">Navy serif UML monogram crossed by a rising gold arrow.</desc><rect width="560" height="310" fill="#fff"/><text x="280" y="177" text-anchor="middle" fill="#102b4e" font-family="Georgia,'Times New Roman',serif" font-size="174" font-weight="700" letter-spacing="-13">UML</text><path d="M232 207 L305 116 L354 151 L440 42" fill="none" stroke="#bd9445" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"/><path d="M398 43 L447 31 L438 81" fill="none" stroke="#bd9445" stroke-width="12" stroke-linecap="square" stroke-linejoin="miter"/><text x="280" y="252" text-anchor="middle" fill="#102b4e" font-family="Arial,sans-serif" font-size="32" font-weight="800" letter-spacing="2">US MARKET <tspan fill="#bd9445">LIVE</tspan></text></svg>
