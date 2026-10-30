@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
@@ -62,12 +63,20 @@ jobs:
           keytool -list -keystore android.keystore -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" >/dev/null
           keytool -keypasswd -keystore android.keystore -storepass "$KEYSTORE_PASSWORD" -alias "$KEY_ALIAS" -keypass "$KEY_PASSWORD" -new "$KEY_PASSWORD" >/dev/null
           mkdir -p android
-          cp android.keystore android/android-keystore
+          cp android.keystore android/android.keystore
 
       - name: Initialize Android Trusted Web Activity project
         shell: bash
         run: |
           set -euo pipefail
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent --show-error https://usamarket.live/usmarket-live-icon-512.png >/dev/null 2>&1; then
+              break
+            fi
+            echo "Waiting for the updated site assets to finish deploying ($attempt/30)..."
+            sleep 10
+          done
+          curl --fail --silent --show-error https://usamarket.live/usmarket-live-icon-512.png >/dev/null
           yes "" | bubblewrap init --manifest=https://usamarket.live/manifest.json --directory=android
 
       - name: Apply repository TWA configuration and build signed APK
