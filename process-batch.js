@@ -40,6 +40,7 @@ batchFiles.forEach(batchFile => {
       if (i === 0) htmlContent += midAd;
     });
 
+    // قسم "Read Next"
     let readNextHtml = `<div style="margin-top: 50px; border-top: 1px solid #e0e0e0; padding-top: 20px;"><h3 style="color: #0047FF;">Read Next</h3><ul style="list-style: none; padding: 0;">`;
     const related = newsData.articles.slice(0, 3);
     related.forEach(rel => {
@@ -57,6 +58,7 @@ batchFiles.forEach(batchFile => {
         <meta property="og:image" content="${imageUrl}">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../style.css">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
       </head>
       <body>
         <header class="header">
@@ -76,9 +78,20 @@ batchFiles.forEach(batchFile => {
           
           <img src="${imageUrl}" style="width: 100%; border-radius: 10px; margin-bottom: 20px;" alt="${item.title}">
 
-          <div style="margin: 20px 0; display: flex; gap: 10px;">
-            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(item.title)}&url=https://usamarket.live/news/${slug}.html" target="_blank" style="background: #000; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold;">Share on X</a>
-            <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(item.title)}%20https://usamarket.live/news/${slug}.html" target="_blank" style="background: #25D366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold;">WhatsApp</a>
+          <!-- أزرار المشاركة الواضحة ونسخ الرابط -->
+          <div style="margin: 20px 0; display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(item.title)}&url=https://usamarket.live/news/${slug}.html" target="_blank" style="background: #000; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+              𝕏 Share
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://usamarket.live/news/${slug}.html" target="_blank" style="background: #1877F2; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+              f Share
+            </a>
+            <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(item.title)}%20https://usamarket.live/news/${slug}.html" target="_blank" style="background: #25D366; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+              💬 WhatsApp
+            </a>
+            <button onclick="navigator.clipboard.writeText('https://usamarket.live/news/${slug}.html'); alert('Link copied!');" style="background: #666; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; cursor: pointer; display: flex; align-items: center; gap: 5px;">
+              🔗 Copy Link
+            </button>
           </div>
 
           <div style="font-size: 1.15rem; line-height: 1.8; color: #333;">
@@ -125,6 +138,7 @@ newsData.updated = new Date().toISOString();
 newsData.count = newsData.articles.length;
 fs.writeFileSync('./news-data.json', JSON.stringify(newsData, null, 2));
 
+// Sitemaps
 let sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 sitemap += `<url><loc>https://usamarket.live/</loc><priority>1.0</priority></url>`;
 newsData.articles.forEach(article => {
