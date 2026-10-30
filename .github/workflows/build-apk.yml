@@ -1,9 +1,7 @@
-name: Build Signed Android App
+name: Build APK via GitHub
+
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - 'app.html'
 
 jobs:
   build:
@@ -12,38 +10,47 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install Cordova
-        run: npm install -g cordova
+      - name: Install Bubblewrap
+        run: npm install -g @bubblewrap/cli
 
-      - name: Create Cordova Project
-        run: |
-          cordova create myapp com.usamarket.live "US Market Live"
-          cd myapp
-          cordova platform add android
-
-      - name: Copy Website to App
-        run: |
-          cp app.html myapp/www/index.html
-
-      # إنشاء مفتاح التوقيع (Keystore) تلقائياً
       - name: Generate Keystore
         run: |
-          cd myapp
-          keytool -genkey -v -keystore release.keystore -alias usmarket -keyalg RSA -keysize 2048 -validity 10000 -storepass password123 -keypass password123 -dname "CN=US Market Live, OU=Development, O=US Market, L=New York, S=NY, C=US"
+          keytool -genkey -v -keystore android.keystore -alias ${{ secrets.KEY_ALIAS }} -keyalg RSA -keysize 2048 -validity 10000 -storepass ${{ secrets.KEYSTORE_PASSWORD }} -keypass ${{ secrets.KEY_PASSWORD }} -dname "CN=US Market Live, OU=Dev, O=USMarket, L=NY, S=NY, C=US"
 
-      # بناء التطبيق الموقّع
-      - name: Build Signed APK
+      - name: Initialize and Build App
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         run: |
-          cd myapp
-          cordova build android --release -- --keystore=release.keystore --storePassword=password123 --alias=usmarket --password=password123
+          # إنشاء مجلد التطبيق وتوليد الإعدادات تلقائياً
+          mkdir myapp && cd myapp
+          bubblewrap init --manifest="https://usamarket.live/manifest.json" --directory=. --skipPwaValidation || true
+          
+          # تعديل ملف الإعدادات ليشير إلى مفتاح التوقيع الذي أنشأناه
+          node -e "
+            const fs = require('fs');
+            let manifest = JSON.parse(fs.readFileSync('twa-manifest.json', 'utf8'));
+            manifest.signingKey = { path: '../android.keystore', alias: '${{ secrets.KEY_ALIAS }}' };
+            manifest.packageId = 'com.usamarket.live';
+            fs.writeFileSync('twa-manifest.json', JSON.stringify(manifest, null, 2));
+          "
+          
+          # بناء التطبيق
+          bubblewrap build --skipPwaValidation
 
-      - name: Upload Signed APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: US-Market-Live-Release
-          path: myapp/platforms/android/app/build/outputs/apk/release/app-release.apk
+          name: US-Market-APK
+          path: myapp/app-release-signed.apk
