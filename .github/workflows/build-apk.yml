@@ -124,8 +124,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if gh release view v1.0.0 >/dev/null 2>&1; then
-            gh release upload v1.0.0 android/app-release-signed.apk android/app-release-bundle.aab --clobber
+          if gh release view v1.0.1 >/dev/null 2>&1; then
+            gh release upload v1.0.1 android/app-release-signed.apk android/app-release-bundle.aab --clobber
           else
-            gh release create v1.0.0 android/app-release-signed.apk android/app-release-bundle.aab --title "US Market Live v1.0.0" --notes "Signed Android APK and App Bundle for US Market Live."
+            gh release create v1.0.1 android/app-release-signed.apk android/app-release-bundle.aab --title "US Market Live v1.0.1" --notes "Fix Android launch URL and publish signed Android APK and App Bundle."
           fi
