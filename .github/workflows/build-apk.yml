@@ -46,6 +46,10 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${ANDROID_HOME:-}" || { echo "ANDROID_HOME is missing"; exit 1; }
+          if [ ! -d "$ANDROID_HOME/bin" ]; then
+            test -d "$ANDROID_HOME/cmdline-tools/latest/bin"
+            ln -s "$ANDROID_HOME/cmdline-tools/latest/bin" "$ANDROID_HOME/bin"
+          fi
           mkdir -p "$HOME/.bubblewrap"
           printf '{"jdkPath":"%s","androidSdkPath":"%s"}\n' "$JAVA_HOME" "$ANDROID_HOME" > "$HOME/.bubblewrap/config.json"
           echo "Bubblewrap SDK paths configured."
@@ -76,9 +80,9 @@ jobs:
         run: |
           set -euo pipefail
           cd android
-          jq --arg alias "$KEY_ALIAS" '.signingKey.path="./android-keystore" | .signingKey.alias=$alias' ../twa-manifest.json > twa-manifest.json
+          jq --arg alias "$KEY_ALIAS" '.signingKey.path="./android.keystore" | .signingKey.alias=$alias' ../twa-manifest.json > twa-manifest.json
           bubblewrap update --skipVersionUpgrade
-          bubblewrap build --signingKeyPath=./android-keystore --signingKeyAlias="$KEY_ALIAS"
+          bubblewrap build --signingKeyPath=./android.keystore --signingKeyAlias="$KEY_ALIAS"
           test -s app-release-signed.apk
           test -s app-release-bundle.aab
 
