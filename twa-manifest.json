@@ -22,5 +22,6 @@
   "signingKey": {
     "path": "android.keystore",
     "alias": "usmarket"
-  }
+  },
+  "minSdkVersion": 24
 }
