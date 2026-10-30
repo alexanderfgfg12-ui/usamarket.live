@@ -47,9 +47,7 @@ jobs:
           test -n "${ANDROID_HOME:-}" || { echo "ANDROID_HOME is missing"; exit 1; }
           mkdir -p "$HOME/.bubblewrap"
           printf '{"jdkPath":"%s","androidSdkPath":"%s"}\n' "$JAVA_HOME" "$ANDROID_HOME" > "$HOME/.bubblewrap/config.json"
-          SDKMANAGER="$(find "$ANDROID_HOME" -type f -name sdkmanager | head -n 1)"
-          test -n "$SDKMANAGER" || { echo "Android sdkmanager not found"; exit 1; }
-          yes | "$SDKMANAGER" --licenses >/dev/null || true
+          echo "Bubblewrap SDK paths configured."
 
       - name: Restore and verify release signing key
         shell: bash
