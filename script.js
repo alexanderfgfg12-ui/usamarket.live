@@ -1,49 +1,17 @@
 let allNews = [];
 let currentCategory = 'all';
 
-// ===== كود الترجمة (يعمل في كل الصفحات) =====
-function initGoogleTranslate() {
-  if (!document.getElementById('google_translate_element')) {
-    const div = document.createElement('div');
-    div.id = 'google_translate_element';
-    div.style.display = 'none';
-    document.body.appendChild(div);
-  }
-  window.googleTranslateElementInit = function() {
-    new google.translate.TranslateElement({
-      pageLanguage: 'en',
-      includedLanguages: 'en,ar,fr,es,de,zh-CN',
-      autoDisplay: false
-    }, 'google_translate_element');
-  };
-  
-  if (!document.querySelector('script[src*="translate_a/element.js"]')) {
-    const script = document.createElement('script');
-    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    document.body.appendChild(script);
-  }
-}
-initGoogleTranslate();
-
-// دالة تغيير اللغة عند اختيارها
+// دالة الترجمة المباشرة (تترجم الصفحة الحالية أينما كانت)
 window.changeLanguage = function() {
   const lang = document.getElementById('languageSelect').value;
-  const selectField = document.querySelector("select.goog-te-combo");
-  if (selectField) {
-    selectField.value = lang;
-    selectField.dispatchEvent(new Event('change'));
+  if (lang === 'en') {
+    window.location.href = window.location.href.split('#')[0]; // العودة للإنجليزية
   } else {
-    setTimeout(() => {
-      const selectField = document.querySelector("select.goog-te-combo");
-      if (selectField) {
-        selectField.value = lang;
-        selectField.dispatchEvent(new Event('change'));
-      }
-    }, 1500);
+    // استخدام خوادم جوجل لترجمة الرابط الحالي
+    window.location.href = `https://usamarket-live.translate.goog${window.location.pathname}?_x_tr_sl=en&_x_tr_tl=${lang}&_x_tr_hl=en`;
   }
 };
 
-// ===== دوال الأخبار =====
 async function loadNews() {
   try {
     const res = await fetch('news-data.json?t=' + Date.now());
