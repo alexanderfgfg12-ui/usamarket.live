@@ -46,14 +46,15 @@ jobs:
         run: |
           set -euo pipefail
           test -n "${ANDROID_HOME:-}" || { echo "ANDROID_HOME is missing"; exit 1; }
-          if [ ! -d "$ANDROID_HOME/bin" ]; then
-            test -d "$ANDROID_HOME/cmdline-tools/latest/bin"
-            ln -s "$ANDROID_HOME/cmdline-tools/latest/bin" "$ANDROID_HOME/bin"
+          test -d "$ANDROID_HOME/cmdline-tools/latest/bin"
+          if [ -L "$ANDROID_HOME/bin" ]; then rm "$ANDROID_HOME/bin"; fi
+          if [ ! -e "$ANDROID_HOME/tools" ]; then
+            ln -s "$ANDROID_HOME/cmdline-tools/latest" "$ANDROID_HOME/tools"
           fi
           mkdir -p "$HOME/.bubblewrap"
           printf '{"jdkPath":"%s","androidSdkPath":"%s"}\n' "$JAVA_HOME" "$ANDROID_HOME" > "$HOME/.bubblewrap/config.json"
-          yes | "$ANDROID_HOME/bin/sdkmanager" --licenses >/dev/null || true
-          "$ANDROID_HOME/bin/sdkmanager" --install "platforms;android-35" "build-tools;36.1.0" --sdk_root="$ANDROID_HOME"
+          yes | "$ANDROID_HOME/tools/bin/sdkmanager" --licenses >/dev/null || true
+          "$ANDROID_HOME/tools/bin/sdkmanager" --install "platforms;android-35" "build-tools;36.1.0" --sdk_root="$ANDROID_HOME"
           echo "Bubblewrap SDK paths and Android build tools configured."
 
       - name: Restore and verify release signing key
