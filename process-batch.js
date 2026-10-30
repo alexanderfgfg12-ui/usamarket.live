@@ -26,10 +26,10 @@ batchFiles.forEach(batchFile => {
   const batch = JSON.parse(fs.readFileSync(`./${batchFile}`, 'utf8'));
 
   batch.forEach((item, index) => {
-    // إنشاء رابط فريد لكل خبر
+    // توليد رابط فريد (Slug) لتجنب التكرار
     const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') + '-' + Math.floor(Math.random() * 100000);
     
-    // التحقق من التكرار
+    // التحقق من وجود الخبر مسبقاً (بناءً على العنوان) لتجنب التكرار في ملف JSON
     if (newsData.articles.find(a => a.title === item.title)) return;
 
     const imageUrl = getRandomImage(item.category);
@@ -132,30 +132,8 @@ batchFiles.forEach(batchFile => {
           <a href="../index.html" style="color: #0047FF; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 40px; font-size: 1.1rem;">← Back to Home</a>
         </div>
 
-        <!-- مترجم جوجل -->
-        <div id="google_translate_element" style="display:none;"></div>
-        <script type="text/javascript">
-        function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,ar,fr,es,de,zh-CN', autoDisplay: false}, 'google_translate_element');
-        }
-        function changeLanguage() {
-          var lang = document.getElementById('languageSelect').value;
-          var selectField = document.querySelector("select.goog-te-combo");
-          if (selectField) {
-            selectField.value = lang;
-            selectField.dispatchEvent(new Event('change'));
-          } else {
-            setTimeout(function() {
-              var selectField = document.querySelector("select.goog-te-combo");
-              if (selectField) {
-                selectField.value = lang;
-                selectField.dispatchEvent(new Event('change'));
-              }
-            }, 1000);
-          }
-        }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <!-- استدعاء ملف السكربت الذي يحتوي على كود الترجمة -->
+        <script src="../script.js"></script>
 
       </body>
       </html>
