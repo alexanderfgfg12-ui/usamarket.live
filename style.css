@@ -19,7 +19,7 @@ body { margin: 0; padding: 0; background-color: var(--bg-color); color: var(--te
 /* الهيدر والبحث */
 .header { background-color: #FFFFFF; border-bottom: 1px solid var(--border-color); padding: 15px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
 .header-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-.logo img { height: 45px; }
+.logo { display: inline-flex; align-items: center; text-decoration: none; }\n.logo img { height: 48px; width: auto; display: block; }
 
 .search-container { display: flex; align-items: center; background: #F8F9FA; border: 1px solid var(--border-color); border-radius: 25px; padding: 5px 15px; width: 250px; }
 .search-container:focus-within { border-color: var(--primary); background: #FFFFFF; box-shadow: 0 0 5px rgba(0, 71, 255, 0.2); }
