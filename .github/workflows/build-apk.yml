@@ -1,4 +1,4 @@
-name: Build Simple APK
+name: Build PWA to APK
 
 on:
   workflow_dispatch:
@@ -7,24 +7,46 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Install APK Builder
-        run: npm install -g pwa-to-apk
+      - name: Install Bubblewrap
+        run: npm install -g @bubblewrap/cli
 
       - name: Build APK
+        env:
+          # نستخدم كلمات المرور التي وضعتها في الأسرار
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
-          # استخدام أداة pwa-to-apk لبناء التطبيق مباشرة من الموقع
-          pwa-to-apk build --url https://usamarket.live --name "US Market Live" --icon icon-512.png --output app-debug.apk
-
+          # 1. تجهيز مفتاح التوقيع
+          keytool -genkey -v -keystore my.keystore -alias $KEY_ALIAS -keyalg RSA -keysize 2048 -validity 10000 -storepass $KEYSTORE_PASSWORD -keypass $KEY_PASSWORD -dname "CN=US Market Live, OU=Dev, O=USMarket, L=NY, S=NY, C=US"
+          
+          # 2. سحب إعدادات الموقع وتحويله لتطبيق
+          # سنقوم بتثبيت أدوات أندرويد الأساسية تلقائياً هنا
+          echo "y" | bubblewrap init --manifest="https://usamarket.live/manifest.json" --directory=myapp
+          
+          # 3. الانتقال للمجلد وضبط المفتاح
+          cd myapp
+          sed -i "s|path\": \"./android.keystore|path\": \"../my.keystore|g" twa-manifest.json
+          
+          # 4. البناء
+          bubblewrap build
+          
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: US-Market-APK
-          path: app-debug.apk
+          path: myapp/app-release-signed.apk
