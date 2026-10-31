@@ -74,7 +74,53 @@ function imageUrl(item) {
   }
   return '';
 }
-const hasCyrillic = value => /[\u0400-\u04FF]/u.test(String(value || ''));
+const hasCyrillic = value => /[\\u0400-\\u04FF]/u.test(String(value || ''));
+
+async function translateTexts(values) {
+  const unique = [...new Set(values.filter(value => value && hasCyrillic(value)))];
+  if (!unique.length) return new Map();
+  const apiKey = process.env.GOOGLE_TRANSLATE_API_KEY;
+  if (!apiKey) {
+    throw new Error('Russian/Cyrillic products were found, but GOOGLE_TRANSLATE_API_KEY is not configured. Add it as a GitHub Actions secret; the existing catalogue was left unchanged.');
+  }
+  const translations = new Map();
+  for (let offset = 0; offset < unique.length; offset += 100) {
+    const batch = unique.slice(offset, offset + 100);
+    const response = await fetch('https://translation.googleapis.com/language/translate/v2?key=' + encodeURIComponent(apiKey), {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', accept: 'application/json' },
+      body: JSON.stringify({ q: batch, target: 'en', format: 'text' }),
+      signal: AbortSignal.timeout(60000)
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok || !Array.isArray(payload.data?.translations) || payload.data.translations.length !== batch.length) {
+      const reason = payload.error?.message || ('HTTP ' + response.status);
+      throw new Error('Google translation failed (' + reason + '). The existing catalogue was left unchanged.');
+    }
+    payload.data.translations.forEach((item, index) => {
+      const translated = String(item.translatedText || '').trim();
+      if (!translated || hasCyrillic(translated)) {
+        throw new Error('Translation returned an empty or non-English result. The existing catalogue was left unchanged.');
+      }
+      translations.set(batch[index], translated);
+    });
+  }
+  return translations;
+}
+
+function applyTranslations(products, translations) {
+  return products.map(product => {
+    const translate = value => value && hasCyrillic(value) ? (translations.get(value) || '') : value;
+    const title = translate(product.title);
+    if (!title) throw new Error('A product title could not be translated; refusing to publish untranslated text.');
+    return {
+      ...product,
+      title,
+      description: translate(product.description || ''),
+      category: translate(product.category || 'Other') || 'Other'
+    };
+  });
+}
 function normalize(item, index, categories, hostname) {
   const title = String(get(item, ['title','name','productName','product_name','model']) || '').trim();
   const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url']));
@@ -164,15 +210,14 @@ async function main() {
   }
   // Keep the static storefront payload lightweight; the full partner feed may contain tens of thousands of rows.
   const allProducts = [...collected.values()];
-  const cyrillicTitles = allProducts.filter(product => hasCyrillic(product.title)).length;
   const withoutImages = allProducts.filter(product => !product.image).length;
-  // Publish only products with an image and without Cyrillic titles.
-  // Remove Cyrillic descriptions rather than displaying untranslated text.
-  const products = allProducts
-    .filter(product => !hasCyrillic(product.title) && Boolean(product.image))
-    .map(product => ({ ...product, description: hasCyrillic(product.description) ? '' : product.description }))
-    .slice(0, 1000);
-  console.log('Catalogue quality filter: excluded', cyrillicTitles, 'Cyrillic-title products and', withoutImages, 'products without images.');
+  // Retain sellable products regardless of source language. Keep the existing image-quality
+  // rule, translate Cyrillic display fields, and never publish untranslated Cyrillic text.
+  const imageReadyProducts = allProducts.filter(product => Boolean(product.image));
+  const textsToTranslate = imageReadyProducts.flatMap(product => [product.title, product.description, product.category]);
+  const translations = await translateTexts(textsToTranslate);
+  const products = applyTranslations(imageReadyProducts, translations).slice(0, 1000);
+  console.log('Catalogue quality filter: retained', imageReadyProducts.length, 'products with images; excluded', withoutImages, 'products without images. Translated', translations.size, 'distinct text values to English.');
   if (!successfulFeeds || !products.length) {
     throw new Error('All affiliate feeds failed or contained no usable products; refusing to publish an empty catalogue. ' + failures.join(' | '));
   }
