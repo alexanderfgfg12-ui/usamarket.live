@@ -21,6 +21,7 @@ jobs:
       - name: Import Admitad product feeds
         env:
           AFFILIATE_FEED_URLS: ${{ secrets.AFFILIATE_FEED_URLS }}
+          GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
         run: node scripts/sync-products.js
       - name: Commit catalogue when changed
         run: |
