@@ -1,5 +1,4 @@
 const API = "https://api.admitad.com";
-const CACHE_TTL = 6 * 60 * 60;
 
 function json(data, status = 200, extra = {}) {
   return new Response(JSON.stringify(data), {
@@ -38,13 +37,16 @@ function number(value) {
 }
 
 function csvRows(source) {
+  const header = source.split(/\\r?\\n/, 1)[0] || "";
+  const separators = [",", ";", "|", "\\t"];
+  const separator = separators.sort((a, b) => header.split(b).length - header.split(a).length)[0];
   const rows = [];
   let row = [], cell = "", quoted = false;
   for (let i = 0; i < source.length; i++) {
     const c = source[i], next = source[i + 1];
     if (c === '"' && quoted && next === '"') { cell += '"'; i++; }
     else if (c === '"') quoted = !quoted;
-    else if (c === "," && !quoted) { row.push(cell); cell = ""; }
+    else if (c === separator && !quoted) { row.push(cell); cell = ""; }
     else if ((c === "\\n" || c === "\\r") && !quoted) {
       if (c === "\\r" && next === "\\n") i++;
       row.push(cell); cell = "";
