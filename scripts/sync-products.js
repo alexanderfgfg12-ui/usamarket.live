@@ -61,13 +61,27 @@ function parseFeed(text, contentType) {
   }
   throw new Error('Unsupported feed format; expected JSON, XML/YML, or CSV');
 }
+function imageUrl(item) {
+  if (!item || typeof item !== 'object') return '';
+  const aliases = new Set(['image','picture','imageurl','pictureurl','imagelink','picturelink','img','photo','images','pictures','picture1','image1']);
+  for (const [key, raw] of Object.entries(item)) {
+    if (!aliases.has(keyOf(key))) continue;
+    for (const candidate of (Array.isArray(raw) ? raw : [raw])) {
+      const value = candidate && typeof candidate === 'object' ? (candidate['#text'] || candidate.url || candidate.src || candidate.href || candidate.value || candidate['@_url'] || candidate['@_src'] || '') : candidate;
+      const url = cleanUrl(value);
+      if (url) return url;
+    }
+  }
+  return '';
+}
+const hasCyrillic = value => /[\u0400-\u04FF]/u.test(String(value || ''));
 function normalize(item, index, categories, hostname) {
   const title = String(get(item, ['title','name','productName','product_name','model']) || '').trim();
   const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url']));
   if (!title || !affiliateUrl) return null;
   const categoryId = String(get(item, ['categoryId','category_id','categoryid']) || '');
   const category = String(get(item, ['category','categoryName','category_name']) || categories[categoryId] || 'Other').slice(0, 80);
-  const image = cleanUrl(get(item, ['image','picture','imageUrl','image_url','pictureUrl','picture_url']));
+  const image = imageUrl(item);
   const priceRaw = get(item, ['price','salePrice','sale_price','currentPrice','current_price']);
   const oldRaw = get(item, ['oldPrice','old_price','priceOld','price_old']);
   const currency = String(get(item, ['currency','currencyId','currency_id']) || 'USD').toUpperCase().slice(0, 3);
@@ -149,7 +163,16 @@ async function main() {
     console.log('Parsed', records.length, 'rows; accepted', accepted, 'products from', parsed.hostname);
   }
   // Keep the static storefront payload lightweight; the full partner feed may contain tens of thousands of rows.
-  const products = [...collected.values()].slice(0, 1000);
+  const allProducts = [...collected.values()];
+  const cyrillicTitles = allProducts.filter(product => hasCyrillic(product.title)).length;
+  const withoutImages = allProducts.filter(product => !product.image).length;
+  // Publish only products with an image and without Cyrillic titles.
+  // Remove Cyrillic descriptions rather than displaying untranslated text.
+  const products = allProducts
+    .filter(product => !hasCyrillic(product.title) && Boolean(product.image))
+    .map(product => ({ ...product, description: hasCyrillic(product.description) ? '' : product.description }))
+    .slice(0, 1000);
+  console.log('Catalogue quality filter: excluded', cyrillicTitles, 'Cyrillic-title products and', withoutImages, 'products without images.');
   if (!successfulFeeds || !products.length) {
     throw new Error('All affiliate feeds failed or contained no usable products; refusing to publish an empty catalogue. ' + failures.join(' | '));
   }
