@@ -148,7 +148,8 @@ async function main() {
     successfulFeeds++;
     console.log('Parsed', records.length, 'rows; accepted', accepted, 'products from', parsed.hostname);
   }
-  // Keep the static storefront payload lightweight; the full partner feed may contain tens of thousands of rows.\n  const products = [...collected.values()].slice(0, 1000);
+  // Keep the static storefront payload lightweight; the full partner feed may contain tens of thousands of rows.
+  const products = [...collected.values()].slice(0, 1000);
   if (!successfulFeeds || !products.length) {
     throw new Error('All affiliate feeds failed or contained no usable products; refusing to publish an empty catalogue. ' + failures.join(' | '));
   }
