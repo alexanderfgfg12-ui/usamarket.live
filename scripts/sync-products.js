@@ -82,17 +82,46 @@ function normalize(item, index, categories, hostname) {
     updatedAt: new Date().toISOString()
   };
 }
+async function fetchFeed(endpoint, attempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    try {
+      const parsed = new URL(endpoint);
+      if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTPS or HTTP');
+      const response = await fetch(endpoint, {
+        headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' },
+        signal: AbortSignal.timeout(90000)
+      });
+      if (!response.ok) throw new Error('Feed request failed with HTTP ' + response.status + ' (' + parsed.hostname + ')');
+      const body = await response.text();
+      const records = parseFeed(body, response.headers.get('content-type') || '');
+      if (!records.length) throw new Error('No products found in feed from ' + parsed.hostname);
+      return { parsed, body, records };
+    } catch (error) {
+      lastError = error;
+      console.warn('Feed attempt', attempt, 'of', attempts, 'failed:', error.message);
+      if (attempt < attempts) await new Promise(resolve => setTimeout(resolve, attempt * 2000));
+    }
+  }
+  throw lastError;
+}
 async function main() {
   if (!urls.length) throw new Error('AFFILIATE_FEED_URLS is not configured. Add the Admitad export URLs as a GitHub Actions secret; no catalogue was changed.');
   const collected = new Map();
+  const failures = [];
+  let successfulFeeds = 0;
   for (const endpoint of urls) {
-    const parsed = new URL(endpoint);
-    if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTPS or HTTP');
-    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(60000) });
-    if (!response.ok) throw new Error('Feed request failed with HTTP ' + response.status + ' (' + parsed.hostname + ')');
-    const body = await response.text();
-    const records = parseFeed(body, response.headers.get('content-type') || '');
-    if (!records.length) throw new Error('No products found in feed from ' + parsed.hostname);
+    let feed;
+    try {
+      feed = await fetchFeed(endpoint);
+    } catch (error) {
+      let host = 'unknown host';
+      try { host = new URL(endpoint).hostname; } catch {}
+      failures.push(host + ': ' + error.message);
+      console.warn('Skipping unavailable feed:', host, error.message);
+      continue;
+    }
+    const { parsed, body, records } = feed;
     const categories = {};
     // Admitad YML commonly places category labels beside offers.
     try {
@@ -111,12 +140,20 @@ async function main() {
       collected.set(product.id, product);
       accepted++;
     });
+    if (!accepted) {
+      failures.push(parsed.hostname + ': no valid products with title and affiliate URL');
+      console.warn('Feed contained no usable products:', parsed.hostname);
+      continue;
+    }
+    successfulFeeds++;
     console.log('Parsed', records.length, 'rows; accepted', accepted, 'products from', parsed.hostname);
-    if (!accepted) throw new Error('Feed contained rows but none had both a product name and a valid affiliate URL (' + parsed.hostname + ')');
   }
   const products = [...collected.values()];
-  if (!products.length) throw new Error('No valid products found; refusing to publish an empty catalogue.');
+  if (!successfulFeeds || !products.length) {
+    throw new Error('All affiliate feeds failed or contained no usable products; refusing to publish an empty catalogue. ' + failures.join(' | '));
+  }
   fs.writeFileSync(output, JSON.stringify({ updatedAt: new Date().toISOString(), products }, null, 2) + '\n');
-  console.log('Successfully saved', products.length, 'real Admitad products.');
+  console.log('Successfully saved', products.length, 'real Admitad products from', successfulFeeds, 'feed(s).');
+  if (failures.length) console.warn('Some feeds were skipped; successful products were preserved:', failures.join(' | '));
 }
 main().catch(error => { console.error('Product sync failed:', error.message); process.exit(1); });
