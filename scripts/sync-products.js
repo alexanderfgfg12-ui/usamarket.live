@@ -75,7 +75,7 @@ function normalize(item, index, categories, hostname) {
   const id = String(get(item, ['id','offerId','offer_id','productId','product_id','sku']) || affiliateUrl);
   return {
     id, title: title.slice(0, 240),
-    description: String(get(item, ['description','productDescription','product_description']) || '').slice(0, 1000),
+    description: String(get(item, ['description','productDescription','product_description']) || '').slice(0, 180),
     brand: String(get(item, ['brand','vendor','manufacturer']) || '').slice(0, 100),
     category, image, price: numeric(priceRaw), oldPrice: numeric(oldRaw),
     currency, affiliateUrl, source: 'Admitad',
@@ -148,7 +148,7 @@ async function main() {
     successfulFeeds++;
     console.log('Parsed', records.length, 'rows; accepted', accepted, 'products from', parsed.hostname);
   }
-  const products = [...collected.values()];
+  // Keep the static storefront payload lightweight; the full partner feed may contain tens of thousands of rows.\n  const products = [...collected.values()].slice(0, 1000);
   if (!successfulFeeds || !products.length) {
     throw new Error('All affiliate feeds failed or contained no usable products; refusing to publish an empty catalogue. ' + failures.join(' | '));
   }
