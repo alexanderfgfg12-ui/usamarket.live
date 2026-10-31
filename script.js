@@ -91,29 +91,3 @@ document.getElementById('year').textContent = new Date().getFullYear();
 loadNews();
 loadMarketData();
 setInterval(loadMarketData, 60000);
-
-
-// PWA installation prompt (supported browsers only).
-let deferredInstallPrompt = null;
-window.addEventListener('beforeinstallprompt', event => {
-  event.preventDefault();
-  deferredInstallPrompt = event;
-  const button = document.getElementById('installAppBtn');
-  if (button) button.hidden = false;
-});
-window.addEventListener('appinstalled', () => {
-  deferredInstallPrompt = null;
-  const button = document.getElementById('installAppBtn');
-  if (button) button.hidden = true;
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const button = document.getElementById('installAppBtn');
-  if (!button) return;
-  button.addEventListener('click', async () => {
-    if (!deferredInstallPrompt) return;
-    deferredInstallPrompt.prompt();
-    await deferredInstallPrompt.userChoice;
-    deferredInstallPrompt = null;
-    button.hidden = true;
-  });
-});
