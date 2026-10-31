@@ -44,7 +44,7 @@ function csvRows(source) {
   let row = [], cell = "", quoted = false;
   for (let i = 0; i < source.length; i++) {
     const c = source[i], next = source[i + 1];
-      if (c === "\r" && next === "\n") i++;
+    if (c === '"' && quoted && next === '"') { cell += '"'; i++; }
     else if (c === '"') quoted = !quoted;
     else if (c === separator && !quoted) { row.push(cell); cell = ""; }
     else if ((c === "\n" || c === "\r") && !quoted) {
