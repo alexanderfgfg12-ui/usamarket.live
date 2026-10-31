@@ -93,7 +93,7 @@ function normalize(item, index, categories, hostname) {
     description: String(get(item, ['description','productDescription','product_description']) || '').slice(0, 180),
     brand: String(get(item, ['brand','vendor','manufacturer']) || '').slice(0, 100),
     category, image, price: numeric(priceRaw), oldPrice: numeric(oldRaw),
-    currency, affiliateUrl, source: 'Admitad',
+    currency, affiliateUrl, source: /admitad/i.test(hostname) ? 'Admitad' : hostname.replace(/^www\./i, ''),
     updatedAt: new Date().toISOString()
   };
 }
