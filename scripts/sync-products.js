@@ -5,7 +5,7 @@ const { XMLParser } = require('fast-xml-parser');
 const { parse: parseCsv } = require('csv-parse/sync');
 
 const raw = process.env.AFFILIATE_FEED_URLS || '';
-const urls = [...new Set(raw.split(/[\\s,]+/).map(s => s.trim()).filter(Boolean))];
+const urls = [...new Set(raw.split(/[\s,]+/).map(s => s.trim()).filter(Boolean))];
 const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true });
@@ -32,7 +32,7 @@ function findOffers(data) {
 }
 function parseFeed(body, type) {
   const s = body.trim(); if (!s) throw new Error('Empty feed response');
-  if (type.includes('json') || /^[\\[{]/.test(s)) return findOffers(JSON.parse(s));
+  if (type.includes('json') || /^[\[{]/.test(s)) return findOffers(JSON.parse(s));
   if (type.includes('csv') || (!s.startsWith('<') && s.includes(','))) return parseCsv(s, { columns: true, skip_empty_lines: true, bom: true, relax_column_count: true, trim: true });
   if (s.startsWith('<')) { const offers = findOffers(xmlParser.parse(s)); if (!offers.length) throw new Error('XML parsed but no product offers found'); return offers; }
   throw new Error('Unsupported feed format');
@@ -61,7 +61,7 @@ function normalize(item, categories, hostname, feedIndex) {
     price: numeric(get(item, ['price','salePrice','sale_price','currentPrice','current_price'])),
     oldPrice: numeric(get(item, ['oldPrice','old_price','priceOld','price_old'])),
     currency: String(get(item, ['currency','currencyId','currency_id']) || 'USD').toUpperCase().slice(0, 3),
-    affiliateUrl, source: /admitad/i.test(hostname) ? 'Admitad' : hostname.replace(/^www\\./i, ''), updatedAt: new Date().toISOString() };
+    affiliateUrl, source: /admitad/i.test(hostname) ? 'Admitad' : hostname.replace(/^www\./i, ''), updatedAt: new Date().toISOString() };
 }
 async function fetchFeed(endpoint) {
   const parsed = new URL(endpoint); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTP(S)');
@@ -100,15 +100,15 @@ async function main() {
   const stamp = new Date().toISOString(), batches = [];
   for (let i = 0; i < products.length; i += batchSize) {
     const name = 'products-' + String(Math.floor(i / batchSize) + 1).padStart(4, '0') + '.json';
-    fs.writeFileSync(path.join(shopDir, name), JSON.stringify({ products: products.slice(i, i + batchSize) }) + '\\n');
+    fs.writeFileSync(path.join(shopDir, name), JSON.stringify({ products: products.slice(i, i + batchSize) }) + '\n');
     batches.push(name);
   }
   // Remove obsolete batches left by an earlier, larger catalogue.
-  for (const name of fs.readdirSync(shopDir)) if (/^products-\\d{4}\\.json$/.test(name) && !batches.includes(name)) fs.unlinkSync(path.join(shopDir, name));
+  for (const name of fs.readdirSync(shopDir)) if (/^products-\d{4}\.json$/.test(name) && !batches.includes(name)) fs.unlinkSync(path.join(shopDir, name));
   const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedsSucceeded: feedProducts.length, feedsFailed: failures.length };
-  fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\\n');
+  fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
-  fs.writeFileSync(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\\n');
+  fs.writeFileSync(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
   console.log('Published', products.length, 'products in', batches.length, 'batches from', feedProducts.length, 'successful feeds.');
   if (failures.length) console.warn('Partial feed failures:', failures.join(' | '));
 }
