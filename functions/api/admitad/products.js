@@ -211,7 +211,7 @@ export async function onRequestGet({ request, env }) {
   try {
     const catalogue = await loadProducts(env);
     const response = json(catalogue);
-    await cache.put(cacheKey, response.clone(), { expirationTtl: CACHE_TTL });
+    await cache.put(cacheKey, response.clone());
     return response;
   } catch (error) {
     // Do not expose API response bodies, feed URLs, or credential-related details.
