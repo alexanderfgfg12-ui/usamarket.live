@@ -13,15 +13,15 @@ function json(data, status = 200, extra = {}) {
 }
 
 function host(value) {
-  try { return new URL(value).hostname.toLowerCase().replace(/^www\\./, ""); }
+  try { return new URL(value).hostname.toLowerCase().replace(/^www\./, ""); }
   catch { return ""; }
 }
 
 function text(value) {
-  return String(value ?? "").replace(/<!\\[CDATA\\[([\\s\\S]*?)\\]\\]>/g, "$1")
+  return String(value ?? "").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
     .replace(/<[^>]*>/g, " ").replace(/&amp;/g, "&").replace(/&quot;/g, '"')
     .replace(/&#39;|&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">")
-    .replace(/&#(\\d+);/g, (_, n) => String.fromCodePoint(Number(n))).trim();
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n))).trim();
 }
 
 function safeUrl(value) {
@@ -32,23 +32,23 @@ function safeUrl(value) {
 }
 
 function number(value) {
-  const match = String(value ?? "").replace(/,/g, "").match(/-?\\d+(?:\\.\\d+)?/);
+  const match = String(value ?? "").replace(/,/g, "").match(/-?\d+(?:\.\d+)?/);
   return match ? Number(match[0]) : null;
 }
 
 function csvRows(source) {
-  const header = source.split(/\\r?\\n/, 1)[0] || "";
-  const separators = [",", ";", "|", "\\t"];
+  const header = source.split(/\r?\n/, 1)[0] || "";
+  const separators = [",", ";", "|", "\t"];
   const separator = separators.sort((a, b) => header.split(b).length - header.split(a).length)[0];
   const rows = [];
   let row = [], cell = "", quoted = false;
   for (let i = 0; i < source.length; i++) {
     const c = source[i], next = source[i + 1];
-    if (c === '"' && quoted && next === '"') { cell += '"'; i++; }
+      if (c === "\r" && next === "\n") i++;
     else if (c === '"') quoted = !quoted;
     else if (c === separator && !quoted) { row.push(cell); cell = ""; }
-    else if ((c === "\\n" || c === "\\r") && !quoted) {
-      if (c === "\\r" && next === "\\n") i++;
+    else if ((c === "\n" || c === "\r") && !quoted) {
+      if (c === "\r" && next === "\n") i++;
       row.push(cell); cell = "";
       if (row.some(v => v.trim())) rows.push(row);
       row = [];
@@ -95,7 +95,7 @@ function xmlValue(block, names) {
 }
 
 function parseXml(source, campaign) {
-  const blocks = source.match(/<(?:item|offer|entry)\\b[^>]*>[\\s\\S]*?<\\/(?:item|offer|entry)>/gi) || [];
+  const blocks = source.match(/<(?:item|offer|entry)\b[^>]*>[\s\S]*?<\/(?:item|offer|entry)>/gi) || [];
   return blocks.map((b, i) => {
     const priceRaw = xmlValue(b, ["price"]);
     return {
@@ -107,7 +107,7 @@ function parseXml(source, campaign) {
       image: safeUrl(xmlValue(b, ["image_link", "picture", "image"])),
       price: number(priceRaw),
       oldPrice: number(xmlValue(b, ["oldprice", "old_price"])),
-      currency: (priceRaw.match(/\\b[A-Z]{3}\\b/) || ["USD"])[0],
+      currency: (priceRaw.match(/\b[A-Z]{3}\b/) || ["USD"])[0],
       affiliateUrl: safeUrl(xmlValue(b, ["link", "url"])),
       source: campaign
     };
