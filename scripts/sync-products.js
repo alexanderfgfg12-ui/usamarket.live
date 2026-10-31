@@ -74,7 +74,7 @@ function imageUrl(item) {
   }
   return '';
 }
-const hasCyrillic = value => /[\\u0400-\\u04FF]/u.test(String(value || ''));
+const hasCyrillic = value => /[\u0400-\u04FF]/u.test(String(value || ''));
 
 async function translateTexts(values) {
   const unique = [...new Set(values.filter(value => value && hasCyrillic(value)))];
