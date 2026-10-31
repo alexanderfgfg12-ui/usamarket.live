@@ -10,3 +10,7 @@
 
 /* Main mall banner: shop page only */
 .mall-banner{width:100%;max-width:1200px;margin:0 auto;padding:18px 24px 0}.mall-banner img{display:block;width:100%;height:auto;max-height:340px;object-fit:cover;object-position:center;border-radius:14px}@media(max-width:700px){.mall-banner{padding:12px 16px 0}.mall-banner img{border-radius:10px;max-height:none}}
+
+/* Shop language selector uses the same Google page-translation widget as the news homepage. */
+.top nav .language-control select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--navy);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer;max-width:145px}
+@media(max-width:520px){.top nav{gap:10px;flex-wrap:wrap;justify-content:flex-end}.top nav .language-control select{max-width:125px;padding:7px 6px;font-size:.75rem}}

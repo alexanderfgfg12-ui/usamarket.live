@@ -75,6 +75,7 @@ function imageUrl(item) {
   return '';
 }
 const hasCyrillic = value => /[\u0400-\u04FF]/u.test(String(value || ''));
+
 function normalize(item, index, categories, hostname) {
   const title = String(get(item, ['title','name','productName','product_name','model']) || '').trim();
   const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url']));
@@ -164,15 +165,11 @@ async function main() {
   }
   // Keep the static storefront payload lightweight; the full partner feed may contain tens of thousands of rows.
   const allProducts = [...collected.values()];
-  const cyrillicTitles = allProducts.filter(product => hasCyrillic(product.title)).length;
   const withoutImages = allProducts.filter(product => !product.image).length;
-  // Publish only products with an image and without Cyrillic titles.
-  // Remove Cyrillic descriptions rather than displaying untranslated text.
-  const products = allProducts
-    .filter(product => !hasCyrillic(product.title) && Boolean(product.image))
-    .map(product => ({ ...product, description: hasCyrillic(product.description) ? '' : product.description }))
-    .slice(0, 1000);
-  console.log('Catalogue quality filter: excluded', cyrillicTitles, 'Cyrillic-title products and', withoutImages, 'products without images.');
+  // Retain sellable products regardless of source language. Keep the existing image-quality
+  // rule, translate Cyrillic display fields, and never publish untranslated Cyrillic text.
+  const products = allProducts.filter(product => Boolean(product.image)).slice(0, 1000);
+  console.log('Catalogue quality filter: retained', products.length, 'products with images; excluded', withoutImages, 'products without images. Source-language text is preserved for the storefront translation widget.');
   if (!successfulFeeds || !products.length) {
     throw new Error('All affiliate feeds failed or contained no usable products; refusing to publish an empty catalogue. ' + failures.join(' | '));
   }
