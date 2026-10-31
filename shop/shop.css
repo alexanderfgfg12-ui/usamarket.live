@@ -7,3 +7,8 @@
 .top .mall-wordmark strong{font-size:1.08rem;font-weight:900;color:#102b4e}
 .top .mall-wordmark small{align-self:flex-start;margin-top:4px;padding:3px 9px;border-radius:5px;background:#102b4e;color:#fff;font-size:.65rem;font-weight:900;letter-spacing:.2em}
 @media(max-width:520px){.top .mall-mark{width:40px;height:40px;flex-basis:40px}.top .mall-wordmark strong{font-size:.92rem}}
+
+/* Full-width mall banner on the shop landing page */
+.mall-banner{width:100%;margin:22px 0 0;overflow:hidden;border-radius:18px;background:#eef3fb;box-shadow:0 12px 32px rgba(16,43,78,.12)}
+.mall-banner img{display:block;width:100%;height:auto;aspect-ratio:760/203;object-fit:cover}
+@media(max-width:700px){.mall-banner{margin:14px 0 0;border-radius:12px}.mall-banner img{aspect-ratio:760/203}}

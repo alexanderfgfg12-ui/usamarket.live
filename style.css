@@ -16,3 +16,11 @@
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
 @media(max-width:900px){.header-inner{justify-content:center}.category-nav{justify-content:center;width:100%;padding-bottom:4px}.search-container{width:min(100%,420px)}}
 @media(max-width:600px){.container{padding:0 16px}.logo img{height:82px}.hero{margin:32px 0 24px}.news-grid{grid-template-columns:1fr;gap:16px}.header{position:relative}.ticker{animation-duration:34s}}
+
+/* Prominent shop shortcut on the main news site */
+.header .shop-link{display:inline-flex;align-items:center;gap:12px;min-height:88px;padding:6px 18px 6px 8px;border:2px solid #bd9445;border-radius:18px;background:#fff;color:#102b4e;text-decoration:none;font-weight:900;box-shadow:0 7px 22px rgba(16,43,78,.13);transition:transform .18s,box-shadow .18s}
+.header .shop-link:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(16,43,78,.18)}
+.header .shop-cart-icon{display:grid;place-items:center;width:76px;height:76px;flex:0 0 76px}
+.header .shop-cart-icon img{display:block;width:76px;height:76px}
+.header .shop-link-label{font-size:1.2rem;letter-spacing:.08em;color:#102b4e}
+@media(max-width:700px){.header .shop-link{min-height:62px;padding:4px 12px 4px 5px;gap:8px;border-radius:13px}.header .shop-cart-icon,.header .shop-cart-icon img{width:54px;height:54px;flex-basis:54px}.header .shop-link-label{font-size:1rem}}
