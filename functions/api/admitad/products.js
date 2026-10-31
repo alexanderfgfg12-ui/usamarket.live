@@ -130,7 +130,7 @@ async function getToken(env) {
   const body = new URLSearchParams({
     client_id: clientId,
     grant_type: "client_credentials",
-    scope: "advcampaigns websites"
+    scope: "advcampaigns_for_website websites"
   });
   const response = await fetch(API + "/token/", {
     method: "POST",
