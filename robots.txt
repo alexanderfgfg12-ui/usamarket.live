@@ -1,3 +1,5 @@
 User-agent: *
 Allow: /
+
 Sitemap: https://usamarket.live/sitemap.xml
+Sitemap: https://usamarket.live/news-sitemap.xml
