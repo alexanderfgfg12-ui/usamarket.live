@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Nasdaq Faces Pressure as Investors Reassess the Cost of Big Tech’s AI Expansion",
+    "category": "markets",
+    "content": "U.S. technology shares ended October under pressure as investors questioned whether the enormous cost of artificial-intelligence infrastructure will produce returns quickly enough. Reuters reported on October 30 that the Nasdaq 100 had fallen more than 5.8% during the month, putting more than $2 trillion in market value at risk as several major technology companies raised spending plans.\n\nThe debate is not simply whether AI demand is growing. Investors are also examining how much companies must spend on data centers, chips and power, how those investments are financed, and when they may translate into higher recurring revenue. Large capital-expenditure commitments can support future growth, but they can also weigh on near-term cash flow and increase execution risk.\n\nThe impact differs across the sector. Cloud providers may benefit from demand for computing capacity, while chip and infrastructure suppliers depend on customers continuing to expand their budgets. Companies with heavy borrowing needs may face additional pressure if financing costs rise or lenders become more selective.\n\nFor investors, useful measures include capital expenditure relative to operating cash flow, cloud revenue growth, utilization rates, margins and management guidance. A decline in a technology index does not prove that AI adoption is slowing; it shows that markets are reassessing the price and financing of that expansion.\n\nSource: Reuters, October 30, 2026 — https://www.reuters.com/business/media-telecom/nasdaq-faces-2-trillion-wipeout-october-ai-spending-fears-deepen-2026-10-30/",
+    "keywords": [
+      "Nasdaq October 2026",
+      "AI spending",
+      "Big Tech stocks",
+      "technology market outlook",
+      "data center investment"
+    ]
+  },
+  {
+    "title": "Alibaba Cloud Opens Its First Public Cloud Region in the Netherlands",
+    "category": "technology",
+    "content": "Alibaba Cloud launched its first public cloud region in the Netherlands on October 29, establishing two data centers in Amsterdam as it expands its infrastructure footprint in Europe. InformationWeek reported that customers in the region can access cloud computing, storage, networking and AI services from infrastructure located within the European market.\n\nThe expansion gives businesses another provider to consider when evaluating cloud capacity, data location and artificial-intelligence workloads. Local infrastructure can matter for latency, operational resilience and regulatory requirements, although companies still need to assess each service’s security controls, contractual terms and compliance responsibilities.\n\nAlibaba Cloud is also pursuing further European expansion, with additional capacity being considered in other markets. The move adds to competition among global cloud providers at a time when demand for AI computing is encouraging companies to invest in data centers and specialized infrastructure.\n\nFor enterprise customers, the launch is an opportunity to compare providers on more than headline pricing. Service availability, support, data residency, portability and the cost of moving existing workloads are all important parts of a cloud decision.\n\nSource: InformationWeek, October 30, 2026 — https://www.informationweek.com/it-infrastructure/the-week-of-oct-26-30-what-happened-what-matters-what-s-next",
+    "keywords": [
+      "Alibaba Cloud Netherlands",
+      "Amsterdam data centers",
+      "European cloud region",
+      "cloud computing",
+      "AI infrastructure"
+    ]
+  },
+  {
+    "title": "Google Reports Its First AI Inference Run on an Orbital Satellite",
+    "category": "technology",
+    "content": "Google has demonstrated an artificial-intelligence workload running on computing hardware in orbit, according to a report published on October 31 by The Information Machine. The test involved a satellite carrying a Google Trillium Tensor Processing Unit and a Gemma model: a prompt sent from Earth triggered an inference run in orbit, and the system returned a response.\n\nThe experiment is an early technical demonstration, not evidence that orbital data centers are ready to replace terrestrial infrastructure. Space-based computing faces difficult engineering constraints, including launch costs, radiation exposure, thermal management, communications capacity, maintenance and the limited lifetime of satellites.\n\nGoogle has also described plans to explore optical links between satellites, which could help test how orbital systems communicate and share workloads. If the technology develops, potential applications could include processing some data closer to where it is collected, although the economics and practical use cases remain uncertain.\n\nThe broader significance is that technology companies are exploring new ways to expand computing capacity as AI workloads grow. For now, the demonstration should be viewed as research progress rather than a near-term commercial service.\n\nSource: The Information Machine, October 31, 2026 — https://www.theinfomachine.fyi/daily/2026-10-31",
+    "keywords": [
+      "Google Project Suncatcher",
+      "orbital AI computing",
+      "Trillium TPU",
+      "Gemma AI model",
+      "space data centers"
+    ]
+  }
+]
