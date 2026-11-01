@@ -75,3 +75,4 @@
 @media(max-width:980px){.shelf{grid-auto-columns:calc((100% - 44px)/3);gap:22px}}
 @media(max-width:700px){.catalogue{padding:18px 0 24px}.shelf{grid-auto-columns:calc((100% - 12px)/2);gap:12px}.shelf .photo{height:190px;padding:8px}.shelf .pbody{padding:10px 2px}.shelf .product h2{font-size:.86rem}.shelf-arrows button{width:36px;height:36px}}
 @media(max-width:380px){.shelf{grid-auto-columns:82%}.shelf .photo{height:225px}}
+.product-title-link{color:inherit;text-decoration:none}.product-title-link:hover{text-decoration:underline;text-underline-offset:3px}
