@@ -113,7 +113,7 @@ async function fetchAll() {
     const finalContent = aiContent || `<p>${a.description}</p>`;
 
     const htmlTemplate = `
-      <!DOCTYPE html><html><head><title>${aiTitle}</title><link rel="stylesheet" href="../style.css"></head>
+      <!DOCTYPE html><html><head><title>${aiTitle}</title><link rel="stylesheet" href="../style.css">\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-S95EDYLHGF"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){window.dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-S95EDYLHGF');\n</script></head>
       <body><div class="container"><h1>${aiTitle}</h1><p>${a.pubDate} | ${a.source}</p><div>${finalContent}</div><a href="../index.html">← Back</a></div></body></html>
     `;
     fs.writeFileSync(fileName, htmlTemplate);
