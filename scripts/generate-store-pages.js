@@ -1,14 +1,13 @@
 // Generate crawlable, first-party product and category pages plus the product sitemap.
 const fs = require('node:fs');
 const path = require('node:path');
-const crypto = require('node:crypto');
 const root = path.join(__dirname, '..');
 const shop = path.join(root, 'shop');
 const manifest = JSON.parse(fs.readFileSync(path.join(shop, 'products-manifest.json'), 'utf8'));
 const products = manifest.batches.flatMap(name => JSON.parse(fs.readFileSync(path.join(shop, name), 'utf8')).products || []);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slug = value => String(value || 'product').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,75) || 'product';
-const hash = value => crypto.createHash('sha1').update(String(value)).digest('hex').slice(0,8);
+const hash = value => { let h=2166136261; for (const c of String(value)) { h ^= c.charCodeAt(0); h = Math.imul(h,16777619); } return (h>>>0).toString(16).padStart(8,'0').slice(0,8); };
 const money = (value, currency) => value == null || value === '' ? '' : new Intl.NumberFormat('en-US',{style:'currency',currency:/^[A-Z]{3}$/.test(currency||'')?currency:'USD'}).format(Number(value));
 const pageDir = path.join(shop, 'p');
 fs.rmSync(pageDir,{recursive:true,force:true}); fs.mkdirSync(pageDir,{recursive:true});
