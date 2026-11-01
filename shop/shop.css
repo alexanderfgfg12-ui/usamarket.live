@@ -76,3 +76,30 @@
 @media(max-width:700px){.catalogue{padding:18px 0 24px}.shelf{grid-auto-columns:calc((100% - 12px)/2);gap:12px}.shelf .photo{height:190px;padding:8px}.shelf .pbody{padding:10px 2px}.shelf .product h2{font-size:.86rem}.shelf-arrows button{width:36px;height:36px}}
 @media(max-width:380px){.shelf{grid-auto-columns:82%}.shelf .photo{height:225px}}
 .product-title-link{color:inherit;text-decoration:none}.product-title-link:hover{text-decoration:underline;text-underline-offset:3px}
+
+
+/* Mobile product detail: stack image and information instead of squeezing the image column. */
+@media (max-width: 700px) {
+  .product-detail {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 20px !important;
+  }
+  .product-detail > div:first-child {
+    min-width: 0;
+    width: 100%;
+  }
+  .product-detail > div:first-child img {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    max-height: 440px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+  .product-detail h1 {
+    font-size: clamp(1.9rem, 8vw, 2.65rem);
+    line-height: 1.12;
+    letter-spacing: -1px;
+  }
+}
