@@ -174,28 +174,61 @@ newsData.updated = new Date().toISOString();
 newsData.count = newsData.articles.length;
 fs.writeFileSync('./news-data.json', JSON.stringify(newsData, null, 2));
 
-// تحديث الخرائط (Sitemaps)
-let sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
-sitemap += `<url><loc>https://usamarket.live/</loc><priority>1.0</priority></url>`;
+// Build valid, automatically refreshed XML sitemaps.
+function xmlEscape(value) {
+  return String(value ?? '').replace(/[<>&"']/g, char => ({
+    '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;'
+  }[char]));
+}
+
+const sitePages = [
+  'https://usamarket.live/',
+  'https://usamarket.live/about.html',
+  'https://usamarket.live/privacy.html',
+  'https://usamarket.live/contact.html'
+];
+
+const sitemapEntries = sitePages.map(url => `<url><loc>${xmlEscape(url)}</loc></url>`);
 newsData.articles.forEach(article => {
-  sitemap += `<url><loc>https://usamarket.live/news/${article.id}.html</loc><lastmod>${new Date(article.pubDate).toISOString().split('T')[0]}</lastmod></url>`;
+  if (!article || typeof article.id !== 'string' || !/^[a-z0-9-]+$/i.test(article.id)) return;
+  const articleUrl = `https://usamarket.live/news/${article.id}.html`;
+  const parsedDate = new Date(article.pubDate);
+  const lastmod = Number.isNaN(parsedDate.getTime())
+    ? ''
+    : `<lastmod>${parsedDate.toISOString().slice(0, 10)}</lastmod>`;
+  sitemapEntries.push(`<url><loc>${xmlEscape(articleUrl)}</loc>${lastmod}</url>`);
 });
-sitemap += `</urlset>`;
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n`
+  + `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.join('')}</urlset>`;
 fs.writeFileSync('./sitemap.xml', sitemap);
 
-let newsSitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">`;
-newsData.articles.slice(0, 20).forEach(article => {
-  newsSitemap += `<url>
-    <loc>https://usamarket.live/news/${article.id}.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>${new Date(article.pubDate).toISOString()}</news:publication_date>
-      <news:title>${article.title}</news:title>
-    </news:news>
-  </url>`;
-});
-newsSitemap += `</urlset>`;
+// Google News sitemaps must contain only articles published in the last 48 hours.
+const newsCutoff = Date.now() - (48 * 60 * 60 * 1000);
+const recentNews = newsData.articles
+  .filter(article => {
+    const publishedAt = new Date(article.pubDate).getTime();
+    return article && typeof article.id === 'string'
+      && /^[a-z0-9-]+$/i.test(article.id)
+      && typeof article.title === 'string' && article.title.trim()
+      && Number.isFinite(publishedAt) && publishedAt <= Date.now()
+      && publishedAt >= newsCutoff;
+  })
+  .slice(0, 1000);
+
+const newsEntries = recentNews.map(article => `<url>
+  <loc>${xmlEscape(`https://usamarket.live/news/${article.id}.html`)}</loc>
+  <news:news>
+    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+    <news:publication_date>${new Date(article.pubDate).toISOString()}</news:publication_date>
+    <news:title>${xmlEscape(article.title)}</news:title>
+  </news:news>
+</url>`).join('');
+
+const newsSitemap = `<?xml version="1.0" encoding="UTF-8"?>\n`
+  + `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">${newsEntries}</urlset>`;
 fs.writeFileSync('./news-sitemap.xml', newsSitemap);
+
+console.log(`🗺️ Sitemap updated: ${sitemapEntries.length} URLs; News sitemap: ${recentNews.length} recent articles.`);
 
 console.log(`✅ تم نشر ${totalAdded} خبر بنجاح.`);
