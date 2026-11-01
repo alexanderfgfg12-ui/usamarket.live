@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"><url>
+    <loc>https://usamarket.live/news/google-reports-its-first-ai-inference-run-on-an-orbital-satellite-58d998f4.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T00:29:34.127Z</news:publication_date>
+      <news:title>Google Reports Its First AI Inference Run on an Orbital Satellite</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/alibaba-cloud-opens-its-first-public-cloud-region-in-the-netherlands-63d21392.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T00:29:34.127Z</news:publication_date>
+      <news:title>Alibaba Cloud Opens Its First Public Cloud Region in the Netherlands</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/nasdaq-faces-pressure-as-investors-reassess-the-cost-of-big-tech-s-ai-expansion-f89c4d3c.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T00:29:34.126Z</news:publication_date>
+      <news:title>Nasdaq Faces Pressure as Investors Reassess the Cost of Big Tech’s AI Expansion</news:title>
+    </news:news>
+  </url><url>
     <loc>https://usamarket.live/news/how-investors-can-read-a-market-reaction-when-stocks-fall-after-earnings-86126.html</loc>
     <news:news>
       <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
@@ -117,26 +138,5 @@
       <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2026-10-29T19:47:29.208Z</news:publication_date>
       <news:title>The Future of Space Exploration: The New Space Race</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/the-role-of-esg-in-corporate-governance-beyond-just-a-trend-1793303249216.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-29T19:47:29.208Z</news:publication_date>
-      <news:title>The Role of ESG in Corporate Governance: Beyond Just a Trend</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/the-rise-of-neobanks-how-digital-banks-are-disrupting-traditional-finance-1793303249215.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-29T19:47:29.208Z</news:publication_date>
-      <news:title>The Rise of Neobanks: How Digital Banks are Disrupting Traditional Finance</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/the-impact-of-aging-populations-on-the-global-economy-1793303249214.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-29T19:47:29.208Z</news:publication_date>
-      <news:title>The Impact of Aging Populations on the Global Economy</news:title>
     </news:news>
   </url></urlset>
