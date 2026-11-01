@@ -1,5 +1,10 @@
 name: Sync affiliate products
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-products.js'
+      - '.github/workflows/sync-products.yml'
   workflow_dispatch:
   schedule:
     - cron: '23 */6 * * *'
