@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"><url>
+    <loc>https://usamarket.live/news/belden-reports-record-third-quarter-revenue-and-100-million-data-center-agreement-a444e69c.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.825Z</news:publication_date>
+      <news:title>Belden Reports Record Third-Quarter Revenue and $100 Million Data Center Agreement</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/wall-street-suffers-sharp-sell-off-as-intel-and-amazon-deepen-ai-spending-worries-c37dcfee.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.825Z</news:publication_date>
+      <news:title>Wall Street Suffers Sharp Sell-Off as Intel and Amazon Deepen AI Spending Worries</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/nasdaq-faces-pressure-as-investors-reassess-big-tech-s-ai-spending-plans-925c0b91.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.824Z</news:publication_date>
+      <news:title>Nasdaq Faces Pressure as Investors Reassess Big Tech's AI Spending Plans</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/alphabet-reports-25-revenue-growth-as-google-cloud-revenue-surges-103-eef4e406.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.824Z</news:publication_date>
+      <news:title>Alphabet Reports 25% Revenue Growth as Google Cloud Revenue Surges 103%</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/microsoft-offers-voluntary-buyouts-to-about-60-000-employees-ffac47f9.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.824Z</news:publication_date>
+      <news:title>Microsoft Offers Voluntary Buyouts to About 60,000 Employees</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/intel-shares-plunge-as-weak-pc-outlook-adds-to-concerns-about-ai-costs-00ac367c.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.824Z</news:publication_date>
+      <news:title>Intel Shares Plunge as Weak PC Outlook Adds to Concerns About AI Costs</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/amazon-posts-201-9-billion-in-third-quarter-sales-as-aws-growth-accelerates-1ce110b1.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.824Z</news:publication_date>
+      <news:title>Amazon Posts $201.9 Billion in Third-Quarter Sales as AWS Growth Accelerates</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/u-s-business-activity-cools-slightly-as-companies-continue-raising-prices-0f840255.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.823Z</news:publication_date>
+      <news:title>U.S. Business Activity Cools Slightly as Companies Continue Raising Prices</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/u-s-consumer-confidence-rebounds-in-october-but-affordability-concerns-persist-b6495e0d.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.823Z</news:publication_date>
+      <news:title>U.S. Consumer Confidence Rebounds in October, but Affordability Concerns Persist</news:title>
+    </news:news>
+  </url><url>
+    <loc>https://usamarket.live/news/u-s-economy-expands-at-a-3-4-annual-rate-in-the-third-quarter-a4230da5.html</loc>
+    <news:news>
+      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+      <news:publication_date>2026-11-01T17:02:54.823Z</news:publication_date>
+      <news:title>U.S. Economy Expands at a 3.4% Annual Rate in the Third Quarter</news:title>
+    </news:news>
+  </url><url>
     <loc>https://usamarket.live/news/google-reports-its-first-ai-inference-run-on-an-orbital-satellite-58d998f4.html</loc>
     <news:news>
       <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
@@ -68,75 +138,5 @@
       <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
       <news:publication_date>2026-10-30T11:18:09.627Z</news:publication_date>
       <news:title>Treasury Yields Retreat but Inflation Keeps the Bond Market on Alert</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/federal-reserve-holds-rates-at-3-75-4-00-as-inflation-remains-elevated-97818.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T11:18:09.627Z</news:publication_date>
-      <news:title>Federal Reserve Holds Rates at 3.75%–4.00% as Inflation Remains Elevated</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/what-the-latest-nasdaq-and-s-p-500-session-says-about-market-breadth-63278.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T11:18:09.627Z</news:publication_date>
-      <news:title>What the Latest Nasdaq and S&P 500 Session Says About Market Breadth</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/nasdaq-slides-as-alphabet-selloff-revives-questions-about-ai-spending-15934.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T11:18:09.627Z</news:publication_date>
-      <news:title>Nasdaq Slides as Alphabet Selloff Revives Questions About AI Spending</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/wall-street-faces-a-high-stakes-week-as-midterm-elections-and-earnings-converge-93635.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T11:18:09.627Z</news:publication_date>
-      <news:title>Wall Street Faces a High-Stakes Week as Midterm Elections and Earnings Converge</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/gold-hits-record-high-as-investors-seek-safe-haven-assets-63316.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T08:09:32.843Z</news:publication_date>
-      <news:title>Gold Hits Record High as Investors Seek Safe Haven Assets</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/the-rise-of-retail-investors-how-social-media-is-changing-the-stock-market-69041.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T08:09:32.843Z</news:publication_date>
-      <news:title>The Rise of Retail Investors: How Social Media is Changing the Stock Market</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/microsoft-s-ai-strategy-pays-off-with-strong-cloud-growth-84680.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T08:09:32.843Z</news:publication_date>
-      <news:title>Microsoft's AI Strategy Pays Off with Strong Cloud Growth</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/ethereum-s-next-big-upgrade-what-you-need-to-know-71380.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T08:09:32.843Z</news:publication_date>
-      <news:title>Ethereum's Next Big Upgrade: What You Need to Know</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/the-ai-boom-how-nvidia-is-reshaping-the-tech-landscape-29869.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-30T08:09:32.843Z</news:publication_date>
-      <news:title>The AI Boom: How Nvidia is Reshaping the Tech Landscape</news:title>
-    </news:news>
-  </url><url>
-    <loc>https://usamarket.live/news/the-future-of-space-exploration-the-new-space-race-1793303249217.html</loc>
-    <news:news>
-      <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-      <news:publication_date>2026-10-29T19:47:29.208Z</news:publication_date>
-      <news:title>The Future of Space Exploration: The New Space Race</news:title>
     </news:news>
   </url></urlset>
