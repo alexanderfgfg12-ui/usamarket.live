@@ -8,7 +8,7 @@ const products = manifest.batches.flatMap(name => JSON.parse(fs.readFileSync(pat
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const slug = value => String(value || 'product').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,75) || 'product';
 const hash = value => { let h=2166136261; for (const c of String(value)) { h ^= c.charCodeAt(0); h = Math.imul(h,16777619); } return (h>>>0).toString(16).padStart(8,'0').slice(0,8); };
-const money = (value, currency) => value == null || value === '' ? '' : new Intl.NumberFormat('en-US',{style:'currency',currency:/^[A-Z]{3}$/.test(currency||'')?currency:'USD'}).format(Number(value));
+const money = (value, currency) => { const n=Number(value); if(value==null||value===''||!Number.isFinite(n)) return ''; try{return new Intl.NumberFormat('en-US',{style:'currency',currency:/^[A-Z]{3}$/.test(currency||'')?currency:'USD'}).format(n)}catch{return n.toFixed(2)+' '+(currency||'USD')} };
 const pageDir = path.join(shop, 'p');
 fs.rmSync(pageDir,{recursive:true,force:true}); fs.mkdirSync(pageDir,{recursive:true});
 const entries = [], categoryMap = new Map();
@@ -31,11 +31,12 @@ for (const p of products) {
 const categoryDir=path.join(shop,'c'); fs.rmSync(categoryDir,{recursive:true,force:true}); fs.mkdirSync(categoryDir,{recursive:true});
 for (const [name,items] of categoryMap) {
   const url='https://usamarket.live/shop/c/'+slug(name)+'.html';
-  const cards=items.map(p=>{const file=slug(p.title)+'-'+hash(p.id||p.affiliateUrl)+'.html';return '<article class="product"><a href="/shop/p/'+file+'"><img loading="lazy" src="'+esc(p.image||'')+'" alt="'+esc(p.title)+'"></a><div class="pbody"><h2><a href="/shop/p/'+file+'">'+esc(p.title)+'</a></h2><p>'+esc(String(p.description||'').slice(0,130))+'</p><a class="cta" href="/shop/p/'+file+'">View product</a></div></article>'}).join('');
+  const cards=items.map(p=>{const file=slug(p.title)+'-'+hash(p.id||p.affiliateUrl)+'.html';return '<article class="product"><a href="/shop/p/'+file+'">'+(p.image?'<img loading="lazy" src="'+esc(p.image)+'" alt="'+esc(p.title)+'">':'<span class="no-photo">Image coming soon</span>')+'</a><div class="pbody"><h2><a href="/shop/p/'+file+'">'+esc(p.title)+'</a></h2><p>'+esc(String(p.description||'').slice(0,130))+'</p><a class="cta" href="/shop/p/'+file+'">View product</a></div></article>'}).join('');
   const html='<!doctype html><html lang="en"><head>'+baseHead(name+' Products | US Market Live Shop','Browse '+items.length+' products in '+name+'. View product details and continue securely to the retailer to purchase.',url,'')+'</head><body><header class="top"><a class="brand" href="/shop/">US Market Live <small>SHOP</small></a><nav><a href="/shop/">All products</a></nav></header><main class="wrap"><nav style="margin:22px 0"><a href="/shop/">Shop</a> / '+esc(name)+'</nav><h1>'+esc(name)+'</h1><p>Browse '+items.length+' products. Select an item to see details; purchases are completed on the retailer website.</p><section class="grid">'+cards+'</section></main><footer><a href="/shop/">US Market Live Shop</a></footer></body></html>';
   fs.writeFileSync(path.join(categoryDir,slug(name)+'.html'),html);
 }
 const allUrls=[{url:'https://usamarket.live/shop/',lastmod:manifest.updatedAt},...entries,...[...categoryMap.keys()].map(name=>({url:'https://usamarket.live/shop/c/'+slug(name)+'.html',lastmod:manifest.updatedAt}))];
-const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+allUrls.map(x=>'  <url><loc>'+esc(x.url)+'</loc><lastmod>'+new Date(x.lastmod||manifest.updatedAt).toISOString().slice(0,10)+'</lastmod></url>').join('\n')+'\n</urlset>\n';
+const validDate=value=>{const d=new Date(value||'');return Number.isNaN(d.getTime())?new Date().toISOString().slice(0,10):d.toISOString().slice(0,10)};
+const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+allUrls.map(x=>'  <url><loc>'+esc(x.url)+'</loc><lastmod>'+validDate(x.lastmod)+'</lastmod></url>').join('\n')+'\n</urlset>\n';
 fs.writeFileSync(path.join(root,'product-sitemap.xml'),xml);
 console.log('Generated',entries.length,'product pages and',categoryMap.size,'category pages; sitemap URLs:',allUrls.length);
