@@ -1,0 +1,14 @@
+{
+  "updatedAt": "2026-11-01T06:24:47.523Z",
+  "totalProducts": 1424,
+  "batchSize": 300,
+  "batches": [
+    "products-0001.json",
+    "products-0002.json",
+    "products-0003.json",
+    "products-0004.json",
+    "products-0005.json"
+  ],
+  "feedsSucceeded": 1,
+  "feedsFailed": 2
+}
