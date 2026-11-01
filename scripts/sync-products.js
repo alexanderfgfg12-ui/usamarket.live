@@ -61,7 +61,7 @@ function normalize(item, categories, hostname, feedIndex) {
     price: numeric(get(item, ['price','salePrice','sale_price','currentPrice','current_price'])),
     oldPrice: numeric(get(item, ['oldPrice','old_price','priceOld','price_old'])),
     currency: String(get(item, ['currency','currencyId','currency_id']) || 'USD').toUpperCase().slice(0, 3),
-    affiliateUrl, source: /admitad/i.test(hostname) ? 'Admitad' : hostname.replace(/^www\./i, ''), updatedAt: new Date().toISOString() };
+    affiliateUrl, source: (/admitad/i.test(hostname) ? 'Admitad' : hostname.replace(/^www\./i, '')) + ' · Feed ' + feedIndex, updatedAt: new Date().toISOString() };
 }
 async function fetchFeed(endpoint) {
   const parsed = new URL(endpoint); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTP(S)');
@@ -93,7 +93,12 @@ async function main() {
       console.log('Feed', i + 1, parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products with images');
     } catch (error) { failures.push('Feed ' + (i + 1) + ': ' + error.message); console.warn(failures[failures.length - 1]); }
   }
-  if (!feedProducts.length) throw new Error('Every feed failed; keeping previous catalogue. ' + failures.join(' | '));
+  if (failures.length) {
+    // Never replace a multi-feed catalogue with a partial import. The previous
+    // published catalogue remains intact until every configured feed succeeds.
+    throw new Error('Incomplete affiliate import; previous catalogue preserved. ' + failures.join(' | '));
+  }
+  if (!feedProducts.length) throw new Error('No affiliate feeds returned valid products; previous catalogue preserved.');
   // Round-robin the feeds so one large feed cannot crowd out all later feeds.
   const products = [], max = Math.max(...feedProducts.map(a => a.length));
   for (let i = 0; i < max; i++) for (const list of feedProducts) if (list[i]) products.push(list[i]);
@@ -105,7 +110,7 @@ async function main() {
   }
   // Remove obsolete batches left by an earlier, larger catalogue.
   for (const name of fs.readdirSync(shopDir)) if (/^products-\d{4}\.json$/.test(name) && !batches.includes(name)) fs.unlinkSync(path.join(shopDir, name));
-  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedsSucceeded: feedProducts.length, feedsFailed: failures.length };
+  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedsConfigured: urls.length, feedsSucceeded: feedProducts.length, feedsFailed: 0 };
   fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
   fs.writeFileSync(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
