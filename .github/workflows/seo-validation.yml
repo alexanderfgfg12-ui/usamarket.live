@@ -95,7 +95,7 @@ jobs:
           assert len(arabic_locs) >= 4, "Arabic sitemap must include the section and article pages"
           assert len(arabic_locs) == len(set(arabic_locs)), "Duplicate URLs in Arabic sitemap"
           arabic_article_urls = [url for url in arabic_locs if url.endswith(".html")]
-          assert len(arabic_article_urls) >= 20, f"Expected at least 20 Arabic articles in sitemap, found {len(arabic_article_urls)}"
+          assert len(arabic_article_urls) >= 30, f"Expected at least 30 Arabic articles in sitemap, found {len(arabic_article_urls)}"
           for url in arabic_article_urls:
               path = Path(url.removeprefix("https://usamarket.live/"))
               assert path.exists(), f"Arabic sitemap URL has no page: {url}"
@@ -104,6 +104,8 @@ jobs:
               assert 'rel="canonical"' in content, f"Arabic page missing canonical: {path}"
               assert 'class="article-hero"' in content, f"Arabic article missing lead image: {path}"
               assert 'class="sidebar"' in content, f"Arabic article missing related-articles sidebar: {path}"
+              assert 'bauval.org/22/1dfb3499e1ac651f7c3142c05db57d13' in content, f"Arabic article missing Adsterra placement: {path}"
+              assert "images.unsplash.com" in content and "class=\"article-hero\"" in content, f"Arabic article lead image missing: {path}"
 
           print(f"SEO checks passed: {len(locs)} sitemap URLs, {len(category_files)} category pages, all category links and JSON-LD valid.")
           PY
