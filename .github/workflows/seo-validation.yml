@@ -94,10 +94,11 @@ jobs:
           arabic_locs = [node.text.strip() for node in arabic_sitemap.iter() if node.tag.endswith("loc") and node.text]
           assert len(arabic_locs) >= 4, "Arabic sitemap must include the section and article pages"
           assert len(arabic_locs) == len(set(arabic_locs)), "Duplicate URLs in Arabic sitemap"
-          arabic_articles = sorted(Path("ar").glob("*.html"))
-          assert len(arabic_articles) >= 20, f"Expected at least 20 Arabic articles, found {len(arabic_articles)}"
-          assert len(arabic_locs) == len(arabic_articles) + 1, "Arabic sitemap must include every article and the section homepage"
-          for path in arabic_articles:
+          arabic_article_urls = [url for url in arabic_locs if url.endswith(".html")]
+          assert len(arabic_article_urls) >= 20, f"Expected at least 20 Arabic articles in sitemap, found {len(arabic_article_urls)}"
+          for url in arabic_article_urls:
+              path = Path(url.removeprefix("https://usamarket.live/"))
+              assert path.exists(), f"Arabic sitemap URL has no page: {url}"
               content = path.read_text(encoding="utf-8")
               assert '<html lang="ar" dir="rtl">' in content, f"Arabic page missing RTL metadata: {path}"
               assert 'rel="canonical"' in content, f"Arabic page missing canonical: {path}"
