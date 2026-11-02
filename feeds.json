@@ -1,0 +1,16 @@
+{
+  "feeds": [
+    {
+      "name": "Admitad template 79336",
+      "template": 79336,
+      "feed_id": 17677,
+      "url": "https://export.admitad.com/en/webmaster/websites/3016735/products/export_adv_products/?template=79336&user=PID2600429&code=3dw149ycb6&feed_id=17677"
+    },
+    {
+      "name": "Admitad template 79337",
+      "template": 79337,
+      "feed_id": 15830,
+      "url": "https://export.admitad.com/en/webmaster/websites/3016735/products/export_adv_products/?template=79337&user=PID2600429&code=3dw149ycb6&feed_id=15830"
+    }
+  ]
+}
