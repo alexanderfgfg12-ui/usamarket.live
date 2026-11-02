@@ -104,9 +104,10 @@ async function main() {
   // Keep the last good catalogue when one partner feed is temporarily unavailable.
   // Successful feeds are refreshed; old products from failed feeds remain visible.
   const previous = [];
+  let previousManifest = null;
   try {
-    const oldManifest = JSON.parse(fs.readFileSync(path.join(shopDir, 'products-manifest.json'), 'utf8'));
-    for (const name of oldManifest.batches || []) {
+    previousManifest = JSON.parse(fs.readFileSync(path.join(shopDir, 'products-manifest.json'), 'utf8'));
+    for (const name of previousManifest.batches || []) {
       const file = path.join(shopDir, name);
       if (fs.existsSync(file)) previous.push(...(JSON.parse(fs.readFileSync(file, 'utf8')).products || []));
     }
@@ -116,26 +117,39 @@ async function main() {
   // Round-robin successful feeds so one large feed cannot crowd out later partners.
   const imported = [], max = Math.max(...feedProducts.map(a => a.length));
   for (let i = 0; i < max; i++) for (const list of feedProducts) if (list[i]) imported.push(list[i]);
+  const previousByUrl = new Map(previous.map(p => [String(p.affiliateUrl || '').toLowerCase(), p]));
   const merged = new Map();
-  for (const product of imported) merged.set(String(product.affiliateUrl).toLowerCase(), product);
+  for (const product of imported) {
+    const key = String(product.affiliateUrl).toLowerCase(), old = previousByUrl.get(key);
+    if (old) {
+      const comparable = value => { const copy = { ...value }; delete copy.updatedAt; return JSON.stringify(copy); };
+      if (comparable(old) === comparable(product)) product.updatedAt = old.updatedAt;
+    }
+    merged.set(key, product);
+  }
   for (const product of previous) {
     const key = String(product.affiliateUrl || '').toLowerCase();
     if (key && !merged.has(key)) merged.set(key, product);
   }
   const products = [...merged.values()];
   if (failures.length) console.warn('Some feeds failed; retained their previously published products:', failures.join(' | '));
-  const stamp = new Date().toISOString(), batches = [];
+  const sameCatalogue = previous.length === products.length && previous.every((old, index) => {
+    const next = products[index];
+    return next && String(old.affiliateUrl || '').toLowerCase() === String(next.affiliateUrl || '').toLowerCase() && JSON.stringify(old) === JSON.stringify(next);
+  });
+  const stamp = sameCatalogue && previousManifest?.updatedAt ? previousManifest.updatedAt : new Date().toISOString(), batches = [];
+  const writeIfChanged = (file, content) => { if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== content) fs.writeFileSync(file, content); };
   for (let i = 0; i < products.length; i += batchSize) {
     const name = 'products-' + String(Math.floor(i / batchSize) + 1).padStart(4, '0') + '.json';
-    fs.writeFileSync(path.join(shopDir, name), JSON.stringify({ products: products.slice(i, i + batchSize) }) + '\n');
+    writeIfChanged(path.join(shopDir, name), JSON.stringify({ products: products.slice(i, i + batchSize) }) + '\n');
     batches.push(name);
   }
   // Remove obsolete batches left by an earlier, larger catalogue.
   for (const name of fs.readdirSync(shopDir)) if (/^products-\d{4}\.json$/.test(name) && !batches.includes(name)) fs.unlinkSync(path.join(shopDir, name));
   const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedsConfigured: urls.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length };
-  fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+  writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
-  fs.writeFileSync(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
+  writeIfChanged(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
   console.log('Published', products.length, 'products in', batches.length, 'batches from', feedProducts.length, 'successful feeds.');
   if (failures.length) console.warn('Partial feed failures:', failures.join(' | '));
 }
