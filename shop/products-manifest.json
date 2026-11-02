@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T19:23:05.486Z",
+  "updatedAt": "2026-11-02T09:02:04.683Z",
   "totalProducts": 1423,
   "batchSize": 300,
   "batches": [
@@ -9,6 +9,7 @@
     "products-0004.json",
     "products-0005.json"
   ],
-  "feedsSucceeded": 1,
-  "feedsFailed": 2
+  "feedsConfigured": 13,
+  "feedsSucceeded": 2,
+  "feedsFailed": 11
 }
