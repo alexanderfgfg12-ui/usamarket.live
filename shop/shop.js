@@ -59,9 +59,8 @@ async function load(){
  // 2) Check the tiny manifest in the background. Download product batches only if its version changed.
  try{
   const manifest=await fetchJson(manifestUrl+'?check='+Date.now(),12000);
-  await saveCachedJson(manifestUrl,manifest);
-  const sameVersion=cachedManifest&&cachedManifest.updatedAt===manifest.updatedAt&&cachedProducts.length>0;
-  if(sameVersion){if(!cachedProducts.length)paintCatalogue(cachedProducts,cachedManifest);$('status').textContent=products.length.toLocaleString()+' products ready';return;}
+  const sameVersion=cachedManifest&&cachedManifest.updatedAt===manifest.updatedAt&&cachedProducts.length>0&&(!manifest.totalProducts||cachedProducts.length>=manifest.totalProducts);
+  if(sameVersion){$('status').textContent=products.length.toLocaleString()+' products ready';return;}
   $('status').textContent=cachedProducts.length?'Checking for new products in background…':'Loading the product catalogue…';
   const fresh=await downloadCatalogue(manifest);
   paintCatalogue(fresh,manifest);
