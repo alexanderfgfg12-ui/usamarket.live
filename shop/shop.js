@@ -15,7 +15,8 @@ async function load(){
  // Render the already-published catalogue first. The customer never waits for Admitad.
  let manifest;
  try{
-  manifest=await fetchJson('/shop/products-manifest.json?v=1',12000);
+  const first=await fetchJson('/shop/products.json?v=4',9000); if(Array.isArray(first.products)&&first.products.length){products=first.products;categories();render();$('status').textContent=products.length.toLocaleString()+' products ready';$('updated').textContent=first.updatedAt?'Catalogue updated '+new Date(first.updatedAt).toLocaleDateString():'';}
+  manifest=await fetchJson('/shop/products-manifest.json?v=2',10000);
   if(Array.isArray(manifest.batches)&&manifest.batches.length){
    const loaded=[];
    const chunkSize=6;
