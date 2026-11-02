@@ -5,7 +5,7 @@ const { XMLParser } = require('fast-xml-parser');
 const { parse: parseCsv } = require('csv-parse/sync');
 
 const raw = process.env.AFFILIATE_FEED_URLS || '';
-const urls = [...new Set(raw.split(/[\s,]+/).map(s => s.trim()).filter(Boolean))];
+const urls = [...new Set(raw.split(/[\s,;]+/).map(s => s.trim()).filter(Boolean))];
 const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true });
