@@ -71,33 +71,39 @@ function normalize(item, categories, hostname, feedIndex) {
 async function fetchFeed(endpoint) {
   const parsed = new URL(endpoint); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTP(S)');
   let last;
-  for (let attempt = 1; attempt <= 3; attempt++) try {
-    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(90000) });
+  for (let attempt = 1; attempt <= 2; attempt++) try {
+    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(45000) });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const body = await response.text(), records = parseFeed(body, response.headers.get('content-type') || '');
     if (!records.length) throw new Error('No product rows');
     return { parsed, body, records };
-  } catch (error) { last = error; console.warn('Feed attempt', attempt, error.message); if (attempt < 3) await new Promise(r => setTimeout(r, attempt * 2000)); }
+  } catch (error) { last = error; console.warn('Feed attempt', attempt, error.message); if (attempt < 2) await new Promise(r => setTimeout(r, 1500)); }
   throw last;
 }
 async function main() {
   if (!urls.length) throw new Error('AFFILIATE_FEED_URLS is empty; catalogue left unchanged.');
-  const feedProducts = [], failures = [];
-  for (let i = 0; i < urls.length; i++) {
+  const results = await Promise.all(urls.map(async (url, i) => {
     try {
-      const { parsed, body, records } = await fetchFeed(urls[i]), categories = {};
+      const { parsed, body, records } = await fetchFeed(url), categories = {};
       try { const shop = (body.trim().startsWith('<') ? xmlParser.parse(body) : {}).yml_catalog?.shop || {}; for (const c of asArray(shop.categories?.category)) { const id = String(c['@_id'] || c.id || ''), name = String(scalar(c) || c['#text'] || ''); if (id && name) categories[id] = name; } } catch {}
       const seen = new Set(), accepted = [];
       for (const item of records) {
         const p = normalize(item, categories, parsed.hostname, i + 1);
-        if (!p || !p.image || seen.has(p.affiliateUrl)) continue;
+        // Product images are optional; missing imagery must not discard an otherwise valid offer.
+        if (!p || seen.has(p.affiliateUrl)) continue;
         seen.add(p.affiliateUrl); accepted.push(p);
       }
-      if (!accepted.length) throw new Error('No valid products with image, title and affiliate URL');
-      feedProducts.push(accepted);
-      console.log('Feed', i + 1, parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products with images');
-    } catch (error) { failures.push('Feed ' + (i + 1) + ': ' + error.message); console.warn(failures[failures.length - 1]); }
-  }
+      if (!accepted.length) throw new Error('No valid products with title and affiliate URL');
+      console.log('Feed', i + 1, parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products');
+      return { index: i, products: accepted };
+    } catch (error) {
+      const message = 'Feed ' + (i + 1) + ': ' + error.message;
+      console.warn(message);
+      return { index: i, error: message };
+    }
+  }));
+  const feedProducts = results.filter(x => x.products).sort((a,b)=>a.index-b.index).map(x=>x.products);
+  const failures = results.filter(x => x.error).map(x=>x.error);
   if (!feedProducts.length) {
     throw new Error('No affiliate feeds returned valid products; previous catalogue preserved. ' + failures.join(' | '));
   }
