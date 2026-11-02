@@ -27,7 +27,7 @@ if(!response.ok)throw new Error('Product feed unavailable');const data=await res
 if(!p){root.textContent='This product is no longer available in the live catalogue.';return}
 const image=url(p.image),buy=url(p.affiliateUrl);document.title=p.title+' | US Market Live';
 const meta=document.querySelector('meta[name="description"]');if(meta)meta.content=(p.description||p.title).slice(0,155);
-let canonical=document.querySelector('link[rel="canonical"]');if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.append(canonical)}canonical.href=location.href;
+let canonical=document.querySelector('link[rel="canonical"]');if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.append(canonical)}canonical.href=location.origin+location.pathname;
 root.className='detail-card';
 root.innerHTML='<div>'+(image?'<img class="detail-image" src="'+esc(image)+'" alt="'+esc(p.title)+'">':'<div class="detail-image"></div>')+'</div><div class="detail-copy"><div class="detail-meta">'+esc(p.brand||p.source||'Retail partner')+' · '+esc(p.category||'Product')+'</div><h1>'+esc(p.title)+'</h1>'+(p.description?'<p>'+esc(p.description)+'</p>':'')+'<div class="detail-price">'+money(p.price,p.currency||'USD')+'</div>'+(buy?'<a class="detail-buy" href="'+esc(buy)+'" target="_blank" rel="sponsored nofollow noopener">Shop this product ↗</a>':'')+'<div class="detail-meta">Price and availability are supplied by the retailer and may change.</div></div>';
 }catch(e){root.textContent='We could not load this product right now. Please return to the shop and try again.';}}

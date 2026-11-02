@@ -182,6 +182,13 @@ export default {
       }
     }
     if (!env.ASSETS) return json({ error: "static_assets_binding_missing" }, 500);
+    if (request.method === "GET" && /^\/shop\/p\/[^/]+\.html$/.test(url.pathname)) {
+      const staticProductPage = await env.ASSETS.fetch(request);
+      if (staticProductPage.status !== 404) return staticProductPage;
+      const productPage = new URL("/shop/product.html", url);
+      productPage.search = url.search;
+      return env.ASSETS.fetch(new Request(productPage, request));
+    }
     return env.ASSETS.fetch(request);
   }
 };
