@@ -6,6 +6,7 @@ on:
       - "index.html"
       - "shop/**"
       - "sitemap.xml"
+      - "ar/**"
       - "cloudflare/usamarket-live-worker/**"
       - ".github/workflows/seo-validation.yml"
   push:
@@ -83,6 +84,19 @@ jobs:
           assert '<link rel="canonical"' not in home or 'https://usamarket.live/' in home, "Unexpected homepage canonical"
           assert 'property="og:title"' in home, "Homepage Open Graph title missing"
           assert '"@type":"Organization"' in home, "Homepage Organization JSON-LD missing"
+
+
+          arabic_home = Path("ar/index.html").read_text(encoding="utf-8")
+          assert '<html lang="ar" dir="rtl">' in arabic_home, "Arabic section must declare Arabic and RTL direction"
+          assert 'https://usamarket.live/ar/' in arabic_home, "Arabic homepage canonical URL missing"
+          arabic_sitemap = ET.parse("ar/sitemap.xml").getroot()
+          arabic_locs = [node.text.strip() for node in arabic_sitemap.iter() if node.tag.endswith("loc") and node.text]
+          assert len(arabic_locs) >= 4, "Arabic sitemap must include the section and article pages"
+          assert len(arabic_locs) == len(set(arabic_locs)), "Duplicate URLs in Arabic sitemap"
+          for path in Path("ar").glob("*.html"):
+              content = path.read_text(encoding="utf-8")
+              assert '<html lang="ar" dir="rtl">' in content, f"Arabic page missing RTL metadata: {path}"
+              assert 'rel="canonical"' in content, f"Arabic page missing canonical: {path}"
 
           print(f"SEO checks passed: {len(locs)} sitemap URLs, {len(category_files)} category pages, all category links and JSON-LD valid.")
           PY
