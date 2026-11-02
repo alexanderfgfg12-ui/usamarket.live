@@ -6,6 +6,7 @@ on:
       - "index.html"
       - "shop/**"
       - "sitemap.xml"
+      - "cloudflare/usamarket-live-worker/**"
       - ".github/workflows/seo-validation.yml"
   push:
     branches:
@@ -85,3 +86,17 @@ jobs:
 
           print(f"SEO checks passed: {len(locs)} sitemap URLs, {len(category_files)} category pages, all category links and JSON-LD valid.")
           PY
+
+      - name: Stage static site assets for the intended Worker
+        working-directory: cloudflare/usamarket-live-worker
+        run: |
+          node --check build-assets.mjs
+          node --check src/index.js
+          node build-assets.mjs
+          test -s dist/index.html
+          test -s dist/robots.txt
+          test -s dist/sitemap.xml
+          test -s dist/news-sitemap.xml
+          test -s dist/shop/index.html
+          test -s dist/shop/categories.html
+          echo "Worker asset staging checks passed."
