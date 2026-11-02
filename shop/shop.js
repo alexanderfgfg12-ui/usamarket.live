@@ -9,13 +9,14 @@ function render(){const q=$('q').value.trim().toLocaleLowerCase(),cat=$('categor
 function categories(){const select=$('category'),current=select.value;select.innerHTML='<option value="">All categories</option>';[...new Set(products.map(p=>p.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b)).forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;select.append(o)});select.value=current}
 async function fetchJson(url,timeoutMs,cacheMode='no-store'){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);try{const response=await fetch(url,{cache:cacheMode,headers:{accept:'application/json'},signal:controller.signal});if(!response.ok)throw new Error('HTTP '+response.status);return await response.json()}finally{clearTimeout(timer)}}
 const CACHE_NAME='usamarket-shop-v2';
+const cacheKey=url=>new URL(url,location.href).href;
 async function cachedJson(url,timeoutMs=15000){
- try{if('caches' in window){const cache=await caches.open(CACHE_NAME),hit=await cache.match(url);if(hit)return await hit.json();}}
+ try{if('caches' in window){const cache=await caches.open(CACHE_NAME),hit=await cache.match(cacheKey(url));if(hit)return await hit.json();}}
  catch(e){console.warn('Shop cache read skipped',e)}
  return fetchJson(url,timeoutMs);
 }
 async function saveCachedJson(url,data){
- try{if('caches' in window){const cache=await caches.open(CACHE_NAME);await cache.put(url,new Response(JSON.stringify(data),{headers:{'content-type':'application/json','cache-control':'max-age=21600'}}));}}
+ try{if('caches' in window){const cache=await caches.open(CACHE_NAME);await cache.put(cacheKey(url),new Response(JSON.stringify(data),{headers:{'content-type':'application/json','cache-control':'max-age=21600'}}));}}
  catch(e){console.warn('Shop cache write skipped',e)}
 }
 function showUnavailable(message){$('count').textContent='No products available';$('status').textContent=message;$('products').innerHTML='<div class="empty"><strong>Products are not available yet</strong><span>'+esc(message)+'</span></div>';$('pagination').innerHTML=''}
@@ -43,7 +44,7 @@ async function load(){
  // 1) Instant display from the browser's persistent cache. No network wait on repeat visits.
  try{
   if('caches' in window){
-   const cache=await caches.open(CACHE_NAME),hit=await cache.match(manifestUrl);
+   const cache=await caches.open(CACHE_NAME),hit=await cache.match(cacheKey(manifestUrl));
    if(hit){cachedManifest=await hit.json();if(Array.isArray(cachedManifest.batches)){
     const chunks=await Promise.all(cachedManifest.batches.map(async name=>{
      const url='/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(cachedManifest.updatedAt||'');
