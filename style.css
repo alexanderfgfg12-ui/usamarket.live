@@ -50,3 +50,15 @@
 @media(max-width:480px){.market-news-banner-inner{padding-left:17px;padding-right:17px}.market-news-copy p{font-size:.95rem}.market-news-actions a{flex:1;padding:11px 12px;font-size:.88rem}.market-news-art{height:190px}.market-news-paper{width:150px;min-height:145px;padding:12px}.market-news-paper strong{font-size:1.6rem}}
 /* The site's existing UML brand mark remains the sole header logo; no shopping-bag badge. */
 .header .shop-link{display:none!important}
+
+
+/* Render the committed banner artwork as the homepage hero image */
+.market-news-banner{background:#f4f8ff;padding:0 0 24px;margin:0;border-bottom:0;overflow:hidden}
+.market-news-banner:before,.market-news-banner:after{display:none}
+.market-news-banner-inner{display:none}
+.market-news-banner-image{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;object-position:center;margin:0 auto}
+.market-news-image-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;padding:18px 16px 0}
+.market-news-image-actions a{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:8px;text-decoration:none;font-weight:800}
+.market-news-image-actions .market-news-primary{background:#d71932;color:#fff}
+.market-news-image-actions .market-news-secondary{background:#fff;color:#123477;border:1px solid #b9cbea}
+@media(max-width:600px){.market-news-banner-image{max-height:none}.market-news-image-actions a{flex:1;max-width:240px}}
