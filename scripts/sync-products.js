@@ -93,15 +93,32 @@ async function main() {
       console.log('Feed', i + 1, parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products with images');
     } catch (error) { failures.push('Feed ' + (i + 1) + ': ' + error.message); console.warn(failures[failures.length - 1]); }
   }
-  if (failures.length) {
-    // Never replace a multi-feed catalogue with a partial import. The previous
-    // published catalogue remains intact until every configured feed succeeds.
-    throw new Error('Incomplete affiliate import; previous catalogue preserved. ' + failures.join(' | '));
+  if (!feedProducts.length) {
+    throw new Error('No affiliate feeds returned valid products; previous catalogue preserved. ' + failures.join(' | '));
   }
-  if (!feedProducts.length) throw new Error('No affiliate feeds returned valid products; previous catalogue preserved.');
-  // Round-robin the feeds so one large feed cannot crowd out all later feeds.
-  const products = [], max = Math.max(...feedProducts.map(a => a.length));
-  for (let i = 0; i < max; i++) for (const list of feedProducts) if (list[i]) products.push(list[i]);
+  // Keep the last good catalogue when one partner feed is temporarily unavailable.
+  // Successful feeds are refreshed; old products from failed feeds remain visible.
+  const previous = [];
+  try {
+    const oldManifest = JSON.parse(fs.readFileSync(path.join(shopDir, 'products-manifest.json'), 'utf8'));
+    for (const name of oldManifest.batches || []) {
+      const file = path.join(shopDir, name);
+      if (fs.existsSync(file)) previous.push(...(JSON.parse(fs.readFileSync(file, 'utf8')).products || []));
+    }
+  } catch (error) {
+    console.warn('Could not read previous catalogue:', error.message);
+  }
+  // Round-robin successful feeds so one large feed cannot crowd out later partners.
+  const imported = [], max = Math.max(...feedProducts.map(a => a.length));
+  for (let i = 0; i < max; i++) for (const list of feedProducts) if (list[i]) imported.push(list[i]);
+  const merged = new Map();
+  for (const product of imported) merged.set(String(product.affiliateUrl).toLowerCase(), product);
+  for (const product of previous) {
+    const key = String(product.affiliateUrl || '').toLowerCase();
+    if (key && !merged.has(key)) merged.set(key, product);
+  }
+  const products = [...merged.values()];
+  if (failures.length) console.warn('Some feeds failed; retained their previously published products:', failures.join(' | '));
   const stamp = new Date().toISOString(), batches = [];
   for (let i = 0; i < products.length; i += batchSize) {
     const name = 'products-' + String(Math.floor(i / batchSize) + 1).padStart(4, '0') + '.json';
@@ -110,7 +127,7 @@ async function main() {
   }
   // Remove obsolete batches left by an earlier, larger catalogue.
   for (const name of fs.readdirSync(shopDir)) if (/^products-\d{4}\.json$/.test(name) && !batches.includes(name)) fs.unlinkSync(path.join(shopDir, name));
-  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedsConfigured: urls.length, feedsSucceeded: feedProducts.length, feedsFailed: 0 };
+  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedsConfigured: urls.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length };
   fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
   fs.writeFileSync(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
