@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-<url><loc>https://usamarket.live/ar/</loc><lastmod>2026-11-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
-<url><loc>https://usamarket.live/ar/markets-ai-investment.html</loc><lastmod>2026-11-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://usamarket.live/ar/us-economy-consumer.html</loc><lastmod>2026-11-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://usamarket.live/ar/crypto-market-security.html</loc><lastmod>2026-11-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://usamarket.live/ar/</loc><lastmod>2026-11-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+<url><loc>https://usamarket.live/ar/us-stock-market-basics.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/federal-reserve-interest-rates.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/inflation-cpi-explained.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/ai-chips-semiconductor-industry.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/cloud-computing-business.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/crypto-wallet-security-guide.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/bitcoin-etf-explained.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/stablecoins-how-they-work.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/us-dollar-global-markets.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/us-consumer-spending-retail.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/us-jobs-report-guide.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/diversification-investing.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/etf-vs-mutual-funds.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/cybersecurity-investors.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/data-centers-energy-demand.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/ecommerce-us-market-trends.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/gold-inflation-safe-haven.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/bond-yields-explained.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/ai-regulation-ethics.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://usamarket.live/ar/financial-scams-red-flags.html</loc><lastmod>2026-11-02</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
