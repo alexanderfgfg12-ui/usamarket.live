@@ -20,20 +20,29 @@ const keyOf = key => String(key).toLowerCase().replace(/[^a-z0-9]/g, '');
 const get = (obj, aliases) => { if (!obj || typeof obj !== 'object') return undefined; const wanted = new Set(aliases.map(keyOf)); for (const [key, value] of Object.entries(obj)) if (wanted.has(keyOf(key))) return scalar(value); };
 const asArray = value => value == null ? [] : Array.isArray(value) ? value : [value];
 function findOffers(data) {
-  if (Array.isArray(data)) return data;
-  if (!data || typeof data !== 'object') return [];
-  if (Array.isArray(data.products)) return data.products;
-  if (data.products && typeof data.products === 'object') return asArray(data.products.product || data.products.offer || data.products.item);
-  if (data.yml_catalog) return findOffers(data.yml_catalog.shop || data.yml_catalog);
-  if (data.shop) return findOffers(data.shop);
-  if (data.offers) return asArray(data.offers.offer || data.offers);
-  if (data.items) return asArray(data.items.item || data.items);
-  if (data.catalog) return findOffers(data.catalog);
-  if (data.rss) return findOffers(data.rss.channel || data.rss);
-  if (data.channel) return findOffers(data.channel);
-  if (data.item) return asArray(data.item);
-  if (data.offer) return asArray(data.offer);
-  return [];
+  const visited = new Set();
+  const isOffer = value => value && typeof value === 'object' && !Array.isArray(value)
+    && !!get(value, ['title','name','productName','product_name','model'])
+    && !!(get(value, ['url','link','affiliateUrl','affiliate_url','trackingUrl','tracking_url']) || String(get(value, ['id']) || '').startsWith('http'));
+  function walk(node, depth = 0) {
+    if (!node || typeof node !== 'object' || depth > 14 || visited.has(node)) return [];
+    visited.add(node);
+    if (Array.isArray(node)) {
+      const rows = node.filter(isOffer);
+      if (rows.length) return rows;
+      for (const child of node) { const found = walk(child, depth + 1); if (found.length) return found; }
+      return [];
+    }
+    if (isOffer(node)) return [node];
+    // Admitad exports vary by advertiser/template: search common wrappers first,
+    // then recursively inspect namespaces and nested shop/catalog/channel objects.
+    const preferred = ['products','product','offers','offer','items','item','shop','yml_catalog','catalog','rss','channel','data','feed','results','entries'];
+    const keys = Object.keys(node);
+    const ordered = [...preferred.filter(k => keys.includes(k)), ...keys.filter(k => !preferred.includes(k))];
+    for (const key of ordered) { const found = walk(node[key], depth + 1); if (found.length) return found; }
+    return [];
+  }
+  return walk(data);
 }
 function parseFeed(body, type) {
   const s = body.trim(); if (!s) throw new Error('Empty feed response');
@@ -72,7 +81,7 @@ async function fetchFeed(endpoint) {
   const parsed = new URL(endpoint); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTP(S)');
   let last;
   for (let attempt = 1; attempt <= 2; attempt++) try {
-    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(45000) });
+    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(120000) });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const body = await response.text(), records = parseFeed(body, response.headers.get('content-type') || '');
     if (!records.length) throw new Error('No product rows');
@@ -82,7 +91,15 @@ async function fetchFeed(endpoint) {
 }
 async function main() {
   if (!urls.length) throw new Error('AFFILIATE_FEED_URLS is empty; catalogue left unchanged.');
-  const results = await Promise.all(urls.map(async (url, i) => {
+  // Limit concurrent downloads: Admitad export endpoints throttle large simultaneous requests.
+  const mapLimit = async (items, limit, worker) => {
+    const output = new Array(items.length); let cursor = 0;
+    await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+      while (cursor < items.length) { const index = cursor++; output[index] = await worker(items[index], index); }
+    }));
+    return output;
+  };
+  const results = await mapLimit(urls, 3, async (url, i) => {
     try {
       const { parsed, body, records } = await fetchFeed(url), categories = {};
       try { const shop = (body.trim().startsWith('<') ? xmlParser.parse(body) : {}).yml_catalog?.shop || {}; for (const c of asArray(shop.categories?.category)) { const id = String(c['@_id'] || c.id || ''), name = String(scalar(c) || c['#text'] || ''); if (id && name) categories[id] = name; } } catch {}
@@ -101,7 +118,7 @@ async function main() {
       console.warn(message);
       return { index: i, error: message };
     }
-  }));
+  });
   const feedProducts = results.filter(x => x.products).sort((a,b)=>a.index-b.index).map(x=>x.products);
   const failures = results.filter(x => x.error).map(x=>x.error);
   if (!feedProducts.length) {
