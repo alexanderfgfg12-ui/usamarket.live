@@ -62,3 +62,7 @@
 .market-news-image-actions .market-news-primary{background:#d71932;color:#fff}
 .market-news-image-actions .market-news-secondary{background:#fff;color:#123477;border:1px solid #b9cbea}
 @media(max-width:600px){.market-news-banner-image{max-height:none}.market-news-image-actions a{flex:1;max-width:240px}}
+
+
+/* Restore the prominent SHOP shortcut beside the original site logo */
+.header .shop-link{display:inline-flex!important}
