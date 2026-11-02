@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'scripts/sync-products.js'
+      - 'feeds.json'
       - '.github/workflows/sync-products.yml'
   workflow_dispatch:
   schedule:
