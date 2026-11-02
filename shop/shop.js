@@ -9,8 +9,47 @@ function render(){const q=$('q').value.trim().toLocaleLowerCase(),cat=$('categor
 function categories(){const select=$('category'),current=select.value;select.innerHTML='<option value="">All categories</option>';[...new Set(products.map(p=>p.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b)).forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;select.append(o)});select.value=current}
 async function fetchJson(url,timeoutMs){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),timeoutMs);try{const response=await fetch(url,{cache:'no-store',headers:{accept:'application/json'},signal:controller.signal});if(!response.ok)throw new Error('HTTP '+response.status);return await response.json()}finally{clearTimeout(timer)}}
 function showUnavailable(message){$('count').textContent='No products available';$('status').textContent=message;$('products').innerHTML='<div class="empty"><strong>Products are not available yet</strong><span>'+esc(message)+'</span></div>';$('pagination').innerHTML=''}
-async function load(){ $('year').textContent=new Date().getFullYear();$('status').textContent='Loading product batches…';let manifest;try{manifest=await fetchJson('/shop/products-manifest.json?v=1',20000)}catch(e){try{const legacy=await fetchJson('/shop/products.json?v=3',20000);manifest={updatedAt:legacy.updatedAt,totalProducts:legacy.products.length,batches:[]};products=legacy.products}catch(err){showUnavailable('Could not load the product catalogue. Please refresh shortly.');return}}
-if(Array.isArray(manifest.batches)&&manifest.batches.length){const loaded=[];const chunkSize=6;for(let start=0;start<manifest.batches.length;start+=chunkSize){const names=manifest.batches.slice(start,start+chunkSize);$('status').textContent='Loading '+Math.min(start+names.length,manifest.batches.length)+' of '+manifest.batches.length+' catalogue batches…';const chunks=await Promise.all(names.map(async name=>{const batch=await fetchJson('/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(manifest.updatedAt||''),30000);if(!Array.isArray(batch.products))throw new Error('Invalid product batch '+name);return batch.products}));loaded.push(...chunks.flat())}products=loaded}
-const unique=new Set();products=products.filter(p=>{if(!p||!p.title||!safeUrl(p.affiliateUrl))return false;const key=String(p.affiliateUrl).toLowerCase();if(unique.has(key))return false;unique.add(key);return true});if(!products.length){showUnavailable('The feeds contain no products with valid images and affiliate links.');return}categories();$('updated').textContent=manifest.updatedAt?'Catalogue updated '+new Date(manifest.updatedAt).toLocaleDateString():'';$('status').textContent=products.length.toLocaleString()+' products ready to explore';render()}
+async function load(){
+ $('year').textContent=new Date().getFullYear();
+ $('status').textContent='Connecting to the live product feeds…';
+ try{
+  const first=await fetchJson('/api/admitad/products?page=1&limit=100',25000);
+  if(first&&Array.isArray(first.products)&&first.products.length){
+   const live=[...first.products];
+   const pages=Math.min(Number(first.pages)||1,50);
+   for(let p=2;p<=pages;p++){
+    $('status').textContent='Loading live products: page '+p+' of '+pages+'…';
+    const chunk=await fetchJson('/api/admitad/products?page='+p+'&limit=100',25000);
+    if(Array.isArray(chunk.products))live.push(...chunk.products);
+   }
+   products=live;
+   $('updated').textContent=first.updatedAt?'Live feed updated '+new Date(first.updatedAt).toLocaleString():'Live Admitad catalogue';
+   $('status').textContent=products.length.toLocaleString()+' live products loaded from Admitad';
+  }
+ }catch(e){console.warn('Live Admitad feed unavailable; using the last published catalogue.',e)}
+ if(!products.length){
+  $('status').textContent='Live feed unavailable — loading the saved catalogue…';
+  let manifest;
+  try{manifest=await fetchJson('/shop/products-manifest.json?v=1',20000)}
+  catch(e){try{const legacy=await fetchJson('/shop/products.json?v=3',20000);manifest={updatedAt:legacy.updatedAt,totalProducts:legacy.products.length,batches:[]};products=legacy.products}
+   catch(err){showUnavailable('The live product feed and saved catalogue are temporarily unavailable. Please refresh shortly.');return}}
+  if(Array.isArray(manifest.batches)&&manifest.batches.length){
+   const loaded=[],chunkSize=6;
+   for(let offset=0;offset<manifest.batches.length;offset+=chunkSize){
+    const names=manifest.batches.slice(offset,offset+chunkSize);
+    $('status').textContent='Loading saved catalogue batch '+Math.min(offset+names.length,manifest.batches.length)+' of '+manifest.batches.length+'…';
+    const chunks=await Promise.all(names.map(async name=>{const batch=await fetchJson('/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(manifest.updatedAt||''),30000);if(!Array.isArray(batch.products))throw new Error('Invalid product batch '+name);return batch.products}));
+    loaded.push(...chunks.flat());
+   }
+   products=loaded;
+  }
+  $('updated').textContent=manifest.updatedAt?'Saved catalogue updated '+new Date(manifest.updatedAt).toLocaleDateString():'';
+ }
+ const unique=new Set();
+ products=products.filter(p=>{if(!p||!p.title||!safeUrl(p.affiliateUrl))return false;const key=String(p.affiliateUrl).toLowerCase();if(unique.has(key))return false;unique.add(key);return true});
+ if(!products.length){showUnavailable('The feeds contain no products with valid affiliate links.');return}
+ categories();render();
+ if(!$('status').textContent.includes('live products loaded'))$('status').textContent=products.length.toLocaleString()+' saved products ready to explore';
+}
 ['q','category','sort'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',()=>{page=1;render()}));load().catch(e=>showUnavailable('The shop encountered an error: '+(e.message||'please refresh the page.')));
 })();
