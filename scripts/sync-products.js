@@ -48,7 +48,7 @@ function imageUrl(item) {
 }
 function normalize(item, categories, hostname, feedIndex) {
   const title = String(get(item, ['title','name','productName','product_name','model']) || '').trim();
-  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url']));
+  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url']) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
   if (!title || !affiliateUrl) return null;
   const categoryId = String(get(item, ['categoryId','category_id','categoryid']) || '');
   const category = String(get(item, ['category','categoryName','category_name']) || categories[categoryId] || 'Other').slice(0, 80);
