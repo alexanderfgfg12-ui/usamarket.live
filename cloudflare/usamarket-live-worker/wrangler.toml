@@ -8,4 +8,5 @@ directory = "./dist"
 binding = "ASSETS"
 run_worker_first = ["/api/*"]
 
+# Preview configuration is required for branch-isolated Workers Builds.
 [previews]
