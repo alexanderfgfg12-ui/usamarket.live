@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Product details | US Market Live</title>
+<meta name="description" content="View product details and shop with US Market Live retail partners.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="/brand-icon.svg"><link rel="stylesheet" href="/shop/shop.css">
+<style>
+.detail-wrap{max-width:1100px;margin:42px auto;padding:0 20px}.detail-back{display:inline-block;margin-bottom:22px;color:#24496e;text-decoration:none;font-weight:700}.detail-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:38px;align-items:start;background:#fff;border:1px solid #e7ebf0;border-radius:18px;padding:26px}.detail-image{width:100%;aspect-ratio:1/1;object-fit:contain;background:#f7f8fa;border-radius:14px}.detail-copy h1{font-size:clamp(25px,4vw,38px);line-height:1.2;color:#142b45;margin:12px 0}.detail-copy p{color:#526174;line-height:1.7}.detail-price{font-size:28px;font-weight:800;color:#132e4e;margin:22px 0}.detail-buy{display:inline-flex;padding:14px 24px;border-radius:9px;background:#102b4e;color:white;text-decoration:none;font-weight:800}.detail-meta{font-size:13px;color:#788494;margin:14px 0}.detail-status{padding:30px;text-align:center;color:#536274}.detail-disclosure{font-size:12px;color:#718096;margin-top:22px}@media(max-width:720px){.detail-card{grid-template-columns:1fr;padding:16px;gap:20px}.detail-wrap{margin:24px auto}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S95EDYLHGF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-S95EDYLHGF');</script>
+</head>
+<body>
+<header class="top"><a class="brand mall-brand" href="/" aria-label="US Market Live home"><span class="mall-wordmark"><strong>usamarket.live</strong><small>MALL</small></span></a><nav><a href="/">Market News</a><a href="/shop/">Shop</a></nav></header>
+<main class="detail-wrap"><a class="detail-back" href="/shop/">← Back to the shop</a><section id="detail" class="detail-status" aria-live="polite">Loading product details…</section><p class="detail-disclosure">Some links are affiliate links. We may earn a commission at no extra cost to you. Price and availability may change at the retailer.</p></main>
+<script>
+(()=>{'use strict';
+const root=document.getElementById('detail');
+const params=new URLSearchParams(location.search),id=params.get('id');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const url=s=>{try{const u=new URL(s);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
+const money=(v,c='USD')=>{if(v==null||v==='')return '';const n=Number(v);if(!Number.isFinite(n))return '';try{return new Intl.NumberFormat(undefined,{style:'currency',currency:c}).format(n)}catch{return n.toFixed(2)+' '+c}};
+async function load(){if(!id){root.textContent='This product link is incomplete.';return}
+try{const response=await fetch('/api/admitad/products?id='+encodeURIComponent(id)+'&limit=1',{cache:'no-store',headers:{accept:'application/json'}});
+if(!response.ok)throw new Error('Product feed unavailable');const data=await response.json();const p=data.products&&data.products[0];
+if(!p){root.textContent='This product is no longer available in the live catalogue.';return}
+const image=url(p.image),buy=url(p.affiliateUrl);document.title=p.title+' | US Market Live';
+const meta=document.querySelector('meta[name="description"]');if(meta)meta.content=(p.description||p.title).slice(0,155);
+let canonical=document.querySelector('link[rel="canonical"]');if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.append(canonical)}canonical.href=location.href;
+root.className='detail-card';
+root.innerHTML='<div>'+(image?'<img class="detail-image" src="'+esc(image)+'" alt="'+esc(p.title)+'">':'<div class="detail-image"></div>')+'</div><div class="detail-copy"><div class="detail-meta">'+esc(p.brand||p.source||'Retail partner')+' · '+esc(p.category||'Product')+'</div><h1>'+esc(p.title)+'</h1>'+(p.description?'<p>'+esc(p.description)+'</p>':'')+'<div class="detail-price">'+money(p.price,p.currency||'USD')+'</div>'+(buy?'<a class="detail-buy" href="'+esc(buy)+'" target="_blank" rel="sponsored nofollow noopener">Shop this product ↗</a>':'')+'<div class="detail-meta">Price and availability are supplied by the retailer and may change.</div></div>';
+}catch(e){root.textContent='We could not load this product right now. Please return to the shop and try again.';}}
+load();
+})();
+</script>
+</body></html>
