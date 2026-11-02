@@ -1,0 +1,102 @@
+name: SEO validation
+
+on:
+  pull_request:
+    paths:
+      - "index.html"
+      - "shop/**"
+      - "sitemap.xml"
+      - "cloudflare/usamarket-live-worker/**"
+      - ".github/workflows/seo-validation.yml"
+  push:
+    branches:
+      - main
+      - "seo/technical-foundation-nov-2026"
+    paths:
+      - "index.html"
+      - "shop/**"
+      - "sitemap.xml"
+      - ".github/workflows/seo-validation.yml"
+
+jobs:
+  validate-seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate sitemap, category discovery and structured data
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          import json
+          import re
+          import xml.etree.ElementTree as ET
+
+          class LinksAndSchema(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.links = []
+                  self.in_jsonld = False
+                  self.jsonld = []
+                  self.capture = False
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "a" and attrs.get("href"):
+                      self.links.append(attrs["href"])
+                  if tag == "script" and attrs.get("type") == "application/ld+json":
+                      self.in_jsonld = True
+              def handle_endtag(self, tag):
+                  if tag == "script" and self.in_jsonld:
+                      self.in_jsonld = False
+                      self.jsonld.append("".join(self.capture_parts))
+                      self.capture_parts = []
+              def handle_data(self, data):
+                  if self.in_jsonld:
+                      if not hasattr(self, "capture_parts"):
+                          self.capture_parts = []
+                      self.capture_parts.append(data)
+
+          sitemap = ET.parse("sitemap.xml").getroot()
+          locs = [node.text.strip() for node in sitemap.iter() if node.tag.endswith("loc") and node.text]
+          assert len(locs) == len(set(locs)), "Duplicate URLs in sitemap.xml"
+
+          category_files = sorted(Path("shop/c").glob("*.html"))
+          assert category_files, "No shop category pages found"
+          hub = Path("shop/categories.html")
+          assert hub.exists(), "Shop category directory is missing"
+          parser = LinksAndSchema()
+          parser.feed(hub.read_text(encoding="utf-8"))
+          category_hrefs = {"/shop/c/" + p.name for p in category_files}
+          missing_links = sorted(category_hrefs - set(parser.links))
+          assert not missing_links, f"Category directory is missing links: {missing_links}"
+          missing_sitemap = sorted("https://usamarket.live" + href for href in category_hrefs if "https://usamarket.live" + href not in locs)
+          assert not missing_sitemap, f"Category URLs missing from sitemap: {missing_sitemap}"
+          assert "https://usamarket.live/shop/categories.html" in locs, "Category directory URL missing from sitemap"
+
+          for raw in parser.jsonld:
+              json.loads(raw)
+          assert parser.jsonld, "No JSON-LD found in category directory"
+
+          home = Path("index.html").read_text(encoding="utf-8")
+          assert '<link rel="canonical"' not in home or 'https://usamarket.live/' in home, "Unexpected homepage canonical"
+          assert 'property="og:title"' in home, "Homepage Open Graph title missing"
+          assert '"@type":"Organization"' in home, "Homepage Organization JSON-LD missing"
+
+          print(f"SEO checks passed: {len(locs)} sitemap URLs, {len(category_files)} category pages, all category links and JSON-LD valid.")
+          PY
+
+      - name: Stage static site assets for the intended Worker
+        working-directory: cloudflare/usamarket-live-worker
+        run: |
+          node --check build-assets.mjs
+          node --check src/index.js
+          node build-assets.mjs
+          test -s dist/index.html
+          test -s dist/robots.txt
+          test -s dist/sitemap.xml
+          test -s dist/news-sitemap.xml
+          test -s dist/shop/index.html
+          test -s dist/shop/categories.html
+          echo "Worker asset staging checks passed."
