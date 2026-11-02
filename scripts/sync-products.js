@@ -10,7 +10,17 @@ let registryFeeds = [];
 try { registryFeeds = (JSON.parse(fs.readFileSync(registryPath, 'utf8')).feeds || []).map(feed => feed.url).filter(Boolean); }
 catch (error) { console.warn('Could not read feeds.json:', error.message); }
 const raw = process.env.AFFILIATE_FEED_URLS || '';
-const urls = [...new Set([...registryFeeds, ...raw.split(/[\s,;]+/).map(s => s.trim()).filter(Boolean)])];
+const rawUrls = [...new Set([...registryFeeds, ...raw.split(/[\\s,;]+/).map(s => s.trim()).filter(Boolean)])];
+// Admitad export templates are not separate product feeds. Several templates can point
+// to the same feed_id; downloading each one wastes requests and can trigger throttling.
+const urls = [...new Map(rawUrls.map(endpoint => {
+  try {
+    const u = new URL(endpoint);
+    const feedId = u.searchParams.get('feed_id');
+    const key = feedId ? u.hostname + u.pathname + ':feed_id=' + feedId : endpoint;
+    return [key, endpoint];
+  } catch { return [endpoint, endpoint]; }
+})).values()];
 const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true });
