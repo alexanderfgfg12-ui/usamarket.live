@@ -11,7 +11,7 @@ async function fetchJson(url,timeoutMs){const controller=new AbortController(),t
 function showUnavailable(message){$('count').textContent='No products available';$('status').textContent=message;$('products').innerHTML='<div class="empty"><strong>Products are not available yet</strong><span>'+esc(message)+'</span></div>';$('pagination').innerHTML=''}
 async function load(){
  $('year').textContent=new Date().getFullYear();
- $('status').textContent='Loading the saved catalogue…';
+ $('status').textContent='Loading products…';
  // Render the already-published catalogue first. The customer never waits for Admitad.
  let manifest;
  try{
