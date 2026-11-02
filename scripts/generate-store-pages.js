@@ -10,7 +10,9 @@ const slug = value => String(value || 'product').normalize('NFKD').replace(/[\u0
 const hash = value => { let h=2166136261; for (const c of String(value)) { h ^= c.charCodeAt(0); h = Math.imul(h,16777619); } return (h>>>0).toString(16).padStart(8,'0').slice(0,8); };
 const money = (value, currency) => { const n=Number(value); if(value==null||value===''||!Number.isFinite(n)) return ''; try{return new Intl.NumberFormat('en-US',{style:'currency',currency:/^[A-Z]{3}$/.test(currency||'')?currency:'USD'}).format(n)}catch{return n.toFixed(2)+' '+(currency||'USD')} };
 const pageDir = path.join(shop, 'p');
-fs.rmSync(pageDir,{recursive:true,force:true}); fs.mkdirSync(pageDir,{recursive:true});
+fs.mkdirSync(pageDir,{recursive:true});
+const writeIfChanged=(file,content)=>{if(!fs.existsSync(file)||fs.readFileSync(file,'utf8')!==content)fs.writeFileSync(file,content);};
+const expectedProductPages=new Set();
 const entries = [], categoryMap = new Map();
 const baseHead = (title, description, url, image) => `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="${esc(description.slice(0,155))}"><meta name="robots" content="index,follow"><link rel="canonical" href="${esc(url)}"><meta property="og:type" content="product"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description.slice(0,200))}"><meta property="og:url" content="${esc(url)}">${image?'<meta property="og:image" content="'+esc(image)+'">':''}<link rel="stylesheet" href="/shop/shop.css"><link rel="icon" href="/brand-icon.svg">`;
 for (const p of products) {
@@ -22,21 +24,25 @@ for (const p of products) {
   const price = money(p.price,p.currency);
   const jsonLd = {'@context':'https://schema.org/','@type':'Product',name:p.title,description,sku:String(p.id||''),image:p.image?[p.image]:undefined,brand:p.brand?{'@type':'Brand',name:p.brand}:undefined,category:p.category,offers:{'@type':'Offer',url:p.affiliateUrl,price:p.price==null?undefined:Number(p.price),priceCurrency:p.currency||'USD',availability:'https://schema.org/InStock',itemCondition:'https://schema.org/NewCondition'}};
   const html = `<!doctype html><html lang="en"><head>${baseHead(p.title+' | US Market Live Shop',description,url,p.image)}<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g,'\\u003c')}</script></head><body><header class="top"><a class="brand" href="/shop/">US Market Live <small>SHOP</small></a><nav><a href="/shop/">All products</a><a href="/">Market News</a></nav></header><main class="wrap"><nav aria-label="Breadcrumb" style="margin:22px 0"><a href="/shop/">Shop</a> / <a href="/shop/c/${slug(p.category)}.html">${esc(p.category||'Other')}</a> / <span>${esc(p.title)}</span></nav><article class="product-detail" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,1fr);gap:32px;align-items:start"><div>${p.image?'<img src="'+esc(p.image)+'" alt="'+esc(p.title)+'" style="width:100%;height:auto;object-fit:contain" loading="eager">':''}</div><div><p class="eyebrow">${esc(p.source||'Retail partner')}</p><h1>${esc(p.title)}</h1><p>${esc(description)}</p><p><strong>Brand:</strong> ${esc(p.brand||'Retail partner')}<br><strong>Category:</strong> <a href="/shop/c/${slug(p.category)}.html">${esc(p.category||'Other')}</a></p>${price?'<p class="price" style="font-size:1.6rem">'+esc(price)+'</p>':''}<p><a class="cta" href="${esc(p.affiliateUrl)}" target="_blank" rel="sponsored nofollow noopener">Continue to retailer to purchase ↗</a></p><p class="disclosure">You will complete your purchase on the retailer's website. US Market Live may earn a commission from qualifying purchases at no extra cost to you. Price and availability may change at the retailer.</p></div></article></main><footer><a href="/shop/">US Market Live Shop</a> · <a href="/privacy.html">Privacy</a> · <a href="/contact.html">Contact</a></footer></body></html>`;
-  fs.writeFileSync(path.join(pageDir,filename),html);
+  expectedProductPages.add(filename); writeIfChanged(path.join(pageDir,filename),html);
   entries.push({url,lastmod:p.updatedAt||manifest.updatedAt});
   const category = p.category || 'Other';
   if (!categoryMap.has(category)) categoryMap.set(category,[]);
   categoryMap.get(category).push(p);
 }
-const categoryDir=path.join(shop,'c'); fs.rmSync(categoryDir,{recursive:true,force:true}); fs.mkdirSync(categoryDir,{recursive:true});
+const categoryDir=path.join(shop,'c'); fs.mkdirSync(categoryDir,{recursive:true});
+const expectedCategoryPages=new Set();
 for (const [name,items] of categoryMap) {
   const url='https://usamarket.live/shop/c/'+slug(name)+'.html';
   const cards=items.map(p=>{const file=slug(p.title)+'-'+hash(p.id||p.affiliateUrl)+'.html';return '<article class="product"><a href="/shop/p/'+file+'">'+(p.image?'<img loading="lazy" src="'+esc(p.image)+'" alt="'+esc(p.title)+'">':'<span class="no-photo">Image coming soon</span>')+'</a><div class="pbody"><h2><a href="/shop/p/'+file+'">'+esc(p.title)+'</a></h2><p>'+esc(String(p.description||'').slice(0,130))+'</p><a class="cta" href="/shop/p/'+file+'">View product</a></div></article>'}).join('');
   const html='<!doctype html><html lang="en"><head>'+baseHead(name+' Products | US Market Live Shop','Browse '+items.length+' products in '+name+'. View product details and continue securely to the retailer to purchase.',url,'')+'</head><body><header class="top"><a class="brand" href="/shop/">US Market Live <small>SHOP</small></a><nav><a href="/shop/">All products</a></nav></header><main class="wrap"><nav style="margin:22px 0"><a href="/shop/">Shop</a> / '+esc(name)+'</nav><h1>'+esc(name)+'</h1><p>Browse '+items.length+' products. Select an item to see details; purchases are completed on the retailer website.</p><section class="grid">'+cards+'</section></main><footer><a href="/shop/">US Market Live Shop</a></footer></body></html>';
-  fs.writeFileSync(path.join(categoryDir,slug(name)+'.html'),html);
+  const categoryFile=slug(name)+'.html'; expectedCategoryPages.add(categoryFile); writeIfChanged(path.join(categoryDir,categoryFile),html);
 }
 const allUrls=[{url:'https://usamarket.live/shop/',lastmod:manifest.updatedAt},...entries,...[...categoryMap.keys()].map(name=>({url:'https://usamarket.live/shop/c/'+slug(name)+'.html',lastmod:manifest.updatedAt}))];
 const validDate=value=>{const d=new Date(value||'');return Number.isNaN(d.getTime())?new Date().toISOString().slice(0,10):d.toISOString().slice(0,10)};
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+allUrls.map(x=>'  <url><loc>'+esc(x.url)+'</loc><lastmod>'+validDate(x.lastmod)+'</lastmod></url>').join('\n')+'\n</urlset>\n';
-fs.writeFileSync(path.join(root,'product-sitemap.xml'),xml);
+writeIfChanged(path.join(root,'product-sitemap.xml'),xml);
+// Remove only stale pages; unchanged product pages are never regenerated or rewritten.
+for(const file of fs.readdirSync(pageDir)) if(file.endsWith('.html')&&!expectedProductPages.has(file)) fs.unlinkSync(path.join(pageDir,file));
+for(const file of fs.readdirSync(categoryDir)) if(file.endsWith('.html')&&!expectedCategoryPages.has(file)) fs.unlinkSync(path.join(categoryDir,file));
 console.log('Generated',entries.length,'product pages and',categoryMap.size,'category pages; sitemap URLs:',allUrls.length);
