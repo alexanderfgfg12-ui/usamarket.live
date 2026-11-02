@@ -71,9 +71,9 @@
 /* Homepage email registration: visible directly below the main navigation */
 .homepage-newsletter{max-width:1180px;width:calc(100% - 40px);margin:22px auto 28px;padding:22px 26px;display:grid;grid-template-columns:minmax(240px,.85fr) minmax(320px,1.15fr);gap:22px;align-items:center;background:linear-gradient(120deg,#f3f7ff,#fff 55%,#fff5f5);border:1px solid #dbe5f3;border-top:4px solid #d71932;border-radius:16px;box-shadow:0 10px 28px rgba(16,43,78,.08)}
 .homepage-newsletter-copy h2{font-size:clamp(1.25rem,2.4vw,1.8rem);line-height:1.25;color:#102b70;margin:5px 0 8px}.homepage-newsletter-copy p{color:#58677f;font-size:.95rem;margin:0 0 10px}.newsletter-kicker{font-size:.75rem;font-weight:900;letter-spacing:.13em;color:#d71932}.newsletter-more{font-size:.88rem;font-weight:800;color:#0751ce;text-decoration:none}.newsletter-more:hover{text-decoration:underline}
-.homepage-newsletter-form{height:174px;overflow:hidden;border:1px solid #e1e8f2;border-radius:10px;background:#fff}.homepage-newsletter-form iframe{display:block;width:100%;height:174px;border:0;background:#fff}
-@media(max-width:760px){.homepage-newsletter{grid-template-columns:1fr;padding:18px;margin:14px auto 20px;gap:12px}.homepage-newsletter-form{height:225px}.homepage-newsletter-form iframe{height:225px}}
-@media(max-width:420px){.homepage-newsletter{width:calc(100% - 24px);padding:15px}.homepage-newsletter-form{height:245px}.homepage-newsletter-form iframe{height:245px}}
+.homepage-newsletter-form{height:390px;overflow:hidden;border:1px solid #e1e8f2;border-radius:10px;background:#fff}.homepage-newsletter-form iframe{display:block;width:100%;height:390px;border:0;background:#fff}
+@media(max-width:760px){.homepage-newsletter{grid-template-columns:1fr;padding:18px;margin:14px auto 20px;gap:12px}.homepage-newsletter-form{height:390px}.homepage-newsletter-form iframe{height:390px}}
+@media(max-width:420px){.homepage-newsletter{width:calc(100% - 24px);padding:15px}.homepage-newsletter-form{height:390px}.homepage-newsletter-form iframe{height:390px}}
 
 /* Adsterra placements: centered, clearly separated, responsive and readable */
 .article-container div[style*="overflow-x: auto"]{position:relative;display:flex;align-items:center;justify-content:center;min-height:112px;padding:17px 10px 10px;margin:30px 0!important;background:#f7f9fc;border:1px solid #e4eaf2;border-radius:12px;overflow-x:auto;overflow-y:hidden}
