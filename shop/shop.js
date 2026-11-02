@@ -19,15 +19,15 @@ async function load(){
   manifest=await fetchJson('/shop/products-manifest.json?v=2',10000);
   if(Array.isArray(manifest.batches)&&manifest.batches.length){
    const loaded=[];
-   const chunkSize=6;
-   for(let offset=0;offset<manifest.batches.length;offset+=chunkSize){
-    const names=manifest.batches.slice(offset,offset+chunkSize);
-    const chunks=await Promise.all(names.map(async name=>{
-     const batch=await fetchJson('/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(manifest.updatedAt||''),15000);
-     if(!Array.isArray(batch.products))throw new Error('Invalid product batch '+name);
-     return batch.products;
-    }));
-    loaded.push(...chunks.flat());
+   // Load one batch at a time and paint it immediately; never hide the first batch
+   // while the remaining catalogue is downloading.
+   for(const name of manifest.batches){
+    const batch=await fetchJson('/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(manifest.updatedAt||''),15000);
+    if(!Array.isArray(batch.products))throw new Error('Invalid product batch '+name);
+    loaded.push(...batch.products);
+    products=loaded.slice();
+    categories();render();
+    $('status').textContent=products.length.toLocaleString()+' products loaded';
    }
    products=loaded;
   }else throw new Error('Catalogue manifest has no batches');
@@ -43,7 +43,7 @@ async function load(){
  $('updated').textContent=manifest.updatedAt?'Catalogue updated '+new Date(manifest.updatedAt).toLocaleDateString():'';
  $('status').textContent=products.length.toLocaleString()+' products ready';
  // Refresh only a small first page in the background; never block the shop on a feed refresh.
- refreshLiveInBackground();
+ // Static catalogue is authoritative; avoid a costly synchronous multi-feed Worker refresh.
 }
 async function refreshLiveInBackground(){
  try{
