@@ -64,7 +64,7 @@
     <a class="um-nav-link um-shop-link" href="/shop/" aria-label="Store and Shop"><img src="/shop-cart-icon.svg" alt="" width="25" height="25"><span>Store / Shop</span></a>
     <a class="um-nav-link" href="/ar/" lang="ar">العربية</a>
     <label class="um-search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search news..." aria-label="Search news"><kbd>↵</kbd></label>
-    <a class="um-language" href="/ar/" aria-label="Arabic language">🇺🇸 <span>EN</span>⌄</a>
+    <label class="um-language" for="languageSelect">🌐 <span>EN</span><select id="languageSelect" aria-label="Translate page" onchange="changeLanguage()"><option value="en">English</option><option value="ar">العربية</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="zh-CN">中文</option></select></label>
   </nav>
   <div class="um-mobile-menu" id="um-mobile-menu" hidden>
     <a href="/">Home</a><a href="#latest">Latest News</a><a href="/videos/">Videos</a><a href="/shop/">🛒 Shop</a><a href="/usamarketnews.html">Store & Newsletter</a><a href="/ar/">العربية</a>
@@ -117,10 +117,13 @@
     </aside>
   </section>
 </main>
+<div id="google_translate_element" hidden></div>
 <footer class="um-footer">
   <a href="/about.html">About Us</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/shop/">Shop</a><a href="/ar/">العربية</a>
   <p>© <span id="year"></span> US Market Live. All rights reserved.</p>
 </footer>
+<script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,ar,fr,es,de,zh-CN',autoDisplay:false},'google_translate_element');}function changeLanguage(){var lang=document.getElementById('languageSelect').value;if(lang==='en'){window.location.href='/';return;}var field=document.querySelector('select.goog-te-combo');if(field){field.value=lang;field.dispatchEvent(new Event('change'));}else{setTimeout(function(){var retry=document.querySelector('select.goog-te-combo');if(retry){retry.value=lang;retry.dispatchEvent(new Event('change'));}},1000);}}</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="/homepage.js" defer></script>
 <script>
 (function(){
@@ -130,4 +133,5 @@
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu&&!menu.hidden){menu.hidden=true;toggle?.setAttribute('aria-expanded','false');}});
 })();
 </script>
+<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(error=>console.error('Service worker registration failed:',error)));}</script>
 </body></html>
