@@ -85,3 +85,22 @@
 .video-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap;font-weight:700}.video-nav a{color:var(--navy);text-decoration:none}.video-nav a[aria-current=page]{color:var(--gold)}
 .video-hero{background:linear-gradient(115deg,#edf4fc,#fff 55%,#f6f0e5);padding:54px 0;border-bottom:4px solid var(--navy)}.video-kicker{font-size:.78rem;font-weight:900;letter-spacing:.12em;color:var(--gold)}.video-hero h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.2;color:var(--navy);margin:10px 0}.video-hero p{max-width:800px;color:var(--muted);margin:0;font-size:1.05rem}.video-main{padding-top:32px;padding-bottom:60px}.video-section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 0 20px}.video-section-heading h2{margin:0;color:var(--navy)}.video-section-heading span{color:var(--muted);font-size:.9rem;font-weight:700}.video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:22px}.video-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 24px rgba(16,43,78,.06);min-width:0}.video-frame{aspect-ratio:16/9;background:#101820}.video-frame iframe{display:block;width:100%;height:100%;border:0}.video-card-body{padding:17px 19px 20px}.video-source{font-size:.78rem;color:#9a762f;font-weight:800}.video-card h2{font-size:1.18rem;line-height:1.4;color:var(--navy);margin:6px 0}.video-card p{color:var(--muted);margin:0 0 10px}.video-source-link{font-weight:700;color:var(--navy);font-size:.9rem}.video-ad{position:relative;display:flex;justify-content:center;align-items:center;min-height:118px;margin:30px 0;padding:20px 8px 8px;border:1px solid var(--line);border-radius:10px;background:#f8fafc;overflow-x:auto}.video-ad .ad-label{position:absolute;top:3px;left:12px;font-size:10px;color:#8994a5;font-weight:700}.video-ad iframe{max-width:100%;border:0}.video-disclaimer{margin:28px 0 0;padding:14px 17px;background:#f6f8fb;border-radius:9px;color:var(--muted);font-size:.9rem}
 @media(max-width:600px){.video-hero{padding:38px 0}.video-grid{grid-template-columns:1fr;gap:16px}.video-section-heading{align-items:flex-start;flex-direction:column}.video-main{padding-top:24px}.video-nav{gap:12px;font-size:.92rem}}
+
+/* Accessible slide-out navigation drawer for the homepages */
+.menu-toggle{display:inline-grid;place-items:center;width:48px;height:48px;border:1px solid var(--line,#e5ebf2);border-radius:12px;background:#fff;color:var(--navy,#102b4e);font-size:25px;line-height:1;cursor:pointer;flex:0 0 48px;box-shadow:0 3px 12px rgba(16,43,78,.07)}
+.drawer-backdrop{position:fixed;inset:0;background:rgba(8,18,32,.48);z-index:998;opacity:1;transition:opacity .22s}
+.drawer-backdrop[hidden]{display:none}
+.site-drawer{position:fixed;z-index:999;top:0;bottom:0;left:0;width:min(340px,86vw);padding:22px 20px 28px;background:#fff;box-shadow:12px 0 36px rgba(8,18,32,.18);overflow-y:auto;transform:translateX(-105%);transition:transform .25s ease;visibility:hidden}
+.site-drawer.is-open{transform:translateX(0);visibility:visible}
+.drawer-brand{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0 22px;border-bottom:1px solid var(--line,#e5ebf2)}
+.drawer-brand img{display:block;width:185px;max-width:75%;height:auto;max-height:58px;object-fit:contain;object-position:left center}
+.drawer-brand strong{font-size:1.2rem;color:var(--navy,#102b4e);font-weight:900}
+.drawer-close{width:38px;height:38px;border:0;border-radius:10px;background:#f1f4f8;color:#26384d;font-size:27px;cursor:pointer}
+.drawer-label{margin:22px 0 8px;color:#8a95a5;font-size:.72rem;font-weight:900;letter-spacing:.13em}
+.drawer-link{display:flex;align-items:center;min-height:46px;padding:9px 12px;border-radius:10px;color:#334155;text-decoration:none;font-weight:700;border:1px solid transparent}
+.drawer-link:hover,.drawer-link:focus{background:#edf7f1;color:#087a46;border-color:#ccebd9;outline:none}
+body.drawer-open{overflow:hidden}
+.header-inner>.menu-toggle{order:-1}
+.header-inner>.logo{margin-right:auto}
+.header-inner>div[style*="display: flex"]{display:none!important}
+@media(max-width:700px){.header-inner{justify-content:space-between;gap:10px}.header-inner>.logo{margin:0}.search-container{order:3;width:100%;max-width:none}.menu-toggle{width:44px;height:44px;flex-basis:44px}}
