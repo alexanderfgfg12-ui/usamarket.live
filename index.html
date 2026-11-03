@@ -113,26 +113,37 @@
   <a href="/about.html" class="drawer-link">About US Market Live</a>
 </aside>
 
-<section class="homepage-newsletter" aria-labelledby="homepage-newsletter-title">
-  <div class="homepage-newsletter-copy"><span class="newsletter-kicker">USA MARKET NEWS</span><h2 id="homepage-newsletter-title">Get market updates and useful news by email</h2><p>Subscribe for new articles, market insights and selected shopping updates. You can unsubscribe at any time.</p><a href="/usamarketnews.html" class="newsletter-more">Subscription details</a></div>
-  <div class="homepage-newsletter-form"><iframe src="https://208268be.sibforms.com/v2/serve/MUIFAMzOwNmCPTmTEwWdwUzCBERvg_TES2vLev-XfmeW90tlFp-XZST_Z3fbKqiykGAHKJn7hLQO-8mEnlxi0MJAg8YeRmwNGDp9Wtgs2zh7emxR20zeHobVWMx988h8Ai8Qiam0EAM_q2U2SMIXYjjRHrFK9EeOQIhz2ROcSdtSQ8HhkPBzf_qQxeMMUCr7TN8NkmnLfK_0THJFDA==" title="USA MARKET NEWS email registration" loading="eager" scrolling="auto"></iframe></div>
-</section>
-
-<section class="market-news-banner" aria-label="USA Market News">
-  <img class="market-news-banner-image" src="/assets/usamarket-news-banner.svg" alt="USA Market News — Stay Informed. Stay Ahead. The latest market news, special deals and useful updates.">
-  <div class="market-news-image-actions">
-    <a class="market-news-primary" href="/#latest">Read Latest News</a>
-    <a class="market-news-secondary" href="/usamarketnews.html">Get News by Email</a>
+<section class="home-hero" aria-labelledby="home-title">
+  <div class="home-hero-inner">
+    <div class="home-hero-copy">
+      <span class="home-eyebrow"><span class="home-live-dot"></span> INDEPENDENT MARKET COVERAGE</span>
+      <h1 id="home-title">Understand the markets.<br><span>Make informed moves.</span></h1>
+      <p>Clear coverage of U.S. markets, the economy, technology and digital assets — with practical explainers and curated finds in one place.</p>
+      <div class="home-hero-actions">
+        <a class="home-btn home-btn-primary" href="#latest">Explore latest news <span aria-hidden="true">→</span></a>
+        <a class="home-btn home-btn-light" href="/shop/">Explore the shop</a>
+        <a class="home-text-link" href="/videos/">Watch videos</a>
+      </div>
+      <div class="home-topic-links" aria-label="Browse topics">
+        <a href="#latest" onclick="filterCategory('markets',event)">Markets</a>
+        <a href="#latest" onclick="filterCategory('economy',event)">Economy</a>
+        <a href="#latest" onclick="filterCategory('technology',event)">Technology</a>
+        <a href="#latest" onclick="filterCategory('crypto',event)">Crypto</a>
+      </div>
+    </div>
+    <div class="home-hero-art" aria-hidden="true">
+      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+      <div class="hero-glass-card"><span class="hero-card-kicker">US MARKET LIVE</span><div class="hero-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hero-card-foot"><span>Markets · Economy · Tech</span><b>LIVE</b></div></div>
+      <div class="hero-floating-mark">US<span>ML</span></div>
+    </div>
   </div>
 </section>
-
 <main class="container">
-  <section class="hero">
-    <div class="live-badge" style="display:inline-block; background:#e8f5e9; color:#00C853; padding:5px 10px; border-radius:20px; font-weight:bold; font-size:0.8rem; margin-bottom:10px;">
-      <span style="display:inline-block; width:8px; height:8px; background:#00C853; border-radius:50%; margin-right:5px; animation: pulse 1.5s infinite;"></span> LIVE UPDATES
-    </div>
-    <h1>Latest US Market News</h1>
-    <div class="update-info"><span>🕒 Last updated: <strong id="lastUpdate">--</strong></span></div></section>
+  <section class="hero latest-heading">
+    <div class="live-badge"><span class="live-dot"></span> LATEST COVERAGE</div>
+    <h2>Latest US Market News</h2>
+    <div class="update-info"><span>🕒 Last updated: <strong id="lastUpdate">--</strong></span></div>
+  </section>
 
   <section id="latest" class="news-section">
     <div class="news-grid" id="newsGrid">
