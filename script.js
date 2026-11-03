@@ -64,7 +64,14 @@ function filterCategory(category, event) {
   if (category === 'all') {
     renderNews(allNews);
   } else {
-    const filtered = allNews.filter(a => String(a.category || '').toLowerCase() === category);
+    const topicCategories = {
+      markets: ['markets', 'stocks', 'finance', 'commodities', 'forex', 'real-estate'],
+      economy: ['economy'],
+      technology: ['technology'],
+      crypto: ['crypto']
+    };
+    const matchingCategories = topicCategories[category] || [category];
+    const filtered = allNews.filter(a => matchingCategories.includes(String(a.category || '').toLowerCase()));
     renderNews(filtered);
   }
   const latest = document.getElementById('latest');
