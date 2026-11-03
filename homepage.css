@@ -11,7 +11,7 @@
 .um-nav-link:hover,.um-nav-link.is-current{border-color:#f21c2b;color:#fff}
 .um-shop-link{display:flex;align-items:center;gap:7px;border-bottom-color:#ed101b}.um-shop-link svg{width:29px;height:29px;fill:currentColor;stroke:currentColor;stroke-width:1.2}
 .um-search{display:flex;align-items:center;background:white;color:#142033;border-radius:22px;padding:5px 12px;gap:8px;min-width:170px;max-width:230px;margin-left:auto}.um-search span{font-size:1.5rem;line-height:1}.um-search input{width:100%;min-width:0;border:0;outline:0;font:inherit}.um-search kbd{color:#60718a}
-.um-language{color:white;text-decoration:none;white-space:nowrap;font-weight:700}.um-menu-toggle,.um-mobile-menu{display:none}
+.um-language{color:white;text-decoration:none;white-space:nowrap;font-weight:700;display:flex;align-items:center;gap:5px}.um-language select{max-width:92px;border:0;background:transparent;color:white;font:inherit;font-size:.78rem;outline-offset:3px}.um-language option{color:#142033}.um-menu-toggle,.um-mobile-menu{display:none}
 .um-main{max-width:1540px;margin:26px auto 0;padding:0 28px}
 .um-lead-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(260px,.92fr) minmax(290px,.9fr);gap:16px;align-items:stretch}
 .um-lead-primary,.um-lead-card{position:relative;display:block;min-height:360px;border-radius:7px;overflow:hidden;background:#102d55;color:#fff;text-decoration:none;box-shadow:0 3px 10px #102b4e18}
