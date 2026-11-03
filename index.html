@@ -101,21 +101,24 @@
     <p class="um-update-info">Last updated: <time id="lastUpdate">—</time></p>
   </section>
 
-  <section class="um-lower-grid">
-    <div class="um-video-panel">
-      <div class="um-section-heading"><h2><span></span>▶ Usamarket Videos</h2><a href="/videos/">View More Videos →</a></div>
-      <a class="um-video-feature" href="/videos/"><span class="um-video-play">▶</span><strong>Learn about markets, money and the economy</strong><small>Explore our video library</small></a>
+  <section class="um-store-shelf" id="homeStore" aria-label="Featured products">
+    <div class="um-section-heading"><h2><span></span>🛒 Our Store — <em>Top Deals</em></h2><a href="/shop/">View All Products →</a></div>
+    <div class="um-product-track-wrap"><button class="um-shelf-arrow" type="button" data-product-scroll="-1" aria-label="Scroll products left">‹</button><div class="um-product-track" id="homeProductTrack" aria-live="polite"><p class="um-shelf-loading">Discovering featured products…</p></div><button class="um-shelf-arrow" type="button" data-product-scroll="1" aria-label="Scroll products right">›</button></div>
+  </section>
+  <section class="um-video-showcase" id="homeVideos">
+    <div class="um-video-main">
+      <div class="um-section-heading"><h2><span></span><b class="um-youtube-mark">▶</b> Usamarket Videos</h2><a href="/videos/">View All Videos →</a></div>
+      <div class="um-video-tabs" aria-label="Video categories"><span>Featured</span><span>Markets</span><span>Technology</span><span>Crypto</span></div>
+      <div class="um-video-cards" id="homeVideoCards">
+        <a class="um-video-card" href="/videos/"><span class="um-video-thumb">▶</span><strong>Explore our video library</strong></a>
+      </div>
     </div>
-    <div class="um-video-panel um-arabic-video">
+    <aside class="um-video-arabic">
       <div class="um-section-heading"><h2><span></span>الفيديوهات العربية</h2><a href="/ar/videos/">مشاهدة المزيد ←</a></div>
-      <a class="um-video-feature" href="/ar/videos/"><span class="um-video-play">▶</span><strong>تعلم الأسواق والاقتصاد والمال</strong><small>اكتشف مكتبة الفيديوهات العربية</small></a>
-    </div>
-    <aside class="um-crypto-feature">
-      <div class="um-section-heading"><h2>₿ Cryptocurrency</h2><a href="#latest" data-filter="crypto">View More →</a></div>
-      <p>Follow digital assets, blockchain developments and the stories shaping crypto markets.</p>
-      <a href="#latest" data-filter="crypto">Explore crypto coverage →</a>
+      <a class="um-ar-video-card" href="/ar/videos/"><img src="https://i.ytimg.com/vi/rfbhwB2a6Qo/hqdefault.jpg" alt="" loading="lazy"><span class="um-video-play">▶</span><strong>شاهد وتعلّم عن الأسواق والاقتصاد</strong></a>
     </aside>
   </section>
+  <dialog class="um-video-dialog" id="homeVideoDialog" aria-label="Video player"><button type="button" class="um-video-close" aria-label="Close video">×</button><div class="um-dialog-frame" id="homeVideoPlayer"></div></dialog>
 </main>
 <div id="google_translate_element" hidden></div>
 <footer class="um-footer">
@@ -125,6 +128,8 @@
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en',includedLanguages:'en,ar,fr,es,de,zh-CN',autoDisplay:false},'google_translate_element');}function changeLanguage(){var lang=document.getElementById('languageSelect').value;if(lang==='en'){window.location.href='/';return;}var field=document.querySelector('select.goog-te-combo');if(field){field.value=lang;field.dispatchEvent(new Event('change'));}else{setTimeout(function(){var retry=document.querySelector('select.goog-te-combo');if(retry){retry.value=lang;retry.dispatchEvent(new Event('change'));}},1000);}}</script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <script src="/homepage.js" defer></script>
+<script src="/homepage-media.js" defer></script>
+
 <script>
 (function(){
  const toggle=document.querySelector('.um-menu-toggle');
