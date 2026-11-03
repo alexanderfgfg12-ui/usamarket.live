@@ -1,33 +1,38 @@
 (function(){
 'use strict';
-const cards=[...document.querySelectorAll('.video-card')];
-const toolbar=document.querySelector('.video-toolbar');
-const dialog=document.querySelector('[data-video-dialog]');
-const player=document.querySelector('[data-video-player]');
-const caption=document.querySelector('[data-video-caption]');
-const closeButton=document.querySelector('[data-video-close]');
 const isArabic=document.documentElement.lang==='ar';
-function closePlayer(){if(player)player.innerHTML='';if(dialog?.open)dialog.close();}
-function openPlayer(id,title){
- if(!dialog||!player)return;
+const toolbar=document.querySelector('.video-toolbar');
+const cards=[...document.querySelectorAll('.video-card')];
+function stopInline(wrapper){
+ const original=wrapper._originalButton;
+ if(original)wrapper.replaceWith(original);
+}
+function playInline(trigger){
+ const id=trigger.dataset.videoId;
+ const title=trigger.dataset.videoTitle||'US Market Live video';
+ if(!id)return;
+ const wrapper=document.createElement('div');
+ wrapper.className='video-frame video-inline-player';
+ wrapper.setAttribute('aria-label',title);
  const frame=document.createElement('iframe');
  frame.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0'+(isArabic?'&cc_load_policy=1&cc_lang_pref=ar':'');
- frame.title=title||'US Market Live video';
+ frame.title=title;
  frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
  frame.referrerPolicy='strict-origin-when-cross-origin';
  frame.allowFullscreen=true;
- player.replaceChildren(frame);
- if(caption)caption.textContent=title||'';
- if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');
+ const close=document.createElement('button');
+ close.type='button';close.className='video-inline-close';close.textContent=isArabic?'إيقاف الفيديو':'Stop video';
+ close.setAttribute('aria-label',isArabic?'إيقاف الفيديو':'Stop video');
+ wrapper.append(frame,close);
+ wrapper._originalButton=trigger.cloneNode(true);
+ trigger.replaceWith(wrapper);
 }
 document.addEventListener('click',event=>{
+ const stop=event.target.closest('.video-inline-close');
+ if(stop){stopInline(stop.closest('.video-inline-player'));return;}
  const trigger=event.target.closest('[data-video-id]');
- if(trigger){event.preventDefault();openPlayer(trigger.dataset.videoId,trigger.dataset.videoTitle);return;}
- if(event.target.closest('[data-video-close]'))closePlayer();
+ if(trigger){event.preventDefault();playInline(trigger);}
 });
-dialog?.addEventListener('click',event=>{if(event.target===dialog)closePlayer();});
-dialog?.addEventListener('close',()=>{if(player)player.innerHTML='';});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&dialog?.open)closePlayer();});
 const input=toolbar?.querySelector('[data-video-search]');
 const buttons=[...(toolbar?.querySelectorAll('[data-video-filter]')||[])];
 let category='all';
