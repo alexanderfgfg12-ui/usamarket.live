@@ -80,73 +80,84 @@
     stage.append(contentVideo, adContainer);
     player.replaceChildren(stage);
 
-    function tryTag(tagIndex) {
-      if (token !== playbackToken) return;
-      if (tagIndex >= hilltopAdTags.length) {
-        showContentVideo(trigger, token);
-        return;
-      }
-      loadImaSdk().then(() => {
-        if (token !== playbackToken) return;
-        const ima = window.google.ima;
-        const displayContainer = new ima.AdDisplayContainer(adContainer, contentVideo);
-        // IMA requires this call to occur directly from the user's play gesture.
-        try { displayContainer.initialize(); } catch (_) {}
-        const adsLoader = new ima.AdsLoader(displayContainer);
-        let settled = false;
-        const fallback = () => {
-          if (settled || token !== playbackToken) return;
-          settled = true;
-          if (adAttemptTimer) clearTimeout(adAttemptTimer);
-          adAttemptTimer = null;
-          try { adsLoader.destroy(); } catch (_) {}
-          tryTag(tagIndex + 1);
-        };
-        adAttemptTimer = setTimeout(fallback, 9000);
-
-        adsLoader.addEventListener(ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, (event) => {
-          if (settled || token !== playbackToken) {
-            try { event.getAdsManager(contentVideo).destroy(); } catch (_) {}
-            return;
-          }
-          try {
-            activeAdsManager = event.getAdsManager(contentVideo);
-            activeAdsManager.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, fallback);
-            activeAdsManager.addEventListener(ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, () => {
-              if (settled || token !== playbackToken) return;
-              settled = true;
-              showContentVideo(trigger, token);
-            });
-            activeAdsManager.addEventListener(ima.AdEvent.Type.ALL_ADS_COMPLETED, () => {
-              if (!settled && token === playbackToken) {
-                settled = true;
-                showContentVideo(trigger, token);
-              }
-            });
-            activeAdsManager.init(640, 360, ima.ViewMode.NORMAL);
-            activeAdsManager.start();
-          } catch (_) { fallback(); }
-        });
-        adsLoader.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, fallback);
-        const request = new ima.AdsRequest();
-        request.adTagUrl = tag;
-        request.linearAdSlotWidth = Math.max(320, player.clientWidth || 640);
-        request.linearAdSlotHeight = Math.max(180, Math.round(request.linearAdSlotWidth * 9 / 16));
-        request.nonLinearAdSlotWidth = request.linearAdSlotWidth;
-        request.nonLinearAdSlotHeight = Math.round(request.linearAdSlotHeight / 3);
-        try { adsLoader.requestAds(request); } catch (_) { fallback(); }
-      }).catch(() => {
-        if (tagIndex + 1 < hilltopAdTags.length) tryTag(tagIndex + 1);
-        else showContentVideo(trigger, token);
-      });
-    }
-
-    tryTag(0);
     if (typeof dialog.showModal === 'function') {
       if (!dialog.open) dialog.showModal();
     } else {
       dialog.setAttribute('open', '');
     }
+
+    // The SDK is loaded before this file. Initialize synchronously in the
+    // user's click gesture so mobile browsers permit IMA ad playback.
+    const ima = window.google?.ima;
+    if (!ima) {
+      showContentVideo(trigger, token);
+      return;
+    }
+
+    let displayContainer;
+    let adsLoader;
+    try {
+      displayContainer = new ima.AdDisplayContainer(adContainer, contentVideo);
+      displayContainer.initialize();
+      adsLoader = new ima.AdsLoader(displayContainer);
+    } catch (_) {
+      showContentVideo(trigger, token);
+      return;
+    }
+
+    let tagIndex = 0;
+    let attemptSettled = false;
+    const requestNextTag = () => {
+      if (token !== playbackToken) return;
+      if (adAttemptTimer) clearTimeout(adAttemptTimer);
+      if (tagIndex >= hilltopAdTags.length) {
+        try { adsLoader.destroy(); } catch (_) {}
+        showContentVideo(trigger, token);
+        return;
+      }
+      attemptSettled = false;
+      const currentTag = hilltopAdTags[tagIndex++];
+      adAttemptTimer = setTimeout(() => settleAttempt(true), 9000);
+      try {
+        const request = new ima.AdsRequest();
+        request.adTagUrl = currentTag;
+        request.linearAdSlotWidth = Math.max(320, player.clientWidth || 640);
+        request.linearAdSlotHeight = Math.max(180, Math.round(request.linearAdSlotWidth * 9 / 16));
+        request.nonLinearAdSlotWidth = request.linearAdSlotWidth;
+        request.nonLinearAdSlotHeight = Math.round(request.linearAdSlotHeight / 3);
+        adsLoader.requestAds(request);
+      } catch (_) { settleAttempt(true); }
+    };
+
+    function settleAttempt(tryFallback) {
+      if (attemptSettled || token !== playbackToken) return;
+      attemptSettled = true;
+      if (adAttemptTimer) clearTimeout(adAttemptTimer);
+      adAttemptTimer = null;
+      if (activeAdsManager) {
+        try { activeAdsManager.destroy(); } catch (_) {}
+        activeAdsManager = null;
+      }
+      if (tryFallback) requestNextTag();
+      else showContentVideo(trigger, token);
+    }
+
+    adsLoader.addEventListener(ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, (event) => {
+      if (attemptSettled || token !== playbackToken) {
+        try { event.getAdsManager(contentVideo).destroy(); } catch (_) {}
+        return;
+      }
+      try {
+        activeAdsManager = event.getAdsManager(contentVideo);
+        activeAdsManager.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, () => settleAttempt(true));
+        activeAdsManager.addEventListener(ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, () => settleAttempt(false));
+        activeAdsManager.addEventListener(ima.AdEvent.Type.ALL_ADS_COMPLETED, () => settleAttempt(false));
+        activeAdsManager.init(640, 360, ima.ViewMode.NORMAL);
+        activeAdsManager.start();
+      } catch (_) { settleAttempt(true); }
+    });
+    adsLoader.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, () => settleAttempt(true));
+    requestNextTag();
   }
 
   function stopPlayback() {
