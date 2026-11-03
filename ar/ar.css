@@ -30,3 +30,15 @@ a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.top{
 .drawer-link:hover,.drawer-link:focus{background:#edf7f1;color:#087a46;border-color:#ccebd9;outline:none}
 body.drawer-open{overflow:hidden}.top>.menu-toggle{order:0}.top>.brand{margin-inline-start:auto}.top>.nav{display:none!important}
 @media(max-width:700px){.top{justify-content:space-between;gap:10px}.top>.brand{margin:0}.menu-toggle{width:44px;height:44px;flex-basis:44px}}
+
+/* تحسين واجهة الصفحة الرئيسية العربية */
+.ar-home-hero{position:relative;overflow:hidden;background:linear-gradient(118deg,#071a33 0%,#102f56 58%,#174b7a 100%);border-bottom:4px solid #bd9445;padding:clamp(46px,6vw,72px) max(5vw,22px);color:#fff}
+.ar-home-hero:after{content:"";position:absolute;width:540px;height:540px;left:-190px;top:-300px;border:1px solid #ffffff22;border-radius:50%;box-shadow:0 0 0 38px #ffffff08,0 0 0 90px #ffffff06;pointer-events:none}
+.ar-home-hero .hero-inner{position:relative;z-index:1}.ar-home-hero .eyebrow{color:#e8c77d;letter-spacing:.04em}
+.ar-home-hero h1{max-width:850px;color:#fff;font-size:clamp(2.2rem,5vw,4rem);line-height:1.35;letter-spacing:-.035em;margin:16px 0}
+.ar-home-hero h1 span{color:#e8c77d}.ar-home-hero p{max-width:780px;color:#d5e1ef;font-size:clamp(1rem,1.5vw,1.12rem);line-height:2;margin:0 0 22px}
+.ar-hero-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ar-hero-actions a{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:9px;font-weight:800;transition:transform .2s;text-decoration:none}
+.ar-hero-actions a:hover{transform:translateY(-2px)}.ar-hero-primary{background:#d71932;color:#fff}.ar-hero-primary:hover{color:#fff;background:#bd142a}
+.ar-hero-secondary{border:1px solid #ffffff55;background:#ffffff12;color:#fff}.ar-hero-link{color:#f0d99f}
+.ar-hero-topics{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}.ar-hero-topics span{border:1px solid #ffffff30;border-radius:30px;padding:5px 12px;color:#e2eaf5;font-size:.84rem;font-weight:700}
+@media(max-width:560px){.ar-home-hero{padding:38px 18px}.ar-home-hero h1{font-size:2.15rem}.ar-hero-actions{gap:8px}.ar-hero-actions a{padding:10px 13px;font-size:.92rem}}
