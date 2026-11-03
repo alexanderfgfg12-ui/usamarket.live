@@ -9,19 +9,41 @@
   const caption = dialog?.querySelector('[data-video-caption]');
   const closeButton = dialog?.querySelector('[data-video-close]');
 
-  function stopPlayback() {
-    if (player) player.replaceChildren();
-    if (caption) caption.textContent = '';
-    if (dialog?.open) {
-      if (typeof dialog.close === 'function') dialog.close();
-      else dialog.removeAttribute('open');
-    }
+  let activeAdsManager = null;
+  let adAttemptTimer = null;
+  let playbackToken = 0;
+  let imaLoaderPromise = null;
+
+  const hilltopAdTags = [
+    'https://expensive-pollution.com/dcm/F.zGdhGaNAvjZIGiUn/Xe/m/9Ou/ZYUYlNksPoTac/1-OcT/Mx1WMmjyEYteNTz/UV5VMPzCUzy/NlSrZIsLa/Wt1Ap/d/DI0rxG',
+    'https://expensive-pollution.com/dNmgFazLd.GdNnvTZKGKUH/Teemt9Cu/Z_U_l/kWPATScW1/O/TnM/1LM/jEEPtnNKzsUy5IM/zAUkyZNSQY'
+  ];
+
+  function loadImaSdk() {
+    if (window.google?.ima) return Promise.resolve();
+    if (imaLoaderPromise) return imaLoaderPromise;
+    imaLoaderPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = 'https://imasdk.googleapis.com/js/sdkloader/ima3.js';
+      script.async = true;
+      script.onload = () => window.google?.ima ? resolve() : reject(new Error('IMA SDK unavailable'));
+      script.onerror = () => reject(new Error('IMA SDK failed to load'));
+      document.head.appendChild(script);
+    });
+    return imaLoaderPromise;
   }
 
-  function playVideo(trigger) {
-    const id = (trigger.dataset.videoId || '').trim();
-    if (!id || !player || !dialog) return;
+  function showContentVideo(trigger, token) {
+    if (token !== playbackToken || !player || !dialog) return;
+    if (adAttemptTimer) clearTimeout(adAttemptTimer);
+    adAttemptTimer = null;
+    if (activeAdsManager) {
+      try { activeAdsManager.destroy(); } catch (_) {}
+      activeAdsManager = null;
+    }
 
+    const id = (trigger.dataset.videoId || '').trim();
+    if (!id) return;
     const title = trigger.dataset.videoTitle || trigger.getAttribute('aria-label') || 'US Market Live video';
     const frame = document.createElement('iframe');
     const params = new URLSearchParams({ autoplay: '1', rel: '0', playsinline: '1' });
@@ -36,7 +58,90 @@
     frame.allowFullscreen = true;
     player.replaceChildren(frame);
     if (caption) caption.textContent = title;
+  }
 
+  function startPreroll(trigger) {
+    const token = ++playbackToken;
+    const id = (trigger.dataset.videoId || '').trim();
+    if (!id || !player || !dialog) return;
+
+    const title = trigger.dataset.videoTitle || trigger.getAttribute('aria-label') || 'US Market Live video';
+    if (caption) caption.textContent = isArabic ? 'جارٍ تحميل الإعلان...' : 'Loading advertisement...';
+
+    const stage = document.createElement('div');
+    stage.className = 'ima-ad-stage';
+    const contentVideo = document.createElement('video');
+    contentVideo.className = 'ima-content-video';
+    contentVideo.setAttribute('playsinline', '');
+    contentVideo.preload = 'none';
+    contentVideo.setAttribute('aria-label', title);
+    const adContainer = document.createElement('div');
+    adContainer.className = 'ima-ad-container';
+    stage.append(contentVideo, adContainer);
+    player.replaceChildren(stage);
+
+    function tryTag(tagIndex) {
+      if (token !== playbackToken) return;
+      if (tagIndex >= hilltopAdTags.length) {
+        showContentVideo(trigger, token);
+        return;
+      }
+      loadImaSdk().then(() => {
+        if (token !== playbackToken) return;
+        const ima = window.google.ima;
+        const displayContainer = new ima.AdDisplayContainer(adContainer, contentVideo);
+        // IMA requires this call to occur directly from the user's play gesture.
+        try { displayContainer.initialize(); } catch (_) {}
+        const adsLoader = new ima.AdsLoader(displayContainer);
+        let settled = false;
+        const fallback = () => {
+          if (settled || token !== playbackToken) return;
+          settled = true;
+          if (adAttemptTimer) clearTimeout(adAttemptTimer);
+          adAttemptTimer = null;
+          try { adsLoader.destroy(); } catch (_) {}
+          tryTag(tagIndex + 1);
+        };
+        adAttemptTimer = setTimeout(fallback, 9000);
+
+        adsLoader.addEventListener(ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, (event) => {
+          if (settled || token !== playbackToken) {
+            try { event.getAdsManager(contentVideo).destroy(); } catch (_) {}
+            return;
+          }
+          try {
+            activeAdsManager = event.getAdsManager(contentVideo);
+            activeAdsManager.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, fallback);
+            activeAdsManager.addEventListener(ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, () => {
+              if (settled || token !== playbackToken) return;
+              settled = true;
+              showContentVideo(trigger, token);
+            });
+            activeAdsManager.addEventListener(ima.AdEvent.Type.ALL_ADS_COMPLETED, () => {
+              if (!settled && token === playbackToken) {
+                settled = true;
+                showContentVideo(trigger, token);
+              }
+            });
+            activeAdsManager.init(640, 360, ima.ViewMode.NORMAL);
+            activeAdsManager.start();
+          } catch (_) { fallback(); }
+        });
+        adsLoader.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, fallback);
+        const request = new ima.AdsRequest();
+        request.adTagUrl = tag;
+        request.linearAdSlotWidth = Math.max(320, player.clientWidth || 640);
+        request.linearAdSlotHeight = Math.max(180, Math.round(request.linearAdSlotWidth * 9 / 16));
+        request.nonLinearAdSlotWidth = request.linearAdSlotWidth;
+        request.nonLinearAdSlotHeight = Math.round(request.linearAdSlotHeight / 3);
+        try { adsLoader.requestAds(request); } catch (_) { fallback(); }
+      }).catch(() => {
+        if (tagIndex + 1 < hilltopAdTags.length) tryTag(tagIndex + 1);
+        else showContentVideo(trigger, token);
+      });
+    }
+
+    tryTag(0);
     if (typeof dialog.showModal === 'function') {
       if (!dialog.open) dialog.showModal();
     } else {
@@ -44,11 +149,27 @@
     }
   }
 
+  function stopPlayback() {
+    playbackToken++;
+    if (adAttemptTimer) clearTimeout(adAttemptTimer);
+    adAttemptTimer = null;
+    if (activeAdsManager) {
+      try { activeAdsManager.destroy(); } catch (_) {}
+      activeAdsManager = null;
+    }
+    if (player) player.replaceChildren();
+    if (caption) caption.textContent = '';
+    if (dialog?.open) {
+      if (typeof dialog.close === 'function') dialog.close();
+      else dialog.removeAttribute('open');
+    }
+  }
+
   document.addEventListener('click', function (event) {
     const trigger = event.target.closest && event.target.closest('[data-video-id]');
     if (!trigger) return;
     event.preventDefault();
-    playVideo(trigger);
+    startPreroll(trigger);
   });
 
   closeButton?.addEventListener('click', stopPlayback);
