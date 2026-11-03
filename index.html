@@ -53,6 +53,7 @@
 
 <header class="header">
   <div class="container header-inner">
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-drawer" onclick="toggleSiteMenu(true)">☰</button>
     
     <a href="/" class="logo">
       <img src="/brand-logo.svg" alt="US Market Live" style="height: 48px; width: auto;">
@@ -92,6 +93,25 @@
     </div>
   </div>
 </header>
+<div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleSiteMenu(false)" hidden></div>
+<aside class="site-drawer" id="site-drawer" aria-label="Main navigation" aria-hidden="true">
+  <div class="drawer-brand"><img src="/brand-logo.svg" alt="US Market Live"><button type="button" class="drawer-close" aria-label="Close menu" onclick="toggleSiteMenu(false)">×</button></div>
+  <p class="drawer-label">EXPLORE</p>
+  <a href="/" class="drawer-link">⌂ &nbsp; Home</a>
+  <a href="/#latest" class="drawer-link">▤ &nbsp; Latest news</a>
+  <a href="/videos/" class="drawer-link">▶ &nbsp; Videos</a>
+  <a href="/shop/" class="drawer-link">▣ &nbsp; Shop</a>
+  <a href="/usamarketnews.html" class="drawer-link">✉ &nbsp; Newsletter</a>
+  <p class="drawer-label">NEWS CATEGORIES</p>
+  <a href="#latest" class="drawer-link" onclick="filterCategory('markets',event);toggleSiteMenu(false)">Markets</a>
+  <a href="#latest" class="drawer-link" onclick="filterCategory('crypto',event);toggleSiteMenu(false)">Crypto</a>
+  <a href="#latest" class="drawer-link" onclick="filterCategory('technology',event);toggleSiteMenu(false)">Technology</a>
+  <a href="#latest" class="drawer-link" onclick="filterCategory('economy',event);toggleSiteMenu(false)">Economy</a>
+  <p class="drawer-label">LANGUAGE</p>
+  <a href="/ar/" class="drawer-link">العربية</a>
+  <a href="/contact.html" class="drawer-link">Contact us</a>
+  <a href="/about.html" class="drawer-link">About US Market Live</a>
+</aside>
 
 <section class="homepage-newsletter" aria-labelledby="homepage-newsletter-title">
   <div class="homepage-newsletter-copy"><span class="newsletter-kicker">USA MARKET NEWS</span><h2 id="homepage-newsletter-title">Get market updates and useful news by email</h2><p>Subscribe for new articles, market insights and selected shopping updates. You can unsubscribe at any time.</p><a href="/usamarketnews.html" class="newsletter-more">Subscription details</a></div>
@@ -162,6 +182,7 @@ function changeLanguage() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script src="script.js"></script>
+<script>function toggleSiteMenu(open){var d=document.getElementById("site-drawer"),b=document.getElementById("drawerBackdrop"),t=document.querySelector(".menu-toggle");if(!d||!b)return;d.classList.toggle("is-open",open);b.hidden=!open;d.setAttribute("aria-hidden",String(!open));if(t)t.setAttribute("aria-expanded",String(open));document.body.classList.toggle("drawer-open",open)}document.addEventListener("keydown",function(e){if(e.key==="Escape")toggleSiteMenu(false)});</script>
 <script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(error => console.error("Service worker registration failed:", error))); }</script>
 </body>
 </html>
