@@ -1,9 +1,11 @@
-const CACHE_VERSION = 'usmarket-v2';
+const CACHE_VERSION = 'usmarket-v3';
 const APP_SHELL = [
   '/',
   '/index.html',
   '/style.css',
   '/script.js',
+  '/homepage.css',
+  '/homepage.js',
   '/manifest.json',
   '/usmarket-live-icon-192.png',
   '/usmarket-live-icon-512.png'
