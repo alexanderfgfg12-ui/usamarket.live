@@ -40,173 +40,94 @@
   gtag('config', 'G-S95EDYLHGF');
 </script>
 </head>
-<body>
 
-<!-- شريط الأسعار -->
-<div class="ticker-wrap" id="ticker">
-  <div class="ticker">
-    <span id="t-btc">₿ BTC: --</span>
-    <span id="t-eth">Ξ ETH: --</span>
-    
+<body class="um-home">
+<header class="um-masthead">
+  <div class="um-brand-row">
+    <a class="um-brand" href="/" aria-label="US Market Live home"><img src="/brand-logo.svg" alt="US Market Live"></a>
+    <a class="um-promo" href="/videos/">
+      <span class="um-promo-icon" aria-hidden="true">↗</span>
+      <span><strong>Smarter Choices. A Stronger Future.</strong><small>News, markets, business and useful insights</small></span>
+      <span class="um-promo-cta">Explore Now <b aria-hidden="true">→</b></span>
+    </a>
   </div>
-</div>
-
-<header class="header">
-  <div class="container header-inner">
-    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-drawer" onclick="toggleSiteMenu(true)">☰</button>
-    
-    <a href="/" class="logo">
-      <img src="/brand-logo.svg" alt="US Market Live" style="height: 48px; width: auto;">
-    </a>
-    <a href="/shop/" class="shop-link" aria-label="Visit the US Market Live shop">
-      <span class="shop-cart-icon" aria-hidden="true"><img src="/shop-cart-icon.svg" alt="" width="76" height="76"></span>
-      <span class="shop-link-label">SHOP</span>
-    </a>
-    
-    <div class="search-container">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="Search news..." onkeyup="filterNews()">
-    </div>
-    
-    <nav class="primary-nav" aria-label="Main navigation">
-      <a href="/" aria-current="page">Home</a>
-      <a href="#latest">News</a>
-      <a href="/videos/">Videos</a>
-      <a href="/shop/">Shop</a>
-      <a href="/ar/" lang="ar">العربية</a>
-    </nav>
+  <nav class="um-nav" aria-label="Main navigation">
+    <button class="um-menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="um-mobile-menu">☰</button>
+    <a class="um-nav-link is-current" href="/">Home</a>
+    <a class="um-nav-link" href="#latest" data-filter="markets">Markets</a>
+    <a class="um-nav-link" href="#latest" data-filter="economy">Economy</a>
+    <a class="um-nav-link" href="#latest" data-filter="technology">Technology</a>
+    <a class="um-nav-link" href="#latest" data-filter="crypto">Cryptocurrency</a>
+    <a class="um-nav-link" href="#latest" data-filter="business">Business</a>
+    <a class="um-nav-link" href="/videos/">Videos</a>
+    <a class="um-nav-link um-shop-link" href="/shop/" aria-label="Shop, open store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H7M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/></svg><span>Shop</span></a>
+    <a class="um-nav-link" href="/usamarketnews.html">Store</a>
+    <a class="um-nav-link" href="/ar/" lang="ar">العربية</a>
+    <label class="um-search"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search news..." aria-label="Search news"><kbd>↵</kbd></label>
+    <a class="um-language" href="/ar/" aria-label="Arabic language">🇺🇸 <span>EN</span>⌄</a>
+  </nav>
+  <div class="um-mobile-menu" id="um-mobile-menu" hidden>
+    <a href="/">Home</a><a href="#latest">Latest News</a><a href="/videos/">Videos</a><a href="/shop/">🛒 Shop</a><a href="/usamarketnews.html">Store & Newsletter</a><a href="/ar/">العربية</a>
   </div>
 </header>
-<div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleSiteMenu(false)" hidden></div>
-<aside class="site-drawer" id="site-drawer" aria-label="Main navigation" aria-hidden="true">
-  <div class="drawer-brand"><img src="/brand-logo.svg" alt="US Market Live"><button type="button" class="drawer-close" aria-label="Close menu" onclick="toggleSiteMenu(false)">×</button></div>
-  <p class="drawer-label">EXPLORE</p>
-  <a href="/" class="drawer-link">⌂ &nbsp; Home</a>
-  <a href="/#latest" class="drawer-link">▤ &nbsp; Latest news</a>
-  <a href="/videos/" class="drawer-link">▶ &nbsp; Videos</a>
-  <a href="/shop/" class="drawer-link">▣ &nbsp; Shop</a>
-  <a href="/usamarketnews.html" class="drawer-link">✉ &nbsp; Newsletter</a>
-  <p class="drawer-label">NEWS CATEGORIES</p>
-  <a href="#latest" class="drawer-link" onclick="filterCategory('markets',event);toggleSiteMenu(false)">Markets</a>
-  <a href="#latest" class="drawer-link" onclick="filterCategory('crypto',event);toggleSiteMenu(false)">Crypto</a>
-  <a href="#latest" class="drawer-link" onclick="filterCategory('technology',event);toggleSiteMenu(false)">Technology</a>
-  <a href="#latest" class="drawer-link" onclick="filterCategory('economy',event);toggleSiteMenu(false)">Economy</a>
-  <p class="drawer-label">LANGUAGE</p>
-  <label class="drawer-language-label" for="languageSelect">Choose your language</label>
-  <select id="languageSelect" class="drawer-language-select" onchange="changeLanguage()">
-    <option value="en">English</option><option value="ar">العربية</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="zh-CN">中文</option>
-  </select>
-  <a href="/ar/" class="drawer-link">Arabic news</a>
-  <a href="/contact.html" class="drawer-link">Contact us</a>
-  <a href="/about.html" class="drawer-link">About US Market Live</a>
-</aside>
 
-<section class="home-hero" aria-labelledby="home-title">
-  <div class="home-hero-inner">
-    <div class="home-hero-copy">
-      <span class="home-eyebrow"><span class="home-live-dot"></span> INDEPENDENT MARKET COVERAGE</span>
-      <h1 id="home-title">Understand the markets.<br><span>Make informed moves.</span></h1>
-      <p>Clear coverage of U.S. markets, the economy, technology and digital assets — with practical explainers and curated finds in one place.</p>
-      <div class="home-hero-actions">
-        <a class="home-btn home-btn-primary" href="#latest">Explore latest news <span aria-hidden="true">→</span></a>
-        <a class="home-btn home-btn-light" href="/shop/">Explore the shop</a>
-        <a class="home-text-link" href="/videos/">Watch videos</a>
-      </div>
-      <div class="home-topic-links" aria-label="Browse topics">
-        <a href="#latest" onclick="filterCategory('markets',event)">Markets</a>
-        <a href="#latest" onclick="filterCategory('economy',event)">Economy</a>
-        <a href="#latest" onclick="filterCategory('technology',event)">Technology</a>
-        <a href="#latest" onclick="filterCategory('crypto',event)">Crypto</a>
-      </div>
-    </div>
-    <div class="home-hero-art" aria-hidden="true">
-      <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-      <div class="hero-glass-card"><span class="hero-card-kicker">US MARKET LIVE</span><div class="hero-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="hero-card-foot"><span>Markets · Economy · Tech</span><b>LIVE</b></div></div>
-      <div class="hero-floating-mark">US<span>ML</span></div>
-    </div>
-  </div>
-</section>
-<section class="home-discovery" aria-labelledby="discover-title">
-  <div class="container">
-    <div class="home-section-heading">
-      <div><span class="home-section-kicker">EXPLORE THE BIG PICTURE</span><h2 id="discover-title">Browse by topic</h2></div>
-      <p>Follow the subjects shaping markets, business and everyday life.</p>
-    </div>
-    <div class="topic-grid">
-      <a class="topic-card" href="#latest" onclick="filterCategory('markets',event)"><span class="topic-index">01 / MARKETS</span><strong>Stocks &amp; Markets</strong><small>Market moves, companies and investing trends</small><span class="topic-arrow">Explore topic →</span></a>
-      <a class="topic-card" href="#latest" onclick="filterCategory('economy',event)"><span class="topic-index">02 / ECONOMY</span><strong>U.S. Economy</strong><small>Inflation, jobs, policy and economic signals</small><span class="topic-arrow">Explore topic →</span></a>
-      <a class="topic-card" href="#latest" onclick="filterCategory('technology',event)"><span class="topic-index">03 / TECHNOLOGY</span><strong>Technology &amp; AI</strong><small>Innovation, companies and emerging tools</small><span class="topic-arrow">Explore topic →</span></a>
-      <a class="topic-card" href="#latest" onclick="filterCategory('crypto',event)"><span class="topic-index">04 / DIGITAL ASSETS</span><strong>Crypto &amp; Digital Assets</strong><small>Bitcoin, blockchain and the digital economy</small><span class="topic-arrow">Explore topic →</span></a>
-    </div>
-  </div>
-</section>
-<main class="container">
-  <section class="hero latest-heading">
-    <div class="live-badge"><span class="live-dot"></span> LATEST COVERAGE</div>
-    <h2>Latest US Market News</h2>
-    <div class="update-info"><span>🕒 Last updated: <strong id="lastUpdate">--</strong></span></div>
+<main class="um-main">
+  <section class="um-lead-grid" aria-label="Top stories">
+    <div class="um-lead-primary" id="leadPrimary"><div class="um-loading">Loading top stories…</div></div>
+    <div class="um-lead-secondary" id="leadSecondary"></div>
+    <aside class="um-sidebar">
+      <section class="um-panel um-market-panel">
+        <h2><span aria-hidden="true">▥</span> Market Highlights</h2>
+        <div class="um-market-row"><span>Bitcoin</span><strong id="t-btc">Loading…</strong><small id="btc-change">Live</small></div>
+        <div class="um-market-row"><span>Ethereum</span><strong id="t-eth">Loading…</strong><small id="eth-change">Live</small></div>
+        <p class="um-disclaimer">Indicative crypto prices · USD</p>
+      </section>
+      <section class="um-newsletter">
+        <div class="um-newsletter-heading"><span aria-hidden="true">✉</span><h2>Stay Updated</h2></div>
+        <p>Get the latest news and market insights delivered to your inbox.</p>
+        <a href="/usamarketnews.html">Explore our newsletter <span aria-hidden="true">→</span></a>
+      </section>
+      <a class="um-store-panel" href="/shop/">
+        <div class="um-store-heading"><span aria-hidden="true">🛒</span><strong>Our Store</strong><span>View Store →</span></div>
+        <div class="um-store-art" aria-hidden="true"><span>Discover useful finds</span><b>Shop curated picks</b></div>
+        <div class="um-store-foot">Explore the US Market Live Shop</div>
+      </a>
+    </aside>
   </section>
 
-  <section id="latest" class="news-section">
-    <div class="news-grid" id="newsGrid">
-      <div class="loading">⏳ Loading latest news...</div>
-    </div>
+  <section class="um-latest-section" id="latest">
+    <div class="um-section-heading"><h2><span></span>Latest News</h2><a href="#latest" id="viewAllNews">View All News <b>→</b></a></div>
+    <div class="um-news-grid" id="newsGrid"><div class="um-loading">Loading the latest coverage…</div></div>
+    <p class="um-update-info">Last updated: <time id="lastUpdate">—</time></p>
   </section>
-  <section class="home-pathways" aria-labelledby="more-title">
-    <div class="home-section-heading">
-      <div><span class="home-section-kicker">MORE FROM US MARKET LIVE</span><h2 id="more-title">Go beyond the headlines</h2></div>
-      <p>Explore useful resources, video explainers and curated finds.</p>
+
+  <section class="um-lower-grid">
+    <div class="um-video-panel">
+      <div class="um-section-heading"><h2><span></span>▶ Usamarket Videos</h2><a href="/videos/">View More Videos →</a></div>
+      <a class="um-video-feature" href="/videos/"><span class="um-video-play">▶</span><strong>Learn about markets, money and the economy</strong><small>Explore our video library</small></a>
     </div>
-    <div class="pathway-grid">
-      <a class="pathway-card pathway-video" href="/videos/"><span class="pathway-icon" aria-hidden="true">▶</span><span class="pathway-label">LEARN &amp; WATCH</span><strong>Video Library</strong><span>Clear explainers and educational videos from trusted sources.</span><b>Explore videos →</b></a>
-      <a class="pathway-card pathway-shop" href="/shop/"><span class="pathway-icon" aria-hidden="true">▣</span><span class="pathway-label">CURATED FINDS</span><strong>US Market Live Shop</strong><span>Browse selected products and useful shopping discoveries.</span><b>Visit the shop →</b></a>
-      <a class="pathway-card pathway-newsletter" href="/usamarketnews.html"><span class="pathway-icon" aria-hidden="true">✉</span><span class="pathway-label">STAY INFORMED</span><strong>USA Market News</strong><span>Find our newsletter and stay connected with new coverage.</span><b>Discover more →</b></a>
+    <div class="um-video-panel um-arabic-video">
+      <div class="um-section-heading"><h2><span></span>الفيديوهات العربية</h2><a href="/ar/videos/">مشاهدة المزيد ←</a></div>
+      <a class="um-video-feature" href="/ar/videos/"><span class="um-video-play">▶</span><strong>تعلم الأسواق والاقتصاد والمال</strong><small>اكتشف مكتبة الفيديوهات العربية</small></a>
     </div>
+    <aside class="um-crypto-feature">
+      <div class="um-section-heading"><h2>₿ Cryptocurrency</h2><a href="#latest" data-filter="crypto">View More →</a></div>
+      <p>Follow digital assets, blockchain developments and the stories shaping crypto markets.</p>
+      <a href="#latest" data-filter="crypto">Explore crypto coverage →</a>
+    </aside>
   </section>
 </main>
-
-<footer class="footer">
-  <div class="container">
-    <p>© <span id="year"></span> US Market Live — All rights reserved</p>
-    <p><a href="/privacy.html">Privacy Policy</a> | <a href="/about.html">About Us</a> | <a href="/contact.html">Contact</a> | <a href="/usamarketnews.html">USA MARKET NEWS</a> | <a href="/videos/">Videos</a></p>
-  </div>
+<footer class="um-footer">
+  <a href="/about.html">About Us</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/shop/">Shop</a><a href="/ar/">العربية</a>
+  <p>© <span id="year"></span> US Market Live. All rights reserved.</p>
 </footer>
-
-<!-- حاوية مترجم جوجل المخفية -->
-<div id="google_translate_element" style="display:none;"></div>
-
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,ar,fr,es,de,zh-CN',
-    autoDisplay: false
-  }, 'google_translate_element');
-}
-
-// دالة تغيير اللغة عند اختيارها من القائمة
-function changeLanguage() {
-  var lang = document.getElementById('languageSelect').value;
-  var selectField = document.querySelector("select.goog-te-combo");
-  if (selectField) {
-    selectField.value = lang;
-    selectField.dispatchEvent(new Event('change'));
-  } else {
-    // إذا لم يتم تحميل المترجم بعد، ننتظر قليلاً ونحاول مرة أخرى
-    setTimeout(function() {
-      var selectField = document.querySelector("select.goog-te-combo");
-      if (selectField) {
-        selectField.value = lang;
-        selectField.dispatchEvent(new Event('change'));
-      }
-    }, 1000);
-  }
-}
+<script src="/homepage.js" defer></script>
+<script>
+(function(){
+ const toggle=document.querySelector('.um-menu-toggle');
+ const menu=document.getElementById('um-mobile-menu');
+ if(toggle&&menu){toggle.addEventListener('click',()=>{const open=menu.hidden;menu.hidden=!open;toggle.setAttribute('aria-expanded',String(open));});}
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu&&!menu.hidden){menu.hidden=true;toggle?.setAttribute('aria-expanded','false');}});
+})();
 </script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-<script src="script.js"></script>
-<script>function toggleSiteMenu(open){var d=document.getElementById("site-drawer"),b=document.getElementById("drawerBackdrop"),t=document.querySelector(".menu-toggle");if(!d||!b)return;d.classList.toggle("is-open",open);b.hidden=!open;d.setAttribute("aria-hidden",String(!open));if(t)t.setAttribute("aria-expanded",String(open));document.body.classList.toggle("drawer-open",open)}document.addEventListener("keydown",function(e){if(e.key==="Escape")toggleSiteMenu(false)});</script>
-<script>if ("serviceWorker" in navigator) { window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(error => console.error("Service worker registration failed:", error))); }</script>
-</body>
-</html>
+</body></html>
