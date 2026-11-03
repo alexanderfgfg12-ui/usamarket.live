@@ -143,6 +143,8 @@
     }
 
     adsLoader.addEventListener(ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED, (event) => {
+      if (adAttemptTimer) clearTimeout(adAttemptTimer);
+      adAttemptTimer = null;
       if (attemptSettled || token !== playbackToken) {
         try { event.getAdsManager(contentVideo).destroy(); } catch (_) {}
         return;
