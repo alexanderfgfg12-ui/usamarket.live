@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'usmarket-v4';
+const CACHE_VERSION = 'usmarket-v5';
 const APP_SHELL = [
   '/',
   '/index.html',
