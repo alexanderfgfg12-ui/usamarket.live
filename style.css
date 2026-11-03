@@ -209,3 +209,7 @@ body.drawer-open{overflow:hidden}
   .news-card{padding:15px}
   .home-pathways{padding-top:30px}
 }
+
+.topic-card.is-active{background:#f7f9fc;border-color:#b8c8dc;box-shadow:inset 0 0 0 1px #b8c8dc}
+#latest{scroll-margin-top:92px}
+@media(prefers-reduced-motion:reduce){.topic-card,.pathway-card,.home-btn{transition:none}.topic-card:hover,.pathway-card:hover,.home-btn:hover{transform:none}}
