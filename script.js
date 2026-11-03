@@ -56,13 +56,26 @@ function filterCategory(category, event) {
   if (event) event.preventDefault();
   currentCategory = category;
   document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
-  if (event && event.target) event.target.classList.add('active');
+  document.querySelectorAll('.topic-card').forEach(card => card.classList.remove('is-active'));
+  if (event && event.target) {
+    const trigger = event.target.closest('.topic-card, .cat-btn');
+    if (trigger) trigger.classList.add(trigger.classList.contains('topic-card') ? 'is-active' : 'active');
+  }
   if (category === 'all') {
     renderNews(allNews);
   } else {
-    const filtered = allNews.filter(a => String(a.category || '').toLowerCase() === category);
+    const topicCategories = {
+      markets: ['markets', 'stocks', 'finance', 'commodities', 'forex', 'real-estate'],
+      economy: ['economy'],
+      technology: ['technology'],
+      crypto: ['crypto']
+    };
+    const matchingCategories = topicCategories[category] || [category];
+    const filtered = allNews.filter(a => matchingCategories.includes(String(a.category || '').toLowerCase()));
     renderNews(filtered);
   }
+  const latest = document.getElementById('latest');
+  if (latest) latest.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function filterNews() {
