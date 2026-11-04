@@ -170,7 +170,7 @@ async function main() {
         feedsSucceeded: feedResults.filter(item => item.status === 'success').length,
         feedsFailed: feedResults.filter(item => item.status === 'failed').length, feedResults };
       fs.mkdirSync(shopDir, { recursive: true });
-      fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(failedManifest, null, 2) + '\\n');
+      fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(failedManifest, null, 2) + '\n');
       console.warn('Isolated feed failed; existing catalogue preserved:', failures.join(' | '));
       return;
     }
