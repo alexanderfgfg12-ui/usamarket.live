@@ -4,19 +4,24 @@ const path = require('node:path');
 const { XMLParser } = require('fast-xml-parser');
 const { parse: parseCsv } = require('csv-parse/sync');
 
-// feeds.json is the single source of truth for affiliate feed endpoints.
-// Do not read affiliate feed URLs from GitHub Actions secrets or environment variables.
+// feeds.json defines named sources. Resolve private URLs from Actions secrets first.
+// Keep inline URLs only as a temporary compatibility fallback.
 const registryPath = path.join(__dirname, '..', 'feeds.json');
-let urls = [];
+let feeds = [];
 try {
   const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
-  urls = [...new Set((registry.feeds || []).map(feed => String(feed.url || '').trim()).filter(Boolean))];
-} catch (error) {
-  throw new Error('Could not read feeds.json: ' + error.message);
-}
-// Keep distinct export templates even when they share a feed_id: template selection
-// can change the advertiser/product subset returned by Admitad.
-
+  feeds = (registry.feeds || []).map((feed, index) => {
+    const name = String(feed.name || ('Affiliate feed ' + (index + 1))).trim();
+    const secretEnv = String(feed.secretEnv || '').trim();
+    const secretUrl = secretEnv ? String(process.env[secretEnv] || '').trim() : '';
+    const url = secretUrl || String(feed.url || '').trim();
+    if (!url) return { ...feed, name, secretEnv, url: '', configError: secretEnv ? 'Missing Actions secret: ' + secretEnv : 'Missing feed URL' };
+    try { const parsed = new URL(url); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Invalid protocol'); }
+    catch { return { ...feed, name, secretEnv, url: '', configError: 'Invalid URL configured for ' + name }; }
+    return { ...feed, name, secretEnv, url };
+  });
+} catch (error) { throw new Error('Could not read feeds.json: ' + error.message); }
+// Never log private URLs or secret values; log source names and outcomes only.
 const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true });
@@ -100,7 +105,7 @@ async function fetchFeed(endpoint) {
   throw last;
 }
 async function main() {
-  if (!urls.length) throw new Error('feeds.json contains no affiliate feed URLs; catalogue left unchanged.');
+  if (!feeds.length) throw new Error('feeds.json contains no affiliate feed sources; catalogue left unchanged.');
   // Limit concurrent downloads: Admitad export endpoints throttle large simultaneous requests.
   const mapLimit = async (items, limit, worker) => {
     const output = new Array(items.length); let cursor = 0;
@@ -109,10 +114,11 @@ async function main() {
     }));
     return output;
   };
-  const results = await mapLimit(urls, 2, async (url, i) => {
+  const results = await mapLimit(feeds, 2, async (feed, i) => {
     try {
-      const { parsed, body, records } = await fetchFeed(url), categories = {};
-      const feedKey = require('node:crypto').createHash('sha256').update(url).digest('hex').slice(0, 12);
+      if (feed.configError) throw new Error(feed.configError);
+      const { parsed, body, records } = await fetchFeed(feed.url), categories = {};
+      const feedKey = require('node:crypto').createHash('sha256').update(feed.url).digest('hex').slice(0, 12);
       try { const shop = (body.trim().startsWith('<') ? xmlParser.parse(body) : {}).yml_catalog?.shop || {}; for (const c of asArray(shop.categories?.category)) { const id = String(c['@_id'] || c.id || ''), name = String(scalar(c) || c['#text'] || ''); if (id && name) categories[id] = name; } } catch {}
       const seen = new Set(), accepted = [];
       for (const item of records) {
@@ -122,10 +128,10 @@ async function main() {
         seen.add(p.affiliateUrl); accepted.push(p);
       }
       if (!accepted.length) throw new Error('No valid products with title and affiliate URL');
-      console.log('Feed', i + 1, parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products');
-      return { index: i, feedKey, products: accepted };
+      console.log('Feed', i + 1, '[' + feed.name + ']', parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products');
+      return { index: i, name: feed.name, secretEnv: feed.secretEnv, feedKey, products: accepted };
     } catch (error) {
-      const message = 'Feed ' + (i + 1) + ': ' + error.message;
+      const message = 'Feed ' + (i + 1) + ' [' + feed.name + ']: ' + error.message;
       console.warn(message);
       return { index: i, error: message };
     }
@@ -204,7 +210,7 @@ async function main() {
     const key = name.slice(0, 12);
     if (successfulFeedKeys.has(key)) fs.unlinkSync(path.join(feedDir, name));
   }
-  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedSnapshots, feedsConfigured: urls.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length };
+  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedSnapshots, feedsConfigured: feeds.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length, feedResults: results.map(result => ({ name: result.name || feeds[result.index]?.name, secretEnv: result.secretEnv || feeds[result.index]?.secretEnv, status: result.products ? 'success' : 'failed', products: result.products?.length || 0, error: result.error || null })) };
   writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
   writeIfChanged(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
