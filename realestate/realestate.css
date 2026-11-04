@@ -4,3 +4,10 @@
 .search{grid-template-columns:1.5fr 1.5fr 1fr 1fr auto}.search label{min-width:0}.search input[list]{background:#fff}.search input:focus,.search select:focus{outline:2px solid #8fc4f4;outline-offset:1px}.photo{background:#e7edf4}.photo-placeholder{height:220px;display:grid;place-items:center;background:linear-gradient(135deg,#e7edf4,#dce5ef);color:#758398;font-size:13px;text-align:center;padding:12px}.photo-link{display:block;overflow:hidden}.photo{transition:opacity .2s}.photo:not([src]){visibility:hidden}@media(max-width:1050px){.search{grid-template-columns:1fr 1fr}.search button{width:100%}}@media(max-width:560px){.search{grid-template-columns:1fr}.search label:first-child{grid-column:auto}}
 
 .city-field{position:relative}.city-suggestions{position:absolute;z-index:50;top:calc(100% + 4px);left:0;right:0;background:#fff;border:1px solid #d9e2ec;border-radius:9px;box-shadow:0 12px 28px #102b4d24;max-height:260px;overflow:auto;padding:5px}.city-suggestions[hidden]{display:none}.city-option{display:block;width:100%;border:0;background:#fff;color:#26364b;text-align:left;padding:11px 12px;border-radius:6px;font:inherit;font-size:14px;cursor:pointer}.city-option:hover,.city-option.active{background:#edf5ff;color:#145fa7}
+
+/* Preserve original Untera photo proportions; never crop listing images. */
+.grid .photo{object-fit:contain;background:#f1f4f7}
+.property-photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px;background:#f1f4f7}
+.property-photo-grid .main-property-image{display:block;width:100%;height:auto;max-height:620px;object-fit:contain;background:#fff;border-radius:6px}
+.property-photo-grid .main-property-image:first-child{grid-column:1/-1;max-height:720px}
+@media(max-width:650px){.property-photo-grid{grid-template-columns:1fr;padding:8px;gap:8px}.property-photo-grid .main-property-image,.property-photo-grid .main-property-image:first-child{grid-column:auto;max-height:none}}
