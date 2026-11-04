@@ -27,12 +27,20 @@ jobs:
           node-version: '20'
       - name: Install feed parsers
         run: npm install --no-save --no-package-lock fast-xml-parser csv-parse
-      - name: Import affiliate feeds from feeds.json in batches
+      - name: Import each affiliate supplier independently
         env:
           PRODUCT_BATCH_SIZE: 300
           FEED_TIMEOUT_MS: 1500000
           FEED_CONCURRENCY: 1
-        run: node scripts/sync-products.js
+        shell: bash
+        run: |
+          set -e
+          for index in $(seq 0 11); do
+            echo "=================================================="
+            echo "Starting isolated supplier sync: feed index $index"
+            echo "=================================================="
+            FEED_INDEX="$index" node scripts/sync-products.js
+          done
       - name: Generate product detail pages, category pages and sitemap
         run: node scripts/generate-store-pages.js
       - name: Commit catalogue, pages and sitemap when changed
