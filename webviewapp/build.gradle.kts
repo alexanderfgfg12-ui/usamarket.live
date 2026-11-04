@@ -3,14 +3,15 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 android {
+    // Keep the Kotlin namespace unchanged; publish this WebView app under its own unique package ID.
     namespace = "com.usamarket.live"
     compileSdk = 35
     defaultConfig {
-        applicationId = "com.usamarket.live"
+        applicationId = "com.usamarket.mobile"
         minSdk = 24
         targetSdk = 35
-        versionCode = 4
-        versionName = "2.1.0"
+        versionCode = 5
+        versionName = "2.2.0"
     }
     signingConfigs {
         create("release") {
