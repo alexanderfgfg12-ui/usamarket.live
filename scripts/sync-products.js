@@ -22,43 +22,36 @@ try {
 // Never log private URLs or secret values; log source names and outcomes only.
 const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
-const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true });
+const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true, removeNSPrefix: true });
 const cleanUrl = value => { if (value && typeof value === 'object') value = value['#text'] || value.url || value.value || ''; try { const u = new URL(String(value || '').trim()); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; } catch { return ''; } };
 const scalar = value => value && typeof value === 'object' ? (value['#text'] ?? value['@_id'] ?? value.value ?? '') : (value ?? '');
-const keyOf = key => String(key).toLowerCase().replace(/[^a-z0-9]/g, '');
+const keyOf = key => String(key).toLowerCase().split(':').pop().replace(/[^a-z0-9]/g, '');
 const get = (obj, aliases) => { if (!obj || typeof obj !== 'object') return undefined; const wanted = new Set(aliases.map(keyOf)); for (const [key, value] of Object.entries(obj)) if (wanted.has(keyOf(key))) return scalar(value); };
 const asArray = value => value == null ? [] : Array.isArray(value) ? value : [value];
 function findOffers(data) {
-  const visited = new Set();
+  // Traverse every nested collection; do not stop at the first matching branch.
+  const offers = [], seen = new Set();
+  const titleKeys = ['title','name','productName','product_name','productTitle','product_title','itemName','item_name','model'];
+  const urlKeys = ['url','link','affiliateUrl','affiliate_url','affiliateLink','affiliate_link','trackingUrl','tracking_url','trackingLink','tracking_link','productUrl','product_url','productLink','product_link','deeplink','deep_link','clickUrl','click_url','buyUrl','buy_url','affLink','aff_link'];
   const isOffer = value => value && typeof value === 'object' && !Array.isArray(value)
-    && !!get(value, ['title','name','productName','product_name','model'])
-    && !!(get(value, ['url','link','affiliateUrl','affiliate_url','trackingUrl','tracking_url']) || String(get(value, ['id']) || '').startsWith('http'));
+    && !!get(value, titleKeys)
+    && !!(get(value, urlKeys) || String(get(value, ['id']) || '').startsWith('http'));
   function walk(node, depth = 0) {
-    if (!node || typeof node !== 'object' || depth > 14 || visited.has(node)) return [];
-    visited.add(node);
-    if (Array.isArray(node)) {
-      const rows = node.filter(isOffer);
-      if (rows.length) return rows;
-      for (const child of node) { const found = walk(child, depth + 1); if (found.length) return found; }
-      return [];
-    }
-    if (isOffer(node)) return [node];
-    // Admitad exports vary by advertiser/template: search common wrappers first,
-    // then recursively inspect namespaces and nested shop/catalog/channel objects.
-    const preferred = ['products','product','offers','offer','items','item','shop','yml_catalog','catalog','rss','channel','data','feed','results','entries'];
-    const keys = Object.keys(node);
-    const ordered = [...preferred.filter(k => keys.includes(k)), ...keys.filter(k => !preferred.includes(k))];
-    for (const key of ordered) { const found = walk(node[key], depth + 1); if (found.length) return found; }
-    return [];
+    if (!node || typeof node !== 'object' || depth > 24 || seen.has(node)) return;
+    seen.add(node);
+    if (Array.isArray(node)) { for (const child of node) walk(child, depth + 1); return; }
+    if (isOffer(node)) { offers.push(node); return; }
+    for (const child of Object.values(node)) walk(child, depth + 1);
   }
-  return walk(data);
+  walk(data);
+  return offers;
 }
 function parseFeed(body, type) {
   const s = body.trim(); if (!s) throw new Error('Empty feed response');
   if (type.includes('json') || /^[\[{]/.test(s)) return findOffers(JSON.parse(s));
   if (type.includes('csv') || (!s.startsWith('<') && /[,;]/.test(s.split(/\r?\n/,1)[0]))) {
     const header = s.split(/\r?\n/,1)[0];
-    const delimiter = (header.match(/;/g)||[]).length > (header.match(/,/g)||[]).length ? ';' : ',';
+    const delimiter = [',',';','\t','|'].map(d => ({ d, n: header.split(d).length })).sort((a,b) => b.n-a.n)[0].d;
     return parseCsv(s, { columns: true, delimiter, skip_empty_lines: true, bom: true, relax_column_count: true, relax_quotes: true, trim: true });
   }
   if (s.startsWith('<')) { const offers = findOffers(xmlParser.parse(s)); if (!offers.length) throw new Error('XML parsed but no product offers found'); return offers; }
@@ -66,7 +59,7 @@ function parseFeed(body, type) {
 }
 function imageUrl(item) {
   if (!item || typeof item !== 'object') return '';
-  const aliases = new Set(['image','picture','imageurl','pictureurl','imagelink','picturelink','img','photo','images','pictures','picture1','image1']);
+  const aliases = new Set(['image','picture','imageurl','pictureurl','imagelink','picturelink','img','photo','images','pictures','picture1','image1','productImage','product_image','imageLink','image_link']);
   for (const [key, raw] of Object.entries(item)) if (aliases.has(keyOf(key))) for (const candidate of asArray(raw)) {
     const value = candidate && typeof candidate === 'object' ? (candidate['#text'] || candidate.url || candidate.src || candidate.href || candidate.value || candidate['@_url'] || candidate['@_src'] || '') : candidate;
     const url = cleanUrl(value); if (url) return url;
@@ -74,8 +67,8 @@ function imageUrl(item) {
   return '';
 }
 function normalize(item, categories, hostname, feedIndex, feedKey) {
-  const title = String(get(item, ['title','name','productName','product_name','model','product']) || '').trim();
-  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url','deeplink','deep_link']) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
+  const title = String(get(item, ['title','name','productName','product_name','productTitle','product_title','itemName','item_name','model','product']) || '').trim();
+  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','affiliateLink','affiliate_link','affLink','aff_link','url','link','trackingUrl','tracking_url','trackingLink','tracking_link','productUrl','product_url','productLink','product_link','clickUrl','click_url','buyUrl','buy_url','deeplink','deep_link']) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
   if (!title || !affiliateUrl) return null;
   const categoryId = String(get(item, ['categoryId','category_id','categoryid']) || '');
   const category = String(get(item, ['category','categoryName','category_name']) || categories[categoryId] || 'Other').slice(0, 80);
