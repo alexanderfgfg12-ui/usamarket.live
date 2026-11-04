@@ -308,10 +308,10 @@ async function refreshNewsLibrary(env) {
  const status={startedAt:new Date().toISOString(),languages:{}};
  for(const lang of ["en","ar"]) {
   const old=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
-  let found=[],feedsOk=0;
-  for(const feed of NEWS_FEEDS[lang]) {
-   try { const r=await fetch(feed,{headers:{accept:"application/rss+xml, application/xml, text/xml"},signal:AbortSignal.timeout(12000)}); if(!r.ok) continue; const parsed=parseNewsRss(await r.text(),lang); if(parsed.length){found.push(...parsed);feedsOk++;} } catch(_) {}
-  }
+  const feedResults=await Promise.all(NEWS_FEEDS[lang].map(async feed=>{
+   try { const r=await fetch(feed,{headers:{accept:"application/rss+xml, application/xml, text/xml"},signal:AbortSignal.timeout(12000)}); if(!r.ok)return []; return parseNewsRss(await r.text(),lang); } catch(_) { return []; }
+  }));
+  const found=feedResults.flat(),feedsOk=feedResults.filter(items=>items.length>0).length;
   if(!found.length&&!old?.articles?.length){status.languages[lang]={ok:false,count:0};continue;}
   const unique=new Map();
   for(const a of [...found,...(old?.articles||[])]) { const k=a.title.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff]+/g,""); if(!unique.has(k))unique.set(k,a); }
@@ -326,7 +326,8 @@ async function refreshNewsLibrary(env) {
 async function getNews(request,env) {
  if(request.method!=="GET") return json({error:"method_not_allowed"},405);
  const lang=new URL(request.url).searchParams.get("lang")==="ar"?"ar":"en";
- const data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
+ let data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
+ if(!data?.articles?.length){await refreshNewsLibrary(env).catch(()=>{});data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);}
  return json({lang,updatedAt:data?.updatedAt||null,count:data?.count||0,articles:data?.articles||[]},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 const newsHtmlEscape=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
