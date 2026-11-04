@@ -149,6 +149,51 @@ async function loadFeed(env, force = false) {
   throw lastError || new Error("feed_unavailable");
 }
 
+
+const VIDEO_CATEGORIES = {
+  economy: { en: "US economy Federal Reserve economics", ar: "الاقتصاد الأمريكي الاحتياطي الفيدرالي التضخم" },
+  investing: { en: "investing stock market financial education", ar: "تعلم الاستثمار الأسهم الأسواق المالية" },
+  ai: { en: "artificial intelligence technology official", ar: "الذكاء الاصطناعي التكنولوجيا" },
+  crypto: { en: "cryptocurrency blockchain financial technology", ar: "العملات الرقمية البلوكشين" },
+  business: { en: "American business entrepreneurship companies", ar: "الأعمال ريادة الأعمال الشركات" },
+  education: { en: "science education NASA technology", ar: "العلوم التعليم ناسا التكنولوجيا" }
+};
+async function searchVideos(request, env) {
+  if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
+  if (!env.YOUTUBE_API_KEY) return json({ error: "youtube_api_key_missing", message: "YouTube API key is not configured on the server." }, 503);
+  const url = new URL(request.url);
+  const lang = url.searchParams.get("lang") === "ar" ? "ar" : "en";
+  const category = clean(url.searchParams.get("category") || "all").toLowerCase();
+  if (category !== "all" && !VIDEO_CATEGORIES[category]) return json({ error: "invalid_category" }, 400);
+  const q = clean(url.searchParams.get("q")).slice(0, 100);
+  const pageToken = clean(url.searchParams.get("pageToken")).slice(0, 500);
+  const baseQuery = category === "all"
+    ? (lang === "ar" ? "الاقتصاد التكنولوجيا العلوم الاستثمار" : "US economy technology investing science")
+    : VIDEO_CATEGORIES[category][lang];
+  const params = new URLSearchParams({
+    part: "snippet", type: "video", maxResults: "50", safeSearch: "strict",
+    order: "relevance", videoEmbeddable: "true", videoSyndicated: "true",
+    regionCode: lang === "ar" ? "MA" : "US", relevanceLanguage: lang,
+    q: [baseQuery, q].filter(Boolean).join(" ")
+  });
+  if (pageToken) params.set("pageToken", pageToken);
+  try {
+    const response = await fetch("https://www.googleapis.com/youtube/v3/search?" + params.toString(), {
+      headers: { "x-goog-api-key": env.YOUTUBE_API_KEY }, signal: AbortSignal.timeout(10000)
+    });
+    const data = await response.json();
+    if (!response.ok) return json({ error: data?.error?.errors?.[0]?.reason || "youtube_api_error", message: "YouTube video search is temporarily unavailable." }, response.status === 403 ? 502 : response.status);
+    const videos = (data.items || []).map(item => ({
+      id: item.id?.videoId, title: clean(item.snippet?.title),
+      description: clean(item.snippet?.description).slice(0, 360),
+      channel: clean(item.snippet?.channelTitle), publishedAt: item.snippet?.publishedAt || "",
+      thumbnail: item.snippet?.thumbnails?.high?.url || item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url || ""
+    })).filter(item => /^[A-Za-z0-9_-]{11}$/.test(item.id || "") && item.title);
+    return json({ videos, nextPageToken: data.nextPageToken || null, totalResults: data.pageInfo?.totalResults || 0, lang, category },
+      200, { "cache-control": "public, max-age=900, s-maxage=1800" });
+  } catch (_) { return json({ error: "youtube_unavailable", message: "Unable to reach YouTube right now." }, 502); }
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -156,6 +201,7 @@ export default {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method_not_allowed" }, 405);
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });
     }
+    if (url.pathname === "/api/videos") return searchVideos(request, env);
     if (url.pathname === "/api/admitad/products") {
       if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
       try {

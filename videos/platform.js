@@ -3,7 +3,7 @@
 
   const isArabic = document.documentElement.lang === 'ar';
   const toolbar = document.querySelector('.video-toolbar');
-  const cards = [...document.querySelectorAll('.video-card')];
+  let cards = [...document.querySelectorAll('.video-card')];
   const dialog = document.querySelector('[data-video-dialog]');
   const player = dialog?.querySelector('[data-video-player]');
   const caption = dialog?.querySelector('[data-video-caption]');
@@ -197,7 +197,7 @@
   });
 
   const input = toolbar?.querySelector('[data-video-search]');
-  const buttons = [...(toolbar?.querySelectorAll('[data-video-filter]') || [])];
+  let buttons = [...(toolbar?.querySelectorAll('[data-video-filter]') || [])];
   let category = 'all';
 
   cards.forEach(function (card) {
@@ -208,6 +208,70 @@
         ? 'economy'
         : 'all';
   });
+
+
+  // Dynamic YouTube library. The API key remains in the Worker secret.
+  const firstGrid = document.querySelector('.video-grid');
+  const dynamicGrid = document.createElement('div');
+  dynamicGrid.className = 'video-grid video-dynamic-grid';
+  dynamicGrid.setAttribute('aria-live', 'polite');
+  if (firstGrid?.parentNode) firstGrid.parentNode.insertBefore(dynamicGrid, firstGrid.nextSibling);
+  const loadMore = document.createElement('button');
+  loadMore.type = 'button'; loadMore.className = 'video-filter video-load-more';
+  loadMore.textContent = isArabic ? 'تحميل المزيد من الفيديوهات' : 'Load more videos';
+  if (dynamicGrid.parentNode) dynamicGrid.parentNode.insertBefore(loadMore, dynamicGrid.nextSibling);
+  const categoryLabels = isArabic
+    ? { all:'الكل', economy:'الاقتصاد', investing:'الاستثمار', ai:'الذكاء الاصطناعي', crypto:'العملات الرقمية', business:'الأعمال', education:'العلوم والتعليم' }
+    : { all:'All', economy:'Economy', investing:'Investing', ai:'AI & Tech', crypto:'Crypto', business:'Business', education:'Science & Education' };
+  Object.entries(categoryLabels).forEach(([key,label]) => {
+    if (buttons.some(b => b.dataset.videoFilter === key)) return;
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'video-filter'; button.dataset.videoFilter = key;
+    button.textContent = label; toolbar?.append(button); buttons.push(button);
+  });
+  let nextPageToken = '', requestBusy = false, exhausted = false, dynamicIds = new Set(), activeRequest = 0;
+  function makeVideoCard(video) {
+    const article = document.createElement('article'); article.className = 'video-card'; article.dataset.category = category;
+    const play = document.createElement('button'); play.type = 'button'; play.className = 'video-frame video-play-card';
+    play.dataset.videoId = video.id; play.dataset.videoTitle = video.title;
+    play.setAttribute('aria-label', (isArabic ? 'تشغيل: ' : 'Play: ') + video.title);
+    const img = document.createElement('img'); img.src = video.thumbnail || ('https://i.ytimg.com/vi/' + video.id + '/hqdefault.jpg'); img.alt = ''; img.loading = 'lazy';
+    const overlay = document.createElement('span'); overlay.className = 'video-play-overlay'; overlay.textContent = '▶';
+    const label = document.createElement('span'); label.className = 'video-play-label'; label.textContent = isArabic ? 'شاهد الآن' : 'Watch here';
+    play.append(img, overlay, label);
+    const body = document.createElement('div'); body.className = 'video-card-body';
+    const source = document.createElement('span'); source.className = 'video-source'; source.textContent = video.channel;
+    const title = document.createElement('h2'); title.textContent = video.title;
+    const desc = document.createElement('p'); desc.textContent = video.description;
+    const credit = document.createElement('span'); credit.className = 'video-source-credit';
+    credit.textContent = isArabic ? 'المصدر وحقوق النشر: الناشر الأصلي · يُعرض الفيديو هنا' : 'Source & credit: Original publisher · embedded here';
+    body.append(source, title, desc, credit); article.append(play, body); return article;
+  }
+  async function loadVideos(reset = false) {
+    if (requestBusy || (exhausted && !reset)) return;
+    if (reset) { activeRequest++; nextPageToken = ''; exhausted = false; dynamicIds.clear(); dynamicGrid.replaceChildren(); }
+    const requestId = activeRequest; requestBusy = true; loadMore.disabled = true;
+    loadMore.textContent = isArabic ? 'جارٍ تحميل الفيديوهات...' : 'Loading videos...';
+    const params = new URLSearchParams({ lang: isArabic ? 'ar' : 'en', category, q: input?.value?.trim() || '' });
+    if (nextPageToken) params.set('pageToken', nextPageToken);
+    try {
+      const response = await fetch('/api/videos?' + params, { headers: { accept: 'application/json' } });
+      const data = await response.json();
+      if (requestId !== activeRequest) return;
+      if (!response.ok) throw new Error(data.message || data.error || 'Video service unavailable');
+      (data.videos || []).forEach(video => {
+        if (!video.id || dynamicIds.has(video.id)) return;
+        dynamicIds.add(video.id); const card = makeVideoCard(video); dynamicGrid.append(card); cards.push(card);
+      });
+      nextPageToken = data.nextPageToken || ''; exhausted = !nextPageToken; applyFilters();
+      loadMore.hidden = exhausted && !dynamicGrid.children.length;
+      loadMore.textContent = exhausted ? (isArabic ? 'لا توجد نتائج إضافية حالياً' : 'No more results right now') : (isArabic ? 'تحميل المزيد من الفيديوهات' : 'Load more videos');
+    } catch (error) {
+      loadMore.hidden = false; loadMore.textContent = isArabic ? 'تعذر التحميل — أعد المحاولة' : 'Could not load — retry'; loadMore.title = error.message;
+    } finally {
+      if (requestId === activeRequest) { requestBusy = false; loadMore.disabled = false; }
+    }
+  }
 
   function applyFilters() {
     const query = (input?.value || '').trim().toLowerCase();
@@ -234,8 +298,13 @@
     button.addEventListener('click', function () {
       category = button.dataset.videoFilter;
       buttons.forEach(item => item.classList.toggle('active', item === button));
+      loadVideos(true);
       applyFilters();
     });
   });
+  loadMore.addEventListener('click', () => loadVideos(false));
+  let searchTimer;
+  input?.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => loadVideos(true), 500); });
+  loadVideos(true);
   applyFilters();
 })();
