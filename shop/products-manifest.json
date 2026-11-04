@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T04:21:59.891Z",
+  "updatedAt": "2026-11-04T04:37:20.292Z",
   "totalProducts": 1432,
   "batchSize": 300,
   "batches": [
@@ -8,6 +8,19 @@
     "products-0003.json",
     "products-0004.json",
     "products-0005.json"
+  ],
+  "feedSnapshots": [
+    {
+      "feedKey": "24a07f52301c",
+      "batches": [
+        "24a07f52301c-0001.json",
+        "24a07f52301c-0002.json",
+        "24a07f52301c-0003.json",
+        "24a07f52301c-0004.json",
+        "24a07f52301c-0005.json"
+      ],
+      "totalProducts": 1432
+    }
   ],
   "feedsConfigured": 12,
   "feedsSucceeded": 1,
