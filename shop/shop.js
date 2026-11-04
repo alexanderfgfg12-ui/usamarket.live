@@ -1,7 +1,7 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
 const PAGE_SIZE=24;
-let products=[],page=1,loadingDone=false;
+let products=Array.isArray(window.__SHOP_INITIAL_PRODUCTS__)?window.__SHOP_INITIAL_PRODUCTS__.slice():[],page=1,loadingDone=false;
 const safeUrl=value=>{try{const u=new URL(value,location.origin);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const money=(v,c='USD')=>{if(v===null||v===undefined||v==='')return '';const n=Number(v);if(!Number.isFinite(n))return '';try{return new Intl.NumberFormat(undefined,{style:'currency',currency:c}).format(n)}catch{return n.toFixed(2)+' '+c}};
@@ -24,5 +24,5 @@ try{const latest=await fetchJson(manifestUrl+'?v='+Date.now(),10000);if(!Array.i
 ['q','category','sort'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',()=>{page=1;render()}));
 const topSearch=$('qMirror'),mainSearch=$('q');if(topSearch&&mainSearch){topSearch.addEventListener('input',()=>{mainSearch.value=topSearch.value;page=1;render()});mainSearch.addEventListener('input',()=>{topSearch.value=mainSearch.value})}
 document.querySelectorAll('[data-category]').forEach(button=>button.addEventListener('click',()=>{const wanted=button.dataset.category;const select=$('category');select.value=[...select.options].some(o=>o.value===wanted)?wanted:'';if(!select.value&&wanted)select.value=wanted;page=1;render();$('products').scrollIntoView({behavior:'smooth',block:'start'});}));
-load();
+if(products.length){categories();render();setStatus(products.length.toLocaleString()+' products ready · updating catalogue in background');}\nload();
 })();
