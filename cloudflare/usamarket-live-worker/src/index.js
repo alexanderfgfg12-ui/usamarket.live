@@ -277,28 +277,28 @@ const NEWS_IMAGES = {
 function newsDecode(v) {
  return String(v||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).trim();
 }
-function newsTag(s,t) { const m=s.match(new RegExp("<"+t+"\\b[^>]*>([\\s\\S]*?)<\\/"+t+">","i")); return m?newsDecode(m[1]):""; }
+function newsTag(s,t) { const m=s.match(new RegExp("<"+t+"\b[^>]*>([\s\S]*?)<\/"+t+">","i")); return m?newsDecode(m[1]):""; }
 function newsCategory(t,d) {
  const s=(t+" "+d).toLowerCase();
  if(/bitcoin|crypto|blockchain|بيتكوين|العملات الرقمية/.test(s)) return "crypto";
- if(/artificial intelligence|\\bai\\b|chip|semiconductor|technology|ذكاء اصطناعي|تكنولوجيا|الرقائق/.test(s)) return "technology";
+ if(/artificial intelligence|\bai\b|chip|semiconductor|technology|ذكاء اصطناعي|تكنولوجيا|الرقائق/.test(s)) return "technology";
  if(/federal reserve|inflation|jobs report|economy|rates|التضخم|اقتصاد|الفيدرالي|الفائدة/.test(s)) return "economy";
  if(/business|earnings|company|retail|أرباح|شركة|الأعمال/.test(s)) return "business";
  return "markets";
 }
 function newsId(t,l) { let h=2166136261; for(const c of(l||t)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);} return "live-"+(h>>>0).toString(36); }
 function parseNewsRss(xml,lang) {
- const out=[],blocks=xml.match(/<(?:item|entry)\\b[\\s\\S]*?<\\/(?:item|entry)>/gi)||[];
+ const out=[],blocks=xml.match(/<(?:item|entry)\b[\s\S]*?<\/(?:item|entry)>/gi)||[];
  for(const b of blocks.slice(0,30)) {
-  const title=newsTag(b,"title").replace(/\\s+-\\s+[^-]+$/,"").trim();
+  const title=newsTag(b,"title").replace(/\s+-\s+[^-]+$/,"").trim();
   const raw=newsTag(b,"description")||newsTag(b,"summary");
   const description=clean(raw.replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ")).slice(0,420);
-  const href=newsTag(b,"link")||(b.match(/<link\\b[^>]*href=["']([^"']+)/i)||[])[1]||"";
+  const href=newsTag(b,"link")||(b.match(/<link\b[^>]*href=["']([^"']+)/i)||[])[1]||"";
   const link=safeHttpUrl(href), date=new Date(newsTag(b,"pubDate")||newsTag(b,"published")||newsTag(b,"updated"));
   if(!title||!link||!description||!Number.isFinite(date.getTime())) continue;
   const category=newsCategory(title,description), id=newsId(title,link);
   const path=(lang==="ar"?"/ar/news/live/":"/news/live/")+id;
-  const media=b.match(/<(?:media:content|media:thumbnail|enclosure)\\b[^>]*(?:url|href)=["']([^"']+)["']/i);
+  const media=b.match(/<(?:media:content|media:thumbnail|enclosure)\b[^>]*(?:url|href)=["']([^"']+)["']/i);
   out.push({id,title,description,source:newsTag(b,"source")||"Google News",pubDate:date.toISOString(),category,image:safeHttpUrl(media&&media[1])||NEWS_IMAGES[category],link,lang,path});
  }
  return out;
