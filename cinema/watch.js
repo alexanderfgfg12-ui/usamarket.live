@@ -77,7 +77,9 @@ fetch('/api/cinema/catalog?id='+encodeURIComponent(id),{headers:{accept:'applica
  document.getElementById('watchCategory').textContent=item.category;
  document.getElementById('watchMeta').textContent=[item.year,item.duration].filter(Boolean).join(' · ');
  document.getElementById('watchDescription').textContent=item.description||'';
- document.getElementById('watchLicense').textContent='Licence: '+item.license;
+ document.getElementById('watchLicense').textContent='Rights basis / licence: '+(item.license||'Not provided')+'. '+(item.rightsNotes||'The listed rights basis is a summary; review the linked evidence for the specific media version and permitted uses.');
+ const territory=item.territoryNotes||'The territorial scope has to be checked independently. US public-domain status does not automatically mean the work is public domain in Morocco or every other country.';
+ document.getElementById('watchTerritory').textContent='Territorial note: '+territory;
  document.getElementById('watchEvidence').href=item.rightsEvidence;
  player.poster=item.poster||'';player.src=item.playbackUrl;
  status.hidden=true;content.hidden=false;
