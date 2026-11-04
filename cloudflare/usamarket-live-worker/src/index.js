@@ -257,6 +257,13 @@ async function refreshVideoLibrary(env) {
 
 
 const CINEMA_CATALOG_KEY = "cinema:v1:catalog";
+// GitHub-hosted static catalogue mode: only well-known public media hosts are
+// accepted by default. Add other reviewed hosts through CINEMA_MEDIA_HOSTS.
+const CINEMA_DEFAULT_MEDIA_HOSTS = ["archive.org", "upload.wikimedia.org"];
+function cinemaHostAllowed(host, configured) {
+  const h = String(host || "").toLowerCase();
+  return configured.has(h) || CINEMA_DEFAULT_MEDIA_HOSTS.some(root => h === root || h.endsWith("." + root));
+}
 function cinemaSafeItem(item, allowedHosts) {
   if (!item || item.active !== true || item.rightsStatus !== "verified") return null;
   const playback = clean(item.playbackUrl);
@@ -265,7 +272,7 @@ function cinemaSafeItem(item, allowedHosts) {
   if (!playback || !license || !evidence) return null;
   let media;
   try { media = new URL(playback); } catch (_) { return null; }
-  if (media.protocol !== "https:" || !allowedHosts.has(media.hostname.toLowerCase())) return null;
+  if (media.protocol !== "https:" || !cinemaHostAllowed(media.hostname, allowedHosts)) return null;
   const id = clean(item.id).toLowerCase();
   if (!/^[a-z0-9][a-z0-9-]{1,79}$/.test(id)) return null;
   return {
@@ -281,19 +288,30 @@ function cinemaSafeItem(item, allowedHosts) {
 }
 async function getCinemaCatalog(request, env) {
   if (request.method !== "GET") return json({error:"method_not_allowed"},405);
-  if (!env.VIDEOS_KV) return json({error:"cinema_storage_unavailable"},503);
-  const hosts = new Set(clean(env.CINEMA_MEDIA_HOSTS).toLowerCase().split(",").map(x=>x.trim()).filter(Boolean));
-  if (!hosts.size) return json({items:[],count:0,notice:"cinema_media_host_not_configured"});
-  const data = await env.VIDEOS_KV.get(CINEMA_CATALOG_KEY,"json").catch(()=>null);
+  const configuredHosts = new Set(clean(env.CINEMA_MEDIA_HOSTS).toLowerCase().split(",").map(x=>x.trim()).filter(Boolean));
+  // Prefer the existing KV catalogue when populated; otherwise read the
+  // version-controlled JSON file served by the Worker static-assets binding.
+  let data = env.VIDEOS_KV ? await env.VIDEOS_KV.get(CINEMA_CATALOG_KEY,"json").catch(()=>null) : null;
+  let source = "kv";
+  if (!Array.isArray(data?.items) || data.items.length === 0) {
+    source = "github-static";
+    if (env.ASSETS) {
+      try {
+        const assetUrl = new URL("/cinema/catalog.json", request.url);
+        const response = await env.ASSETS.fetch(new Request(assetUrl, {headers:{accept:"application/json"}}));
+        if (response.ok) data = await response.json();
+      } catch (_) {}
+    }
+  }
   const items = (Array.isArray(data?.items)?data.items:[])
-    .map(item=>cinemaSafeItem(item,hosts)).filter(Boolean);
+    .map(item=>cinemaSafeItem(item,configuredHosts)).filter(Boolean);
   const id = clean(new URL(request.url).searchParams.get("id")).toLowerCase();
   if (id) {
     const item = items.find(x=>x.id===id);
-    return item ? json({item},200,{"cache-control":"public, max-age=180, s-maxage=300"})
+    return item ? json({item,source},200,{"cache-control":"public, max-age=180, s-maxage=300"})
       : json({error:"title_not_found"},404);
   }
-  return json({items,count:items.length},200,{"cache-control":"public, max-age=180, s-maxage=300"});
+  return json({items,count:items.length,source},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 
 const NEWS_FEEDS = {

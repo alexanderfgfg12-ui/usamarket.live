@@ -5,17 +5,19 @@
 - Public catalogue: `/cinema/`
 - In-site player: `/cinema/watch.html?id=<title-id>`
 - Worker API: `GET /api/cinema/catalog` and `GET /api/cinema/catalog?id=<title-id>`
-- Catalogue storage: existing `VIDEOS_KV` namespace, key `cinema:v1:catalog`
-- The API only returns entries marked `active: true` and `rightsStatus: "verified"`, with a licence label, a rights-evidence URL, and an HTTPS playback URL whose hostname is allowlisted.
+- Catalogue storage: version-controlled `cinema/catalog.json` in GitHub (no card or paid storage required); the Worker prefers a populated `VIDEOS_KV` catalogue if one exists, then falls back to the GitHub-hosted JSON file
+- The API only returns entries marked `active: true` and `rightsStatus: "verified"`, with a licence label, a rights-evidence URL, and an HTTPS playback URL. The default media-host allowlist accepts `archive.org` and `upload.wikimedia.org` (including their subdomains); additional reviewed hosts can be added with the optional `CINEMA_MEDIA_HOSTS` Worker variable.
 - The player is an HTML5 video player for direct MP4 media URLs. No film files are currently included or published by this change.
 
-## Cloudflare setup required before any title can play
+## Free GitHub catalogue workflow (no bank card)
 
-1. Create a dedicated Cloudflare R2 bucket for cinema media (for example, `usamarket-cinema-media`).
-2. Connect a dedicated custom domain to that bucket (for example, `media.usamarket.live`). Do not use an unprotected bucket listing.
-3. Upload only media that USAMARKET is authorised to host. Use MP4/H.264 + AAC for broad browser compatibility and ensure byte-range requests work for seeking.
-4. In the `usamarket-live` Worker, set the non-secret variable `CINEMA_MEDIA_HOSTS` to the exact media hostname, e.g. `media.usamarket.live`. Do not include a scheme or path.
-5. Add the catalogue JSON below to the existing KV namespace `VIDEOS_KV` under the exact key `cinema:v1:catalog`.
+1. Edit `cinema/catalog.json` in the GitHub repository.
+2. Add only titles whose specific version, soundtrack, subtitles and poster have been checked for public-domain status or a licence that permits the intended streaming and advertising.
+3. Set `active` to `true` and `rightsStatus` to `verified` only after that review; otherwise keep the record out of the catalogue.
+4. Use a direct HTTPS MP4 URL from an approved host (`archive.org` or `upload.wikimedia.org` by default). The in-site player requires a browser-playable media file and byte-range support for seeking.
+5. Commit the JSON change. The Worker reads the file from the site's static assets when the KV catalogue is absent or empty.
+
+No R2 bucket, payment card, or paid storage is required for this mode. GitHub stores the catalogue metadata, not large movie files. Video bytes remain hosted by the authorised media provider. An optional `CINEMA_MEDIA_HOSTS` Worker variable can extend the default host allowlist with comma-separated hostnames; do not add a host until its rights and reliability have been checked.
 
 No new R2 bucket or domain is created automatically by the code deployment. The Cloudflare account owner must create and bind the storage/domain in the dashboard.
 
@@ -44,7 +46,7 @@ Store one JSON object with an `items` array. Only publish verified entries:
 }
 ```
 
-The example is a schema illustration only and is not a real title or a rights determination. Replace every field with verified information. Keep `items` empty until a title's rights have been checked.
+The example is a schema illustration only and is not a real title or a rights determination. Replace every field with verified information. The committed `cinema/catalog.json` starts with an empty `items` array intentionally; do not add sample or fabricated films.
 
 ## Rights review checklist per title
 
@@ -58,6 +60,6 @@ The example is a schema illustration only and is not a real title or a rights de
 ## Operational notes
 
 - Do not upload copyrighted films based only on their presence on an archive website.
-- Keep the R2 bucket dedicated to cleared cinema media; do not mix it with user uploads or affiliate assets.
-- The current API is read-only by design. Update the KV catalogue only through an authorised Cloudflare dashboard workflow.
+- Do not commit large movie files to the Git repository; GitHub is being used for catalogue metadata, not video hosting.
+- The current API is read-only by design. Edit the GitHub `cinema/catalog.json` file to publish reviewed titles. A populated KV catalogue remains supported as an optional override.
 - The current catalogue will correctly show an empty state until an allowlisted media hostname and verified catalogue records are configured.
