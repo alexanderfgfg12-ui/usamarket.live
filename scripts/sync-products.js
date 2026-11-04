@@ -53,7 +53,11 @@ function findOffers(data) {
 function parseFeed(body, type) {
   const s = body.trim(); if (!s) throw new Error('Empty feed response');
   if (type.includes('json') || /^[\[{]/.test(s)) return findOffers(JSON.parse(s));
-  if (type.includes('csv') || (!s.startsWith('<') && s.includes(','))) return parseCsv(s, { columns: true, skip_empty_lines: true, bom: true, relax_column_count: true, trim: true });
+  if (type.includes('csv') || (!s.startsWith('<') && /[,;]/.test(s.split(/\r?\n/,1)[0]))) {
+    const header = s.split(/\r?\n/,1)[0];
+    const delimiter = (header.match(/;/g)||[]).length > (header.match(/,/g)||[]).length ? ';' : ',';
+    return parseCsv(s, { columns: true, delimiter, skip_empty_lines: true, bom: true, relax_column_count: true, relax_quotes: true, trim: true });
+  }
   if (s.startsWith('<')) { const offers = findOffers(xmlParser.parse(s)); if (!offers.length) throw new Error('XML parsed but no product offers found'); return offers; }
   throw new Error('Unsupported feed format');
 }
@@ -67,8 +71,8 @@ function imageUrl(item) {
   return '';
 }
 function normalize(item, categories, hostname, feedIndex, feedKey) {
-  const title = String(get(item, ['title','name','productName','product_name','model']) || '').trim();
-  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url']) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
+  const title = String(get(item, ['title','name','productName','product_name','model','product']) || '').trim();
+  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','url','link','trackingUrl','tracking_url','deeplink','deep_link']) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
   if (!title || !affiliateUrl) return null;
   const categoryId = String(get(item, ['categoryId','category_id','categoryid']) || '');
   const category = String(get(item, ['category','categoryName','category_name']) || categories[categoryId] || 'Other').slice(0, 80);
@@ -87,7 +91,7 @@ async function fetchFeed(endpoint) {
   const parsed = new URL(endpoint); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTP(S)');
   let last;
   for (let attempt = 1; attempt <= 2; attempt++) try {
-    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(120000) });
+    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(180000) });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const body = await response.text(), records = parseFeed(body, response.headers.get('content-type') || '');
     if (!records.length) throw new Error('No product rows');
@@ -105,7 +109,7 @@ async function main() {
     }));
     return output;
   };
-  const results = await mapLimit(urls, 3, async (url, i) => {
+  const results = await mapLimit(urls, 2, async (url, i) => {
     try {
       const { parsed, body, records } = await fetchFeed(url), categories = {};
       const feedKey = require('node:crypto').createHash('sha256').update(url).digest('hex').slice(0, 12);
