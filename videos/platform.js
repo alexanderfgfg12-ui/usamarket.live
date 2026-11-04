@@ -121,10 +121,12 @@
       try {
         const request = new ima.AdsRequest();
         request.adTagUrl = currentTag;
-        request.linearAdSlotWidth = Math.max(320, player.clientWidth || 640);
-        request.linearAdSlotHeight = Math.max(180, Math.round(request.linearAdSlotWidth * 9 / 16));
-        request.nonLinearAdSlotWidth = request.linearAdSlotWidth;
-        request.nonLinearAdSlotHeight = Math.round(request.linearAdSlotHeight / 3);
+        const slotWidth = Math.max(1, Math.round(stage.getBoundingClientRect().width || player.clientWidth || 640));
+        const slotHeight = Math.max(1, Math.round(stage.getBoundingClientRect().height || slotWidth * 9 / 16));
+        request.linearAdSlotWidth = slotWidth;
+        request.linearAdSlotHeight = slotHeight;
+        request.nonLinearAdSlotWidth = slotWidth;
+        request.nonLinearAdSlotHeight = Math.max(1, Math.round(slotHeight / 3));
         adsLoader.requestAds(request);
       } catch (_) { settleAttempt(true); }
     };
@@ -154,7 +156,8 @@
         activeAdsManager.addEventListener(ima.AdErrorEvent.Type.AD_ERROR, () => settleAttempt(true));
         activeAdsManager.addEventListener(ima.AdEvent.Type.CONTENT_RESUME_REQUESTED, () => settleAttempt(false));
         activeAdsManager.addEventListener(ima.AdEvent.Type.ALL_ADS_COMPLETED, () => settleAttempt(false));
-        activeAdsManager.init(640, 360, ima.ViewMode.NORMAL);
+        const rect = stage.getBoundingClientRect();
+        activeAdsManager.init(Math.max(1, Math.round(rect.width)), Math.max(1, Math.round(rect.height)), ima.ViewMode.NORMAL);
         activeAdsManager.start();
       } catch (_) { settleAttempt(true); }
     });
