@@ -199,6 +199,14 @@ async function searchVideos(request, env) {
       channel: clean(item.snippet?.channelTitle), publishedAt: item.snippet?.publishedAt || "",
       thumbnail: item.snippet?.thumbnails?.high?.url || item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url || ""
     })).filter(item => /^[A-Za-z0-9_-]{11}$/.test(item.id || "") && item.title);
+    if (env.VIDEOS_KV && !q && !pageToken && videos.length) {
+      try {
+        await env.VIDEOS_KV.put(cacheKey, JSON.stringify({
+          videos, totalResults: data.pageInfo?.totalResults || videos.length,
+          fetchedAt: new Date().toISOString()
+        }), { expirationTtl: 172800 });
+      } catch (_) {}
+    }
     return json({ videos, nextPageToken: data.nextPageToken || null, totalResults: data.pageInfo?.totalResults || 0, lang, category },
       200, { "cache-control": "public, max-age=900, s-maxage=1800" });
   } catch (_) { return json({ error: "youtube_unavailable", message: "Unable to reach YouTube right now." }, 502); }
