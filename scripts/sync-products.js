@@ -87,7 +87,7 @@ async function fetchFeed(endpoint) {
   const parsed = new URL(endpoint); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Feed URL must use HTTP(S)');
   let last;
   for (let attempt = 1; attempt <= 2; attempt++) try {
-    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(180000) });
+    const response = await fetch(endpoint, { headers: { accept: 'application/json, application/xml, text/xml, text/csv, */*' }, signal: AbortSignal.timeout(Math.max(60000, Number(process.env.FEED_TIMEOUT_MS) || 1500000)) });
     if (!response.ok) throw new Error('HTTP ' + response.status);
     const body = await response.text(), records = parseFeed(body, response.headers.get('content-type') || '');
     if (!records.length) throw new Error('No product rows');
@@ -105,7 +105,7 @@ async function main() {
     }));
     return output;
   };
-  const results = await mapLimit(feeds, 2, async (feed, i) => {
+  const results = await mapLimit(feeds, Math.max(1, Number(process.env.FEED_CONCURRENCY) || 3), async (feed, i) => {
     try {
       if (feed.configError) throw new Error(feed.configError);
       const { parsed, body, records } = await fetchFeed(feed.url), categories = {};
