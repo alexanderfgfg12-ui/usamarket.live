@@ -16,7 +16,7 @@ try {
     if (!url) return { ...feed, name, url: '', configError: 'Missing feed URL in feeds.json' };
     try { const parsed = new URL(url); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Invalid protocol'); }
     catch { return { ...feed, name, url: '', configError: 'Invalid URL configured for ' + name }; }
-    return { ...feed, name, url };
+    return { ...feed, name, url, originalIndex: index };
   });
 } catch (error) { throw new Error('Could not read feeds.json: ' + error.message); }
 // Never log private URLs or secret values; log source names and outcomes only.
@@ -96,6 +96,15 @@ async function fetchFeed(endpoint) {
   throw last;
 }
 async function main() {
+  const configuredFeeds = feeds.slice();
+  const selectedIndexRaw = process.env.FEED_INDEX;
+  const selectedIndex = selectedIndexRaw === undefined ? null : Number(selectedIndexRaw);
+  if (selectedIndex !== null) {
+    if (!Number.isInteger(selectedIndex) || selectedIndex < 0 || selectedIndex >= configuredFeeds.length) {
+      throw new Error('FEED_INDEX must be a valid zero-based index from feeds.json');
+    }
+    feeds = [configuredFeeds[selectedIndex]];
+  }
   if (!feeds.length) throw new Error('feeds.json contains no affiliate feed sources; catalogue left unchanged.');
   // Limit concurrent downloads: Admitad export endpoints throttle large simultaneous requests.
   const mapLimit = async (items, limit, worker) => {
@@ -116,7 +125,7 @@ async function main() {
       for (let recordIndex = 0; recordIndex < records.length; recordIndex++) {
         const item = records[recordIndex];
         let p = null;
-        try { p = normalize(item, categories, parsed.hostname, i + 1, feedKey); }
+        try { p = normalize(item, categories, parsed.hostname, (feed.originalIndex ?? i) + 1, feedKey); }
         catch (error) {
           productResults.push({ record: recordIndex + 1, status: 'invalid', reason: error.message });
           continue;
@@ -150,6 +159,20 @@ async function main() {
   const successfulLegacySources = new Set(successfulResults.map(x => 'Feed ' + (x.index + 1)));
   const failures = results.filter(x => x.error).map(x=>x.error);
   if (!feedProducts.length) {
+    if (selectedIndex !== null) {
+      let oldManifest = {};
+      try { oldManifest = JSON.parse(fs.readFileSync(path.join(shopDir, 'products-manifest.json'), 'utf8')); } catch {}
+      const priorResults = new Map((oldManifest.feedResults || []).map(item => [item.name, item]));
+      const failedFeed = configuredFeeds[selectedIndex];
+      priorResults.set(failedFeed.name, { name: failedFeed.name, status: 'failed', products: 0, error: failures.join(' | ') || 'Feed returned no valid products' });
+      const feedResults = configuredFeeds.map(item => priorResults.get(item.name) || { name: item.name, status: 'not-run', products: 0, error: null });
+      const failedManifest = { ...oldManifest, updatedAt: new Date().toISOString(), feedsConfigured: configuredFeeds.length,
+        feedsSucceeded: feedResults.filter(item => item.status === 'success').length,
+        feedsFailed: feedResults.filter(item => item.status === 'failed').length, feedResults };
+      writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(failedManifest, null, 2) + '\\n');
+      console.warn('Isolated feed failed; existing catalogue preserved:', failures.join(' | '));
+      return;
+    }
     throw new Error('No affiliate feeds returned valid products; previous catalogue preserved. ' + failures.join(' | '));
   }
   // Keep the last good catalogue when one partner feed is temporarily unavailable.
@@ -228,7 +251,18 @@ async function main() {
     const key = name.slice(0, 12);
     if (successfulFeedKeys.has(key)) fs.unlinkSync(path.join(feedDir, name));
   }
-  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedSnapshots, feedsConfigured: feeds.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length, feedResults: results.map(result => ({ name: result.name || feeds[result.index]?.name, status: result.products ? 'success' : 'failed', products: result.products?.length || 0, error: result.error || null })) };
+  const previousFeedResults = new Map((previousManifest?.feedResults || []).map(item => [item.name, item]));
+  for (const result of results) {
+    const source = configuredFeeds[result.index === undefined ? selectedIndex : (result.index + (selectedIndex === null ? 0 : selectedIndex))];
+    if (source) previousFeedResults.set(source.name, { name: source.name, status: result.products ? 'success' : 'failed', products: result.products?.length || 0, error: result.error || null });
+  }
+  const feedResults = configuredFeeds.map(item => previousFeedResults.get(item.name) || { name: item.name, status: 'not-run', products: 0, error: null });
+  const mergedSnapshots = new Map((previousManifest?.feedSnapshots || []).map(item => [item.feedKey, item]));
+  for (const item of feedSnapshots) mergedSnapshots.set(item.feedKey, item);
+  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches,
+    feedSnapshots: [...mergedSnapshots.values()], feedsConfigured: configuredFeeds.length,
+    feedsSucceeded: feedResults.filter(item => item.status === 'success').length,
+    feedsFailed: feedResults.filter(item => item.status === 'failed').length, feedResults };
   writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   const reportSummary = productReport.reduce((counts, item) => { counts[item.status] = (counts[item.status] || 0) + 1; return counts; }, {});
   writeIfChanged(path.join(shopDir, 'sync-report.json'), JSON.stringify({ updatedAt: stamp, summary: reportSummary, totalRecords: productReport.length, feedFailures: failures, products: productReport }, null, 2) + '\n');
