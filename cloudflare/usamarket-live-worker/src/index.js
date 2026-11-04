@@ -167,6 +167,16 @@ async function searchVideos(request, env) {
   if (category !== "all" && !VIDEO_CATEGORIES[category]) return json({ error: "invalid_category" }, 400);
   const q = clean(url.searchParams.get("q")).slice(0, 100);
   const pageToken = clean(url.searchParams.get("pageToken")).slice(0, 500);
+  const cacheKey = "videos:v1:" + lang + ":" + category;
+  if (!q && !pageToken && env.VIDEOS_KV) {
+    try {
+      const cached = await env.VIDEOS_KV.get(cacheKey, "json");
+      if (cached && Array.isArray(cached.videos) && cached.videos.length) {
+        return json({ videos: cached.videos, nextPageToken: null, totalResults: cached.totalResults || cached.videos.length, lang, category, cached: true, refreshedAt: cached.fetchedAt },
+          200, { "cache-control": "public, max-age=300, s-maxage=900" });
+      }
+    } catch (_) {}
+  }
   const baseQuery = category === "all"
     ? (lang === "ar" ? "الاقتصاد التكنولوجيا العلوم الاستثمار" : "US economy technology investing science")
     : VIDEO_CATEGORIES[category][lang];
@@ -194,7 +204,52 @@ async function searchVideos(request, env) {
   } catch (_) { return json({ error: "youtube_unavailable", message: "Unable to reach YouTube right now." }, 502); }
 }
 
+async function refreshVideoLibrary(env) {
+  const apiKey = env.YOUTUBE_API_KEY || env.youtube_api_key;
+  if (!apiKey) throw new Error("youtube_api_key_missing");
+  if (!env.VIDEOS_KV) throw new Error("videos_kv_binding_missing");
+  const categories = ["all", ...Object.keys(VIDEO_CATEGORIES)];
+  const results = [];
+  for (const lang of ["en", "ar"]) {
+    for (const category of categories) {
+      const baseQuery = category === "all"
+        ? (lang === "ar" ? "الاقتصاد التكنولوجيا العلوم الاستثمار" : "US economy technology investing science")
+        : VIDEO_CATEGORIES[category][lang];
+      const params = new URLSearchParams({
+        part: "snippet", type: "video", maxResults: "50", safeSearch: "strict",
+        order: "date", videoEmbeddable: "true", videoSyndicated: "true",
+        regionCode: lang === "ar" ? "MA" : "US", relevanceLanguage: lang,
+        q: baseQuery
+      });
+      const response = await fetch("https://www.googleapis.com/youtube/v3/search?" + params.toString(), {
+        headers: { "x-goog-api-key": apiKey }, signal: AbortSignal.timeout(12000)
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        results.push({ lang, category, ok: false, reason: data?.error?.errors?.[0]?.reason || "youtube_api_error" });
+        continue;
+      }
+      const videos = (data.items || []).map(item => ({
+        id: item.id?.videoId, title: clean(item.snippet?.title),
+        description: clean(item.snippet?.description).slice(0, 360),
+        channel: clean(item.snippet?.channelTitle), publishedAt: item.snippet?.publishedAt || "",
+        thumbnail: item.snippet?.thumbnails?.high?.url || item.snippet?.thumbnails?.medium?.url || item.snippet?.thumbnails?.default?.url || ""
+      })).filter(item => /^[A-Za-z0-9_-]{11}$/.test(item.id || "") && item.title);
+      const unique = [...new Map(videos.map(v => [v.id, v])).values()];
+      await env.VIDEOS_KV.put("videos:v1:" + lang + ":" + category, JSON.stringify({
+        videos: unique, totalResults: data.pageInfo?.totalResults || unique.length,
+        fetchedAt: new Date().toISOString()
+      }), { expirationTtl: 172800 });
+      results.push({ lang, category, ok: true, count: unique.length });
+    }
+  }
+  return results;
+}
+
 export default {
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(refreshVideoLibrary(env));
+  },
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname === "/health" || url.pathname === "/api/health") {
