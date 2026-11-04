@@ -39,3 +39,23 @@ The workflow intentionally keeps the current catalogue unchanged when no feeds a
 ## Product fields
 
 Required: `title`, valid `affiliateUrl`. Recommended: `image`, `price`, `currency`, `description`, `category`, `source`. Only publish products and assets permitted by the partner's terms. Confirm local disclosure and consumer-protection requirements for the markets you target.
+
+
+## Named Admitad feed sources
+
+Each entry in feeds.json has a display name and a secretEnv key. The importer resolves the URL from that GitHub Actions secret first, then uses the existing inline URL only as a temporary fallback.
+
+- `ADMITAD_TEMPLATE_79310_URL` — Admitad template 79310
+- `ADMITAD_TEMPLATE_79311_URL` — Admitad template 79311
+- `ADMITAD_TEMPLATE_79312_URL` — Admitad template 79312
+- `ADMITAD_TEMPLATE_79319_URL` — Admitad template 79319
+- `ADMITAD_TEMPLATE_79320_URL` — Admitad template 79320
+- `ADMITAD_TEMPLATE_79321_URL` — Admitad template 79321
+- `ADMITAD_TEMPLATE_79322_URL` — Admitad template 79322
+- `ADMITAD_TEMPLATE_79323_URL` — Admitad template 79323
+- `ADMITAD_TEMPLATE_79324_URL` — Admitad template 79324
+- `ADMITAD_TEMPLATE_79335_URL` — Admitad template 79335
+- `ADMITAD_TEMPLATE_79336_URL` — Admitad template 79336
+- `ADMITAD_TEMPLATE_79337_URL` — Admitad template 79337
+
+Add each private export URL as the value of its matching repository secret under Settings → Secrets and variables → Actions. Never commit secret values. The importer logs source names, product counts and per-source errors without printing URLs or secret values; results are also written to shop/products-manifest.json.
