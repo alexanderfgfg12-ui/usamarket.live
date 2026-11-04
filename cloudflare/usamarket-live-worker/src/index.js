@@ -255,6 +255,47 @@ async function refreshVideoLibrary(env) {
 }
 
 
+
+const CINEMA_CATALOG_KEY = "cinema:v1:catalog";
+function cinemaSafeItem(item, allowedHosts) {
+  if (!item || item.active !== true || item.rightsStatus !== "verified") return null;
+  const playback = clean(item.playbackUrl);
+  const evidence = safeHttpUrl(item.rightsEvidence);
+  const license = clean(item.license);
+  if (!playback || !license || !evidence) return null;
+  let media;
+  try { media = new URL(playback); } catch (_) { return null; }
+  if (media.protocol !== "https:" || !allowedHosts.has(media.hostname.toLowerCase())) return null;
+  const id = clean(item.id).toLowerCase();
+  if (!/^[a-z0-9][a-z0-9-]{1,79}$/.test(id)) return null;
+  return {
+    id, title: clean(item.title).slice(0,160),
+    year: Number.isInteger(Number(item.year)) ? Number(item.year) : null,
+    category: ["film","series","documentary"].includes(item.category) ? item.category : "film",
+    description: clean(item.description).slice(0,1200),
+    poster: safeHttpUrl(item.poster),
+    duration: clean(item.duration).slice(0,40),
+    playbackUrl: media.href,
+    license, rightsEvidence: evidence
+  };
+}
+async function getCinemaCatalog(request, env) {
+  if (request.method !== "GET") return json({error:"method_not_allowed"},405);
+  if (!env.VIDEOS_KV) return json({error:"cinema_storage_unavailable"},503);
+  const hosts = new Set(clean(env.CINEMA_MEDIA_HOSTS).toLowerCase().split(",").map(x=>x.trim()).filter(Boolean));
+  if (!hosts.size) return json({items:[],count:0,notice:"cinema_media_host_not_configured"});
+  const data = await env.VIDEOS_KV.get(CINEMA_CATALOG_KEY,"json").catch(()=>null);
+  const items = (Array.isArray(data?.items)?data.items:[])
+    .map(item=>cinemaSafeItem(item,hosts)).filter(Boolean);
+  const id = clean(new URL(request.url).searchParams.get("id")).toLowerCase();
+  if (id) {
+    const item = items.find(x=>x.id===id);
+    return item ? json({item},200,{"cache-control":"public, max-age=180, s-maxage=300"})
+      : json({error:"title_not_found"},404);
+  }
+  return json({items,count:items.length},200,{"cache-control":"public, max-age=180, s-maxage=300"});
+}
+
 const NEWS_FEEDS = {
  en: [
   "https://news.google.com/rss/search?q=US+stock+market+OR+Wall+Street+OR+Federal+Reserve&hl=en-US&gl=US&ceid=US:en",
@@ -364,6 +405,7 @@ export default {
     }
     if (url.pathname === "/api/videos") return searchVideos(request, env);
     if (url.pathname === "/api/news") return getNews(request, env);
+    if (url.pathname === "/api/cinema/catalog") return getCinemaCatalog(request, env);
     if (url.pathname === "/news-sitemap-live.xml") return liveNewsSitemap(env);
     const liveArticle = url.pathname.match(/^\/(ar\/)?news\/live\/([a-z0-9-]+)\/?$/i);
     if (request.method === "GET" && liveArticle) return renderLiveNewsPage(liveArticle[2], liveArticle[1] ? "ar" : "en", env);
