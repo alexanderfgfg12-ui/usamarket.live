@@ -298,8 +298,13 @@
     button.addEventListener('click', function () {
       category = button.dataset.videoFilter;
       buttons.forEach(item => item.classList.toggle('active', item === button));
+      loadVideos(true);
       applyFilters();
     });
   });
+  loadMore.addEventListener('click', () => loadVideos(false));
+  let searchTimer;
+  input?.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(() => loadVideos(true), 500); });
+  loadVideos(true);
   applyFilters();
 })();
