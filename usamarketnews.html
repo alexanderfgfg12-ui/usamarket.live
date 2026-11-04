@@ -32,6 +32,7 @@ a{color:inherit}.site-header{height:auto;min-height:82px;background:#fff;border-
 footer{background:var(--navy);color:#fff;padding:24px;text-align:center;border-top:8px solid var(--red);font-size:.9rem}footer a{color:#fff}
 @media(max-width:800px){.site-header{align-items:flex-start;flex-direction:column}.nav{width:100%;flex-wrap:wrap}.signup{grid-template-columns:1fr}.benefits{grid-template-columns:repeat(2,1fr)}.benefit:nth-child(2){border-right:0}}@media(max-width:480px){.nav{gap:10px;font-size:.9rem}.nav .active{padding:9px 12px}.benefits{grid-template-columns:1fr}.benefit{border-right:0;border-bottom:1px solid #b9c9e5}.hero:after{right:-250px}.signup{width:calc(100% - 24px);padding:20px}.signup-copy{align-items:flex-start}}
 </style>
+<link rel="stylesheet" href="/back-to-top.css?v=1">
 </head>
 <body>
 <header class="site-header">
@@ -48,4 +49,5 @@ footer{background:var(--navy);color:#fff;padding:24px;text-align:center;border-t
 </main>
 <footer>© <span id="year"></span> USA MARKET · <a href="/privacy.html">Privacy Policy</a> · <a href="/contact.html">Contact</a> · <a href="/">Back to Market News</a><br><small>Subscribe only if you want to receive marketing emails. You can unsubscribe at any time.</small></footer>
 <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script src="/back-to-top.js?v=1" defer></script>
 </body></html>
