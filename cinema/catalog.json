@@ -1,5 +1,70 @@
 {
   "version": 1,
-  "updatedAt": null,
-  "items": []
+  "updatedAt": "2026-11-04",
+  "items": [
+    {
+      "id": "mutt-and-jeff-on-strike-1920",
+      "title": "Mutt and Jeff: On Strike",
+      "year": 1920,
+      "category": "film",
+      "description": "A vintage animated short from the Mutt and Jeff series, created by Bud Fisher. A rare example of early American animation.",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Mutt_and_Jeff_-_On_Strike_%281920%29.webm/500px--Mutt_and_Jeff_-_On_Strike_%281920%29.webm.jpg",
+      "duration": "7 min 19 sec",
+      "playbackUrl": "https://upload.wikimedia.org/wikipedia/commons/7/70/Mutt_and_Jeff_-_On_Strike_%281920%29.webm",
+      "license": "Public domain in the United States; published in 1920",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Mutt_and_Jeff_-_On_Strike_(1920).webm",
+      "rightsStatus": "verified",
+      "active": true,
+      "rightsNotes": "The Commons file page identifies this 1920 work as public domain in the United States. The specific media file is hosted on Wikimedia Commons.",
+      "territoryNotes": "Rights status is verified for the United States only. Do not distribute or stream in other territories until the relevant rights have been independently cleared."
+    },
+    {
+      "id": "cowboy-jazz-1920",
+      "title": "Cowboy Jazz",
+      "year": 1920,
+      "category": "film",
+      "description": "An eight-minute American silent-era short preserved by the National Film Preservation Foundation.",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Cowboy_Jazz_%281920%29.webm/500px--Cowboy_Jazz_%281920%29.webm.jpg",
+      "duration": "8 min",
+      "playbackUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Cowboy_Jazz_%281920%29.webm",
+      "license": "Public domain in the United States; published in 1920",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Cowboy_Jazz_(1920).webm",
+      "rightsStatus": "verified",
+      "active": true,
+      "rightsNotes": "The Commons file page identifies the film as public domain in the United States and credits the National Film Preservation Foundation as source.",
+      "territoryNotes": "Rights status is verified for the United States only. Do not distribute or stream in other territories until the relevant rights have been independently cleared."
+    },
+    {
+      "id": "one-hundred-percent-american-1918",
+      "title": "One Hundred Percent American",
+      "year": 1918,
+      "category": "film",
+      "description": "A 1918 American silent short directed by Arthur Rosson and preserved by the National Film Preservation Foundation.",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/100pct_American_%281918%29.webm/500px--100pct_American_%281918%29.webm.jpg",
+      "duration": "14 min 28 sec",
+      "playbackUrl": "https://upload.wikimedia.org/wikipedia/commons/6/69/100pct_American_%281918%29.webm",
+      "license": "Public domain in the United States; published in 1918",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:100pct_American_(1918).webm",
+      "rightsStatus": "verified",
+      "active": true,
+      "rightsNotes": "The Commons file page identifies this 1918 film as public domain in the United States and credits the National Film Preservation Foundation as source.",
+      "territoryNotes": "Rights status is verified for the United States only. Do not distribute or stream in other territories until the relevant rights have been independently cleared."
+    },
+    {
+      "id": "sand-1920",
+      "title": "Sand",
+      "year": 1920,
+      "category": "film",
+      "description": "A feature-length American silent film directed by Lambert Hillyer, presented here in its preserved archival version.",
+      "poster": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Sand_%281920%29.webm/500px--Sand_%281920%29.webm.jpg",
+      "duration": "1 hr 27 min",
+      "playbackUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Sand_%281920%29.webm",
+      "license": "Public domain in the United States; published in 1920",
+      "rightsEvidence": "https://commons.wikimedia.org/wiki/File:Sand_(1920).webm",
+      "rightsStatus": "verified",
+      "active": true,
+      "rightsNotes": "The Commons file page identifies this 1920 American film as public domain in the United States. The uploaded media file and its provenance are documented on the evidence page.",
+      "territoryNotes": "Rights status is verified for the United States only. Do not distribute or stream in other territories until the relevant rights have been independently cleared."
+    }
+  ]
 }
