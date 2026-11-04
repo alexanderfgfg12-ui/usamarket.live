@@ -4,7 +4,7 @@
   let articles = [];
   let activeFilter = 'all';
   const categoryLabel = (value) => ({markets:'Markets',economy:'Economy',technology:'Technology',crypto:'Crypto',business:'Business',finance:'Finance',world:'World'}[String(value||'').toLowerCase()] || String(value||'News'));
-  const articleURL = (item) => '/news/' + encodeURIComponent(item.id) + '.html';
+  const articleURL = (item) => item.path || ('/news/' + encodeURIComponent(item.id) + '.html');
   const imageMarkup = (item) => item.image ? '<img src="' + escapeHTML(item.image) + '" alt="' + escapeHTML(item.title) + '" loading="lazy" decoding="async">' : '';
   const metaMarkup = (item) => '<div class="um-meta"><span>▣ ' + escapeHTML(item.pubDate ? new Date(item.pubDate).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : 'Latest') + '</span><span>US Market Live</span></div>';
   function renderLead(){
@@ -34,9 +34,15 @@
       const response=await fetch('/news-data.json',{cache:'no-cache'});
       if(!response.ok)throw new Error('News feed unavailable');
       const data=await response.json();
-      articles=(Array.isArray(data)?data:(Array.isArray(data.articles)?data.articles:[])).filter(item=>item&&item.id&&item.title);
-      articles.sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
-      const updated=data.updated?new Date(data.updated):null;
+      const legacy=(Array.isArray(data)?data:(Array.isArray(data.articles)?data.articles:[])).filter(item=>item&&item.id&&item.title);
+      let live=[];
+      try{const liveResponse=await fetch('/api/news?lang=en',{cache:'no-store'});if(liveResponse.ok){const liveData=await liveResponse.json();live=Array.isArray(liveData.articles)?liveData.articles:[];}}catch(_){}
+      const merged=new Map();
+      [...live,...legacy].forEach(item=>{if(item&&item.id&&item.title&&!merged.has(item.id))merged.set(item.id,item);});
+      articles=[...merged.values()].sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+      const liveUpdated=live.length?new Date(live[0].pubDate):null;
+      const legacyUpdated=data.updated?new Date(data.updated):null;
+      const updated=liveUpdated&&legacyUpdated?(liveUpdated>legacyUpdated?liveUpdated:legacyUpdated):(liveUpdated||legacyUpdated);
       $('#lastUpdate').textContent=updated&&!Number.isNaN(updated.getTime())?updated.toLocaleString('en-US'):'—';
       renderLead();filterList();
     }catch(error){
