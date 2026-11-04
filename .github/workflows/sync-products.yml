@@ -30,6 +30,18 @@ jobs:
       - name: Import affiliate feeds from feeds.json in batches
         env:
           PRODUCT_BATCH_SIZE: 300
+          ADMITAD_TEMPLATE_79310_URL: ${{ secrets.ADMITAD_TEMPLATE_79310_URL }}
+          ADMITAD_TEMPLATE_79311_URL: ${{ secrets.ADMITAD_TEMPLATE_79311_URL }}
+          ADMITAD_TEMPLATE_79312_URL: ${{ secrets.ADMITAD_TEMPLATE_79312_URL }}
+          ADMITAD_TEMPLATE_79319_URL: ${{ secrets.ADMITAD_TEMPLATE_79319_URL }}
+          ADMITAD_TEMPLATE_79320_URL: ${{ secrets.ADMITAD_TEMPLATE_79320_URL }}
+          ADMITAD_TEMPLATE_79321_URL: ${{ secrets.ADMITAD_TEMPLATE_79321_URL }}
+          ADMITAD_TEMPLATE_79322_URL: ${{ secrets.ADMITAD_TEMPLATE_79322_URL }}
+          ADMITAD_TEMPLATE_79323_URL: ${{ secrets.ADMITAD_TEMPLATE_79323_URL }}
+          ADMITAD_TEMPLATE_79324_URL: ${{ secrets.ADMITAD_TEMPLATE_79324_URL }}
+          ADMITAD_TEMPLATE_79335_URL: ${{ secrets.ADMITAD_TEMPLATE_79335_URL }}
+          ADMITAD_TEMPLATE_79336_URL: ${{ secrets.ADMITAD_TEMPLATE_79336_URL }}
+          ADMITAD_TEMPLATE_79337_URL: ${{ secrets.ADMITAD_TEMPLATE_79337_URL }}
         run: node scripts/sync-products.js
       - name: Generate product detail pages, category pages and sitemap
         run: node scripts/generate-store-pages.js
