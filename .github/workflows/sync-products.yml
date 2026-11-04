@@ -31,7 +31,7 @@ jobs:
         env:
           PRODUCT_BATCH_SIZE: 300
           FEED_TIMEOUT_MS: 1500000
-          FEED_CONCURRENCY: 3
+          FEED_CONCURRENCY: 1
         run: node scripts/sync-products.js
       - name: Generate product detail pages, category pages and sitemap
         run: node scripts/generate-store-pages.js
