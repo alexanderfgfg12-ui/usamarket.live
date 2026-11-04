@@ -175,3 +175,34 @@ body:has(.video-hero){background:#f4f7fc;color:#142744}
  .video-main>.video-grid:nth-of-type(3) .video-card:first-child .video-card-body h2{font-size:18px}
 }
 [dir=rtl] .video-main>.video-grid:nth-of-type(3) .video-card{text-align:right}
+
+
+/* Stable featured layout: explicit hooks, independent of DOM child order */
+.video-main>.video-featured-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(260px,.8fr);gap:22px;align-items:stretch;margin:20px 0 30px}
+.video-main>.video-featured-grid .video-featured-card{display:flex;flex-direction:column;min-width:0}
+.video-main>.video-featured-grid .video-featured-card .video-frame{width:100%;aspect-ratio:16/9;min-height:clamp(250px,34vw,430px)}
+.video-main>.video-featured-grid .video-featured-card .video-card-body{padding:22px}
+.video-main>.video-featured-grid .video-featured-card .video-card-body h2{font-size:clamp(20px,2.1vw,27px)}
+.video-main>.video-featured-grid .video-secondary-card{display:flex;flex-direction:column;min-width:0}
+.video-main>.video-featured-grid .video-secondary-card .video-frame{width:100%;aspect-ratio:16/9}
+.video-main>.video-featured-grid .video-secondary-card .video-card-body{padding:16px}
+.video-main>.video-featured-grid .video-secondary-card .video-card-body h2{font-size:17px}
+.video-main>.video-featured-grid .video-play-card{flex:0 0 auto}
+.video-main>.video-featured-grid .video-play-card img{object-fit:cover}
+.video-main .video-dynamic-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.video-main .video-extra-section .video-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.video-toolbar{position:relative;z-index:1}
+.video-search{min-height:46px}
+.video-filter{min-height:42px}
+.video-filter:focus-visible,.video-search:focus-visible{outline:3px solid #8db8ff;outline-offset:2px}
+[dir=rtl] .video-featured-grid .video-card-body{text-align:right}
+@media(max-width:760px){
+ .video-main>.video-featured-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+ .video-main>.video-featured-grid .video-featured-card .video-frame{min-height:0}
+ .video-main>.video-featured-grid .video-featured-card .video-card-body{padding:16px}
+ .video-main .video-dynamic-grid,.video-main .video-extra-section .video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){
+ .video-main .video-dynamic-grid,.video-main .video-extra-section .video-grid{grid-template-columns:minmax(0,1fr)}
+ .video-main>.video-featured-grid .video-featured-card .video-card-body h2{font-size:19px}
+}
