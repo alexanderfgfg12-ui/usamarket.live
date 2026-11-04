@@ -49,7 +49,7 @@ function findOffers(data) {
 function parseFeed(body, type) {
   const s = body.trim(); if (!s) throw new Error('Empty feed response');
   if (type.includes('json') || /^[\[{]/.test(s)) return findOffers(JSON.parse(s));
-  if (type.includes('csv') || (!s.startsWith('<') && /[,;]/.test(s.split(/\r?\n/,1)[0]))) {
+  if (type.includes('csv') || (!s.startsWith('<') && /[,;\t|]/.test(s.split(/\r?\n/,1)[0]))) {
     const header = s.split(/\r?\n/,1)[0];
     const delimiter = [',',';','\t','|'].map(d => ({ d, n: header.split(d).length })).sort((a,b) => b.n-a.n)[0].d;
     return parseCsv(s, { columns: true, delimiter, skip_empty_lines: true, bom: true, relax_column_count: true, relax_quotes: true, trim: true });
