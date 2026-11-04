@@ -277,7 +277,7 @@ const NEWS_IMAGES = {
 function newsDecode(v) {
  return String(v||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).trim();
 }
-function newsTag(s,t) { const m=s.match(new RegExp("<"+t+"\\\\b[^>]*>([\\\\s\\\\S]*?)<\\\\/"+t+">","i")); return m?newsDecode(m[1]):""; }
+function newsTag(s,t) { const m=s.match(new RegExp("<"+t+"\\b[^>]*>([\\s\\S]*?)<\\/"+t+">","i")); return m?newsDecode(m[1]):""; }
 function newsCategory(t,d) {
  const s=(t+" "+d).toLowerCase();
  if(/bitcoin|crypto|blockchain|بيتكوين|العملات الرقمية/.test(s)) return "crypto";
