@@ -7,3 +7,4 @@ Sitemap: https://usamarket.live/news-sitemap.xml
 Sitemap: https://usamarket.live/product-sitemap.xml
 Sitemap: https://usamarket.live/ar/sitemap.xml
 Sitemap: https://usamarket.live/videos-sitemap.xml
+Sitemap: https://usamarket.live/news-sitemap-live.xml
