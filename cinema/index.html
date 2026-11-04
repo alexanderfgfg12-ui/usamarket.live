@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>USAMARKET CINEMA | Watch Public-Domain Films</title>
-<meta name="description" content="Watch verified public-domain and openly licensed films, series and documentaries inside USAMARKET CINEMA.">
+<meta name="description" content="Watch films and documentaries selected for documented public-domain status or a licence that permits online hosting and viewing.">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://usamarket.live/cinema/">
-<meta property="og:title" content="USAMARKET CINEMA"><meta property="og:description" content="A rights-verified film and documentary library."><meta property="og:url" content="https://usamarket.live/cinema/">
+<meta property="og:title" content="USAMARKET CINEMA"><meta property="og:description" content="A film and documentary library with title-by-title rights information."><meta property="og:url" content="https://usamarket.live/cinema/">
 <link rel="stylesheet" href="/cinema/cinema.css">
 
 <!-- Google AdSense Auto ads; ads.txt publisher declaration is published at /ads.txt -->
@@ -15,15 +15,20 @@
 <body>
 <header class="cinema-header"><a class="brand" href="/">US MARKET LIVE</a><nav aria-label="Main navigation"><a href="/">Home</a><a href="/videos/">Videos</a><a href="/shop/">Shop</a><a href="/ar/">العربية</a></nav></header>
 <main>
-<section class="hero"><div class="eyebrow">THE CLASSIC SCREEN COLLECTION</div><h1>USAMARKET <span>CINEMA</span></h1><p>Discover and watch classic films, series and documentaries with a built-in player — only when the title's viewing and hosting rights have been verified.</p><div class="hero-note">Watch inside USAMARKET · Rights-verified titles only</div></section>
+<section class="hero"><div class="eyebrow">THE CLASSIC SCREEN COLLECTION</div><h1>USAMARKET <span>CINEMA</span></h1><p>Discover films, series and documentaries selected for documented public-domain status or a licence that permits the intended online viewing and hosting.</p><div class="hero-note">Titles are reviewed individually · Rights information available on each title</div></section>
 <section class="content">
-<div class="intro"><div><h2>Watch from our library</h2><p>Choose a title to open its own page and watch it here. Every published title must have a recorded licence or public-domain basis and a permitted media source.</p></div><label class="search"><span>⌕</span><input id="cinemaSearch" type="search" placeholder="Search films and documentaries…" aria-label="Search titles"></label></div>
+<div class="intro"><div><h2>Watch from our library</h2><p>Choose a title to open its own page and watch it here. We require evidence that covers the actual media file and the intended use, not merely permission to watch or download it.</p></div><label class="search"><span>⌕</span><input id="cinemaSearch" type="search" placeholder="Search films and documentaries…" aria-label="Search titles"></label></div>
 <div class="filters" role="group" aria-label="Filter titles"><button class="active" data-filter="all">All</button><button data-filter="film">Films</button><button data-filter="series">Series</button><button data-filter="documentary">Documentaries</button></div>
-<div class="grid" id="cinemaGrid" aria-live="polite"><div class="loading">Loading the verified cinema catalogue…</div></div>
+<div class="grid" id="cinemaGrid" aria-live="polite"><div class="loading">Loading the reviewed cinema catalogue…</div></div>
 <p class="empty" id="noResults" hidden>No titles match your search.</p>
-<section class="rights"><div class="rights-icon">©</div><div><h2>How we protect film rights</h2><p>We publish a title only after its public-domain status or licence expressly permits the intended viewing and hosting method. An archive listing or a free download is not proof of permission. We record the rights evidence and use approved media hosts; unclear titles remain unpublished.</p><p>Rights may differ by country and by version, soundtrack or subtitles. This catalogue is informational and is not legal advice.</p></div></section>
+<section class="rights" aria-labelledby="rightsHeading"><div class="rights-icon">©</div><div><h2 id="rightsHeading">Copyright and legal information</h2>
+<p><strong>Title-by-title review:</strong> Before publication, we check the rights evidence for the specific film and media version, including whether online streaming, hosting and any commercial use are permitted. A free stream, public download, archive entry or uploader's label alone is not sufficient proof.</p>
+<p><strong>Territorial limits:</strong> Public-domain status can differ between the United States, Morocco and other countries. A title described as public domain in the US is not automatically public domain worldwide. Where the evidence does not establish a sufficiently clear basis for the intended audience and use, the title is not published.</p>
+<p><strong>Separate rights:</strong> Music, soundtrack, subtitles, posters, photographs, translations and restored or newly created versions may have separate rights. We do not assume that permission for the underlying film covers these elements.</p>
+<p><strong>Important notice:</strong> The rights information shown on this site is a summary of the evidence we reviewed, not a legal opinion or a guarantee that no third-party claim can arise. Rights can be disputed or change. If you own or represent rights in material listed here, please contact us with the title, the specific material and supporting information so we can review it promptly.</p>
+</div></section>
 </section>
 </main>
-<footer><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a><a href="/about.html">About</a><p>© <span id="year"></span> US Market Live</p></footer>
+<footer><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact / Rights concerns</a><a href="/about.html">About</a><p>© <span id="year"></span> US Market Live</p></footer>
 <script src="/cinema/cinema.js" defer></script>
 </body></html>
