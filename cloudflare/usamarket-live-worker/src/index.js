@@ -201,7 +201,8 @@ export default {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method_not_allowed" }, 405);
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });
     }
-    if (url.pathname === "/api/videos") return searchVideos(request, env);\n    if (url.pathname === "/api/admitad/products") {
+    if (url.pathname === "/api/videos") return searchVideos(request, env);
+    if (url.pathname === "/api/admitad/products") {
       if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
       try {
         const data = await loadFeed(env, url.searchParams.get("refresh") === "1");
