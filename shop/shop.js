@@ -60,47 +60,64 @@ function paintCatalogue(list,manifest){
  $('status').textContent=products.length.toLocaleString()+' products ready';
  return true;
 }
-async function downloadCatalogue(manifest){
+async function downloadCatalogue(manifest,onBatch=()=>{}){
  if(!Array.isArray(manifest.batches)||!manifest.batches.length)throw new Error('Catalogue manifest has no batches');
- const batches=await Promise.all(manifest.batches.map(async name=>{
+ const settled=await Promise.allSettled(manifest.batches.map(async name=>{
   const url='/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(manifest.updatedAt||'');
   const data=await fetchJson(url,20000);if(!Array.isArray(data.products))throw new Error('Invalid product batch '+name);
-  await saveCachedJson(url,data);return data.products;
+  await saveCachedJson(url,data);onBatch(name,data.products);return {name,products:data.products};
  }));
- return batches.flat();
+ const products=[],failed=[];
+ settled.forEach((result,index)=>{
+  if(result.status==='fulfilled')products.push(...result.value.products);
+  else failed.push({name:manifest.batches[index],reason:result.reason});
+ });
+ return {products,failed};
 }
 async function load(){
  $('year').textContent=new Date().getFullYear();
  const manifestUrl='/shop/products-manifest.json';
  let cachedManifest=null,cachedProducts=[];
- // 1) Instant display from the browser's persistent cache. No network wait on repeat visits.
+ // 1) Render every usable cached batch immediately; one damaged cache entry must not block the others.
  try{
   if('caches' in window){
    const cache=await caches.open(CACHE_NAME),hit=await cache.match(cacheKey(manifestUrl));
    if(hit){cachedManifest=await hit.json();if(Array.isArray(cachedManifest.batches)){
-    const chunks=await Promise.all(cachedManifest.batches.map(async name=>{
+    const chunks=await Promise.allSettled(cachedManifest.batches.map(async name=>{
      const url='/shop/'+encodeURIComponent(name)+'?v='+encodeURIComponent(cachedManifest.updatedAt||'');
-     const response=await cache.match(url);if(!response)return [];
+     const response=await cache.match(cacheKey(url));if(!response)return [];
      const data=await response.json();return Array.isArray(data.products)?data.products:[];
     }));
-    cachedProducts=chunks.flat();
+    cachedProducts=chunks.flatMap(result=>result.status==='fulfilled'?result.value:[]);
    }}
   }
  }catch(e){console.warn('Cached catalogue unavailable',e)}
  if(cachedProducts.length){paintCatalogue(cachedProducts,cachedManifest);$('status').textContent=products.length.toLocaleString()+' products · instant cached view';}
  else $('status').textContent='Loading products for the first visit…';
- // 2) Check the tiny manifest in the background. Download product batches only if its version changed.
+ // 2) Refresh in the background. Each successful batch is rendered as soon as it arrives.
  try{
   const manifest=await fetchJson(manifestUrl+'?check='+Date.now(),12000);
   const sameVersion=cachedManifest&&cachedManifest.updatedAt===manifest.updatedAt&&cachedProducts.length>0&&(!manifest.totalProducts||cachedProducts.length>=manifest.totalProducts);
   if(sameVersion){$('status').textContent=products.length.toLocaleString()+' products ready';return;}
-  $('status').textContent=cachedProducts.length?'Checking for new products in background…':'Loading the product catalogue…';
-  const fresh=await downloadCatalogue(manifest);
-  paintCatalogue(fresh,manifest);
-  // Cache the latest manifest last, so an interrupted update never advertises incomplete batches.
+  $('status').textContent=cachedProducts.length?'Checking for new products in background…':'Loading the first product batch…';
+  const freshProducts=[];
+  const result=await downloadCatalogue(manifest,(name,batch)=>{
+   freshProducts.push(...batch);
+   paintCatalogue(freshProducts,manifest);
+   $('status').textContent=products.length.toLocaleString()+' products loaded · fetching remaining batches…';
+  });
+  if(!result.products.length)throw new Error('Every product batch failed to load');
+  // Keep successful batches available even when another source file is temporarily unavailable.
   await saveCachedJson(manifestUrl,manifest);
+  if(result.failed.length){
+   $('status').textContent=products.length.toLocaleString()+' products loaded · '+result.failed.length+' batch(es) unavailable; refresh to retry';
+   console.warn('Some shop batches failed',result.failed);
+  }else{
+   paintCatalogue(result.products,manifest);
+   $('status').textContent=products.length.toLocaleString()+' products ready';
+  }
  }catch(e){
-  console.warn('Background catalogue update failed; keeping cached products.',e);
+  console.warn('Catalogue refresh failed; keeping any available products.',e);
   if(!products.length){showUnavailable('The product catalogue is temporarily unavailable. Please refresh shortly.');return;}
   $('status').textContent=products.length.toLocaleString()+' saved products · update will retry later';
  }
