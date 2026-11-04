@@ -169,7 +169,8 @@ async function main() {
       const failedManifest = { ...oldManifest, updatedAt: new Date().toISOString(), feedsConfigured: configuredFeeds.length,
         feedsSucceeded: feedResults.filter(item => item.status === 'success').length,
         feedsFailed: feedResults.filter(item => item.status === 'failed').length, feedResults };
-      writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(failedManifest, null, 2) + '\\n');
+      fs.mkdirSync(shopDir, { recursive: true });
+      fs.writeFileSync(path.join(shopDir, 'products-manifest.json'), JSON.stringify(failedManifest, null, 2) + '\\n');
       console.warn('Isolated feed failed; existing catalogue preserved:', failures.join(' | '));
       return;
     }
