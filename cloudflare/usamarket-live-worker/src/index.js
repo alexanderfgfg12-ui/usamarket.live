@@ -283,7 +283,9 @@ function cinemaSafeItem(item, allowedHosts) {
     poster: safeHttpUrl(item.poster),
     duration: clean(item.duration).slice(0,40),
     playbackUrl: media.href,
-    license, rightsEvidence: evidence
+    license, rightsEvidence: evidence,
+    rightsNotes: clean(item.rightsNotes).slice(0,1200),
+    territoryNotes: clean(item.territoryNotes).slice(0,500)
   };
 }
 async function getCinemaCatalog(request, env) {
