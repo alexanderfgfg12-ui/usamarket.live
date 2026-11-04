@@ -24,5 +24,6 @@ try{const latest=await fetchJson(manifestUrl+'?v='+Date.now(),10000);if(!Array.i
 ['q','category','sort'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',()=>{page=1;render()}));
 const topSearch=$('qMirror'),mainSearch=$('q');if(topSearch&&mainSearch){topSearch.addEventListener('input',()=>{mainSearch.value=topSearch.value;page=1;render()});mainSearch.addEventListener('input',()=>{topSearch.value=mainSearch.value})}
 document.querySelectorAll('[data-category]').forEach(button=>button.addEventListener('click',()=>{const wanted=button.dataset.category;const select=$('category');select.value=[...select.options].some(o=>o.value===wanted)?wanted:'';if(!select.value&&wanted)select.value=wanted;page=1;render();$('products').scrollIntoView({behavior:'smooth',block:'start'});}));
-if(products.length){categories();render();setStatus(products.length.toLocaleString()+' products ready · updating catalogue in background');}\nload();
+if(products.length){categories();render();setStatus(products.length.toLocaleString()+' products ready · updating catalogue in background');}
+load();
 })();
