@@ -105,22 +105,39 @@ async function main() {
     }));
     return output;
   };
-  const results = await mapLimit(feeds, Math.max(1, Number(process.env.FEED_CONCURRENCY) || 3), async (feed, i) => {
+  const results = await mapLimit(feeds, Math.max(1, Number(process.env.FEED_CONCURRENCY) || 1), async (feed, i) => {
     try {
       if (feed.configError) throw new Error(feed.configError);
       const { parsed, body, records } = await fetchFeed(feed.url), categories = {};
       const feedKey = require('node:crypto').createHash('sha256').update(feed.url).digest('hex').slice(0, 12);
       try { const shop = (body.trim().startsWith('<') ? xmlParser.parse(body) : {}).yml_catalog?.shop || {}; for (const c of asArray(shop.categories?.category)) { const id = String(c['@_id'] || c.id || ''), name = String(scalar(c) || c['#text'] || ''); if (id && name) categories[id] = name; } } catch {}
-      const seen = new Set(), accepted = [];
-      for (const item of records) {
-        const p = normalize(item, categories, parsed.hostname, i + 1, feedKey);
+      const seen = new Set(), accepted = [], productResults = [];
+      // Process each offer independently and retain an outcome for every input row.
+      for (let recordIndex = 0; recordIndex < records.length; recordIndex++) {
+        const item = records[recordIndex];
+        let p = null;
+        try { p = normalize(item, categories, parsed.hostname, i + 1, feedKey); }
+        catch (error) {
+          productResults.push({ record: recordIndex + 1, status: 'invalid', reason: error.message });
+          continue;
+        }
         // Product images are optional; missing imagery must not discard an otherwise valid offer.
-        if (!p || seen.has(p.affiliateUrl)) continue;
-        seen.add(p.affiliateUrl); accepted.push(p);
+        if (!p) {
+          productResults.push({ record: recordIndex + 1, status: 'invalid', reason: 'Missing valid product title or affiliate URL' });
+          continue;
+        }
+        // A source product ID + feed identity is safer than deduplicating by tracking URL.
+        if (seen.has(p.id)) {
+          productResults.push({ record: recordIndex + 1, status: 'duplicate', product: p, reason: 'Repeated product identity within this feed' });
+          continue;
+        }
+        seen.add(p.id);
+        accepted.push(p);
+        productResults.push({ record: recordIndex + 1, status: 'pending', product: p });
       }
       if (!accepted.length) throw new Error('No valid products with title and affiliate URL');
       console.log('Feed', i + 1, '[' + feed.name + ']', parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products');
-      return { index: i, name: feed.name, feedKey, products: accepted };
+      return { index: i, name: feed.name, feedKey, products: accepted, productResults };
     } catch (error) {
       const message = 'Feed ' + (i + 1) + ' [' + feed.name + ']: ' + error.message;
       console.warn(message);
@@ -151,28 +168,38 @@ async function main() {
   // Round-robin successful feeds so one large feed cannot crowd out later partners.
   const imported = [], max = Math.max(...feedProducts.map(a => a.length));
   for (let i = 0; i < max; i++) for (const list of feedProducts) if (list[i]) imported.push(list[i]);
-  const previousByUrl = new Map(previous.map(p => [String(p.affiliateUrl || '').toLowerCase(), p]));
+  const previousById = new Map(previous.map(p => [String(p.id || ''), p]));
+  const statusById = new Map();
+  const comparable = value => { const copy = { ...value }; delete copy.updatedAt; return JSON.stringify(copy); };
   const merged = new Map();
   for (const product of imported) {
-    const key = String(product.affiliateUrl).toLowerCase(), old = previousByUrl.get(key);
-    if (old) {
-      const comparable = value => { const copy = { ...value }; delete copy.updatedAt; return JSON.stringify(copy); };
-      if (comparable(old) === comparable(product)) product.updatedAt = old.updatedAt;
-    }
+    const key = String(product.id || ''), old = previousById.get(key);
+    if (old && comparable(old) === comparable(product)) {
+      product.updatedAt = old.updatedAt;
+      statusById.set(key, 'unchanged');
+    } else if (old) statusById.set(key, 'updated');
+    else statusById.set(key, 'new');
     merged.set(key, product);
   }
   for (const product of previous) {
-    const key = String(product.affiliateUrl || '').toLowerCase();
+    const key = String(product.id || '');
     const sourceLabel = String(product.source || '').split(' · ').pop();
     const sourceWasRefreshed = (product.feedKey && successfulFeedKeys.has(product.feedKey)) || successfulLegacySources.has(sourceLabel);
     // Remove products missing from a successful refresh; retain products from failed feeds.
     if (key && !merged.has(key) && !sourceWasRefreshed) merged.set(key, product);
   }
   const products = [...merged.values()];
+  const productReport = successfulResults.flatMap(result => result.productResults.map(entry => {
+    const p = entry.product;
+    return { feed: result.name, feedKey: result.feedKey, record: entry.record,
+      productId: p?.id || null, title: p?.title || null, affiliateUrl: p?.affiliateUrl || null,
+      status: entry.status === 'pending' ? (statusById.get(p.id) || 'new') : entry.status,
+      reason: entry.reason || null };
+  }));
   if (failures.length) console.warn('Some feeds failed; retained their previously published products:', failures.join(' | '));
   const sameCatalogue = previous.length === products.length && previous.every((old, index) => {
     const next = products[index];
-    return next && String(old.affiliateUrl || '').toLowerCase() === String(next.affiliateUrl || '').toLowerCase() && JSON.stringify(old) === JSON.stringify(next);
+    return next && String(old.id || '') === String(next.id || '') && JSON.stringify(old) === JSON.stringify(next);
   });
   const stamp = sameCatalogue && previousManifest?.updatedAt ? previousManifest.updatedAt : new Date().toISOString(), batches = [];
   const writeIfChanged = (file, content) => { if (!fs.existsSync(file) || fs.readFileSync(file, 'utf8') !== content) fs.writeFileSync(file, content); };
@@ -203,6 +230,8 @@ async function main() {
   }
   const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedSnapshots, feedsConfigured: feeds.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length, feedResults: results.map(result => ({ name: result.name || feeds[result.index]?.name, status: result.products ? 'success' : 'failed', products: result.products?.length || 0, error: result.error || null })) };
   writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
+  const reportSummary = productReport.reduce((counts, item) => { counts[item.status] = (counts[item.status] || 0) + 1; return counts; }, {});
+  writeIfChanged(path.join(shopDir, 'sync-report.json'), JSON.stringify({ updatedAt: stamp, summary: reportSummary, totalRecords: productReport.length, feedFailures: failures, products: productReport }, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
   writeIfChanged(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
   console.log('Published', products.length, 'products in', batches.length, 'batches from', feedProducts.length, 'successful feeds.');
