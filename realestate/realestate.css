@@ -11,3 +11,19 @@
 .property-photo-grid .main-property-image{display:block;width:100%;height:auto;max-height:620px;object-fit:contain;background:#fff;border-radius:6px}
 .property-photo-grid .main-property-image:first-child{grid-column:1/-1;max-height:720px}
 @media(max-width:650px){.property-photo-grid{grid-template-columns:1fr;padding:8px;gap:8px}.property-photo-grid .main-property-image,.property-photo-grid .main-property-image:first-child{grid-column:auto;max-height:none}}
+
+
+/* Compact property gallery with an accessible full-screen lightbox. */
+.property-gallery-viewer{padding:14px;background:#f1f4f7}
+.gallery-open{position:relative;display:block;width:100%;max-height:440px;padding:0;border:0;border-radius:10px;overflow:hidden;background:#e7edf4;cursor:zoom-in}
+.gallery-cover{display:block;width:100%;height:clamp(220px,42vw,440px);object-fit:contain;background:#f7f9fb}
+.gallery-count{position:absolute;right:14px;bottom:14px;padding:10px 14px;border-radius:8px;background:#172033e8;color:#fff;font-size:13px;font-weight:700}
+.photo-lightbox[hidden]{display:none}
+.photo-lightbox{position:fixed;z-index:9999;inset:0;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:60px 22px 24px;background:rgba(8,15,27,.96)}
+.photo-lightbox figure{display:flex;flex:1;min-width:0;height:100%;margin:0;flex-direction:column;align-items:center;justify-content:center;gap:12px}
+.lightbox-image{display:block;max-width:100%;max-height:calc(100vh - 130px);width:auto;height:auto;object-fit:contain}
+.lightbox-caption{color:#fff;font-size:13px}
+.photo-lightbox button{border:0;color:#fff;background:#ffffff24;border-radius:50%;width:46px;height:46px;font-size:30px;cursor:pointer;flex:0 0 auto}
+.photo-lightbox .lightbox-close{position:absolute;right:18px;top:14px;font-size:32px}
+body.gallery-lock{overflow:hidden}
+@media(max-width:600px){.photo-lightbox{padding:58px 8px 18px;gap:5px}.photo-lightbox button{width:38px;height:38px;font-size:25px}.lightbox-image{max-height:calc(100vh - 120px)}.gallery-count{right:10px;bottom:10px}}
