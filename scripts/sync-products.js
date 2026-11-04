@@ -4,23 +4,19 @@ const path = require('node:path');
 const { XMLParser } = require('fast-xml-parser');
 const { parse: parseCsv } = require('csv-parse/sync');
 
-// Public feed registry lives in feeds.json; optional secret feeds can be appended via AFFILIATE_FEED_URLS.
+// feeds.json is the single source of truth for affiliate feed endpoints.
+// Do not read affiliate feed URLs from GitHub Actions secrets or environment variables.
 const registryPath = path.join(__dirname, '..', 'feeds.json');
-let registryFeeds = [];
-try { registryFeeds = (JSON.parse(fs.readFileSync(registryPath, 'utf8')).feeds || []).map(feed => feed.url).filter(Boolean); }
-catch (error) { console.warn('Could not read feeds.json:', error.message); }
-const raw = process.env.AFFILIATE_FEED_URLS || '';
-const rawUrls = [...new Set([...registryFeeds, ...raw.split(/[\\s,;]+/).map(s => s.trim()).filter(Boolean)])];
-// Admitad export templates are not separate product feeds. Several templates can point
-// to the same feed_id; downloading each one wastes requests and can trigger throttling.
-const urls = [...new Map(rawUrls.map(endpoint => {
-  try {
-    const u = new URL(endpoint);
-    const feedId = u.searchParams.get('feed_id');
-    const key = feedId ? u.hostname + u.pathname + ':feed_id=' + feedId : endpoint;
-    return [key, endpoint];
-  } catch { return [endpoint, endpoint]; }
-})).values()];
+let urls = [];
+try {
+  const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+  urls = [...new Set((registry.feeds || []).map(feed => String(feed.url || '').trim()).filter(Boolean))];
+} catch (error) {
+  throw new Error('Could not read feeds.json: ' + error.message);
+}
+// Keep distinct export templates even when they share a feed_id: template selection
+// can change the advertiser/product subset returned by Admitad.
+
 const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true });
@@ -100,7 +96,7 @@ async function fetchFeed(endpoint) {
   throw last;
 }
 async function main() {
-  if (!urls.length) throw new Error('AFFILIATE_FEED_URLS is empty; catalogue left unchanged.');
+  if (!urls.length) throw new Error('feeds.json contains no affiliate feed URLs; catalogue left unchanged.');
   // Limit concurrent downloads: Admitad export endpoints throttle large simultaneous requests.
   const mapLimit = async (items, limit, worker) => {
     const output = new Array(items.length); let cursor = 0;

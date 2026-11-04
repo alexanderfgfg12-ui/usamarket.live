@@ -25,9 +25,8 @@ jobs:
           node-version: '20'
       - name: Install feed parsers
         run: npm install --no-save --no-package-lock fast-xml-parser csv-parse
-      - name: Import all authorized affiliate feeds in batches
+      - name: Import affiliate feeds from feeds.json in batches
         env:
-          AFFILIATE_FEED_URLS: ${{ secrets.AFFILIATE_FEED_URLS }}
           PRODUCT_BATCH_SIZE: 300
         run: node scripts/sync-products.js
       - name: Generate product detail pages, category pages and sitemap
