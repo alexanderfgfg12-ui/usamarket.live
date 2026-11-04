@@ -56,12 +56,12 @@ if(fs.existsSync(storefrontPath)){
     const price=money(p.price,p.currency);
     return '<article class="product"><a class="photo" href="/shop/p/'+file+'">'+image+'</a><div class="pbody"><span class="source">'+esc(p.source||p.brand||'Partner pick')+'</span><h2><a class="product-title-link" href="/shop/p/'+file+'">'+esc(p.title)+'</a></h2>'+(p.description?'<p class="desc">'+esc(String(p.description).slice(0,125))+'</p>':'')+'<div class="price">'+esc(price)+'</div><a class="cta" href="'+esc(p.affiliateUrl)+'" target="_blank" rel="sponsored nofollow noopener">Shop this product ↗</a></div></article>';
   }).join('');
-  storefront=storefront.replace(/(<section id="products" class="grid"[^>]*>)[\\s\\S]*?(<\\/section>)/, (_,open,close)=>open+(cardHtml||'<div class="empty">New product picks are being prepared.</div>')+close);
-  storefront=storefront.replace(/<span id="count">[\\s\\S]*?<\\/span>/,'<span id="count">'+products.length.toLocaleString()+' products</span>');
-  storefront=storefront.replace(/<p id="status" class="status" role="status">[\\s\\S]*?<\\/p>/,'<p id="status" class="status" role="status">'+products.length.toLocaleString()+' products available · refreshing in background</p>');
-  const bootstrap='<script>window.__SHOP_INITIAL_PRODUCTS__='+JSON.stringify(initial).replace(/</g,'\\\\u003c')+';</script>';
-  storefront=storefront.replace(/<script>window\\.__SHOP_INITIAL_PRODUCTS__=[\\s\\S]*?<\\/script>/g,'');
-  storefront=storefront.replace(/<script src="\\/shop\\/shop\\.js\\?v=[^"]+" defer><\\/script>/,bootstrap+'<script src="/shop/shop.js?v=7" defer></script>');
+  storefront=storefront.replace(/(<section id="products" class="grid"[^>]*>)[\s\S]*?(<\/section>)/, (_,open,close)=>open+(cardHtml||'<div class="empty">New product picks are being prepared.</div>')+close);
+  storefront=storefront.replace(/<span id="count">[\s\S]*?<\\/span>/,'<span id="count">'+products.length.toLocaleString()+' products</span>');
+  storefront=storefront.replace(/<p id="status" class="status" role="status">[\s\S]*?<\\/p>/,'<p id="status" class="status" role="status">'+products.length.toLocaleString()+' products available · refreshing in background</p>');
+  const bootstrap='<script>window.__SHOP_INITIAL_PRODUCTS__='+JSON.stringify(initial).replace(/</g,'\\u003c')+';</script>';
+  storefront=storefront.replace(/<script>window\.__SHOP_INITIAL_PRODUCTS__=[\s\S]*?<\/script>/g,'');
+  storefront=storefront.replace(/<script src="\/shop\/shop\.js\\?v=[^"]+" defer><\/script>/,bootstrap+'<script src="/shop/shop.js?v=7" defer></script>');
   writeIfChanged(storefrontPath,storefront);
 }
 console.log('Generated',entries.length,'product pages and',categoryMap.size,'category pages; sitemap URLs:',allUrls.length);
