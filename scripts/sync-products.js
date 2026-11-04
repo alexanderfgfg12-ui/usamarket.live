@@ -4,21 +4,19 @@ const path = require('node:path');
 const { XMLParser } = require('fast-xml-parser');
 const { parse: parseCsv } = require('csv-parse/sync');
 
-// feeds.json defines named sources. Resolve private URLs from Actions secrets first.
-// Keep inline URLs only as a temporary compatibility fallback.
+// feeds.json is the single source of truth for named affiliate feed URLs.
+// No GitHub Secrets are required for feed URLs.
 const registryPath = path.join(__dirname, '..', 'feeds.json');
 let feeds = [];
 try {
   const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
   feeds = (registry.feeds || []).map((feed, index) => {
     const name = String(feed.name || ('Affiliate feed ' + (index + 1))).trim();
-    const secretEnv = String(feed.secretEnv || '').trim();
-    const secretUrl = secretEnv ? String(process.env[secretEnv] || '').trim() : '';
-    const url = secretUrl || String(feed.url || '').trim();
-    if (!url) return { ...feed, name, secretEnv, url: '', configError: secretEnv ? 'Missing Actions secret: ' + secretEnv : 'Missing feed URL' };
+    const url = String(feed.url || '').trim();
+    if (!url) return { ...feed, name, url: '', configError: 'Missing feed URL in feeds.json' };
     try { const parsed = new URL(url); if (!['https:', 'http:'].includes(parsed.protocol)) throw new Error('Invalid protocol'); }
-    catch { return { ...feed, name, secretEnv, url: '', configError: 'Invalid URL configured for ' + name }; }
-    return { ...feed, name, secretEnv, url };
+    catch { return { ...feed, name, url: '', configError: 'Invalid URL configured for ' + name }; }
+    return { ...feed, name, url };
   });
 } catch (error) { throw new Error('Could not read feeds.json: ' + error.message); }
 // Never log private URLs or secret values; log source names and outcomes only.
@@ -129,7 +127,7 @@ async function main() {
       }
       if (!accepted.length) throw new Error('No valid products with title and affiliate URL');
       console.log('Feed', i + 1, '[' + feed.name + ']', parsed.hostname, ':', records.length, 'rows,', accepted.length, 'products');
-      return { index: i, name: feed.name, secretEnv: feed.secretEnv, feedKey, products: accepted };
+      return { index: i, name: feed.name, feedKey, products: accepted };
     } catch (error) {
       const message = 'Feed ' + (i + 1) + ' [' + feed.name + ']: ' + error.message;
       console.warn(message);
@@ -210,7 +208,7 @@ async function main() {
     const key = name.slice(0, 12);
     if (successfulFeedKeys.has(key)) fs.unlinkSync(path.join(feedDir, name));
   }
-  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedSnapshots, feedsConfigured: feeds.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length, feedResults: results.map(result => ({ name: result.name || feeds[result.index]?.name, secretEnv: result.secretEnv || feeds[result.index]?.secretEnv, status: result.products ? 'success' : 'failed', products: result.products?.length || 0, error: result.error || null })) };
+  const manifest = { updatedAt: stamp, totalProducts: products.length, batchSize, batches, feedSnapshots, feedsConfigured: feeds.length, feedsSucceeded: feedProducts.length, feedsFailed: failures.length, feedResults: results.map(result => ({ name: result.name || feeds[result.index]?.name, status: result.products ? 'success' : 'failed', products: result.products?.length || 0, error: result.error || null })) };
   writeIfChanged(path.join(shopDir, 'products-manifest.json'), JSON.stringify(manifest, null, 2) + '\n');
   // Keep the legacy path useful for older clients without duplicating the full catalogue.
   writeIfChanged(path.join(shopDir, 'products.json'), JSON.stringify({ updatedAt: stamp, products: products.slice(0, batchSize), totalProducts: products.length, manifest: '/shop/products-manifest.json' }) + '\n');
