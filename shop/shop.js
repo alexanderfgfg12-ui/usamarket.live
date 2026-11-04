@@ -1,6 +1,6 @@
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
-const PAGE_SIZE=24;
+const PAGE_SIZE=48;
 let products=Array.isArray(window.__SHOP_INITIAL_PRODUCTS__)?window.__SHOP_INITIAL_PRODUCTS__.slice():[],page=1,loadingDone=false;
 const safeUrl=value=>{try{const u=new URL(value,location.origin);return ['https:','http:'].includes(u.protocol)?u.href:''}catch{return ''}};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
