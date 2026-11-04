@@ -1,17 +1,19 @@
-name: Native Android app
+name: Android apps
 
 on:
   pull_request:
     branches: [main]
     paths:
       - "app/**"
+      - "webviewapp/**"
       - "*.gradle.kts"
       - "gradle.properties"
       - ".github/workflows/android-build.yml"
   push:
-    branches: [main, replace-twa-with-native-android]
+    branches: [main, replace-twa-with-native-android, add-webview-apkpure-app]
     paths:
       - "app/**"
+      - "webviewapp/**"
       - "*.gradle.kts"
       - "gradle.properties"
       - ".github/workflows/android-build.yml"
@@ -30,13 +32,16 @@ jobs:
           distribution: temurin
           java-version: "17"
       - uses: gradle/actions/setup-gradle@v4
-      - name: Build debug APK
-        run: gradle --no-daemon :app:assembleDebug
+      - name: Build debug APKs
+        run: gradle --no-daemon :app:assembleDebug :webviewapp:assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: usamarket-native-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: usamarket-android-debug-apks
+          path: |
+            app/build/outputs/apk/debug/app-debug.apk
+            webviewapp/build/outputs/apk/debug/webviewapp-debug.apk
           if-no-files-found: error
+          retention-days: 30
 
   release:
     if: ${{ github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main' }}
@@ -56,23 +61,25 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
         run: |
           set -euo pipefail
-          : "${KEYSTORE_B64:?Missing existing GitHub Secret KEYSTORE_BASE64}"
-          : "${STORE_PASSWORD:?Missing existing GitHub Secret KEYSTORE_PASSWORD}"
-          : "${KEY_PASSWORD:?Missing existing GitHub Secret KEY_PASSWORD}"
-          : "${KEY_ALIAS:?Missing existing GitHub Secret KEY_ALIAS}"
+          : "${KEYSTORE_B64:?Missing GitHub Secret KEYSTORE_BASE64}"
+          : "${STORE_PASSWORD:?Missing GitHub Secret KEYSTORE_PASSWORD}"
+          : "${KEY_PASSWORD:?Missing GitHub Secret KEY_PASSWORD}"
+          : "${KEY_ALIAS:?Missing GitHub Secret KEY_ALIAS}"
           printf '%s' "$KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/usamarket-release.jks"
           keytool -list -keystore "$RUNNER_TEMP/usamarket-release.jks" -storepass "$STORE_PASSWORD" -alias "$KEY_ALIAS" >/dev/null
           echo "ANDROID_KEYSTORE_PATH=$RUNNER_TEMP/usamarket-release.jks" >> "$GITHUB_ENV"
           echo "ANDROID_KEYSTORE_PASSWORD=$STORE_PASSWORD" >> "$GITHUB_ENV"
           echo "ANDROID_KEY_PASSWORD=$KEY_PASSWORD" >> "$GITHUB_ENV"
           echo "ANDROID_KEY_ALIAS=$KEY_ALIAS" >> "$GITHUB_ENV"
-      - name: Build signed APK and AAB
-        run: gradle --no-daemon :app:assembleRelease :app:bundleRelease
+      - name: Build signed release APK and AAB files
+        run: gradle --no-daemon :app:assembleRelease :app:bundleRelease :webviewapp:assembleRelease :webviewapp:bundleRelease
       - uses: actions/upload-artifact@v4
         with:
-          name: usamarket-native-release
+          name: usamarket-android-release
           path: |
             app/build/outputs/apk/release/app-release.apk
             app/build/outputs/bundle/release/app-release.aab
+            webviewapp/build/outputs/apk/release/webviewapp-release.apk
+            webviewapp/build/outputs/bundle/release/webviewapp-release.aab
           if-no-files-found: error
           retention-days: 30
