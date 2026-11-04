@@ -15,7 +15,7 @@ permissions:
   contents: write
 concurrency:
   group: affiliate-product-sync
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   sync:
     runs-on: ubuntu-latest
