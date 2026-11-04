@@ -99,8 +99,20 @@ class MainActivity : ComponentActivity() {
             override fun onShowFileChooser(webView: WebView?, callback: ValueCallback<Array<Uri>>?, params: FileChooserParams?): Boolean {
                 fileCallback?.onReceiveValue(null)
                 fileCallback = callback
-                return try { startActivityForResult(params?.createIntent(), FILE_CHOOSER_REQUEST); true }
-                catch (_: Exception) { fileCallback = null; false }
+                val chooserIntent = params?.createIntent()
+                if (chooserIntent == null) {
+                    fileCallback?.onReceiveValue(null)
+                    fileCallback = null
+                    return false
+                }
+                return try {
+                    startActivityForResult(chooserIntent, FILE_CHOOSER_REQUEST)
+                    true
+                } catch (_: Exception) {
+                    fileCallback?.onReceiveValue(null)
+                    fileCallback = null
+                    false
+                }
             }
         }
         if (savedInstanceState == null) webView.loadUrl(HOME_URL) else webView.restoreState(savedInstanceState)
