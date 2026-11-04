@@ -340,3 +340,128 @@ footer a{color:#fff}
 @media(max-width:850px){.store-top{flex-wrap:wrap}.store-global-search{order:3;flex-basis:100%;max-width:none}.store-hero{grid-template-columns:1fr .6fr;padding:34px 5%}.storefront .store-benefits{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.store-utility{gap:10px;justify-content:flex-start;overflow:auto;white-space:nowrap;font-size:10px}.store-utility span:nth-child(3){display:none}.store-top{padding:10px 14px}.store-top nav{width:100%;justify-content:space-between;gap:3px}.store-top nav a{padding:7px 9px;font-size:11px}.store-wrap{padding:0 14px}.store-hero{grid-template-columns:1fr;min-height:0;padding:30px 24px;margin:16px 0;border-radius:18px}.hero-art{min-height:155px}.hero-bag{width:120px;height:120px;font-size:62px}.hero-gift{width:43px;height:43px;font-size:21px}.store-hero h1{font-size:39px}.storefront .intro{padding:28px 0 18px}.storefront .store-benefits{padding:15px;gap:12px}.storefront .store-benefits>div{gap:8px}.storefront .shelf .product{width:190px;flex-basis:190px}.storefront .shelf .photo{height:170px}}
 @media(prefers-reduced-motion:reduce){.storefront *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Final shop layout stabilization — scoped to the standalone storefront */
+body.storefront{background:#f6f8fc;color:#17243a;overflow-x:hidden}
+body.storefront .store-utility{min-height:36px;padding:7px max(16px,calc((100% - 1280px)/2));display:flex;align-items:center;justify-content:center;gap:clamp(10px,2.5vw,28px);flex-wrap:wrap;background:#082b59;color:#eef5ff;font-size:11px;font-weight:700}
+body.storefront .store-utility a{margin-left:auto;color:#fff;text-decoration:none}
+body.storefront .store-top{width:100%;max-width:none;min-height:82px;padding:10px max(16px,calc((100% - 1280px)/2));display:grid;grid-template-columns:minmax(180px,auto) minmax(200px,1fr) auto;align-items:center;gap:clamp(12px,2vw,24px);background:#fff;border-bottom:1px solid #e7edf5;box-shadow:0 4px 18px #0b28500b}
+body.storefront .store-top .mall-brand{display:flex;align-items:center;min-width:0;gap:10px}
+body.storefront .store-top .store-logo{display:block;width:52px;height:52px;max-width:100%;object-fit:contain}
+body.storefront .store-top .mall-wordmark{display:flex;flex-direction:column;line-height:1.1}
+body.storefront .store-top .mall-wordmark strong{font-size:1.08rem;color:#0b2d59;font-weight:900}
+body.storefront .store-top .mall-wordmark small{margin-top:5px;color:#fff;background:#0752c9;border-radius:4px;padding:3px 6px;font-size:9px;letter-spacing:.1em}
+body.storefront .store-global-search{display:flex;align-items:center;gap:10px;width:100%;max-width:520px;min-width:0;height:46px;margin:0 auto;padding:0 15px;border:1px solid #dce5f2;border-radius:999px;background:#f7f9fd;color:#0752c9}
+body.storefront .store-global-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#17243a;font:500 14px Inter,system-ui,sans-serif}
+body.storefront .store-top nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(8px,1.2vw,18px);flex-wrap:wrap}
+body.storefront .store-top nav a{padding:8px 2px;color:#253a57;font-size:12px;font-weight:750;text-decoration:none}
+body.storefront .store-top nav a.current{color:#0752c9;border-bottom:3px solid #0752c9;background:transparent;border-radius:0;box-shadow:none}
+body.storefront .store-top nav .language-control select{max-width:130px;padding:8px 10px;border:1px solid #e0e7f0;border-radius:999px;background:#fff;color:#17385f;font:700 12px Inter,system-ui,sans-serif}
+body.storefront .store-wrap{width:100%;max-width:1320px;margin:0 auto;padding:24px 24px 60px}
+body.storefront .store-hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:320px;margin:0;overflow:hidden;padding:44px clamp(24px,5vw,64px);border-radius:20px;background:linear-gradient(110deg,#eaf3ff 0%,#f7faff 48%,#d4e5ff 100%);box-shadow:0 12px 34px #0c356917}
+body.storefront .store-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,#eaf3ff 0%,#f5f9ff 48%,#cfe1ff 100%);opacity:1;animation:none}
+body.storefront .store-hero:after{content:"";position:absolute;right:8%;top:-230px;width:430px;height:430px;border:1px solid #0752c91c;border-radius:50%;box-shadow:0 0 0 38px #0752c909,0 0 0 90px #0752c906;pointer-events:none}
+body.storefront .hero-copy{position:relative;z-index:2;width:58%;max-width:620px}
+body.storefront .hero-kicker{color:#0752c9;font-size:11px;font-weight:900;letter-spacing:.16em}
+body.storefront .store-hero h1{margin:13px 0;color:#0a2d59;font-size:clamp(34px,4.5vw,58px);line-height:1.04;letter-spacing:-.045em}
+body.storefront .store-hero h1 em{color:#0752c9}
+body.storefront .store-hero p{max-width:430px;color:#405675;font-size:15px;line-height:1.7}
+body.storefront .hero-cta{display:inline-flex;align-items:center;gap:12px;margin-top:10px;padding:12px 22px;border-radius:999px;background:#0752c9;color:#fff;font-weight:850;text-decoration:none;box-shadow:0 7px 18px #0752c92b}
+body.storefront .hero-art{position:absolute;right:6%;top:50%;width:38%;height:90%;transform:translateY(-50%);display:grid;place-items:center}
+body.storefront .hero-bag{display:grid;place-items:center;width:clamp(125px,14vw,180px);height:clamp(125px,14vw,180px);border:1px solid #0752c926;border-radius:38px;background:linear-gradient(145deg,#ffffffc9,#ffffff55);font-size:clamp(70px,8vw,105px);box-shadow:0 18px 48px #0752c91b}
+body.storefront .hero-gift{background:#fff;box-shadow:0 8px 22px #0752c91a}
+body.storefront .hero-sale{background:#e51d35;color:#fff}
+body.storefront .category-rail{display:flex;align-items:center;justify-content:flex-start;gap:10px;margin:18px 0 24px;padding:12px;border:1px solid #e7edf6;border-radius:16px;background:#fff;box-shadow:0 4px 18px #0b285008;overflow-x:auto;scrollbar-width:thin}
+body.storefront .category-rail button,body.storefront .category-rail>a{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 14px;border:1px solid #e8edf5;border-radius:999px;background:#f7f9fd;color:#17385f;font:750 12px Inter,system-ui,sans-serif;text-decoration:none;white-space:nowrap}
+body.storefront .category-rail button.category-all,body.storefront .category-rail button:hover,body.storefront .category-rail>a:hover{background:#0752c9;border-color:#0752c9;color:#fff}
+body.storefront .category-rail button span,body.storefront .category-rail>a span{width:auto;height:auto;background:transparent;font-size:17px}
+body.storefront .intro{text-align:left;padding:28px 0 22px}
+body.storefront .intro .eyebrow{color:#0752c9}
+body.storefront .intro h2{margin:8px 0;color:#0a2d59;font-size:clamp(24px,3vw,34px);letter-spacing:-.7px}
+body.storefront .intro h2 em{color:#0752c9}
+body.storefront .intro>p{max-width:720px;margin:8px 0;color:#64748b}
+body.storefront .shop-tools{padding:16px 18px 7px;border:1px solid #e5ebf3;border-radius:17px;background:#fff;box-shadow:0 5px 20px #102b4e08}
+body.storefront .toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+body.storefront .search{flex:1 1 260px;min-width:0;border:1px solid #dce5f2;border-radius:999px;background:#f8faff}
+body.storefront .filter-label{flex:0 1 190px}
+body.storefront .filter-label select{width:100%;min-width:0;border:1px solid #dce5f2;border-radius:999px;background:#f8faff}
+body.storefront #products.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch;gap:18px;padding-top:16px;scroll-margin-top:100px}
+body.storefront #products .product{min-width:0;border:1px solid #e5ebf3;border-radius:16px;background:#fff;box-shadow:0 4px 18px #102b4e0b;animation:none}
+body.storefront #products .product:hover{border-color:#bfd3f2;box-shadow:0 14px 28px #102b4e16;transform:translateY(-3px)}
+body.storefront #products .photo{height:clamp(180px,19vw,245px);padding:14px;background:linear-gradient(180deg,#fff,#f8faff);border-bottom:1px solid #edf1f6}
+body.storefront #products .photo img{width:100%;height:100%;object-fit:contain;padding:0;mix-blend-mode:normal}
+body.storefront #products .pbody{display:flex;flex:1;flex-direction:column;padding:15px;gap:2px}
+body.storefront #products .product h2{min-height:4.1em;margin:8px 0 5px;color:#102d54;font-size:.94rem;line-height:1.4}
+body.storefront #products .desc{font-size:.78rem;color:#687995}
+body.storefront #products .price{margin-top:auto;color:#0752c9;font-size:1.15rem}
+body.storefront #products .cta{min-height:42px;margin-top:12px;border-radius:999px;background:#0752c9;color:#fff;font-size:.82rem}
+body.storefront #products .cta:hover{background:#063f9e}
+body.storefront .meta{align-items:center;color:#687995}
+body.storefront #count{color:#0a2d59;font-weight:850}
+body.storefront .store-benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:32px 0 18px;padding:20px;border:1px solid #e5ebf3;border-radius:18px;background:#fff}
+body.storefront .store-benefits>div{display:flex;align-items:center;gap:10px;border:0}
+body.storefront .store-benefits>div>b{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:#edf4ff;color:#0752c9;font-size:20px}
+body.storefront .store-benefits span{display:grid;line-height:1.35}
+body.storefront .store-benefits strong{color:#17385f;font-size:12px}
+body.storefront .store-benefits small{color:#7c8ba0;font-size:10px}
+body.storefront .confidence{grid-column:1/-1;padding-top:12px;border-top:1px solid #edf1f6;color:#0752c9;text-align:center}
+body.storefront .disclosure{margin:30px 0 0;padding:18px 20px;border:1px solid #e6edf6;border-radius:16px;background:#fff;color:#687995}
+body.storefront footer{background:#082b59;color:#dbe8fa}
+body.storefront footer a{color:#fff}
+body.storefront a:focus-visible,body.storefront button:focus-visible,body.storefront input:focus-visible,body.storefront select:focus-visible{outline:3px solid #8db8ff;outline-offset:2px}
+@media(max-width:1050px){
+ body.storefront .store-top{grid-template-columns:auto minmax(180px,1fr);gap:12px}
+ body.storefront .store-global-search{grid-column:1/-1;grid-row:2;max-width:none}
+ body.storefront .store-top nav{grid-column:1/-1;justify-content:flex-start;flex-wrap:wrap}
+ body.storefront #products.grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.storefront .store-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+ body.storefront .store-utility{justify-content:flex-start;gap:8px 14px;overflow-x:auto;white-space:nowrap;flex-wrap:nowrap;padding:7px 12px}
+ body.storefront .store-utility span:nth-child(3){display:none}
+ body.storefront .store-top{display:flex;flex-wrap:wrap;gap:10px;padding:10px 13px}
+ body.storefront .store-top .store-logo{width:42px;height:42px}
+ body.storefront .store-top .mall-wordmark strong{font-size:.92rem}
+ body.storefront .store-top .mall-wordmark small{font-size:8px}
+ body.storefront .store-global-search{order:3;width:100%;height:42px}
+ body.storefront .store-top nav{order:2;width:100%;justify-content:space-between;gap:5px}
+ body.storefront .store-top nav a{font-size:11px;padding:6px 2px}
+ body.storefront .store-top nav .language-control select{max-width:105px;padding:6px 7px;font-size:10px}
+ body.storefront .store-wrap{padding:14px 13px 44px}
+ body.storefront .store-hero{min-height:260px;padding:25px 18px;border-radius:16px}
+ body.storefront .hero-copy{width:70%;max-width:70%}
+ body.storefront .store-hero h1{font-size:clamp(29px,8vw,38px);letter-spacing:-1px}
+ body.storefront .store-hero p{font-size:13px;max-width:230px}
+ body.storefront .hero-art{right:-7%;width:44%;opacity:.95}
+ body.storefront .hero-bag{width:112px;height:112px;font-size:58px;border-radius:28px}
+ body.storefront .hero-orbit{width:165px;height:130px}
+ body.storefront .orbit-two{width:190px;height:105px}
+ body.storefront .hero-gift{width:40px;height:40px;font-size:19px}
+ body.storefront .category-rail{margin:12px 0 18px;padding:9px}
+ body.storefront .category-rail button,body.storefront .category-rail>a{min-height:38px;padding:7px 11px;font-size:11px}
+ body.storefront .intro{padding:22px 0 16px}
+ body.storefront .shop-tools{padding:12px 11px 5px}
+ body.storefront #products.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ body.storefront #products .photo{height:165px;padding:8px}
+ body.storefront #products .pbody{padding:10px}
+ body.storefront #products .product h2{font-size:.82rem;min-height:4.1em}
+ body.storefront #products .desc{font-size:.7rem}
+ body.storefront #products .price{font-size:1rem}
+ body.storefront #products .cta{min-height:38px;font-size:.72rem}
+ body.storefront .store-benefits{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:14px}
+ body.storefront .store-benefits>div{gap:7px}
+ body.storefront .store-benefits strong{font-size:11px}
+ body.storefront .store-benefits small{font-size:9px}
+ body.storefront .confidence{font-size:12px}
+ body.storefront .disclosure{padding:15px}
+}
+@media(max-width:380px){
+ body.storefront .store-top nav a{font-size:10px}
+ body.storefront .store-top .mall-wordmark{display:none}
+ body.storefront .store-hero{min-height:245px}
+ body.storefront .hero-copy{width:76%;max-width:76%}
+ body.storefront .hero-art{right:-12%}
+ body.storefront #products .photo{height:145px}
+}
+@media(prefers-reduced-motion:reduce){body.storefront *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
