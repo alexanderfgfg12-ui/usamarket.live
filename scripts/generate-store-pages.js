@@ -45,4 +45,24 @@ writeIfChanged(path.join(root,'product-sitemap.xml'),xml);
 // Remove only stale pages; unchanged product pages are never regenerated or rewritten.
 for(const file of fs.readdirSync(pageDir)) if(file.endsWith('.html')&&!expectedProductPages.has(file)) fs.unlinkSync(path.join(pageDir,file));
 for(const file of fs.readdirSync(categoryDir)) if(file.endsWith('.html')&&!expectedCategoryPages.has(file)) fs.unlinkSync(path.join(categoryDir,file));
+// Pre-render the first catalogue page into shop/index.html so visitors see real products
+// immediately, before the browser fetches the complete catalogue in the background.
+const storefrontPath=path.join(shop,'index.html');
+if(fs.existsSync(storefrontPath)){
+  let storefront=fs.readFileSync(storefrontPath,'utf8');
+  const initial=products.slice(0,24);
+  const cardHtml=initial.map(p=>{
+    const file=slug(p.title)+'-'+hash(p.id||p.affiliateUrl)+'.html';
+    const image=p.image?'<img loading="lazy" decoding="async" src="'+esc(p.image)+'" alt="'+esc(p.title)+'">':'<span class="no-photo">Image coming soon</span>';
+    const price=money(p.price,p.currency);
+    return '<article class="product"><a class="photo" href="/shop/p/'+file+'">'+image+'</a><div class="pbody"><span class="source">'+esc(p.source||p.brand||'Partner pick')+'</span><h2><a class="product-title-link" href="/shop/p/'+file+'">'+esc(p.title)+'</a></h2>'+(p.description?'<p class="desc">'+esc(String(p.description).slice(0,125))+'</p>':'')+'<div class="price">'+esc(price)+'</div><a class="cta" href="'+esc(p.affiliateUrl)+'" target="_blank" rel="sponsored nofollow noopener">Shop this product ↗</a></div></article>';
+  }).join('');
+  storefront=storefront.replace(/(<section id="products" class="grid"[^>]*>)[\s\S]*?(<\/section>)/, '$1'+cardHtml+'$2');
+  storefront=storefront.replace('<span id="count">Loading products…</span>','<span id="count">'+products.length.toLocaleString()+' products</span>');
+  storefront=storefront.replace('<p id="status" class="status" role="status">Loading the catalogue…</p>','<p id="status" class="status" role="status">'+products.length.toLocaleString()+' products available · refreshing in background</p>');
+  const bootstrap='<script>window.__SHOP_INITIAL_PRODUCTS__='+JSON.stringify(initial).replace(/</g,'\\u003c')+';</script>';
+  if(!storefront.includes('window.__SHOP_INITIAL_PRODUCTS__')) storefront=storefront.replace('<script src="/shop/shop.js?v=6" defer></script>',bootstrap+'<script src="/shop/shop.js?v=7" defer></script>');
+  else storefront=storefront.replace(/window\.__SHOP_INITIAL_PRODUCTS__=[\s\S]*?;<\/script>/,bootstrap.slice(8,-9));
+  writeIfChanged(storefrontPath,storefront);
+}
 console.log('Generated',entries.length,'product pages and',categoryMap.size,'category pages; sitemap URLs:',allUrls.length);
