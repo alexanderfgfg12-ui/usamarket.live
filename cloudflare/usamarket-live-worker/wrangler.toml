@@ -10,3 +10,10 @@ run_worker_first = ["/api/*"]
 
 # Preview configuration is required for branch-isolated Workers Builds.
 [previews]
+
+[[kv_namespaces]]
+binding = "VIDEOS_KV"
+id = "a189d0168a824bb4ab291c821b50767b"
+
+[triggers]
+crons = ["17 4 * * *"]
