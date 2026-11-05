@@ -6,3 +6,47 @@
 .memory .game-visual{background:linear-gradient(135deg,#261b50,#101a3c)}.memory-art{position:absolute;left:28%;top:30%;font-size:2.5rem;line-height:1.5;letter-spacing:.5em;color:#c6ff4d}
 .lander .game-visual{background:radial-gradient(circle at 50% 80%,#4c5066,#111b32 65%)}.lander-art{position:absolute;left:43%;top:24%;font-size:3.5rem;line-height:1.2;filter:drop-shadow(0 0 12px #7deaff)}
 .portal .game-visual{background:linear-gradient(120deg,#111d45,#073c52)}.portal-art{position:absolute;left:25%;top:30%;font-size:4.2rem;color:#49d9ff;text-shadow:0 0 22px #49d9ff;letter-spacing:.12em}
+
+
+/* Arcade art direction: richer, game-specific cover scenes */
+.game-card{overflow:hidden;border-radius:10px;box-shadow:0 12px 34px #102b4e12;transition:transform .22s ease,box-shadow .22s ease}
+.game-card:hover{transform:translateY(-7px);box-shadow:0 22px 48px #102b4e20}
+.game-visual{height:218px;isolation:isolate}
+.game-visual:before{content:"";position:absolute;inset:0;z-index:0;opacity:.55;background:repeating-linear-gradient(135deg,#ffffff08 0 1px,transparent 1px 13px);pointer-events:none}
+.game-visual:after{content:"";position:absolute;inset:auto 0 0;height:42%;z-index:0;background:linear-gradient(transparent,#07142655);pointer-events:none}
+.visual-label{padding:7px 10px;background:#06132388;border:1px solid #ffffff20;border-radius:3px}
+.game-info{padding:22px 22px 23px}
+.game-info h3{font-size:2.15rem;letter-spacing:.045em}
+.game-info button{border-radius:4px;transition:background .18s,transform .18s}
+.game-info button:hover{transform:translateX(2px)}
+/* Pulse Snake: illuminated arena and segmented trail */
+.snake .game-visual{background:radial-gradient(ellipse at 52% 52%,#145d58 0,#0c343b 35%,#071728 78%)}
+.snake-art{left:19%;top:42%;font-size:2.2rem;letter-spacing:.04em;color:#63f3c1;text-shadow:0 0 8px #63f3c1,0 0 24px #25d7b0;transform:rotate(-9deg)}
+.snake-art:before{content:"";position:absolute;z-index:-1;left:-35px;top:-30px;width:260px;height:90px;border:1px solid #64ffcf44;border-radius:50%;transform:rotate(8deg);box-shadow:0 0 24px #21d4aa22}
+/* Brickstorm: luminous block wall and energy ball */
+.breakout .game-visual{background:radial-gradient(circle at 50% 60%,#40316c,#151c40 70%,#0b1730)}
+.brick-art{left:27%;top:25%;font-size:1.7rem;line-height:1.45;letter-spacing:.3em;color:#ffbd65;text-shadow:0 0 7px #ffbd65,0 0 20px #ff6d8b}
+.breakout .game-visual:after{content:"";position:absolute;left:49%;bottom:22px;width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:0 0 12px 5px #71dfff;z-index:2}
+.breakout .game-visual:before{background:repeating-linear-gradient(90deg,transparent 0 42px,#ffffff09 42px 43px),repeating-linear-gradient(0deg,transparent 0 35px,#ffffff08 35px 36px)}
+/* Stack Shift: dimensional floating platforms */
+.stack .game-visual{background:radial-gradient(ellipse at 50% 72%,#245e68,#112b46 58%,#10172e)}
+.stack-art{left:36%;top:22%;width:145px;height:155px;filter:drop-shadow(0 12px 10px #020a1a88)}
+.stack-art i{width:125px;height:27px;border-radius:3px;transform:skewY(-18deg) rotate(-2deg);box-shadow:0 7px 0 #07152688,0 0 18px #ffffff22}
+.stack-art i:nth-child(1){left:5px;bottom:2px;background:linear-gradient(90deg,#8bdc48,#d4ff74)}
+.stack-art i:nth-child(2){left:15px;bottom:43px;background:linear-gradient(90deg,#5b66d9,#a89aff)}
+.stack-art i:nth-child(3){left:0;bottom:84px;background:linear-gradient(90deg,#f18b53,#ffd07b)}
+/* Memory Matrix: luminous holographic tile field */
+.memory .game-visual{background:radial-gradient(circle at 50% 50%,#403b83,#1d204d 60%,#10172e)}
+.memory-art{left:31%;top:27%;font-size:2.15rem;line-height:1.6;letter-spacing:.55em;color:#e4d8ff;text-shadow:0 0 12px #9b8aff,0 0 26px #5b6fff}
+.memory .game-visual:after{content:"";position:absolute;left:27%;top:23%;width:46%;height:58%;border:1px solid #b7aaff55;border-radius:12px;box-shadow:0 0 35px #7c69ff22,inset 0 0 24px #8e80ff22}
+/* Lunar Lander: moon horizon, landing beacon and ship glow */
+.lander .game-visual{background:radial-gradient(ellipse at 50% 88%,#8c8a9a 0,#555c78 18%,#202d4b 43%,#0c1730 78%)}
+.lander-art{left:45%;top:17%;font-size:3.15rem;filter:drop-shadow(0 0 12px #8deaff);text-align:center}
+.lander .game-visual:after{height:32%;background:linear-gradient(transparent,#a7a8b8 85%,#d7d8dc)}
+/* Portal Dash: layered rings and a neon running lane */
+.portal .game-visual{background:radial-gradient(ellipse at 55% 55%,#164f70,#10244b 48%,#09162c 80%)}
+.portal-art{left:23%;top:29%;font-size:3.9rem;color:#72eaff;letter-spacing:.16em;text-shadow:0 0 8px #49d9ff,0 0 26px #49d9ff,0 0 52px #6e70ff}
+.portal .game-visual:before{background:repeating-radial-gradient(ellipse at 55% 55%,transparent 0 28px,#59dfff22 29px 30px,transparent 31px 54px)}
+/* Consistent mobile fit and reduced-motion support */
+@media(max-width:600px){.game-visual{height:195px}.game-info{padding:18px}.game-info h3{font-size:2rem}.arcade-header nav{gap:10px}.arcade-header nav a{font-size:.7rem}}
+@media(prefers-reduced-motion:reduce){.game-card,.game-info button{transition:none}}
