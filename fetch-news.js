@@ -51,8 +51,8 @@ async function fetchAll() {
       for (const item of (parsed.items || []).slice(0, 10)) {
         const link = safePublisherUrl(item.link);
         const title = plainText(item.title);
-        const description = plainText(item.contentSnippet || item.summary || item.content || '').slice(0, 240);
-        if (!link || !title || !description) continue;
+        const description = 'Open the original publisher report for the full story and context.';
+        if (!link || !title) continue;
         collected.push({
           title: title.slice(0, 180),
           description,
