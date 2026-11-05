@@ -28,6 +28,7 @@ export async function authFetch(req,env){
  if(p==="/api/auth/me"&&m==="GET")return json({user:await userFromSession(req,env)});
  if(p==="/api/auth/logout"&&m==="POST"){const token=getCookie(req,"usamarket_session");if(token)await env.DB.prepare("DELETE FROM auth_sessions WHERE id_hash=?").bind(await sha(token)).run();return json({ok:true},200,{"set-cookie":clearCookie("usamarket_session")});}
  if(!p.startsWith("/api/auth/"))return json({error:"not_found"},404);
+ if(p==="/api/auth/google/callback"&&m==="GET")return await googleCallback(req,env);
  if((m!=="POST"&&!(p==="/api/auth/google/start"&&m==="GET"))||!originOK(req))return json({error:"request_not_allowed"},403);
  const data=await body(req),email=String(data.email||"").trim().toLowerCase(),ip=(req.headers.get("cf-connecting-ip")||"unknown");
  if(p==="/api/auth/register"){
@@ -65,6 +66,7 @@ export async function authFetch(req,env){
   const state=random(24),redirect=new URL("/api/auth/google/callback",u.origin).href,auth=new URL("https://accounts.google.com/o/oauth2/v2/auth");auth.search=new URLSearchParams({client_id:env.GOOGLE_CLIENT_ID,redirect_uri:redirect,response_type:"code",scope:"openid email profile",state,prompt:"select_account"}).toString();return new Response(null,{status:302,headers:{location:auth.href,"set-cookie":cookie("usamarket_oauth_state",state,600)}});
  }
  async function googleCallback(req,env){
+  const u=new URL(req.url);
   const state=u.searchParams.get("state")||"",saved=getCookie(req,"usamarket_oauth_state"),code=u.searchParams.get("code");if(!state||state!==saved||!code)return json({error:"Google sign-in verification failed."},400);
   const redirect=new URL("/api/auth/google/callback",u.origin).href,form=new URLSearchParams({code,client_id:env.GOOGLE_CLIENT_ID,client_secret:env.GOOGLE_CLIENT_SECRET,redirect_uri:redirect,grant_type:"authorization_code"}),tr=await fetch("https://oauth2.googleapis.com/token",{method:"POST",headers:{"content-type":"application/x-www-form-urlencoded"},body:form});if(!tr.ok)return json({error:"Google sign-in failed."},401);const td=await tr.json(),ur=await fetch("https://openidconnect.googleapis.com/v1/userinfo",{headers:{authorization:"Bearer "+td.access_token}});if(!ur.ok)return json({error:"Could not verify Google account."},401);const g=await ur.json();if(!g.email||!g.email_verified)return json({error:"Google did not verify this email."},403);
   let user=await env.DB.prepare("SELECT id,status FROM users WHERE email=?").bind(g.email.toLowerCase()).first();const at=now();if(!user){const id=random(18);await env.DB.prepare("INSERT INTO users(id,email,display_name,avatar_url,email_verified_at,created_at,updated_at) VALUES(?,?,?,?,?,?,?)").bind(id,g.email.toLowerCase(),String(g.name||"").slice(0,80),String(g.picture||"").slice(0,500),at,at,at).run();user={id,status:"active"};}
