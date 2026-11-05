@@ -1,148 +1,122 @@
-// ===== مؤقت قاتل لمنع تعليق GitHub =====
-setTimeout(() => {
-  console.error('⏱️ [FORCE EXIT] Timeout reached (4 minutes). Exiting.');
-  process.exit(0); // الخروج بنجاح لتجنب الفشل الأحمر
-}, 4 * 60 * 1000); 
+'use strict';
 
+// Publishes short, attributed RSS summaries and links readers to the original publisher.
+// It intentionally does NOT republish full articles, AI-rewrite source material, or copy feed images.
 const Parser = require('rss-parser');
 const fs = require('fs');
-const parser = new Parser({ timeout: 10000 });
+const path = require('path');
 
-// ===== مصادر الأخبار =====
+const parser = new Parser({ timeout: 10000 });
 const FEEDS = [
   { url: 'https://www.cnbc.com/id/100003114/device/rss/rss.html', source: 'CNBC', category: 'markets' },
   { url: 'https://feeds.content.dowjones.io/public/rss/mw_topstories', source: 'MarketWatch', category: 'markets' },
   { url: 'https://finance.yahoo.com/news/rssindex', source: 'Yahoo Finance', category: 'stocks' }
 ];
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-// نستخدم النموذج الأكثر استقراراً
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+function plainText(value = '') {
+  return String(value)
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function escapeHtml(value = '') {
+  return String(value).replace(/[&<>"']/g, ch => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[ch]);
+}
+function safePublisherUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' ? url.href : null;
+  } catch (_) { return null; }
+}
+function safeDate(value) {
+  const date = new Date(value || Date.now());
+  return Number.isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString();
+}
 
 async function fetchAll() {
-  console.log('🚀 Starting news fetch...');
-  let articles = [];
-
-  // 1. جلب الأخبار
+  const collected = [];
   for (const feed of FEEDS) {
     try {
       const parsed = await parser.parseURL(feed.url);
-      const items = (parsed.items || []).slice(0, 2); // جلب خبرين فقط لتسريع العملية
-      for (const item of items) {
-        articles.push({
-          title: item.title,
-          link: item.link,
-          description: (item.contentSnippet || item.content || '').substring(0, 300).trim(),
-          pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
+      for (const item of (parsed.items || []).slice(0, 10)) {
+        const link = safePublisherUrl(item.link);
+        const title = plainText(item.title);
+        const description = plainText(item.contentSnippet || item.summary || item.content || '').slice(0, 240);
+        if (!link || !title || !description) continue;
+        collected.push({
+          title: title.slice(0, 180),
+          description,
+          link,
+          pubDate: safeDate(item.isoDate || item.pubDate),
           source: feed.source,
           category: feed.category
         });
       }
-      console.log(`✅ ${feed.source}: ${items.length} articles`);
-    } catch (err) {
-      console.error(`❌ ${feed.source}: ${err.message}`);
+    } catch (error) {
+      console.error('Feed unavailable:', feed.source, error.message);
     }
   }
 
-  // 2. ترتيب وإزالة التكرار
-  articles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
   const seen = new Set();
-  articles = articles.filter(a => {
-    const key = a.title.toLowerCase().substring(0, 40);
-    if (seen.has(key)) return false;
-    seen.add(key);
-    return true;
-  });
-
-  console.log(`\n📊 Total unique articles: ${articles.length}`);
-
-  // 3. محاولة استخدام الذكاء الاصطناعي (لأول 2 فقط)
-  const AI_LIMIT = 2;
-  const finalArticles = [];
-  
-  if (!fs.existsSync('news')) fs.mkdirSync('news');
-
-  for (let i = 0; i < articles.length; i++) {
-    const a = articles[i];
-    let aiContent = null;
-    let aiTitle = a.title;
-
-    // محاولة AI فقط للخبرين الأولين
-    if (i < AI_LIMIT && GEMINI_API_KEY) {
-      try {
-        console.log(`🤖 Rewriting article ${i + 1}...`);
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 ثانية فقط
-
-        const prompt = `Rewrite this news in a 300-word article. Return ONLY JSON: {"headline":"...","summary":"...","content":"<p>...</p>"}. Original: ${a.title} - ${a.description}`;
-        
-        const res = await fetch(GEMINI_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
-            generationConfig: { temperature: 0.7, responseMimeType: 'application/json' }
-          }),
-          signal: controller.signal
-        });
-
-        clearTimeout(timeoutId);
-
-        if (res.ok) {
-          const data = await res.json();
-          const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (text) {
-            const parsed = JSON.parse(text.replace(/```json/g, '').replace(/```/g, '').trim());
-            aiContent = parsed.content;
-            aiTitle = parsed.headline || a.title;
-            console.log(`  ✅ AI Success: ${aiTitle.substring(0, 40)}`);
-          }
-        } else {
-          console.log(`  ❌ AI Failed (Status: ${res.status})`);
-        }
-      } catch (err) {
-        console.log(`  ⚠️ AI Error: ${err.message}`);
-      }
-    }
-
-    // إنشاء ملف الصفحة (سواء نجح الذكاء الاصطناعي أم لا)
-    const slug = aiTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + i;
-    const fileName = `news/${slug}.html`;
-    
-    // إذا لم يوجد محتوى ذكاء اصطناعي، استخدم النص الأصلي
-    const finalContent = aiContent || `<p>${a.description}</p>`;
-
-    const htmlTemplate = `
-      <!DOCTYPE html><html><head><title>${aiTitle}</title><link rel="stylesheet" href="../style.css">\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=G-S95EDYLHGF"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){window.dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', 'G-S95EDYLHGF');\n</script></head>
-      <body><div class="container"><h1>${aiTitle}</h1><p>${a.pubDate} | ${a.source}</p><div>${finalContent}</div><a href="../index.html">← Back</a></div></body></html>
-    `;
-    fs.writeFileSync(fileName, htmlTemplate);
-
-    finalArticles.push({
-      id: slug,
-      title: aiTitle,
-      description: a.description.substring(0, 200),
-      content: finalContent,
-      link: a.link,
-      pubDate: a.pubDate,
-      source: a.source,
-      category: a.category
+  const articles = collected
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .filter(item => {
+      const key = item.link;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
     });
+
+  const directory = path.join(process.cwd(), 'news');
+  fs.mkdirSync(directory, { recursive: true });
+  const published = [];
+
+  for (const item of articles) {
+    const slugBase = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 90) || 'market-update';
+    const slug = slugBase + '-' + Buffer.from(item.link).toString('hex').slice(0, 10);
+    const fileName = path.join(directory, slug + '.html');
+    const title = escapeHtml(item.title);
+    const summary = escapeHtml(item.description);
+    const source = escapeHtml(item.source);
+    const date = escapeHtml(item.pubDate);
+    const publisherLink = escapeHtml(item.link);
+
+    const html = `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${title} | US Market Live</title>
+<meta name="description" content="${summary}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://usamarket.live/news/${slug}.html">
+<link rel="stylesheet" href="../style.css">
+</head><body><main class="container" style="max-width:820px;margin:40px auto;padding:20px">
+<p><strong>News summary · ${source}</strong></p><h1>${title}</h1><p><time datetime="${date}">${date}</time></p>
+<p>${summary}</p>
+<p>This page provides a brief attributed summary. The original reporting, full article and any related media remain with the publisher.</p>
+<p><a href="${publisherLink}" target="_blank" rel="noopener noreferrer">Read the original report at ${source}</a></p>
+<p><a href="/">Return to US Market Live</a></p></main></body></html>`;
+    fs.writeFileSync(fileName, html, 'utf8');
+    published.push({ id: slug, title: item.title, description: item.description, link: item.link, pubDate: item.pubDate, source: item.source, category: item.category });
   }
 
-  // 4. حفظ البيانات (لن تكون فارغة أبداً)
-  const data = {
+  fs.writeFileSync('news-data.json', JSON.stringify({
     updated: new Date().toISOString(),
-    count: finalArticles.length,
-    articles: finalArticles
-  };
-
-  fs.writeFileSync('news-data.json', JSON.stringify(data, null, 2));
-  console.log(`\n✅ Saved ${finalArticles.length} articles successfully.`);
-  process.exit(0);
+    count: published.length,
+    articles: published
+  }, null, 2), 'utf8');
+  console.log('Published attributed summaries:', published.length);
 }
 
-fetchAll().catch(err => {
-  console.error('❌ Fatal error:', err);
-  process.exit(0); // نخرج بنجاح حتى لا يظهر الخطأ الأحمر
+fetchAll().catch(error => {
+  console.error('News publishing failed:', error);
+  process.exitCode = 1;
 });
