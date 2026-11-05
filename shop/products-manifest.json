@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-04T04:37:20.292Z",
-  "totalProducts": 1432,
+  "updatedAt": "2026-11-05T21:01:31.330Z",
+  "totalProducts": 1443,
   "batchSize": 300,
   "batches": [
     "products-0001.json",
@@ -19,12 +19,40 @@
         "24a07f52301c-0004.json",
         "24a07f52301c-0005.json"
       ],
-      "totalProducts": 1432
+      "totalProducts": 1439
+    },
+    {
+      "feedKey": "b318c3d87b5d",
+      "batches": [
+        "b318c3d87b5d-0001.json"
+      ],
+      "totalProducts": 1
+    },
+    {
+      "feedKey": "70e139fb627e",
+      "batches": [
+        "70e139fb627e-0001.json"
+      ],
+      "totalProducts": 1
+    },
+    {
+      "feedKey": "c07ea405ad61",
+      "batches": [
+        "c07ea405ad61-0001.json"
+      ],
+      "totalProducts": 1
+    },
+    {
+      "feedKey": "6b271f50d146",
+      "batches": [
+        "6b271f50d146-0001.json"
+      ],
+      "totalProducts": 1
     }
   ],
   "feedsConfigured": 12,
-  "feedsSucceeded": 1,
-  "feedsFailed": 11,
+  "feedsSucceeded": 5,
+  "feedsFailed": 7,
   "feedResults": [
     {
       "name": "Admitad template 79310",
@@ -36,67 +64,67 @@
       "name": "Admitad template 79311",
       "status": "failed",
       "products": 0,
-      "error": "Feed 2 [Admitad template 79311]: No valid products with title and affiliate URL"
+      "error": "Feed 1 [Admitad template 79311]: No valid products with title and affiliate URL"
     },
     {
       "name": "Admitad template 79312",
       "status": "failed",
       "products": 0,
-      "error": "Feed 3 [Admitad template 79312]: No valid products with title and affiliate URL"
+      "error": "Feed 1 [Admitad template 79312]: No valid products with title and affiliate URL"
     },
     {
       "name": "Admitad template 79319",
       "status": "failed",
       "products": 0,
-      "error": "Feed 4 [Admitad template 79319]: No valid products with title and affiliate URL"
+      "error": "Feed 1 [Admitad template 79319]: No valid products with title and affiliate URL"
     },
     {
       "name": "Admitad template 79320",
       "status": "failed",
       "products": 0,
-      "error": "Feed 5 [Admitad template 79320]: No valid products with title and affiliate URL"
+      "error": "Feed 1 [Admitad template 79320]: No valid products with title and affiliate URL"
     },
     {
       "name": "Admitad template 79321",
-      "status": "failed",
-      "products": 0,
-      "error": "Feed 6 [Admitad template 79321]: XML parsed but no product offers found"
+      "status": "success",
+      "products": 1,
+      "error": null
     },
     {
       "name": "Admitad template 79322",
-      "status": "failed",
-      "products": 0,
-      "error": "Feed 7 [Admitad template 79322]: XML parsed but no product offers found"
+      "status": "success",
+      "products": 1,
+      "error": null
     },
     {
       "name": "Admitad template 79323",
       "status": "failed",
       "products": 0,
-      "error": "Feed 8 [Admitad template 79323]: The operation was aborted due to timeout"
+      "error": "Feed 1 [Admitad template 79323]: The operation was aborted due to timeout"
     },
     {
       "name": "Admitad template 79324",
       "status": "success",
-      "products": 1432,
+      "products": 1439,
       "error": null
     },
     {
       "name": "Admitad template 79335",
-      "status": "failed",
-      "products": 0,
-      "error": "Feed 10 [Admitad template 79335]: XML parsed but no product offers found"
+      "status": "success",
+      "products": 1,
+      "error": null
     },
     {
       "name": "Admitad template 79336",
-      "status": "failed",
-      "products": 0,
-      "error": "Feed 11 [Admitad template 79336]: XML parsed but no product offers found"
+      "status": "success",
+      "products": 1,
+      "error": null
     },
     {
       "name": "Admitad template 79337",
       "status": "failed",
       "products": 0,
-      "error": "Feed 12 [Admitad template 79337]: The operation was aborted due to timeout"
+      "error": "Feed 1 [Admitad template 79337]: The operation was aborted due to timeout"
     }
   ]
 }

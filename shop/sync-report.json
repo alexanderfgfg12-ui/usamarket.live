@@ -1,0 +1,20 @@
+{
+  "updatedAt": "2026-11-05T20:37:29.666Z",
+  "summary": {
+    "new": 1
+  },
+  "totalRecords": 1,
+  "feedFailures": [],
+  "products": [
+    {
+      "feed": "Admitad template 79336",
+      "feedKey": "6b271f50d146",
+      "record": 1,
+      "productId": "export.admitad.com:6b271f50d146:https://ad.admitad.com/",
+      "title": "Alibaba",
+      "affiliateUrl": "https://ad.admitad.com/",
+      "status": "new",
+      "reason": null
+    }
+  ]
+}
