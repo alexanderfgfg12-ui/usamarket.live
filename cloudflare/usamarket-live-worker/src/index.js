@@ -418,7 +418,7 @@ export default {
     if (event.cron === "0 */3 * * *") ctx.waitUntil(refreshNewsLibrary(env));
   },
   async fetch(request, env) {
-    const url = new URL(request.url);
+    const url = new URL(request.url);\n    if (url.pathname.startsWith("/api/auth/") || url.pathname.startsWith("/account")) return authFetch(request, env);
     if (url.pathname === "/health" || url.pathname === "/api/health") {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method_not_allowed" }, 405);
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });
