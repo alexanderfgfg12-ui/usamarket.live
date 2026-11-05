@@ -24,7 +24,7 @@ const shopDir = path.join(__dirname, '..', 'shop');
 const batchSize = Math.max(100, Number(process.env.PRODUCT_BATCH_SIZE) || 300);
 const xmlParser = new XMLParser({ ignoreAttributes: false, attributeNamePrefix: '@_', textNodeName: '#text', parseTagValue: true, trimValues: true, removeNSPrefix: true });
 const cleanUrl = value => { if (value && typeof value === 'object') value = value['#text'] || value.url || value.value || ''; try { const u = new URL(String(value || '').trim()); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; } catch { return ''; } };
-const scalar = value => value && typeof value === 'object' ? (value['#text'] ?? value['@_id'] ?? value.value ?? '') : (value ?? '');
+const scalar = value => value && typeof value === 'object' ? (value['#text'] ?? value['@_id'] ?? value['@_url'] ?? value['@_href'] ?? value['@_link'] ?? value['@_value'] ?? value.value ?? value.url ?? value.href ?? '') : (value ?? '');
 const keyOf = key => String(key).toLowerCase().split(':').pop().replace(/[^a-z0-9]/g, '');
 const get = (obj, aliases) => { if (!obj || typeof obj !== 'object') return undefined; const wanted = new Set(aliases.map(keyOf)); for (const [key, value] of Object.entries(obj)) if (wanted.has(keyOf(key))) return scalar(value); };
 const asArray = value => value == null ? [] : Array.isArray(value) ? value : [value];
