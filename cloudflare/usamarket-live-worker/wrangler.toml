@@ -17,3 +17,4 @@ id = "a189d0168a824bb4ab291c821b50767b"
 
 [triggers]
 crons = ["17 4 * * *", "0 */3 * * *"]
+\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "usamarket-users"\ndatabase_id = "5b87a98c-dafc-480b-9a4b-2dc736c0d651"\n\n[[send_email]]\nname = "EMAIL"\nremote = true\n
