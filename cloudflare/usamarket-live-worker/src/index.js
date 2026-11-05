@@ -1,3 +1,5 @@
+import { authFetch } from "./auth.js";
+
 /**
  * USAMarket live-site Worker runtime.
  * Product feed integration is server-side and isolated to /api/admitad/*.
@@ -41,7 +43,8 @@ const numberValue = (value) => {
 function parseCsv(text) {
   const sample = text.slice(0, 12000);
   const candidates = [",", ";", "\t", "|"];
-  const delimiter = candidates.map(d => ({ d, count: (sample.split("\n")[0].split(d).length - 1) }))
+  const delimiter = candidates.map(d => ({ d, count: (sample.split("
+")[0].split(d).length - 1) }))
     .sort((a, b) => b.count - a.count)[0]?.d || ",";
   const rows = [];
   let row = [], field = "", quoted = false;
@@ -50,8 +53,10 @@ function parseCsv(text) {
     if (c === '"' && quoted && next === '"') { field += '"'; i++; }
     else if (c === '"') quoted = !quoted;
     else if (c === delimiter && !quoted) { row.push(field); field = ""; }
-    else if ((c === "\n" || c === "\r") && !quoted) {
-      if (c === "\r" && next === "\n") i++;
+    else if ((c === "
+" || c === "\r") && !quoted) {
+      if (c === "\r" && next === "
+") i++;
       row.push(field); field = "";
       if (row.some(v => clean(v))) rows.push(row);
       row = [];
@@ -419,6 +424,7 @@ export default {
   },
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname.startsWith("/api/auth/") || url.pathname.startsWith("/account")) return authFetch(request, env);
     if (url.pathname === "/health" || url.pathname === "/api/health") {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method_not_allowed" }, 405);
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });

@@ -6,7 +6,7 @@ workers_dev = true
 [assets]
 directory = "./dist"
 binding = "ASSETS"
-run_worker_first = ["/api/*", "/news/live/*", "/ar/news/live/*", "/news-sitemap-live.xml"]
+run_worker_first = ["/api/*", "/account*", "/news/live/*", "/ar/news/live/*", "/news-sitemap-live.xml"]
 
 # Preview configuration is required for branch-isolated Workers Builds.
 [previews]
@@ -15,5 +15,28 @@ run_worker_first = ["/api/*", "/news/live/*", "/ar/news/live/*", "/news-sitemap-
 binding = "VIDEOS_KV"
 id = "a189d0168a824bb4ab291c821b50767b"
 
+
+# Preserve existing production API routes and add account/auth endpoints.
+routes = [
+  { pattern = "usamarket.live/api/admitad/*", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/videos*", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/cinema/*", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/auth/*", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/account*", zone_name = "usamarket.live" }
+]
+
 [triggers]
 crons = ["17 4 * * *", "0 */3 * * *"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "usamarket-users"
+database_id = "5b87a98c-dafc-480b-9a4b-2dc736c0d651"
+
+[[send_email]]
+name = "EMAIL"
+remote = true
+
+[vars]
+AUTH_PUBLIC_URL = "https://usamarket.live"
+AUTH_FROM = "accounts@usamarket.live"
