@@ -50,3 +50,33 @@
 /* Consistent mobile fit and reduced-motion support */
 @media(max-width:600px){.game-visual{height:195px}.game-info{padding:18px}.game-info h3{font-size:2rem}.arcade-header nav{gap:10px}.arcade-header nav a{font-size:.7rem}}
 @media(prefers-reduced-motion:reduce){.game-card,.game-info button{transition:none}}
+
+
+/* 2026 arcade refinement: responsive game presentation and tactile controls */
+.game-card{border-radius:14px;border:1px solid #dce5ee;box-shadow:0 14px 38px rgba(7,20,38,.09)}
+.game-card:hover{transform:translateY(-7px);box-shadow:0 22px 48px rgba(7,20,38,.16)}
+.game-visual{isolation:isolate}
+.game-visual:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:0;background:linear-gradient(145deg,rgba(255,255,255,.09),transparent 42%,rgba(0,0,0,.22))}
+.game-visual>*{z-index:1}
+.game-info{padding:22px 23px 24px}
+.game-info h3{font-size:2.15rem;letter-spacing:.045em}
+.game-info button{border-radius:6px;transition:background .18s,transform .18s}
+.game-info button:active,.game-actions button:active,.game-controls button:active{transform:scale(.97)}
+.game-shell{border:1px solid #1b3550;border-radius:12px;box-shadow:0 22px 55px rgba(3,13,25,.18)}
+.game-shell canvas{max-height: min(68vh,680px);border-radius:7px;background:#071426}
+.game-controls button{min-width:58px;min-height:52px;border-radius:12px;background:linear-gradient(180deg,#183b59,#0d233a);box-shadow:0 4px 0 #061321;font-weight:900;user-select:none;-webkit-user-select:none}
+.game-controls button:active{box-shadow:0 1px 0 #061321;transform:translateY(3px)}
+.game-actions button{border-radius:6px;min-height:44px}
+#game-message{line-height:1.4}
+.player-section{border-radius:12px;box-shadow:0 12px 32px rgba(7,20,38,.06)}
+.close-game{border-radius:6px}
+.game-info p{line-height:1.65}
+@media(max-width:600px){
+ .game-card{border-radius:12px}
+ .game-info{padding:18px}
+ .game-visual{height:190px}
+ .player-section{border-radius:10px}
+ .game-shell{padding:9px}
+ .game-controls{gap:18px;padding:15px 8px}
+ .game-controls button{width:66px;height:56px}
+}
