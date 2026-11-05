@@ -30,7 +30,7 @@ jobs:
       - name: Import each affiliate supplier independently
         env:
           PRODUCT_BATCH_SIZE: 300
-          FEED_TIMEOUT_MS: 1500000
+          FEED_TIMEOUT_MS: 720000
           FEED_CONCURRENCY: 1
         shell: bash
         run: |
