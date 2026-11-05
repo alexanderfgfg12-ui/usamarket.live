@@ -1,3 +1,5 @@
+import { authFetch } from "./auth.js";
+
 /**
  * USAMarket live-site Worker runtime.
  * Product feed integration is server-side and isolated to /api/admitad/*.
