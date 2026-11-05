@@ -28,14 +28,35 @@ const scalar = value => value && typeof value === 'object' ? (value['#text'] ?? 
 const keyOf = key => String(key).toLowerCase().split(':').pop().replace(/[^a-z0-9]/g, '');
 const get = (obj, aliases) => { if (!obj || typeof obj !== 'object') return undefined; const wanted = new Set(aliases.map(keyOf)); for (const [key, value] of Object.entries(obj)) if (wanted.has(keyOf(key))) return scalar(value); };
 const asArray = value => value == null ? [] : Array.isArray(value) ? value : [value];
+// Admitad templates do not all use the same field names. Fall back to
+// conservative field-name and URL detection while excluding image/media URLs.
+function inferTitle(obj) {
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return '';
+  const entries = Object.entries(obj);
+  const preferred = entries.find(([key, value]) => /(?:title|name|product|item|goods|model)/i.test(keyOf(key)) && typeof scalar(value) === 'string' && String(scalar(value)).trim());
+  return preferred ? String(scalar(preferred[1])).trim() : '';
+}
+function inferAffiliateUrl(obj) {
+  if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return '';
+  const entries = Object.entries(obj);
+  const score = ([key, value]) => {
+    const normalized = keyOf(key);
+    if (/(?:image|picture|photo|thumbnail|logo|icon|banner|video)/i.test(normalized)) return -1;
+    if (!cleanUrl(scalar(value))) return -1;
+    if (/(?:affiliate|tracking|deeplink|click|redirect|destination|landing|product|buy|merchant|shop|url|link|href)/i.test(normalized)) return 2;
+    return 1;
+  };
+  const candidates = entries.map(entry => ({ entry, score: score(entry) })).filter(item => item.score > 0).sort((a,b) => b.score-a.score);
+  return candidates.length ? cleanUrl(scalar(candidates[0].entry[1])) : '';
+}
 function findOffers(data) {
   // Traverse every nested collection; do not stop at the first matching branch.
   const offers = [], seen = new Set();
   const titleKeys = ['title','name','productName','product_name','productTitle','product_title','itemName','item_name','model'];
   const urlKeys = ['url','link','affiliateUrl','affiliate_url','affiliateLink','affiliate_link','trackingUrl','tracking_url','trackingLink','tracking_link','productUrl','product_url','productLink','product_link','deeplink','deep_link','clickUrl','click_url','buyUrl','buy_url','affLink','aff_link'];
   const isOffer = value => value && typeof value === 'object' && !Array.isArray(value)
-    && !!get(value, titleKeys)
-    && !!(get(value, urlKeys) || String(get(value, ['id']) || '').startsWith('http'));
+    && !!(get(value, titleKeys) || inferTitle(value))
+    && !!(get(value, urlKeys) || inferAffiliateUrl(value) || String(get(value, ['id']) || '').startsWith('http'));
   function walk(node, depth = 0) {
     if (!node || typeof node !== 'object' || depth > 24 || seen.has(node)) return;
     seen.add(node);
@@ -67,8 +88,8 @@ function imageUrl(item) {
   return '';
 }
 function normalize(item, categories, hostname, feedIndex, feedKey) {
-  const title = String(get(item, ['title','name','productName','product_name','productTitle','product_title','itemName','item_name','model','product']) || '').trim();
-  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','affiliateLink','affiliate_link','affLink','aff_link','url','link','trackingUrl','tracking_url','trackingLink','tracking_link','productUrl','product_url','productLink','product_link','clickUrl','click_url','buyUrl','buy_url','deeplink','deep_link']) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
+  const title = String(get(item, ['title','name','productName','product_name','productTitle','product_title','itemName','item_name','model','product']) || inferTitle(item)).trim();
+  const affiliateUrl = cleanUrl(get(item, ['affiliateUrl','affiliate_url','affiliateLink','affiliate_link','affLink','aff_link','url','link','trackingUrl','tracking_url','trackingLink','tracking_link','productUrl','product_url','productLink','product_link','clickUrl','click_url','buyUrl','buy_url','deeplink','deep_link','redirectUrl','redirect_url','destinationUrl','destination_url','landingPage','landing_page','merchantUrl','merchant_url','shopUrl','shop_url','href']) || inferAffiliateUrl(item) || (String(get(item, ['id']) || '').startsWith('http') ? get(item, ['id']) : ''));
   if (!title || !affiliateUrl) return null;
   const categoryId = String(get(item, ['categoryId','category_id','categoryid']) || '');
   const category = String(get(item, ['category','categoryName','category_name']) || categories[categoryId] || 'Other').slice(0, 80);
