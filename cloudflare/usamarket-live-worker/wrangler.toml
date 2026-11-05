@@ -17,4 +17,16 @@ id = "a189d0168a824bb4ab291c821b50767b"
 
 [triggers]
 crons = ["17 4 * * *", "0 */3 * * *"]
-\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "usamarket-users"\ndatabase_id = "5b87a98c-dafc-480b-9a4b-2dc736c0d651"\n\n[[send_email]]\nname = "EMAIL"\nremote = true\n\n[vars]\nAUTH_PUBLIC_URL = "https://usamarket.live"\nAUTH_FROM = "accounts@usamarket.live"\n
+
+[[d1_databases]]
+binding = "DB"
+database_name = "usamarket-users"
+database_id = "5b87a98c-dafc-480b-9a4b-2dc736c0d651"
+
+[[send_email]]
+name = "EMAIL"
+remote = true
+
+[vars]
+AUTH_PUBLIC_URL = "https://usamarket.live"
+AUTH_FROM = "accounts@usamarket.live"
