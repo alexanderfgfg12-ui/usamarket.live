@@ -28,7 +28,7 @@ export async function authFetch(req,env){
  if(p==="/api/auth/me"&&m==="GET")return json({user:await userFromSession(req,env)});
  if(p==="/api/auth/logout"&&m==="POST"){const token=getCookie(req,"usamarket_session");if(token)await env.DB.prepare("DELETE FROM auth_sessions WHERE id_hash=?").bind(await sha(token)).run();return json({ok:true},200,{"set-cookie":clearCookie("usamarket_session")});}
  if(!p.startsWith("/api/auth/"))return json({error:"not_found"},404);
- if(m!=="POST"||!originOK(req))return json({error:"request_not_allowed"},403);
+ if((m!=="POST"&&!(p==="/api/auth/google/start"&&m==="GET"))||!originOK(req))return json({error:"request_not_allowed"},403);
  const data=await body(req),email=String(data.email||"").trim().toLowerCase(),ip=(req.headers.get("cf-connecting-ip")||"unknown");
  if(p==="/api/auth/register"){
   if(!validEmail(email)||typeof data.password!=="string"||data.password.length<10||data.password.length>128)return json({error:"Use a valid email and a password of 10–128 characters."},400);
