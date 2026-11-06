@@ -64,7 +64,7 @@
         ${adCode}
         <div class="modal-text" style="line-height: 1.8; font-size: 1.1rem;">${article.content || article.description || ''}</div>
         ${adCode}
-        <p style="margin-top: 30px;"><a href="${article.link}" target="_blank" style="color: #e11d48; font-weight: bold;">Read Full Story at Source →</a></p>
+        ${Array.isArray(article.sources) && article.sources.length ? '<section class="article-sources" style="margin-top:36px;padding:22px;border-top:2px solid #dce5f2;background:#f7f9fc;border-radius:12px"><h2>Sources</h2><ol>' + article.sources.map(source => '<li style="margin:8px 0"><a href="' + source.url + '" target="_blank" rel="noopener noreferrer">' + source.name + '</a></li>').join('') + '</ol></section>' : ''}
       `;
     }).catch(() => {
       document.getElementById('articleContainer').innerHTML = '<h2>Error loading article</h2>';
