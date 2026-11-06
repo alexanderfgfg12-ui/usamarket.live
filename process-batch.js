@@ -91,6 +91,16 @@ batchFiles.forEach(batchFile => {
         <meta property="og:image" content="${imageUrl}">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../style.css">
+        <meta name="color-scheme" content="light">
+        <style id="article-page-theme">
+          :root { color-scheme: light !important; }
+          html, body { background: #fff !important; background-color: #fff !important; color: #222 !important; color-scheme: light !important; }
+          body { min-height: 100vh; }
+          .header, .article-container { background: #fff !important; background-color: #fff !important; color: #222 !important; }
+          .article-container h1, .article-container h2, .article-container h3, .article-container p, .article-container li, .article-container span { color: inherit; }
+          .article-container a { color: #1456a0; }
+          select { background: #fff !important; color: #222 !important; }
+        </style>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3583305975597231" crossorigin="anonymous"></script>
       </head>
       <body>
