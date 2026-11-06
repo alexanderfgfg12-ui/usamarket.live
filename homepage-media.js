@@ -2,27 +2,51 @@
   'use strict';
   const $ = (s, root=document) => root.querySelector(s);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const videos = [
+  const fallbackVideos = [
     {id:'rfbhwB2a6Qo',title:'Monetary Policy: The Fed and You',source:'Federal Reserve Education',category:'Markets'},
     {id:'wOfQPn9Jwpo',title:'Monetary Policy Explained',source:'Federal Reserve Education',category:'Markets'},
     {id:'xHQJBNO0yQc',title:'Conducting Monetary Policy',source:'Federal Reserve Education',category:'Markets'},
     {id:'Yq_FoufpKsI',title:'Get Into Stocks: Understanding Shares and Risk',source:'Federal Reserve Education',category:'Investing'},
     {id:'kDFrmMfjRHk',title:'The Basics of Investing',source:'Investor.gov',category:'Investing'}
   ];
-  function setupVideos(){
+  async function setupVideos(){
     const grid=$('#homeVideoCards'),dialog=$('#homeVideoDialog'),player=$('#homeVideoPlayer');
     if(!grid||!dialog||!player)return;
-    grid.innerHTML=videos.slice(0,4).map(v=>'<button class="um-video-card" type="button" data-video-id="'+v.id+'" aria-label="Play '+esc(v.title)+'"><span class="um-video-thumb" style="background-image:url(https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg)"></span><strong>'+esc(v.title)+'</strong><small>'+esc(v.source)+'</small></button>').join('');
+    const render=items=>{
+      const unique=[],seen=new Set();
+      for(const v of items){
+        const id=String(v?.id||v?.videoId||'').trim();
+        if(!/^[A-Za-z0-9_-]{11}$/.test(id)||seen.has(id)||!v.title)continue;
+        seen.add(id);unique.push({...v,id});
+        if(unique.length===4)break;
+      }
+      const videos=unique.length?unique:fallbackVideos.slice(0,4);
+      grid.innerHTML=videos.map(v=>{
+        const title=esc(v.title),source=esc(v.channel||v.source||'YouTube');
+        const thumb=esc(v.thumbnail||('https://i.ytimg.com/vi/'+v.id+'/hqdefault.jpg'));
+        return '<button class="um-video-card" type="button" data-video-id="'+v.id+'" aria-label="Play '+title+'"><span class="um-video-thumb" style="background-image:url(&quot;'+thumb+'&quot;)"></span><strong>'+title+'</strong><small>'+source+'</small></button>';
+      }).join('');
+    };
     grid.addEventListener('click',e=>{
       const button=e.target.closest('[data-video-id]');if(!button)return;
       const id=button.dataset.videoId;
       player.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(id)+'?autoplay=1&rel=0" title="Usamarket video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
       if(typeof dialog.showModal==='function')dialog.showModal();else window.open('https://www.youtube.com/watch?v='+encodeURIComponent(id),'_blank','noopener');
     });
-    const close=()=>{player.innerHTML='';dialog.close();};
+    const close=()=>{player.innerHTML='';if(dialog.open)dialog.close();};
     $('.um-video-close',dialog)?.addEventListener('click',close);
     dialog.addEventListener('click',e=>{if(e.target===dialog)close();});
     dialog.addEventListener('close',()=>{player.innerHTML='';});
+    try{
+      const response=await fetch('/api/videos?lang=en&category=all',{cache:'no-store'});
+      if(!response.ok)throw new Error('Video API returned '+response.status);
+      const data=await response.json();
+      if(!Array.isArray(data.videos)||!data.videos.length)throw new Error('No videos returned');
+      render(data.videos);
+    }catch(error){
+      render(fallbackVideos);
+      console.warn('Homepage video feed unavailable; showing curated fallback:',error);
+    }
   }
   function price(p){const n=Number(p.price);if(!Number.isFinite(n))return '';try{return new Intl.NumberFormat('en-US',{style:'currency',currency:p.currency||'USD'}).format(n)}catch{return '$'+n.toFixed(2)}}
   function setupProducts(){
