@@ -43,20 +43,20 @@ batchFiles.forEach(batchFile => {
     const slug = `${baseSlug}-${suffix}`;
 
     const imageUrl = getRandomImage(item.category);
-    const sourceMatches = [...String(item.content).matchAll(/Source:\\s*([^\\n—-]+?)\\s*(?:—|-)?\\s*(https?:\\/\\/\\S+)?/gi)];
+    const sourceMatches = [...String(item.content).matchAll(/Source:\s*([^\n—-]+?)\\s*(?:—|-)?\\s*(https?:\/\/\S+)?/gi)];
     const sources = Array.isArray(item.sources) ? item.sources : sourceMatches.map(match => ({
       name: (match[1] || 'Source').trim().replace(/[—-]$/, ''),
       url: (match[2] || '').trim()
     }));
-    const cleanContent = String(item.content).replace(/\\n*Source:\\s*[^\\n]+/gi, '').trim();
-    const paragraphs = cleanContent.split('\\n\\n').filter(Boolean);
+    const cleanContent = String(item.content).replace(/\n*Source:\s*[^\n]+/gi, '').trim();
+    const paragraphs = cleanContent.split('\n\n').filter(Boolean);
     const sourcesHtml = sources.length ? `
       <section class="article-sources" aria-label="Sources" style="margin-top:38px;padding:22px;border-top:2px solid #dce5f2;background:#f7f9fc;border-radius:12px;color:#172033">
         <h2 style="font-size:1.2rem;margin:0 0 12px">Sources</h2>
         <ol style="padding-left:22px;margin:0">${sources.map(source => {
           const name = String(source.name || source.publisher || 'Source');
           const url = String(source.url || source.link || '');
-          const safeUrl = /^https:\\/\\//i.test(url) ? url : '';
+          const safeUrl = /^https:\/\//i.test(url) ? url : '';
           return `<li style="margin:8px 0">${safeUrl ? `<a href="${safeUrl}" target="_blank" rel="noopener noreferrer">${name}</a>` : name}</li>`;
         }).join('')}</ol>
       </section>` : '';
