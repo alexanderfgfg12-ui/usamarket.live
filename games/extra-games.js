@@ -17,6 +17,7 @@ function reset(){
 }
 function stop(msg){active=false;cancelAnimationFrame(frame);message.textContent=msg+' Score: '+score+'. Press START to try again.'}
 function start(){cancelAnimationFrame(frame);reset();scoreTo(0);active=true;pause=false;last=0;message.textContent='Good luck!';frame=requestAnimationFrame(loop);draw()}
+window.__umStopExtraGame=()=>{active=false;pause=false;cancelAnimationFrame(frame);keys={};id='';window.__umExtraGameActive=false};
 function loop(t){if(!active||pause)return;let d=Math.min((t-last||16)/16.67,2);last=t;update(d);draw();if(active)frame=requestAnimationFrame(loop)}
 function update(d){s.t+=d;
  if(id==='snake'){s.tick+=d;if(s.tick>5.5){s.tick=0;s.dir=s.next;let h={x:s.body[0].x+s.dir.x,y:s.body[0].y+s.dir.y};if(h.x<0||h.x>=30||h.y<0||h.y>=20||s.body.some(p=>p.x===h.x&&p.y===h.y)){stop('TRAIL COLLISION');return}s.body.unshift(h);if(h.x===s.food.x&&h.y===s.food.y){scoreTo(score+10);s.food=food()}else s.body.pop()}}
@@ -37,7 +38,7 @@ function pick(x,y){if(id!=='memory'||!active||pause||s.wait>0)return;let c=Math.
 function drawLander(){for(let i=0;i<70;i++){ctx.fillStyle='#8ca5c2';ctx.fillRect((i*131)%900,(i*79)%370,2,2)}ctx.fillStyle='#c6ff4d';ctx.fillRect(365,462,170,7);ctx.fillStyle='#a8b6c8';ctx.beginPath();ctx.moveTo(s.x,s.y-20);ctx.lineTo(s.x-16,s.y+16);ctx.lineTo(s.x+16,s.y+16);ctx.fill();if(keys.up||keys.ArrowUp||keys[' ']){ctx.fillStyle='#ffad54';ctx.beginPath();ctx.moveTo(s.x-7,s.y+16);ctx.lineTo(s.x,s.y+35+Math.random()*8);ctx.lineTo(s.x+7,s.y+16);ctx.fill()}label('FUEL '+Math.floor(s.fuel)+'%',25,35);label('LAND ON THE GREEN PAD',25,65,14,'#9fb0c7')}
 function drawPortal(){ctx.fillStyle='#122b40';ctx.fillRect(0,450,900,70);ctx.fillStyle='#c6ff4d';ctx.fillRect(0,450,900,3);ctx.fillStyle='#46d8ff';ctx.fillRect(110,s.y-35,42,35);s.obs.forEach(o=>{ctx.fillStyle='#ff6a85';ctx.fillRect(o.x,450-o.h,o.w,o.h)});label('DISTANCE '+Math.floor(score),25,35)}
 function setDirection(k){let d=({ArrowLeft:{x:-1,y:0},ArrowRight:{x:1,y:0},ArrowUp:{x:0,y:-1},ArrowDown:{x:0,y:1}})[k];if(d&&(d.x!==-s.dir.x||d.y!==-s.dir.y))s.next=d}
-document.querySelectorAll('[data-extra-game]').forEach(b=>b.addEventListener('click',()=>{id=b.dataset.extraGame;window.__umExtraGameActive=true;panel.hidden=false;title.textContent=names[id];hint.textContent=help[id];panel.scrollIntoView({behavior:'smooth',block:'start'});try{best=+(localStorage.getItem(storeKey(id))||0)}catch(e){best=0}bestEl.textContent=best.toLocaleString();start()}));
+document.querySelectorAll('[data-extra-game]').forEach(b=>b.addEventListener('click',()=>{if(window.__umStopMainGame)window.__umStopMainGame();id=b.dataset.extraGame;window.__umExtraGameActive=true;panel.hidden=false;title.textContent=names[id];hint.textContent=help[id];panel.scrollIntoView({behavior:'smooth',block:'start'});try{best=+(localStorage.getItem(storeKey(id))||0)}catch(e){best=0}bestEl.textContent=best.toLocaleString();start()}));
 window.addEventListener('keydown',e=>{if(!id||panel.hidden)return;if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' '].includes(e.key))e.preventDefault();keys[e.key]=true;keys[e.key.toLowerCase()]=true;if(id==='snake')setDirection(e.key);if(id==='stack'&&e.key===' ')drop()});
 window.addEventListener('keyup',e=>{keys[e.key]=false;keys[e.key.toLowerCase()]=false});
 // Keep the on-screen directional pad fully functional for touch players.
@@ -46,7 +47,7 @@ canvas.addEventListener('click',e=>{if(!id||panel.hidden)return;let r=canvas.get
 let sx=0,sy=0;canvas.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});canvas.addEventListener('touchend',e=>{if(!id||panel.hidden)return;let dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(id==='snake'&&Math.max(Math.abs(dx),Math.abs(dy))>20)setDirection(Math.abs(dx)>Math.abs(dy)?dx>0?'ArrowRight':'ArrowLeft':dy>0?'ArrowDown':'ArrowUp');if(id==='stack')drop();if(id==='portal'&&s.ground){keys.up=true;setTimeout(()=>keys.up=false,100)}},{passive:true});
 const oldStart=$('#start-game').onclick;$('#start-game').addEventListener('click',()=>{if(!panel.hidden&&id)start()});
 $('#pause-game').addEventListener('click',()=>{if(!id||panel.hidden||!active)return;pause=!pause;if(pause){cancelAnimationFrame(frame);message.textContent='Paused. Press PAUSE to resume.'}else{last=0;frame=requestAnimationFrame(loop);message.textContent='Back in action!'}});
-$('#close-game').addEventListener('click',()=>{active=false;cancelAnimationFrame(frame);id=''});
+$('#close-game').addEventListener('click',()=>{active=false;cancelAnimationFrame(frame);id='';window.__umExtraGameActive=false;});
 const originalButtons=document.querySelectorAll('[data-game]');originalButtons.forEach(b=>b.addEventListener('click',()=>{id='';active=false}));
 $('#year').textContent=new Date().getFullYear();
 })();
