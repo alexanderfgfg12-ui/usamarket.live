@@ -43,7 +43,7 @@ batchFiles.forEach(batchFile => {
     const slug = `${baseSlug}-${suffix}`;
 
     const imageUrl = getRandomImage(item.category);
-    const sourceMatches = [...String(item.content).matchAll(/Source:\s*([^\n—-]+?)\\s*(?:—|-)?\\s*(https?:\/\/\S+)?/gi)];
+    const sourceMatches = [...String(item.content).matchAll(/Source:\s*([^\n—-]+?)\s*(?:—|-)?\s*(https?:\/\/\S+)?/gi)];
     const sources = Array.isArray(item.sources) ? item.sources : sourceMatches.map(match => ({
       name: (match[1] || 'Source').trim().replace(/[—-]$/, ''),
       url: (match[2] || '').trim()
