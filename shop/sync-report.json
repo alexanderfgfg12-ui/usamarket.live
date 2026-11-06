@@ -1,7 +1,7 @@
 {
-  "updatedAt": "2026-11-05T20:37:29.666Z",
+  "updatedAt": "2026-11-06T07:29:15.303Z",
   "summary": {
-    "new": 1
+    "unchanged": 1
   },
   "totalRecords": 1,
   "feedFailures": [],
@@ -13,7 +13,7 @@
       "productId": "export.admitad.com:6b271f50d146:https://ad.admitad.com/",
       "title": "Alibaba",
       "affiliateUrl": "https://ad.admitad.com/",
-      "status": "new",
+      "status": "unchanged",
       "reason": null
     }
   ]
