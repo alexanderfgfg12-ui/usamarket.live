@@ -1,0 +1,144 @@
+[
+  {
+    "title": "U.S. Adds 165,000 Jobs in October as Unemployment Rate Edges Down to 4.1%",
+    "category": "economy",
+    "content": "The U.S. labor market delivered a stronger-than-expected report for October, with nonfarm payroll employment increasing by 165,000 and the unemployment rate moving down to 4.1%, according to the Bureau of Labor Statistics. The gain was well above the average monthly increase of 48,000 recorded over the previous 12 months, suggesting hiring regained momentum after a softer late-summer reading.\n\nProfessional and business services led the gains, adding 70,000 positions. Health care and transportation and warehousing also contributed. The report included upward revisions to August and September: together, those months now show 84,000 more jobs than previously estimated. Revisions matter because the monthly employment report is an evolving estimate rather than a final count.\n\nAverage hourly earnings increased 0.4% during October and were 3.1% higher than a year earlier. The average workweek remained at 34.4 hours. A stronger jobs number can support consumer spending, but it may also complicate the Federal Reserve’s effort to bring inflation under control if demand remains firm.\n\nFor markets, the report creates a two-sided signal. Resilient employment is positive for the economic outlook, while stronger hiring can reduce the urgency for interest-rate cuts and keep borrowing costs elevated. The next question is whether the improvement persists across industries and is accompanied by easing inflation. One monthly report alone cannot settle that debate.",
+    "sources": [
+      {
+        "name": "U.S. Bureau of Labor Statistics — Employment Situation, October 2026",
+        "url": "https://www.bls.gov/news.release/archives/empsit_11062026.htm"
+      },
+      {
+        "name": "Reuters — Strong October jobs report sends yields higher",
+        "url": "https://www.investing.com/news/economic-indicators/strong-october-jobs-report-sends-yields-higher-5008272"
+      }
+    ]
+  },
+  {
+    "title": "Nasdaq Enters Correction Territory After a Severe Technology and Chip Sell-Off",
+    "category": "markets",
+    "content": "U.S. technology shares suffered one of their sharpest sessions in more than a year on November 5, as investors reassessed the cost, regulation and financing risks surrounding the artificial-intelligence infrastructure boom. The Nasdaq Composite fell 5.5%, while the S&P 500 lost 4.4% and the Dow Jones Industrial Average dropped 3.4%. The Nasdaq’s decline placed it more than 10% below its recent record closing level, the conventional threshold for a market correction.\n\nSemiconductor stocks were among the hardest hit. The Philadelphia Semiconductor Index fell about 12.2%, with major chipmakers and companies tied to data-center construction under pressure. Qualcomm also weakened after its outlook for smartphone chip sales disappointed investors. The declines reflected several concerns: valuations, the pace of capital spending and the possibility that political resistance could delay new data-center projects.\n\nRecent election results and local votes opposing some data-center developments raised the prospect of tougher permitting conditions in important growth markets. That does not mean existing projects will automatically be cancelled. It does mean investors may demand clearer evidence that planned facilities can secure electricity, permits, customers and financing on schedule.\n\nThe sell-off is a reminder that a powerful long-term technology trend does not guarantee uninterrupted gains for every company associated with it. Investors are increasingly separating businesses with contracted demand and credible cash generation from those whose valuations depend on distant growth assumptions. The correction may create opportunities, but it also highlights the risk of treating the entire AI supply chain as one trade.",
+    "sources": [
+      {
+        "name": "Reuters — Nasdaq posts biggest daily drop in 19 months on fears of AI regulations",
+        "url": "https://www.reuters.com/business/sp-500-futures-steady-after-midterm-rally-nasdaq-lags-chip-weakness-2026-11-05/"
+      },
+      {
+        "name": "Reuters — Deep chip selloff drags global stocks lower on AI spending concerns",
+        "url": "https://live.euronext.com/en/financial-news/deep-chip-selloff-drags-global-stocks-lower-ai-spending-concerns"
+      }
+    ]
+  },
+  {
+    "title": "Wall Street Finds Some Relief as AI Shares Rebound After Two-Day Rout",
+    "category": "markets",
+    "content": "U.S. stocks steadied on Friday, November 6, as investors returned to selected technology shares after a punishing two-day decline. The S&P 500 rose 0.7% and the Nasdaq Composite gained 1.4%, while the Dow was close to unchanged, according to the Associated Press. The advance reduced the market’s weekly losses but did not erase the damage from Thursday’s sharp sell-off.\n\nNvidia climbed 3.2% as chip shares recovered, and IREN advanced after reporting stronger AI-cloud revenue and new customer contracts. Lam Research also gained after announcing a share-repurchase authorization of up to $25 billion. The rebound was broad enough to ease immediate pressure, but trading remained selective: investors continued to distinguish companies with reported demand and concrete financial results from those more exposed to changes in project timing.\n\nThe previous session had been driven by worries that political opposition could slow data-center construction, alongside concerns about high borrowing costs and elevated AI valuations. Friday’s move suggests some investors viewed the decline as excessive, or were taking advantage of lower prices. It does not establish that the underlying policy or funding concerns have disappeared.\n\nThe market’s next test will be whether companies can convert heavy infrastructure investment into recurring revenue and cash flow. Strong employment data also complicates the outlook for interest rates, because a resilient economy can support corporate earnings while keeping monetary policy restrictive. Investors should treat a one-day rebound as a change in sentiment, not proof that volatility is over.",
+    "sources": [
+      {
+        "name": "Associated Press — AI stocks halt their brutal, worldwide sell-off as Wall Street trims its loss for the week",
+        "url": "https://apnews.com/article/bba6f0bf9035a6e6b1c4fef3e8230b89"
+      },
+      {
+        "name": "Reuters — Nasdaq futures rise after steep AI selloff as chip stocks stabilize",
+        "url": "https://www.investing.com/news/stock-market-news/nasdaq-futures-rise-after-steep-ai-selloff-as-chip-stocks-stabilize-5007026"
+      }
+    ]
+  },
+  {
+    "title": "Google Commits $17 Billion to Its First Wyoming Data Center",
+    "category": "technology",
+    "content": "Google has announced a planned $17 billion investment in its first data center in Wyoming, marking a major expansion of its U.S. infrastructure footprint. The company said the project will be developed with partners including Tallgrass Energy, Black Hills Energy, American Electric Power and Related Digital. The investment is intended to support growing demand for cloud computing and artificial-intelligence services.\n\nPower supply is central to the project. Google said the development is contracted to include a planned 702-megawatt fuel-cell project with carbon capture and storage. The company also said it will pay for all the electricity it uses and cover infrastructure needs directly driven by its growth. Those commitments address concerns that large data centers can place pressure on local grids, water resources and public infrastructure.\n\nThe announcement arrives as communities and policymakers debate the pace of data-center construction. AI systems require substantial computing capacity, and that demand has pushed technology companies to secure land, electricity and equipment years before all facilities become operational. Yet local opposition and permitting uncertainty are becoming material business risks, not simply public-relations issues.\n\nFor Wyoming, the investment could bring construction activity, infrastructure upgrades and longer-term technology jobs. The economic outcome will depend on project execution, local agreements and how much supply-chain activity remains in the region. For the broader technology sector, the project illustrates that the AI race is increasingly a competition for reliable energy and physical infrastructure as much as for advanced software and chips.",
+    "sources": [
+      {
+        "name": "Google — Investing in Wyoming’s infrastructure, energy and workforce",
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/"
+      },
+      {
+        "name": "Reuters — Google plans $17 billion Wyoming data center amid rising threats of curbs",
+        "url": "https://www.reuters.com/world/us/google-plans-17-billion-wyoming-data-center-amid-rising-threats-curbs-2026-11-05/"
+      }
+    ]
+  },
+  {
+    "title": "IREN’s AI Cloud Revenue Nearly Triples to $200 Million in First Quarter",
+    "category": "business",
+    "content": "Data-center operator IREN reported a sharp sequential increase in AI cloud revenue for the quarter ended September 30, highlighting how quickly some infrastructure providers are shifting toward serving artificial-intelligence workloads. The company said AI cloud revenue reached $200 million, up 182% from the previous quarter, while total quarterly revenue rose 66% to $228 million.\n\nIREN also reported a revenue backlog of $20.3 billion and said its target of more than $4 billion in annual recurring revenue is fully contracted and funded. The company described additional customer agreements signed after the quarter, including a five-year contract priced at about $22 million per megawatt, with the customer prepaying 90% of the associated GPU capital expenditure. Such arrangements can reduce the provider’s upfront funding burden, although delivery still depends on equipment, construction and customer requirements.\n\nThe results were not uniformly positive. IREN reported a net loss of $263 million for the quarter. Its business still includes Bitcoin mining, which generated $28 million in revenue, down from $67 million in the previous quarter. The figures show both the potential scale of AI infrastructure demand and the capital-intensive nature of building and operating the facilities needed to serve it.\n\nInvestors should look beyond headline revenue growth. Backlog is not the same as cash already received, and contracted annual recurring revenue depends on projects becoming operational and customers taking delivery. Execution, power availability, GPU supply, financing costs and customer concentration will determine how much announced demand ultimately becomes profitable revenue.",
+    "sources": [
+      {
+        "name": "IREN — Reports Q1 FY27 Results, November 5, 2026",
+        "url": "https://iren.gcs-web.com/news-releases/news-release-details/iren-reports-q1-fy27-results"
+      }
+    ]
+  },
+  {
+    "title": "OpenAI Introduces GPT-6 Cyber for Advanced, Authorized Security Research",
+    "category": "technology",
+    "content": "OpenAI has introduced GPT-6 Cyber, a model designed to help security researchers identify, validate and fix software vulnerabilities within authorized testing environments. The company says access is initially limited to approved customers in its Daybreak Red program, which focuses on advanced security work. The restricted rollout reflects the dual-use nature of vulnerability research: the same capabilities that help defenders find weaknesses could also be misused if placed in the wrong hands.\n\nOpenAI says its researchers used the system to identify 81 previously unknown high-severity Firefox vulnerabilities and to develop working exploits for 948 Linux kernel vulnerabilities. The company says it disclosed findings to maintainers and provided candidate patches, and that Mozilla has begun landing fixes for reported Firefox issues. These are company-reported results, and their broader significance will depend on independent review, remediation and the quality of disclosure processes.\n\nThe launch highlights a shift in cybersecurity. AI tools can accelerate code analysis, reproduce complex bugs and help developers test potential fixes. That could shorten the time between discovering a flaw and closing it. It can also increase pressure on software maintainers, who may face a larger volume of findings and must distinguish valid vulnerabilities from false positives or duplicate reports.\n\nThe practical value of such systems will depend on safeguards as much as raw capability. Clear authorization, scope controls, human review, responsible disclosure and careful handling of exploit details remain essential. Organizations should strengthen patch management and testing workflows while treating autonomous vulnerability research as a powerful tool that requires strict oversight.",
+    "sources": [
+      {
+        "name": "OpenAI — GPT-6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+        "url": "https://openai.com/index/introducing-gpt-6-cyber/"
+      },
+      {
+        "name": "Reuters — OpenAI launches GPT-6 Cyber with Critical cybersecurity rating",
+        "url": "https://www.investing.com/news/stock-market-news/openai-launches-gpt6-cyber-with-critical-cybersecurity-rating-5005229"
+      }
+    ]
+  },
+  {
+    "title": "Anthropic Tests a Personal Finance Feature in Claude for U.S. Subscribers",
+    "category": "technology",
+    "content": "Anthropic is testing a personal-finance feature in Claude that lets eligible U.S. subscribers connect financial accounts and ask questions about spending, balances and upcoming bills. The beta is being offered to paid subscribers on selected plans, with Plaid providing the connection between users’ financial institutions and the application.\n\nThe feature is designed to interpret account activity in everyday language. Users may ask for spending summaries, explanations of transactions or help identifying recurring expenses. Anthropic says the connection is read-only: Claude cannot transfer funds, make payments, manage accounts or invest money. The company also says the tool is not intended to provide investment advice.\n\nThe move reflects a broader effort by AI companies to make assistants useful in practical, recurring tasks rather than limiting them to writing and research. Personal finance is an attractive category because people often need help understanding large amounts of transaction data. It is also sensitive: even read-only access can expose details about income, purchases, debts and personal routines.\n\nUsers considering such integrations should examine the permissions requested, the data retained, the role of the account-linking provider and the process for disconnecting accounts. A conversational summary can help organize information, but it should not replace checking statements or seeking qualified advice for consequential financial decisions. The feature’s long-term success will depend on whether it combines convenience with clear privacy controls and reliable explanations.",
+    "sources": [
+      {
+        "name": "Reuters — Anthropic rolls out personal finance feature for Claude",
+        "url": "https://live.euronext.com/en/financial-news/anthropic-rolls-out-personal-finance-feature-claude"
+      },
+      {
+        "name": "The Verge — Claude AI can plug directly into your bank account",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance"
+      }
+    ]
+  },
+  {
+    "title": "AppLovin Reports 55% Revenue Growth as Quarterly Profit Reaches $1.44 Billion",
+    "category": "business",
+    "content": "AppLovin reported record third-quarter 2026 results, with revenue rising 55% year over year to $2.185 billion and net income increasing 72% to $1.439 billion. The company’s results underline the scale of demand for performance-based advertising technology and software tools that help app developers acquire users and monetize digital products.\n\nAdjusted EBITDA reached $1.842 billion, up 59% from the year-earlier quarter, according to the company’s release. The figures indicate that growth was accompanied by substantial operating earnings, although investors should distinguish the company’s adjusted measures from standard net income and cash-flow measures when assessing performance.\n\nAppLovin operates in a competitive advertising ecosystem shaped by mobile privacy rules, platform policies, advertiser budgets and the effectiveness of automated targeting. Strong results can reflect better ad performance and increased customer spending, but the business remains exposed to changes in app-store rules, measurement technology and broader economic conditions.\n\nThe quarter provides a useful example of how software and advertising platforms can benefit from automation without owning the consumer apps or devices where ads appear. The next questions for investors include whether growth can be sustained, how customer concentration evolves and whether margins remain resilient as the company scales. A single strong quarter is evidence of momentum, not a guarantee of future results.",
+    "sources": [
+      {
+        "name": "AppLovin — Announces Third Quarter 2026 Financial Results",
+        "url": "https://investors.applovin.com/news/news-details/2026/AppLovin-Announces-Third-Quarter-2026-Financial-Results/default.aspx"
+      },
+      {
+        "name": "U.S. Securities and Exchange Commission — AppLovin Q3 2026 earnings release",
+        "url": "https://www.sec.gov/Archives/edgar/data/1751008/000175100826000068/exhibit991-3q26earningspre.htm"
+      }
+    ]
+  },
+  {
+    "title": "Meta Acquires Conductor as the Race for AI Coding Tools Intensifies",
+    "category": "technology",
+    "content": "Meta has acquired Conductor, a startup whose software helps developers coordinate multiple AI coding agents working on a software project, according to reporting by Axios. The deal gives Meta another route into the developer-tools market, where technology companies are competing to make AI assistants part of everyday software engineering.\n\nThe appeal of agent coordination is straightforward. A large software task can be divided into smaller assignments, with separate agents examining code, writing tests, proposing changes or reviewing work. A coordination layer can help manage those tasks and reduce the burden on a human developer. But more agents do not automatically mean better software: teams still need to control permissions, resolve conflicting edits, review generated code and test the final product.\n\nFor Meta, the acquisition fits a wider strategy to expand its AI ecosystem beyond consumer chat experiences. Developer tools can create lasting relationships with technical users and influence which models and platforms become embedded in business workflows. The market is crowded, however, and established coding assistants, cloud providers and open-source projects are all competing for the same users.\n\nThe broader significance is that AI coding is moving from single-prompt assistance toward multi-step workflows. The companies that succeed may be those that make agents reliable, auditable and easy to integrate into existing development environments. The acquisition itself does not reveal how quickly Conductor’s technology will be integrated or what products Meta will ultimately release.",
+    "sources": [
+      {
+        "name": "Axios — Exclusive: Meta acquires AI coding startup Conductor",
+        "url": "https://www.axios.com/2026/11/04/meta-acquires-ai-coding-startup-conductor"
+      }
+    ]
+  },
+  {
+    "title": "NTT DATA and Bloom Energy Plan 900 Megawatts of On-Site Data-Center Power",
+    "category": "technology",
+    "content": "NTT DATA has announced an agreement with Bloom Energy to deploy up to 900 megawatts of on-site power across multiple data-center projects. The companies say Bloom’s fuel-cell systems will provide electricity for NTT Global Data Centers, with initial shipments expected to begin in 2027. The agreement is aimed at addressing one of the largest constraints on AI infrastructure expansion: securing reliable power quickly enough to bring new computing capacity online.\n\nData centers require continuous electricity for servers, networking equipment and cooling. In some markets, grid connections and new transmission infrastructure can take years to arrange. On-site generation can offer developers another route to capacity, allowing facilities to operate while broader grid upgrades are completed or where local power availability is constrained.\n\nBloom says its fuel-cell technology generates electricity without combustion at the point of use and is designed to operate with low local air emissions and limited water consumption. Those claims should be considered alongside the full energy supply chain, fuel source, lifecycle emissions, cost and local permitting requirements. The 900-megawatt figure describes the scale of the announced agreement, not electricity already delivered or data centers already operating at that capacity.\n\nThe partnership illustrates how the AI boom is creating opportunities well beyond chipmakers and cloud platforms. Power equipment, energy services, grid connections and infrastructure financing are becoming strategic parts of the digital economy. The central test will be whether these projects can be delivered on schedule and at a cost that makes the resulting computing capacity commercially viable.",
+    "sources": [
+      {
+        "name": "NTT DATA — Agreement with Bloom Energy for 900 MW of on-site power",
+        "url": "https://www.nttdata.com/en-us/news/2026/ntt-data-announces-agreement-with-bloom-energy"
+      },
+      {
+        "name": "Bloom Energy — Newsroom",
+        "url": "https://www.bloomenergy.com/newsroom/"
+      }
+    ]
+  }
+]
