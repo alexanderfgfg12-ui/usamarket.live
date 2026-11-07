@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T07:07:41.958Z",
+  "updatedAt": "2026-11-07T13:55:40.712Z",
   "totalProducts": 1450,
   "batchSize": 300,
   "batches": [
@@ -124,7 +124,7 @@
       "name": "Admitad template 79337",
       "status": "failed",
       "products": 0,
-      "error": "Feed 1 [Admitad template 79337]: The operation was aborted due to timeout"
+      "error": "Feed 1 [Admitad template 79337]: fetch failed"
     }
   ]
 }
