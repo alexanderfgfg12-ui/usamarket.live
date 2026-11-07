@@ -78,3 +78,13 @@
 .um-video-card:hover strong{color:#0755a4}
 .um-video-dialog[open]{display:block}
 .um-video-dialog:not([open]){display:none}
+
+/* Mobile-menu affiliate feature */
+.um-mobile-menu .um-affiliate-card{display:flex;align-items:center;gap:13px;margin:13px 0 5px;padding:14px 13px;border:1px solid #ffffff26;border-radius:13px;background:linear-gradient(110deg,#0a3978,#064b98);box-shadow:0 5px 16px #001a3b35;text-decoration:none;}
+.um-mobile-menu .um-affiliate-card .um-affiliate-mark{display:grid;place-items:center;flex:0 0 48px;height:48px;border-radius:12px;background:#ffffff16;color:#7fdcff;font-size:2rem;font-weight:800;}
+.um-mobile-menu .um-affiliate-copy{display:flex;flex:1;min-width:0;flex-direction:column;line-height:1.35;}
+.um-mobile-menu .um-affiliate-copy strong{font-size:1.02rem;font-weight:800;color:#fff;}
+.um-mobile-menu .um-affiliate-copy span{font-size:.91rem;color:#fff;}
+.um-mobile-menu .um-affiliate-copy small{font-size:.72rem;color:#d7e8ff;margin-top:3px;}
+.um-mobile-menu .um-affiliate-copy em{font-size:.65rem;color:#a9c8ec;font-style:normal;margin-top:3px;}
+.um-mobile-menu .um-affiliate-arrow{font-size:2rem;color:#fff;padding:0 5px;}
