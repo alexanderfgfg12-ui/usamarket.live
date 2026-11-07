@@ -1,7 +1,127 @@
 {
-  "updated": "2026-11-06T19:37:56.420Z",
-  "count": 179,
+  "updated": "2026-11-07T18:00:00.000Z",
+  "count": 185,
   "articles": [
+    {
+      "id": "wall-street-reprices-ai-and-policy-risks-after-midterm-shift-7nov26",
+      "title": "Wall Street Reprices AI and Policy Risks After the U.S. Midterm Shift",
+      "description": "Investors are reassessing technology, energy, healthcare and consumer shares as the midterm results reshape expectations for regulation, public spending and tariffs.",
+      "category": "markets",
+      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-07T18:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Associated Press — Midterm results and Wall Street sector moves",
+          "url": "https://apnews.com/article/4ac9a6a3c35aeec37374fc8083bf9395"
+        },
+        {
+          "name": "Barron's — Weekly market review",
+          "url": "https://www.barrons.com/articles/stocks-today-indexes-lower-on-week-after-volatility-0b37989b"
+        }
+      ],
+      "content": "<p>U.S. markets are entering a new phase of political and economic repricing after the midterm elections produced a shift in the balance of power in Washington. Investors are weighing what the result could mean for spending priorities, regulation, trade policy and the outlook for major industries. The first market moves have been uneven rather than a simple vote of confidence in one sector.</p><h2>Why sector reactions are diverging</h2><p>Reporting by the Associated Press describes pressure on some defense and energy shares as investors considered the possibility of a less intense geopolitical environment, while healthcare companies gained on expectations that public health-program funding could receive more support. Renewable-energy businesses may also see a more favorable policy backdrop. These are market expectations, not enacted policy changes, and the details will depend on legislation and implementation.</p><p>Technology remains especially sensitive. Companies tied to AI infrastructure face a dual challenge: demand for computing remains substantial, but investors are questioning the pace, cost and local impact of new data-center construction. Any change in permitting, electricity policy or trade rules could affect project economics. At the same time, a slower buildout could reduce pressure on power and equipment costs.</p><h2>What investors should watch next</h2><p>The political shift is only one input. Earnings, inflation, interest rates and corporate guidance will continue to determine valuations. Investors should distinguish between campaign proposals, expectations reflected in share prices and policies that have actually become law. Volatility around headlines can create sharp moves without changing the long-term cash-flow outlook of a business.</p><p>For diversified portfolios, the key question is not which party won, but which companies can adapt to changing rules while maintaining pricing power, investment discipline and durable demand.</p>"
+    },
+    {
+      "id": "strong-october-jobs-report-keeps-fed-rate-hike-risk-alive-7nov26",
+      "title": "Strong October Jobs Report Keeps Federal Reserve Rate-Hike Risk in Focus",
+      "description": "U.S. employers added 165,000 jobs in October and unemployment eased to 4.1%, prompting traders to reassess the path of interest rates.",
+      "category": "economy",
+      "image": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-07T18:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Reuters — Fed policymakers consider rate hike after jobs report",
+          "url": "https://www.reuters.com/business/traders-raise-bets-fed-rate-hike-after-jobs-report-2026-11-06/"
+        },
+        {
+          "name": "U.S. Bureau of Labor Statistics",
+          "url": "https://www.bls.gov/news.release/empsit.nr0.htm"
+        }
+      ],
+      "content": "<p>The latest U.S. employment report has complicated the outlook for monetary policy. Employers added 165,000 jobs in October, more than economists had expected, while the unemployment rate edged down to 4.1%, according to figures cited by Reuters. The data suggest that the labor market has retained momentum even as households and businesses continue to face elevated costs.</p><h2>Why stronger employment can mean tighter policy</h2><p>A resilient labor market can support household income and consumer spending, helping the economy avoid a sharp slowdown. But when demand remains firm while inflation is above the Federal Reserve's 2% objective, policymakers may have less reason to reduce borrowing costs. Reuters reported that traders increased the probability they assign to a possible quarter-point rate increase at the Fed's December meeting.</p><p>That market pricing is not a decision by the central bank. Officials will weigh incoming inflation, wages, spending and employment data, and financial conditions can change quickly. Wage growth also needs to be considered alongside productivity and price increases rather than viewed in isolation.</p><h2>Implications for markets and households</h2><p>Higher-for-longer rates can support yields on cash and short-term bonds, but they may raise financing costs for homebuyers, companies and consumers carrying variable-rate debt. Growth stocks can also face valuation pressure when future earnings are discounted at higher rates. Conversely, a stronger economy may help companies generate revenue and protect profits.</p><p>The next inflation readings and the Fed's communications will be important. Investors should avoid treating one employment report as a guaranteed signal of the next policy move; the direction will depend on the broader sequence of data.</p>"
+    },
+    {
+      "id": "bitcoin-etf-outflows-put-institutional-demand-under-scrutiny-7nov26",
+      "title": "Bitcoin ETF Outflows Put Institutional Demand Under Fresh Scrutiny",
+      "description": "A reported $1.28 billion weekly withdrawal from U.S. spot Bitcoin ETFs has turned flows negative for 2026, raising questions about institutional risk appetite.",
+      "category": "crypto",
+      "image": "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-07T18:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "The Block — Bitcoin ETFs flip negative for 2026 after $1.28 billion outflow week",
+          "url": "https://www.theblock.co/news"
+        },
+        {
+          "name": "CoinShares — Digital asset fund flows",
+          "url": "https://coinshares.com/insights/research-data/"
+        }
+      ],
+      "content": "<p>U.S. spot Bitcoin exchange-traded funds have recorded a difficult week for flows, with The Block reporting approximately $1.28 billion in net outflows, the largest weekly withdrawal since June. The report says the move pushed the funds' cumulative flows for 2026 into negative territory. The development offers a reminder that institutional access does not remove the volatility associated with digital assets.</p><h2>What ETF outflows do — and do not — tell us</h2><p>Net outflows indicate that investors withdrew more money from the funds than they added during the period. They can reflect profit-taking, portfolio rebalancing, risk reduction or a response to wider market stress. They do not, by themselves, prove that every institutional investor has lost confidence in Bitcoin or that long-term adoption has stopped.</p><p>ETF flows are one useful measure alongside trading volume, liquidity, derivatives positioning, custody activity and on-chain data. Short time windows can be distorted by large portfolio moves, so investors should examine trends over several weeks and compare them with price behavior and broader financial conditions.</p><h2>Macro conditions remain part of the crypto story</h2><p>Bitcoin trades in a market influenced by liquidity expectations, interest rates, the U.S. dollar and investor appetite for risk. A repricing of Federal Reserve policy can therefore affect digital assets even when there is no new crypto-specific announcement. Regulatory developments and exchange security also influence confidence, but they should be assessed separately from fund-flow data.</p><p>For investors, the practical lesson is to avoid reading a single weekly flow figure as a forecast. Position sizing, time horizon, custody arrangements and the ability to withstand large price swings remain central to risk management.</p>"
+    },
+    {
+      "id": "bitcoin-rebounds-above-64000-as-traders-weigh-us-crypto-policy-7nov26",
+      "title": "Bitcoin Holds Above $64,000 as Traders Weigh U.S. Crypto Policy",
+      "description": "Bitcoin steadied above $64,000 on November 7 as traders assessed regulatory developments and the wider market's appetite for risk.",
+      "category": "crypto",
+      "image": "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-07T18:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Investing.com — Bitcoin holds gains above $64,000",
+          "url": "https://uk.investing.com/news/cryptocurrency-news/bitcoin-stays-above-64000-as-us-crypto-policy-advances-adoption-grows-4766641"
+        },
+        {
+          "name": "Federal Reserve — News and events",
+          "url": "https://www.federalreserve.gov/newsevents.htm"
+        }
+      ],
+      "content": "<p>Bitcoin was holding above the $64,000 level on November 7, according to market pricing reported by Investing.com, after recovering from a slide toward $61,000 earlier in the week. The rebound came as traders assessed U.S. policy developments, institutional participation and the broader pullback in risk assets.</p><h2>Policy headlines are influencing sentiment</h2><p>Investing.com reported that a provision establishing a four-year ban on a U.S. central bank digital currency was set to take effect through a housing bill. The debate around a potential digital dollar is distinct from the rules governing privately issued cryptocurrencies, exchanges and stablecoins. Investors should avoid treating one policy development as a blanket endorsement or prohibition of the entire crypto sector.</p><p>Regulatory clarity can influence whether financial institutions build custody, trading and payment services, but the practical impact depends on the final text of laws, agency rules and implementation. Compliance costs and consumer protections can shape which business models are viable.</p><h2>Price recovery is not the same as a confirmed trend</h2><p>A move above a round-number level can attract attention, but it does not establish that a durable rally has begun. Bitcoin remains exposed to leverage, liquidity shifts, exchange-specific events and changes in global risk appetite. Short-term price quotes can also differ across venues and update times.</p><p>Market participants should focus on verified policy documents, transparent market data and their own risk limits rather than assuming that a headline guarantees a direction for prices.</p>"
+    },
+    {
+      "id": "americans-grow-more-wary-of-ai-boom-and-economic-fallout-7nov26",
+      "title": "Americans Grow More Wary of the AI Boom and Its Economic Fallout",
+      "description": "A University of Michigan survey points to rising public concern that AI and data-center investment could become an economic bubble with wider consequences.",
+      "category": "technology",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-07T18:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "The Washington Post — Americans are anxious about the AI boom going bust",
+          "url": "https://www.washingtonpost.com/technology/2026/11/07/americans-are-worried-about-ai-boom-going-bust-survey-finds/"
+        },
+        {
+          "name": "University of Michigan Surveys of Consumers",
+          "url": "https://www.sca.isr.umich.edu/"
+        }
+      ],
+      "content": "<p>Public enthusiasm for artificial intelligence is increasingly accompanied by questions about its economic risks. A University of Michigan survey discussed by The Washington Post found that some respondents spontaneously raised concerns about AI and data centers, often in a negative context. The findings suggest that debate about AI is moving beyond product capabilities and into questions about jobs, electricity use, investment and the cost of living.</p><h2>Why the investment cycle matters to households</h2><p>AI infrastructure requires large commitments to chips, servers, buildings, cooling systems and electricity. Those investments can create demand for construction, engineering and technical workers, while also placing pressure on power supplies and local infrastructure. If expected returns fail to materialize, companies could reduce spending, affecting suppliers and regions that have become dependent on data-center projects.</p><p>The survey does not establish that an AI bubble exists or predict when an investment correction might occur. It records public sentiment, which is important but different from evidence about company revenue, productivity gains or the financial health of infrastructure projects.</p><h2>Separating durable adoption from speculation</h2><p>Businesses are experimenting with AI in customer service, software development, research and operations. The long-term economic value will depend on whether these tools improve productivity enough to justify software, computing and integration costs. Companies also need to manage accuracy, privacy, security and workforce transition.</p><p>Investors and policymakers will be watching whether AI spending translates into measurable earnings and broader productivity, and whether the benefits are distributed beyond a small group of technology firms. A sustainable AI economy requires both innovation and credible returns.</p>"
+    },
+    {
+      "id": "ai-data-center-power-becomes-strategic-bottleneck-for-tech-expansion-7nov26",
+      "title": "AI Data-Center Power Becomes a Strategic Bottleneck for Technology Expansion",
+      "description": "As AI infrastructure demand grows, electricity access, grid connections and energy costs are becoming decisive factors in where new computing capacity can be built.",
+      "category": "business",
+      "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-07T18:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Associated Press — Midterm results and data-center policy uncertainty",
+          "url": "https://apnews.com/article/4ac9a6a3c35aeec37374fc8083bf9395"
+        },
+        {
+          "name": "U.S. Energy Information Administration — Electricity",
+          "url": "https://www.eia.gov/electricity/"
+        }
+      ],
+      "content": "<p>Electricity availability is emerging as one of the most important constraints on the next phase of artificial-intelligence infrastructure. Training and running large AI systems requires energy-intensive computing equipment, while data centers also need reliable power for cooling, networking and uninterrupted operations. As developers compete to bring capacity online, access to the grid can be as important as access to advanced processors.</p><h2>Power is now part of the technology supply chain</h2><p>Developers must evaluate local generation, transmission capacity, interconnection queues, energy prices and the reliability of supply. A site with attractive land costs may be commercially unviable if a grid connection takes too long or if electricity prices undermine operating margins. On-site generation and long-term power contracts can help, but they bring their own financing, fuel, emissions and permitting questions.</p><p>The Associated Press has highlighted how policy expectations around data-center construction and energy infrastructure are influencing investor sentiment. Local communities and regulators are also weighing employment and tax benefits against electricity demand, water use, land requirements and potential effects on household bills.</p><h2>What this means for investors</h2><p>The AI infrastructure opportunity extends beyond chip designers and cloud platforms. Utilities, grid equipment manufacturers, power developers, cooling specialists and engineering contractors may all play a role. However, rising demand does not guarantee attractive returns: projects face construction delays, capital costs, regulatory uncertainty and the risk that future computing demand falls short of forecasts.</p><p>Investors should examine contracted revenue, project financing, power costs and delivery schedules rather than relying only on headline capacity announcements. The companies that solve the energy challenge economically may become important enablers of AI growth.</p>"
+    },
     {
       "id": "ntt-data-and-bloom-energy-plan-900-megawatts-of-on-site-data-center-power-d34e8759",
       "title": "NTT DATA and Bloom Energy Plan 900 Megawatts of On-Site Data-Center Power",
