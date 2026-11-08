@@ -423,7 +423,9 @@ async function cjReadJson(url, options = {}) {
   const payload = await response.json().catch(() => null);
   if (!response.ok) throw new Error("cj_http_" + response.status);
   if (!payload || payload.success === false || (payload.code !== undefined && Number(payload.code) !== 200)) {
-    throw new Error("cj_api_" + String(payload?.code || "unknown"));
+    const apiCode = String(payload?.code || "unknown").replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40);
+    const apiMessage = String(payload?.message || payload?.msg || "").replace(/[^a-zA-Z0-9 _-]/g, "").trim().slice(0, 100);
+    throw new Error("cj_api_" + apiCode + (apiMessage ? "_" + apiMessage.replace(/\s+/g, "_") : ""));
   }
   return payload;
 }
@@ -457,7 +459,7 @@ async function cjGetAccessToken(env) {
     const authenticated = await cjReadJson(CJ_API_BASE + "/authentication/getAccessToken", {
       method: "POST",
       headers: { "content-type": "application/json", "accept": "application/json" },
-      body: JSON.stringify({ apiKey: env.usamarket_cloudeflare })
+      body: JSON.stringify({ apiKey: String(env.usamarket_cloudeflare || "").trim() })
     });
     tokenData = authenticated.data;
   }
@@ -515,7 +517,8 @@ async function cjConnectionStatus(request, env) {
       : reason === "cj_token_storage_missing" ? "token_storage_missing"
       : reason.startsWith("cj_api_") ? "cj_auth_rejected"
       : "cj_connection_unavailable";
-    return json({ provider: "CJdropshipping", connected: false, error: code }, 502);
+    const diagnostic = reason.startsWith("cj_api_") ? reason.slice(7, 150) : undefined;
+    return json({ provider: "CJdropshipping", connected: false, error: code, diagnostic }, 502);
   }
 }
 
