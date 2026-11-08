@@ -412,6 +412,173 @@ async function liveNewsSitemap(env) {
  return new Response('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">'+entries+'</urlset>',{headers:{"content-type":"application/xml; charset=utf-8","cache-control":"public, max-age=300"}});
 }
 
+
+const CJ_API_BASE = "https://developers.cjdropshipping.com/api2.0/v1";
+const CJ_AUTH_CACHE_KEY = "cj:auth:v1";
+const CJ_US_PRODUCTS_CACHE_KEY = "cj:products:us:v1";
+const CJ_TOKEN_TTL_SECONDS = 15552000;
+
+async function cjReadJson(url, options = {}) {
+  const response = await fetch(url, { ...options, signal: AbortSignal.timeout(15000) });
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) throw new Error("cj_http_" + response.status);
+  if (!payload || payload.success === false || (payload.code !== undefined && Number(payload.code) !== 200)) {
+    throw new Error("cj_api_" + String(payload?.code || "unknown"));
+  }
+  return payload;
+}
+
+async function cjGetAccessToken(env) {
+  if (!env.usamarket_cloudeflare) throw new Error("cj_api_key_missing");
+  if (!env.VIDEOS_KV) throw new Error("cj_token_storage_missing");
+
+  const cached = await env.VIDEOS_KV.get(CJ_AUTH_CACHE_KEY, "json").catch(() => null);
+  const now = Date.now();
+  const accessExpiry = Date.parse(cached?.accessTokenExpiryDate || "");
+  if (cached?.accessToken && Number.isFinite(accessExpiry) && accessExpiry > now + 10 * 60 * 1000) {
+    return cached;
+  }
+
+  let tokenData = null;
+  if (cached?.refreshToken) {
+    try {
+      const refreshed = await cjReadJson(CJ_API_BASE + "/authentication/refreshAccessToken", {
+        method: "POST",
+        headers: { "content-type": "application/json", "accept": "application/json" },
+        body: JSON.stringify({ refreshToken: cached.refreshToken })
+      });
+      tokenData = refreshed.data;
+    } catch (_) {
+      tokenData = null;
+    }
+  }
+
+  if (!tokenData?.accessToken) {
+    const authenticated = await cjReadJson(CJ_API_BASE + "/authentication/getAccessToken", {
+      method: "POST",
+      headers: { "content-type": "application/json", "accept": "application/json" },
+      body: JSON.stringify({ apiKey: env.usamarket_cloudeflare })
+    });
+    tokenData = authenticated.data;
+  }
+
+  if (!tokenData?.accessToken || !tokenData?.refreshToken) throw new Error("cj_token_response_invalid");
+  const saved = {
+    accessToken: tokenData.accessToken,
+    refreshToken: tokenData.refreshToken,
+    accessTokenExpiryDate: tokenData.accessTokenExpiryDate || null,
+    refreshTokenExpiryDate: tokenData.refreshTokenExpiryDate || null,
+    openId: tokenData.openId || null,
+    updatedAt: new Date().toISOString()
+  };
+  const expiry = Date.parse(saved.refreshTokenExpiryDate || saved.accessTokenExpiryDate || "");
+  const ttl = Number.isFinite(expiry)
+    ? Math.max(60, Math.min(CJ_TOKEN_TTL_SECONDS, Math.floor((expiry - now) / 1000)))
+    : CJ_TOKEN_TTL_SECONDS;
+  await env.VIDEOS_KV.put(CJ_AUTH_CACHE_KEY, JSON.stringify(saved), { expirationTtl: ttl });
+  return saved;
+}
+
+async function cjApiGet(env, path, params = {}) {
+  const token = await cjGetAccessToken(env);
+  const url = new URL(CJ_API_BASE + path);
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== null && value !== "") url.searchParams.set(key, String(value));
+  }
+  return cjReadJson(url.toString(), {
+    method: "GET",
+    headers: { "CJ-Access-Token": token.accessToken, "accept": "application/json" }
+  });
+}
+
+async function cjConnectionStatus(request, env) {
+  if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
+  try {
+    const [token, warehouses] = await Promise.all([
+      cjGetAccessToken(env),
+      cjApiGet(env, "/product/globalWarehouseList")
+    ]);
+    const usWarehouse = (Array.isArray(warehouses.data) ? warehouses.data : [])
+      .filter(item => String(item.countryCode || item.valueEn || "").toUpperCase() === "US")
+      .map(item => ({ name: item.areaEn || item.nameEn || "US Warehouse", available: item.disabled !== true }));
+    return json({
+      provider: "CJdropshipping",
+      connected: true,
+      tokenCached: true,
+      tokenExpiresAt: token.accessTokenExpiryDate,
+      usWarehouses: usWarehouse
+    });
+  } catch (error) {
+    console.error(JSON.stringify({ message: "CJ connection check failed", error: String(error?.message || "unknown") }));
+    const reason = String(error?.message || "");
+    const code = reason === "cj_api_key_missing" ? "api_key_missing"
+      : reason === "cj_token_storage_missing" ? "token_storage_missing"
+      : reason.startsWith("cj_api_") ? "cj_auth_rejected"
+      : "cj_connection_unavailable";
+    return json({ provider: "CJdropshipping", connected: false, error: code }, 502);
+  }
+}
+
+async function cjUsProducts(request, env) {
+  if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405);
+  try {
+    const url = new URL(request.url);
+    const forceRefresh = url.searchParams.get("refresh") === "1";
+    let cached = !forceRefresh
+      ? await env.VIDEOS_KV.get(CJ_US_PRODUCTS_CACHE_KEY, "json").catch(() => null)
+      : null;
+    if (!cached?.products?.length) {
+      const payload = await cjApiGet(env, "/product/listV2", {
+        page: 1,
+        size: 100,
+        countryCode: "US",
+        verifiedWarehouse: 1,
+        startWarehouseInventory: 1,
+        sort: "desc",
+        orderBy: 1,
+        features: "enable_category"
+      });
+      const groups = Array.isArray(payload.data?.content) ? payload.data.content : [];
+      const rawProducts = groups.flatMap(group => Array.isArray(group.productList) ? group.productList : []);
+      const products = rawProducts
+        .filter(product => Number(product.verifiedWarehouse) === 1 &&
+          Number(product.warehouseInventoryNum ?? product.totalVerifiedInventory ?? 0) > 0)
+        .map(product => ({
+          id: String(product.id || ""),
+          title: clean(product.nameEn),
+          sku: clean(product.sku || product.spu),
+          image: safeHttpUrl(product.bigImage),
+          cost: numberValue(product.nowPrice || product.discountPrice || product.sellPrice),
+          listPrice: numberValue(product.sellPrice),
+          category: clean(product.threeCategoryName || product.twoCategoryName || product.oneCategoryName || "General"),
+          inventory: Number(product.warehouseInventoryNum ?? product.totalVerifiedInventory ?? 0),
+          verifiedWarehouse: Number(product.verifiedWarehouse) === 1,
+          warehouse: "US",
+          shippingDays: clean(product.deliveryCycle),
+          supplier: clean(product.supplierName),
+          productUrl: "https://cjdropshipping.com/product/" + encodeURIComponent(String(product.id || ""))
+        }))
+        .filter(product => product.id && product.title && product.image && product.cost !== null && product.cost > 0);
+      cached = {
+        provider: "CJdropshipping",
+        warehouse: "US",
+        updatedAt: new Date().toISOString(),
+        totalAvailable: Number(payload.data?.totalRecords || products.length),
+        count: products.length,
+        products
+      };
+      await env.VIDEOS_KV.put(CJ_US_PRODUCTS_CACHE_KEY, JSON.stringify(cached), { expirationTtl: 3600 });
+    }
+    const limit = Math.min(100, Math.max(1, Number(url.searchParams.get("limit")) || 100));
+    return json({ ...cached, products: cached.products.slice(0, limit) }, 200, {
+      "cache-control": "public, max-age=60, s-maxage=300"
+    });
+  } catch (error) {
+    console.error(JSON.stringify({ message: "CJ US product query failed", error: String(error?.message || "unknown") }));
+    return json({ provider: "CJdropshipping", error: "product_catalog_unavailable" }, 502);
+  }
+}
+
 export default {
   async scheduled(event, env, ctx) {
     if (event.cron === "17 4 * * *") ctx.waitUntil(refreshVideoLibrary(env));
@@ -423,6 +590,8 @@ export default {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method_not_allowed" }, 405);
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });
     }
+    if (url.pathname === "/api/cj/status") return cjConnectionStatus(request, env);
+    if (url.pathname === "/api/cj/products") return cjUsProducts(request, env);
     if (url.pathname === "/api/videos") return searchVideos(request, env);
     if (url.pathname === "/api/news") return getNews(request, env);
     if (url.pathname === "/api/cinema/catalog") return getCinemaCatalog(request, env);
