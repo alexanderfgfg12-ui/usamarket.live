@@ -1,7 +1,71 @@
 {
-  "updated": "2026-11-07T18:00:00.000Z",
-  "count": 185,
+  "updated": "2026-11-08T20:30:00.000Z",
+  "count": 189,
   "articles": [
+    {
+      "id": "voters-demand-cost-of-living-relief-after-midterm-results-8nov26",
+      "title": "Cost-of-Living Pressure Puts Economic Relief at the Center of Washington’s Agenda",
+      "description": "After the midterm results, both parties face pressure to respond to persistent inflation, rising household costs and the long-term funding challenges facing Social Security.",
+      "category": "economy",
+      "image": "https://images.unsplash.com/photo-149",
+      "pubDate": "2026-11-08T20:30:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Associated Press — Voters demand economic relief after midterms",
+          "url": "https://apnews.com/article/ab332d745571d36c5512e7e3beab6d59"
+        }
+      ],
+      "content": "<p>The cost of living is emerging as one of the first major tests for Washington after the midterm elections. Voters have sent a clear message that household budgets, prices and economic security remain central concerns, leaving lawmakers under pressure to show how they intend to respond.</p><h2>Inflation and household budgets remain central</h2><p>Associated Press reporting says annual inflation has remained elevated, while families continue to deal with the cumulative effect of higher prices. Even when the pace of price increases slows, households do not automatically return to the purchasing power they had before the inflation surge. Housing, healthcare, food, transportation and borrowing costs therefore remain important political and economic pressure points.</p><p>Policy choices are complicated. Measures that provide near-term relief can support households, but broad spending or tax changes can also affect federal borrowing and demand. Economists generally distinguish targeted assistance from policies that risk adding further pressure to prices.</p><h2>Social Security adds a longer-term challenge</h2><p>The AP report also highlights the approaching funding shortfall facing Social Security. Without legislative changes, the program's trust funds are projected to become insufficient to pay scheduled benefits in full in the early 2030s. Options discussed by policymakers include changes to payroll-tax limits, benefit formulas or retirement rules. Each carries consequences for workers, retirees and public finances.</p><h2>What to watch next</h2><p>Investors and households will be watching whether congressional negotiations produce practical proposals, how those proposals are financed and whether they affect inflation expectations. The political demand for relief is clear; the difficult part will be balancing affordability today with sustainable public finances over time.</p>"
+    },
+    {
+      "id": "corporate-earnings-beat-estimates-by-narrowest-margin-in-years-8nov26",
+      "title": "Corporate Earnings Beat Wall Street Estimates by the Narrowest Margin in Years",
+      "description": "With most S&P 500 companies reporting, earnings are ahead of forecasts, but the size of the typical surprise has narrowed as investors question AI spending and profit durability.",
+      "category": "markets",
+      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-08T20:30:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "MarketWatch — Corporate America's profit numbers are just barely beating Wall Street's expectations",
+          "url": "https://www.marketwatch.com/story/corporate-americas-profit-numbers-are-just-barely-beating-wall-streets-expectations-eaa67fe2"
+        }
+      ],
+      "content": "<p>Corporate America is still reporting a high rate of earnings beats, but the typical margin over analyst expectations has become unusually slim. The latest earnings-season data suggest that companies are clearing forecasts by less than investors have become accustomed to, raising questions about the strength and breadth of profit growth.</p><h2>A high beat rate, but a smaller cushion</h2><p>MarketWatch, citing FactSet figures, reported that with 88% of S&amp;P 500 companies having reported, earnings per share were exceeding estimates by an average of 2.7%. That is the narrowest positive surprise margin in roughly four years and below the five-year average of 7.5%. At the same time, 84% of reporting companies had beaten estimates, a share above the ten-year average.</p><p>The figures show why the headline beat rate alone can be misleading. A company can exceed a forecast by a small amount and still face questions about its outlook, costs or ability to sustain growth. Investors are increasingly examining guidance and cash generation alongside reported earnings.</p><h2>AI investment is a key market test</h2><p>The debate is particularly intense for technology and infrastructure businesses investing heavily in artificial intelligence. Data centers, chips, networking equipment and power capacity require large upfront commitments. Investors want evidence that these costs will translate into durable revenue and returns rather than simply expanding capital expenditure and debt.</p><p>Local opposition to some data-center projects and concerns about electricity costs add another layer of uncertainty. These pressures do not mean AI demand has disappeared, but they may influence where projects are built, how quickly capacity is added and which suppliers capture the economics.</p><h2>What investors should monitor</h2><p>Upcoming company reports and management guidance will help clarify whether the current earnings trend is broadening or becoming more dependent on a small group of large technology companies. Revenue growth, operating margins, free cash flow and financing costs remain important measures. Earnings surprises are useful information, not a guarantee of future share performance.</p>"
+    },
+    {
+      "id": "ai-data-center-backlash-puts-tech-expansion-under-pressure-8nov26",
+      "title": "Public Backlash Puts U.S. AI Data-Center Expansion Under Greater Scrutiny",
+      "description": "Local concerns about electricity use, environmental impact and community disruption are adding political risk to the infrastructure investment behind the AI boom.",
+      "category": "technology",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-08T20:30:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "The Guardian — US midterms put AI, datacentres and tech power back under scrutiny",
+          "url": "https://www.theguardian.com/business/2026/nov/08/us-midterms-ai-datacentres-broligarchy-voter-backlash"
+        }
+      ],
+      "content": "<p>The rapid expansion of artificial-intelligence infrastructure is facing a more visible public and political challenge in the United States. Data centers are essential to cloud computing and advanced AI services, but their demand for electricity, land and water has made proposed projects a local issue in communities weighing economic benefits against disruption.</p><h2>Infrastructure growth meets local concerns</h2><p>The Guardian reports that the midterm election period brought renewed attention to measures and local decisions affecting data-center development. Residents and officials have raised questions about power consumption, environmental effects, construction impacts and whether nearby communities receive enough lasting benefit from large facilities.</p><p>These concerns arrive as technology companies and infrastructure providers plan substantial investments in computing capacity. Even where projects are commercially attractive, permitting, grid connections and community acceptance can determine whether they proceed on schedule.</p><h2>Why the issue matters to technology investors</h2><p>AI-related companies are competing to secure chips, electricity, cooling systems and data-center space. Delays or higher energy costs could change project economics, while more efficient hardware and better site planning could help reduce pressure. The market is therefore assessing not only demand for AI services but also the practical cost of building the infrastructure required to deliver them.</p><p>Public opposition does not necessarily mean that AI investment will stop. It may instead shift development toward locations with available power, clearer permitting and stronger local support. Companies that can demonstrate measurable benefits and manage environmental impacts may be better positioned to maintain expansion plans.</p><h2>The next phase will require public trust</h2><p>For policymakers, the challenge is balancing innovation and economic growth with reliable electricity, transparent planning and community interests. For technology companies, securing social acceptance may become as important as securing capital and computing hardware.</p>"
+    },
+    {
+      "id": "white-collar-hiring-growth-complicates-ai-job-loss-debate-8nov26",
+      "title": "U.S. White-Collar Hiring Rebounds, Complicating the Debate Over AI Job Losses",
+      "description": "October employment data showed gains in professional and business services, even as some technology-related occupations face pressure from automation and changing workflows.",
+      "category": "business",
+      "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-08T20:30:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "The Washington Post — Is AI taking white-collar jobs? Latest hiring report suggests not yet",
+          "url": "https://www.washingtonpost.com/business/2026/11/07/white-collar-hiring-jumps-october-complicating-ai-story/"
+        }
+      ],
+      "content": "<p>The latest U.S. hiring figures offer a more complicated picture than the idea that artificial intelligence is already eliminating white-collar work across the economy. Professional and business services added jobs in October, although some technology-focused roles continue to face pressure as employers adopt new tools and reorganize tasks.</p><h2>Hiring gains do not settle the AI question</h2><p>The Washington Post reported that professional and business services added about 70,000 jobs in October, including gains in consulting and temporary staffing. The increase suggests that demand for some office-based services remains resilient. However, the category covers a wide range of occupations, and part of the hiring may reflect temporary activity connected to the election cycle.</p><p>At the same time, employment in some companies that design computer systems for other businesses has weakened compared with a year earlier. Economists and industry observers have pointed to the possibility that AI tools allow certain firms to complete work with fewer employees, particularly in outsourced programming and routine digital tasks.</p><h2>AI may change tasks before it removes entire roles</h2><p>Automation often affects individual tasks before it changes the total number of jobs in an occupation. Workers may spend less time on routine drafting, coding or analysis while demand grows for people who can supervise systems, verify outputs, understand customers and take responsibility for complex decisions.</p><p>The overall employment data cannot yet isolate how much of the change is caused by AI. Interest rates, business confidence, seasonal patterns and election-related hiring can also influence monthly figures. A sustained trend across several reports would provide stronger evidence than a single month.</p><h2>Skills and productivity remain the key questions</h2><p>Employers will be judged on whether AI improves productivity and service quality, not simply on how many tasks can be automated. Workers may benefit from developing skills in domain expertise, communication, data judgment and responsible use of AI tools. For policymakers, better occupational data will be important to distinguish temporary hiring swings from longer-term changes in the labor market.</p>"
+    },
     {
       "id": "wall-street-reprices-ai-and-policy-risks-after-midterm-shift-7nov26",
       "title": "Wall Street Reprices AI and Policy Risks After the U.S. Midterm Shift",
