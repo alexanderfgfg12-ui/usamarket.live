@@ -581,8 +581,10 @@ async function cjUsProducts(request, env) {
       };
       await env.VIDEOS_KV.put(CJ_US_PRODUCTS_CACHE_KEY, JSON.stringify(cached), { expirationTtl: 3600 });
     }
+    const requestedId = clean(url.searchParams.get("id"));
+    const selectedProducts = requestedId ? cached.products.filter(product => String(product.id) === requestedId) : cached.products;
     const limit = Math.min(100, Math.max(1, Number(url.searchParams.get("limit")) || 100));
-    return json({ ...cached, products: cached.products.slice(0, limit) }, 200, {
+    return json({ ...cached, count: selectedProducts.length, products: selectedProducts.slice(0, limit) }, 200, {
       "cache-control": "public, max-age=60, s-maxage=300"
     });
   } catch (error) {
@@ -591,10 +593,16 @@ async function cjUsProducts(request, env) {
   }
 }
 
+async function cjRefreshUSProducts(env) {
+  const request = new Request("https://usamarket.live/api/cj/products?refresh=1", { method: "GET" });
+  return cjUsProducts(request, env);
+}
+
 export default {
   async scheduled(event, env, ctx) {
     if (event.cron === "17 4 * * *") ctx.waitUntil(refreshVideoLibrary(env));
     if (event.cron === "0 */3 * * *") ctx.waitUntil(refreshNewsLibrary(env));
+    if (event.cron === "0 */6 * * *") ctx.waitUntil(cjRefreshUSProducts(env));
   },
   async fetch(request, env) {
     const url = new URL(request.url);
