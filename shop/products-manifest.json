@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-07T13:55:40.712Z",
-  "totalProducts": 1450,
+  "updatedAt": "2026-11-08T07:11:25.207Z",
+  "totalProducts": 1456,
   "batchSize": 300,
   "batches": [
     "products-0001.json",
@@ -19,7 +19,7 @@
         "24a07f52301c-0004.json",
         "24a07f52301c-0005.json"
       ],
-      "totalProducts": 1446
+      "totalProducts": 1452
     },
     {
       "feedKey": "b318c3d87b5d",
@@ -105,7 +105,7 @@
     {
       "name": "Admitad template 79324",
       "status": "success",
-      "products": 1446,
+      "products": 1452,
       "error": null
     },
     {
@@ -124,7 +124,7 @@
       "name": "Admitad template 79337",
       "status": "failed",
       "products": 0,
-      "error": "Feed 1 [Admitad template 79337]: fetch failed"
+      "error": "Feed 1 [Admitad template 79337]: The operation was aborted due to timeout"
     }
   ]
 }
