@@ -420,12 +420,21 @@ const CJ_TOKEN_TTL_SECONDS = 15552000;
 
 async function cjReadJson(url, options = {}) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(15000) });
-  const payload = await response.json().catch(() => null);
+  const rawBody = await response.text();
+  let payload = null;
+  try { payload = rawBody ? JSON.parse(rawBody) : null; } catch (_) {}
   if (!response.ok) throw new Error("cj_http_" + response.status);
-  if (!payload || payload.success === false || (payload.code !== undefined && Number(payload.code) !== 200)) {
-    const apiCode = String(payload?.code || "unknown").replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40);
-    const apiMessage = String(payload?.message || payload?.msg || "").replace(/[^a-zA-Z0-9 _-]/g, "").trim().slice(0, 100);
-    throw new Error("cj_api_" + apiCode + (apiMessage ? "_" + apiMessage.replace(/\s+/g, "_") : ""));
+  if (!payload || typeof payload !== "object") {
+    throw new Error("cj_invalid_response_http_" + response.status + (rawBody ? "_non_json" : "_empty"));
+  }
+  const hasCode = payload.code !== undefined && payload.code !== null && payload.code !== "";
+  const apiCodeValue = hasCode ? String(payload.code) : "missing";
+  const apiCode = apiCodeValue.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40);
+  const isSuccessCode = !hasCode || Number(payload.code) === 200 || Number(payload.code) === 0;
+  if (payload.success === false || payload.result === false || !isSuccessCode) {
+    const apiMessage = String(payload.message || payload.msg || "no_message").replace(/[^a-zA-Z0-9 _-]/g, "").trim().slice(0, 80);
+    const requestId = String(payload.requestId || payload.requestID || "").replace(/[^a-zA-Z0-9-]/g, "").slice(0, 48);
+    throw new Error("cj_api_" + (apiCode || "missing") + "_" + apiMessage.replace(/\s+/g, "_") + (requestId ? "_request_" + requestId : ""));
   }
   return payload;
 }
