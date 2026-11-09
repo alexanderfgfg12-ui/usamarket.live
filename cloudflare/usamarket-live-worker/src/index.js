@@ -424,6 +424,8 @@ export default {
     const url = new URL(request.url);
     // Keep one canonical homepage URL; avoid duplicate indexing of /index.html.
     if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/index.html") {
+      url.protocol = "https:";
+      url.hostname = "usamarket.live";
       url.pathname = "/";
       return Response.redirect(url.toString(), 301);
     }
