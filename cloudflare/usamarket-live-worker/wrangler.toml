@@ -3,6 +3,11 @@ main = "src/index.js"
 compatibility_date = "2026-10-31"
 workers_dev = true
 
+routes = [
+  { pattern = "usamarket.live/index.html", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/index.html", zone_name = "usamarket.live" }
+]
+
 [assets]
 directory = "./dist"
 binding = "ASSETS"
