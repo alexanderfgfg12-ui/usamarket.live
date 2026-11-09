@@ -6,6 +6,12 @@ on:
       - "index.html"
       - "shop/**"
       - "sitemap.xml"
+      - "sitemap_index.xml"
+      - "news-sitemap.xml"
+      - "product-sitemap.xml"
+      - "videos-sitemap.xml"
+      - "cinema-sitemap.xml"
+      - "robots.txt"
       - "ar/**"
       - "cloudflare/usamarket-live-worker/**"
       - ".github/workflows/seo-validation.yml"
@@ -17,7 +23,14 @@ on:
       - "index.html"
       - "shop/**"
       - "sitemap.xml"
+      - "sitemap_index.xml"
+      - "news-sitemap.xml"
+      - "product-sitemap.xml"
+      - "videos-sitemap.xml"
+      - "cinema-sitemap.xml"
+      - "robots.txt"
       - "ar/**"
+      - "cloudflare/usamarket-live-worker/**"
       - ".github/workflows/seo-validation.yml"
 
 jobs:
@@ -59,6 +72,28 @@ jobs:
                       if not hasattr(self, "capture_parts"):
                           self.capture_parts = []
                       self.capture_parts.append(data)
+
+          # The sitemap index must expose every static sitemap plus the dynamic Worker news sitemap.
+          sitemap_index = ET.parse("sitemap_index.xml").getroot()
+          sitemap_index_locs = [node.text.strip() for node in sitemap_index.iter() if node.tag.endswith("loc") and node.text]
+          required_sitemaps = {
+              "https://usamarket.live/sitemap.xml",
+              "https://usamarket.live/news-sitemap.xml",
+              "https://usamarket.live/ar/sitemap.xml",
+              "https://usamarket.live/product-sitemap.xml",
+              "https://usamarket.live/videos-sitemap.xml",
+              "https://usamarket.live/cinema-sitemap.xml",
+              "https://usamarket.live/news-sitemap-live.xml",
+          }
+          assert required_sitemaps.issubset(set(sitemap_index_locs)), "Sitemap index is missing a static or dynamic sitemap"
+          for sitemap_url in sitemap_index_locs:
+              sitemap_path = sitemap_url.removeprefix("https://usamarket.live/")
+              if sitemap_path == "news-sitemap-live.xml":
+                  continue  # Served dynamically by the live-site Worker from KV.
+              assert Path(sitemap_path).is_file(), f"Sitemap index references a missing file: {sitemap_path}"
+
+          worker_source = Path("cloudflare/usamarket-live-worker/src/index.js").read_text(encoding="utf-8")
+          assert 'url.pathname === "/index.html"' in worker_source and "Response.redirect(url.toString(), 301)" in worker_source, "Homepage /index.html canonical redirect is missing"
 
           sitemap = ET.parse("sitemap.xml").getroot()
           locs = [node.text.strip() for node in sitemap.iter() if node.tag.endswith("loc") and node.text]
