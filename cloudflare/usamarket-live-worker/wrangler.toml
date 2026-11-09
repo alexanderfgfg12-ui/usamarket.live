@@ -16,4 +16,4 @@ binding = "VIDEOS_KV"
 id = "a189d0168a824bb4ab291c821b50767b"
 
 [triggers]
-crons = ["17 4 * * *", "0 */3 * * *", "* * * * *"]
+crons = ["17 4 * * *", "0 */3 * * *"]
