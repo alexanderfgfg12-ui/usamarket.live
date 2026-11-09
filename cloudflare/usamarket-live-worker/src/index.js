@@ -644,7 +644,24 @@ async function renderShopHtml(request, env) {
 
 async function cjRefreshUSProducts(env) {
   const request = new Request("https://usamarket.live/api/cj/products?refresh=1", { method: "GET" });
-  return cjUsProducts(request, env);
+  const response = await cjUsProducts(request, env);
+  let payload = {};
+  try { payload = await response.clone().json(); } catch (_) {}
+  const status = {
+    ok: response.ok,
+    httpStatus: response.status,
+    count: Number(payload.count || payload.products?.length || 0),
+    totalAvailable: Number(payload.totalAvailable || 0),
+    error: payload.error || null,
+    updatedAt: new Date().toISOString()
+  };
+  try {
+    await env.VIDEOS_KV.put("cj:sync:status:v1", JSON.stringify(status), { expirationTtl: 86400 });
+  } catch (error) {
+    console.error(JSON.stringify({ message: "CJ sync status persistence failed", error: String(error?.message || "unknown") }));
+  }
+  console.log(JSON.stringify({ message: "CJ scheduled sync completed", ...status }));
+  return response;
 }
 
 export default {
@@ -664,6 +681,10 @@ export default {
     }
     if (url.pathname === "/api/cj/status") return cjConnectionStatus(request, env);
     if (url.pathname === "/api/cj/products") return cjUsProducts(request, env);
+    if (url.pathname === "/api/cj/sync-status" && request.method === "GET") {
+      const status = await env.VIDEOS_KV.get("cj:sync:status:v1", "json").catch(() => null);
+      return json(status || { ok: false, status: "not_run_yet" }, 200, { "cache-control": "no-store" });
+    }
     if (request.method === "GET" && (url.pathname === "/shop/" || url.pathname === "/shop/index.html")) return renderShopHtml(request, env);
     if (url.pathname === "/api/videos") return searchVideos(request, env);
     if (url.pathname === "/api/news") return getNews(request, env);
