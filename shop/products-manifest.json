@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T07:43:34.061Z",
+  "updatedAt": "2026-11-09T23:27:50.143Z",
   "totalProducts": 1454,
   "batchSize": 300,
   "batches": [
@@ -100,7 +100,7 @@
       "name": "Admitad template 79323",
       "status": "failed",
       "products": 0,
-      "error": "Feed 1 [Admitad template 79323]: Cannot create a string longer than 0x1fffffe8 characters"
+      "error": "Feed 1 [Admitad template 79323]: The operation was aborted due to timeout"
     },
     {
       "name": "Admitad template 79324",
