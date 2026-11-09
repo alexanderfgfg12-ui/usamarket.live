@@ -633,6 +633,8 @@ async function renderShopHtml(request, env) {
     headers.set("content-type", "text/html; charset=utf-8");
     headers.set("cache-control", "public, max-age=60, s-maxage=180");
     headers.delete("content-length");
+    headers.delete("content-encoding");
+    headers.delete("etag");
     return new Response(updated, { status: page.status, statusText: page.statusText, headers });
   } catch (error) {
     console.error(JSON.stringify({ message: "CJ HTML injection failed", error: String(error?.message || "unknown") }));
