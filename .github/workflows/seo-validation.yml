@@ -94,6 +94,8 @@ jobs:
 
           worker_source = Path("cloudflare/usamarket-live-worker/src/index.js").read_text(encoding="utf-8")
           assert 'url.pathname === "/index.html"' in worker_source and "Response.redirect(url.toString(), 301)" in worker_source, "Homepage /index.html canonical redirect is missing"
+          worker_config = Path("cloudflare/usamarket-live-worker/wrangler.toml").read_text(encoding="utf-8")
+          assert 'pattern = "usamarket.live/index.html"' in worker_config and 'pattern = "www.usamarket.live/index.html"' in worker_config, "Homepage canonical redirect routes are missing from Worker configuration"
 
           sitemap = ET.parse("sitemap.xml").getroot()
           locs = [node.text.strip() for node in sitemap.iter() if node.tag.endswith("loc") and node.text]
