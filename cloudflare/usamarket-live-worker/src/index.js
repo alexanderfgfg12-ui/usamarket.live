@@ -579,7 +579,7 @@ async function cjUsProducts(request, env) {
         count: products.length,
         products
       };
-      await env.VIDEOS_KV.put(CJ_US_PRODUCTS_CACHE_KEY, JSON.stringify(cached), { expirationTtl: 3600 });
+      await env.VIDEOS_KV.put(CJ_US_PRODUCTS_CACHE_KEY, JSON.stringify(cached), { expirationTtl: 14400 });
     }
     const requestedId = clean(url.searchParams.get("id"));
     const selectedProducts = requestedId ? cached.products.filter(product => String(product.id) === requestedId) : cached.products;
@@ -593,6 +593,54 @@ async function cjUsProducts(request, env) {
   }
 }
 
+async function renderShopHtml(request, env) {
+  const page = await env.ASSETS.fetch(request);
+  if (!page.ok) return page;
+  try {
+    const apiRequest = new Request("https://usamarket.live/api/cj/products?limit=100");
+    const apiResponse = await cjUsProducts(apiRequest, env);
+    if (!apiResponse.ok) return page;
+    const payload = await apiResponse.json();
+    const products = (Array.isArray(payload.products) ? payload.products : []).map(p => ({
+      id: "cj-" + String(p.id || ""),
+      title: clean(p.title),
+      description: [p.supplier ? "Supplier: " + p.supplier : "CJdropshipping supplier",
+        p.inventory != null ? "US warehouse inventory: " + p.inventory : "",
+        p.shippingDays ? "Estimated shipping: " + p.shippingDays : ""].filter(Boolean).join(" · "),
+      brand: clean(p.supplier || "CJdropshipping"),
+      category: clean(p.category || "General"),
+      image: safeHttpUrl(p.image),
+      price: Math.ceil(Number(p.cost) * 1.30 * 100) / 100,
+      oldPrice: null,
+      currency: "USD",
+      affiliateUrl: safeHttpUrl(p.productUrl),
+      source: "CJdropshipping · US Warehouse",
+      updatedAt: payload.updatedAt || new Date().toISOString(),
+      warehouse: "US",
+      inventory: p.inventory,
+      shippingDays: p.shippingDays,
+      cost: p.cost,
+      cjProduct: true
+    })).filter(p => p.id !== "cj-" && p.title && p.image && p.affiliateUrl && Number.isFinite(p.price) && p.price > 0);
+    if (!products.length) return page;
+    const html = await page.text();
+    const script = "<script>window.__SHOP_INITIAL_PRODUCTS__=(window.__SHOP_INITIAL_PRODUCTS__||[]).concat(" +
+      JSON.stringify(products).replace(/</g, "\\u003c") + ");</script>";
+    const marker = /<script src=["']\/shop\/shop\.js\?v=\d+["'] defer><\/script>/i;
+    if (!marker.test(html)) return page;
+    const updated = html.replace(marker, script + "
+async function cjRefreshUSProducts(env) {");
+    const headers = new Headers(page.headers);
+    headers.set("content-type", "text/html; charset=utf-8");
+    headers.set("cache-control", "public, max-age=60, s-maxage=180");
+    headers.delete("content-length");
+    return new Response(updated, { status: page.status, statusText: page.statusText, headers });
+  } catch (error) {
+    console.error(JSON.stringify({ message: "CJ HTML injection failed", error: String(error?.message || "unknown") }));
+    return page;
+  }
+}
+
 async function cjRefreshUSProducts(env) {
   const request = new Request("https://usamarket.live/api/cj/products?refresh=1", { method: "GET" });
   return cjUsProducts(request, env);
@@ -601,8 +649,10 @@ async function cjRefreshUSProducts(env) {
 export default {
   async scheduled(event, env, ctx) {
     if (event.cron === "17 4 * * *") ctx.waitUntil(refreshVideoLibrary(env));
-    if (event.cron === "0 */3 * * *") ctx.waitUntil(refreshNewsLibrary(env));
-    if (event.cron === "0 */6 * * *") ctx.waitUntil(cjRefreshUSProducts(env));
+    if (event.cron === "0 */3 * * *") {
+      ctx.waitUntil(refreshNewsLibrary(env));
+      ctx.waitUntil(cjRefreshUSProducts(env));
+    }
   },
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -612,6 +662,7 @@ export default {
     }
     if (url.pathname === "/api/cj/status") return cjConnectionStatus(request, env);
     if (url.pathname === "/api/cj/products") return cjUsProducts(request, env);
+    if (request.method === "GET" && (url.pathname === "/shop/" || url.pathname === "/shop/index.html")) return renderShopHtml(request, env);
     if (url.pathname === "/api/videos") return searchVideos(request, env);
     if (url.pathname === "/api/news") return getNews(request, env);
     if (url.pathname === "/api/cinema/catalog") return getCinemaCatalog(request, env);
