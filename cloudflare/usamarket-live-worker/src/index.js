@@ -422,6 +422,11 @@ export default {
   },
   async fetch(request, env) {
     const url = new URL(request.url);
+    // Keep one canonical homepage URL; avoid duplicate indexing of /index.html.
+    if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/index.html") {
+      url.pathname = "/";
+      return Response.redirect(url.toString(), 301);
+    }
     if (url.pathname === "/health" || url.pathname === "/api/health") {
       if (request.method !== "GET" && request.method !== "HEAD") return json({ error: "method_not_allowed" }, 405);
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });
