@@ -628,8 +628,7 @@ async function renderShopHtml(request, env) {
       JSON.stringify(products).replace(/</g, "\\u003c") + ");</script>";
     const marker = /<script src=["']\/shop\/shop\.js\?v=\d+["'] defer><\/script>/i;
     if (!marker.test(html)) return page;
-    const updated = html.replace(marker, script + "
-async function cjRefreshUSProducts(env) {");
+    const updated = html.replace(marker, match => script + match);
     const headers = new Headers(page.headers);
     headers.set("content-type", "text/html; charset=utf-8");
     headers.set("cache-control", "public, max-age=60, s-maxage=180");
