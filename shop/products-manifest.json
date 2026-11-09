@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-08T07:11:25.207Z",
-  "totalProducts": 1456,
+  "updatedAt": "2026-11-09T07:43:34.061Z",
+  "totalProducts": 1454,
   "batchSize": 300,
   "batches": [
     "products-0001.json",
@@ -19,7 +19,7 @@
         "24a07f52301c-0004.json",
         "24a07f52301c-0005.json"
       ],
-      "totalProducts": 1452
+      "totalProducts": 1450
     },
     {
       "feedKey": "b318c3d87b5d",
@@ -100,12 +100,12 @@
       "name": "Admitad template 79323",
       "status": "failed",
       "products": 0,
-      "error": "Feed 1 [Admitad template 79323]: The operation was aborted due to timeout"
+      "error": "Feed 1 [Admitad template 79323]: Cannot create a string longer than 0x1fffffe8 characters"
     },
     {
       "name": "Admitad template 79324",
       "status": "success",
-      "products": 1452,
+      "products": 1450,
       "error": null
     },
     {
