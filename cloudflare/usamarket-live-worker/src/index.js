@@ -599,7 +599,11 @@ async function renderShopHtml(request, env) {
   try {
     const apiRequest = new Request("https://usamarket.live/api/cj/products?limit=100");
     const apiResponse = await cjUsProducts(apiRequest, env);
-    if (!apiResponse.ok) return page;
+    if (!apiResponse.ok) {
+      const failure = await apiResponse.clone().json().catch(() => ({}));
+      console.error(JSON.stringify({ message: "CJ storefront injection skipped", httpStatus: apiResponse.status, error: failure.error || "unknown" }));
+      return page;
+    }
     const payload = await apiResponse.json();
     const products = (Array.isArray(payload.products) ? payload.products : []).map(p => ({
       id: "cj-" + String(p.id || ""),
@@ -622,16 +626,22 @@ async function renderShopHtml(request, env) {
       cost: p.cost,
       cjProduct: true
     })).filter(p => p.id !== "cj-" && p.title && p.image && p.affiliateUrl && Number.isFinite(p.price) && p.price > 0);
-    if (!products.length) return page;
+    if (!products.length) {
+      console.error(JSON.stringify({ message: "CJ storefront injection found no eligible products", apiCount: payload.count || 0, returned: Array.isArray(payload.products) ? payload.products.length : 0 }));
+      return page;
+    }
     const html = await page.text();
     const script = "<script>window.__SHOP_INITIAL_PRODUCTS__=(window.__SHOP_INITIAL_PRODUCTS__||[]).concat(" +
       JSON.stringify(products).replace(/</g, "\\u003c") + ");</script>";
     const marker = /<script src=["']\/shop\/shop\.js\?v=\d+["'] defer><\/script>/i;
-    if (!marker.test(html)) return page;
+    if (!marker.test(html)) {
+      console.error(JSON.stringify({ message: "CJ storefront injection script marker not found" }));
+      return page;
+    }
     const updated = html.replace(marker, match => script + match);
     const headers = new Headers(page.headers);
     headers.set("content-type", "text/html; charset=utf-8");
-    headers.set("cache-control", "public, max-age=60, s-maxage=180");
+    headers.set("cache-control", "no-store, no-cache, must-revalidate");
     headers.delete("content-length");
     headers.delete("content-encoding");
     headers.delete("etag");
