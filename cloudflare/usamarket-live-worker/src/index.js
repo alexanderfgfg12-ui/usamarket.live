@@ -650,6 +650,7 @@ async function cjRefreshUSProducts(env) {
 export default {
   async scheduled(event, env, ctx) {
     if (event.cron === "17 4 * * *") ctx.waitUntil(refreshVideoLibrary(env));
+    if (event.cron === "* * * * *") ctx.waitUntil(cjRefreshUSProducts(env));
     if (event.cron === "0 */3 * * *") {
       ctx.waitUntil(refreshNewsLibrary(env));
       ctx.waitUntil(cjRefreshUSProducts(env));
