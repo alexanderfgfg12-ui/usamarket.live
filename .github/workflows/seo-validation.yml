@@ -95,7 +95,31 @@ jobs:
           worker_source = Path("cloudflare/usamarket-live-worker/src/index.js").read_text(encoding="utf-8")
           assert 'url.pathname === "/index.html"' in worker_source and "Response.redirect(url.toString(), 301)" in worker_source, "Homepage /index.html canonical redirect is missing"
           worker_config = Path("cloudflare/usamarket-live-worker/wrangler.toml").read_text(encoding="utf-8")
-          assert 'pattern = "usamarket.live/index.html"' in worker_config and 'pattern = "www.usamarket.live/index.html"' in worker_config, "Homepage canonical redirect routes are missing from Worker configuration"
+          required_worker_routes = [
+            "usamarket.live/index.html",
+            "usamarket.live/api/videos",
+            "usamarket.live/api/news",
+            "usamarket.live/api/cinema/catalog",
+            "usamarket.live/api/health",
+            "usamarket.live/api/admitad/products",
+            "usamarket.live/news-sitemap-live.xml",
+            "usamarket.live/news/live/*",
+            "usamarket.live/ar/news/live/*",
+            "www.usamarket.live/index.html",
+            "www.usamarket.live/api/videos",
+            "www.usamarket.live/api/news",
+            "www.usamarket.live/api/cinema/catalog",
+            "www.usamarket.live/api/health",
+            "www.usamarket.live/api/admitad/products",
+            "www.usamarket.live/news-sitemap-live.xml",
+            "www.usamarket.live/news/live/*",
+            "www.usamarket.live/ar/news/live/*"
+          ]
+          missing_worker_routes = [pattern for pattern in required_worker_routes if f'pattern = "{pattern}"' not in worker_config]
+          assert not missing_worker_routes, f"Worker configuration is missing required API/news routes: {missing_worker_routes}"
+          assert 'crons = ["17 4 * * *", "0 */3 * * *"]' in worker_config, "Expected daily video refresh and 3-hour news refresh schedules are missing"
+          for route in ["/api/videos", "/api/news", "/news-sitemap-live.xml"]:
+              assert route in worker_source, f"Worker handler missing for {route}"
 
           sitemap = ET.parse("sitemap.xml").getroot()
           locs = [node.text.strip() for node in sitemap.iter() if node.tag.endswith("loc") and node.text]
