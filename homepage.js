@@ -30,19 +30,45 @@
     renderNews(filtered);
   }
   async function loadNews(){
-    try{
-      const response=await fetch('/news-data.json',{cache:'no-cache'});
-      if(!response.ok)throw new Error('News feed unavailable');
-      const data=await response.json();
-      const legacy=(Array.isArray(data)?data:(Array.isArray(data.articles)?data.articles:[])).filter(item=>item&&item.id&&item.title);
-      articles=legacy.sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
-      const updated=data.updated?new Date(data.updated):null;
-      $('#lastUpdate').textContent=updated&&!Number.isNaN(updated.getTime())?updated.toLocaleString('en-US'):'—';
-      renderLead();filterList();
-    }catch(error){
+    const sources = await Promise.allSettled([
+      fetch('/news-data.json',{cache:'no-cache'}).then(response=>{
+        if(!response.ok) throw new Error('Static news feed unavailable');
+        return response.json();
+      }),
+      fetch('/api/news?lang=en',{cache:'no-store'}).then(response=>{
+        if(!response.ok) throw new Error('Live news API unavailable');
+        return response.json();
+      })
+    ]);
+    const staticData = sources[0].status === 'fulfilled' ? sources[0].value : null;
+    const liveData = sources[1].status === 'fulfilled' ? sources[1].value : null;
+    const staticArticles = Array.isArray(staticData)
+      ? staticData
+      : (Array.isArray(staticData?.articles) ? staticData.articles : []);
+    const liveArticles = Array.isArray(liveData?.articles) ? liveData.articles : [];
+    const seen = new Set();
+    articles = [...liveArticles,...staticArticles]
+      .filter(item=>item&&item.id&&item.title)
+      .filter(item=>{
+        const key=String(item.link||item.title).toLowerCase().replace(/[^a-z0-9\u0600-\u06ff]+/g,'');
+        if(!key||seen.has(key))return false;
+        seen.add(key);return true;
+      })
+      .sort((a,b)=>new Date(b.pubDate||0)-new Date(a.pubDate||0));
+    if(!articles.length){
       $('#leadPrimary').innerHTML='<div class="um-loading">Top stories could not be loaded. Please refresh in a moment.</div>';
       $('#newsGrid').innerHTML='<div class="um-loading">News is temporarily unavailable.</div>';
-      console.error('Homepage news load failed:',error);
+      console.error('Both static and live news feeds are unavailable:',sources);
+      return;
+    }
+    const updateDates=[staticData?.updated,liveData?.updatedAt]
+      .map(value=>value?new Date(value):null)
+      .filter(value=>value&&!Number.isNaN(value.getTime()));
+    const updated=updateDates.length?new Date(Math.max(...updateDates.map(value=>value.getTime()))):null;
+    $('#lastUpdate').textContent=updated?updated.toLocaleString('en-US'):'—';
+    renderLead();filterList();
+    if(sources.some(source=>source.status==='rejected')){
+      console.warn('USAMarket is displaying available news while one feed is unavailable:',sources);
     }
   }
   async function loadCrypto(){
