@@ -3,8 +3,6 @@ on:
   push:
     paths:
       - 'batch-*.json'
-      - 'process-batch.js'
-      - '.github/workflows/update-news.yml'
   workflow_dispatch:
 permissions:
   contents: write
