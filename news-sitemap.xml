@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"><url>
+  <loc>https://usamarket.live/news/u-s-stocks-rally-as-oil-slides-and-investors-reassess-ai-risks-10nov26.html</loc>
+  <news:news>
+    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+    <news:publication_date>2026-11-09T23:30:00.000Z</news:publication_date>
+    <news:title>U.S. Stocks Rally as Oil Slides and Investors Reassess AI Risks</news:title>
+  </news:news>
+</url><url>
+  <loc>https://usamarket.live/news/slower-ai-data-center-buildout-could-reshape-market-leadership-10nov26.html</loc>
+  <news:news>
+    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+    <news:publication_date>2026-11-09T20:00:00.000Z</news:publication_date>
+    <news:title>A Slower AI Data-Center Buildout Could Reshape Market Leadership</news:title>
+  </news:news>
+</url><url>
+  <loc>https://usamarket.live/news/u-s-inflation-data-in-focus-as-markets-weigh-fed-rate-outlook-10nov26.html</loc>
+  <news:news>
+    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
+    <news:publication_date>2026-11-09T18:30:00.000Z</news:publication_date>
+    <news:title>U.S. Inflation Data in Focus as Markets Weigh the Federal Reserve Outlook</news:title>
+  </news:news>
+</url><url>
   <loc>https://usamarket.live/news/u-s-producer-price-data-and-jobless-claims-next-in-focus-for-markets-d080c6db.html</loc>
   <news:news>
     <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
@@ -68,75 +89,5 @@
     <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
     <news:publication_date>2026-11-09T05:22:52.136Z</news:publication_date>
     <news:title>Asian Shares Rebound as U.S. Futures Rise and Investors Reassess Risk</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/voters-demand-cost-of-living-relief-after-midterm-results-8nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-08T20:30:00.000Z</news:publication_date>
-    <news:title>Cost-of-Living Pressure Puts Economic Relief at the Center of Washington’s Agenda</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/corporate-earnings-beat-estimates-by-narrowest-margin-in-years-8nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-08T20:30:00.000Z</news:publication_date>
-    <news:title>Corporate Earnings Beat Wall Street Estimates by the Narrowest Margin in Years</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/ai-data-center-backlash-puts-tech-expansion-under-pressure-8nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-08T20:30:00.000Z</news:publication_date>
-    <news:title>Public Backlash Puts U.S. AI Data-Center Expansion Under Greater Scrutiny</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/white-collar-hiring-growth-complicates-ai-job-loss-debate-8nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-08T20:30:00.000Z</news:publication_date>
-    <news:title>U.S. White-Collar Hiring Rebounds, Complicating the Debate Over AI Job Losses</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/wall-street-reprices-ai-and-policy-risks-after-midterm-shift-7nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-07T18:00:00.000Z</news:publication_date>
-    <news:title>Wall Street Reprices AI and Policy Risks After the U.S. Midterm Shift</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/strong-october-jobs-report-keeps-fed-rate-hike-risk-alive-7nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-07T18:00:00.000Z</news:publication_date>
-    <news:title>Strong October Jobs Report Keeps Federal Reserve Rate-Hike Risk in Focus</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/bitcoin-etf-outflows-put-institutional-demand-under-scrutiny-7nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-07T18:00:00.000Z</news:publication_date>
-    <news:title>Bitcoin ETF Outflows Put Institutional Demand Under Fresh Scrutiny</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/bitcoin-rebounds-above-64000-as-traders-weigh-us-crypto-policy-7nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-07T18:00:00.000Z</news:publication_date>
-    <news:title>Bitcoin Holds Above $64,000 as Traders Weigh U.S. Crypto Policy</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/americans-grow-more-wary-of-ai-boom-and-economic-fallout-7nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-07T18:00:00.000Z</news:publication_date>
-    <news:title>Americans Grow More Wary of the AI Boom and Its Economic Fallout</news:title>
-  </news:news>
-</url><url>
-  <loc>https://usamarket.live/news/ai-data-center-power-becomes-strategic-bottleneck-for-tech-expansion-7nov26.html</loc>
-  <news:news>
-    <news:publication><news:name>US Market Live</news:name><news:language>en</news:language></news:publication>
-    <news:publication_date>2026-11-07T18:00:00.000Z</news:publication_date>
-    <news:title>AI Data-Center Power Becomes a Strategic Bottleneck for Technology Expansion</news:title>
   </news:news>
 </url></urlset>
