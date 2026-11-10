@@ -1,7 +1,67 @@
 {
-  "updated": "2026-11-09T05:22:52.138Z",
-  "count": 199,
+  "updated": "2026-11-10T02:03:00.000Z",
+  "count": 202,
   "articles": [
+    {
+      "id": "u-s-stocks-rally-as-oil-slides-and-investors-reassess-ai-risks-10nov26",
+      "title": "U.S. Stocks Rally as Oil Slides and Investors Reassess AI Risks",
+      "description": "Wall Street rebounded on November 9, with the S&P 500 rising 2.3% as lower oil prices and stronger corporate results helped restore risk appetite.",
+      "category": "markets",
+      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-09T23:30:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Associated Press — U.S. stocks rally and recover most of last week's losses as oil prices swing lower",
+          "url": "https://apnews.com/article/d938f8e6ff42b3706e1d36e6245ec56b"
+        },
+        {
+          "name": "Associated Press — How major US stock indexes fared Monday 11/9/2026",
+          "url": "https://apnews.com/article/f7ec9680fc858e3c2505913e7b3a54e2"
+        }
+      ],
+      "content": "<p>U.S. stocks staged a broad rebound on Monday, November 9, as falling oil prices and upbeat corporate earnings helped investors recover much of the previous week's losses. The S&amp;P 500 advanced 2.3%, the Dow Jones Industrial Average gained 2.2% and the Nasdaq Composite rose 2.7%, according to the Associated Press.</p><h2>Major indexes post strong gains</h2><p>The S&amp;P 500 added 173.08 points to close at 7,549.94. The Dow climbed 1,104.02 points to 52,389.75, while the Nasdaq gained 673.71 points to 25,253.14. The Russell 2000 rose 3.1%, outperforming the larger benchmarks.</p><p>Energy markets provided part of the relief. Brent crude fell 5.8% to $92.57 a barrel amid hopes that diplomatic negotiations could reduce the risk of renewed disruption. Lower oil prices can ease pressure on transport costs and inflation expectations, although geopolitical developments remain uncertain.</p><h2>AI investment remains in focus</h2><p>Technology shares participated in the rebound, but investors continue to debate the scale and timing of spending on artificial-intelligence infrastructure. Questions about data-center power demand, project approvals and the returns on large capital investments remain relevant even after a strong trading session.</p><p>The rally marks a sharp improvement in sentiment, not proof that volatility has ended. Investors will continue to monitor inflation releases, Treasury yields, company guidance and developments affecting energy supply.</p><p><em>This article summarizes reported market developments and is not investment advice.</em></p>"
+    },
+    {
+      "id": "slower-ai-data-center-buildout-could-reshape-market-leadership-10nov26",
+      "title": "A Slower AI Data-Center Buildout Could Reshape Market Leadership",
+      "description": "Investor scrutiny and local opposition may slow parts of the AI infrastructure expansion, potentially shifting near-term preferences toward defensive stocks and higher-quality bonds.",
+      "category": "technology",
+      "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-09T20:00:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Invesco — What a slower AI buildout may mean for markets (November 9, 2026)",
+          "url": "https://www.invesco.com/us/en/insights/what-slower-ai-buildout-may-mean-for-markets.html"
+        },
+        {
+          "name": "BlackRock Investment Institute — Weekly market commentary (November 9, 2026)",
+          "url": "https://www.blackrock.com/us/individual/insights/blackrock-investment-institute/weekly-commentary"
+        }
+      ],
+      "content": "<p>The debate over artificial-intelligence investment is shifting from how quickly companies can build new capacity to whether every planned data-center project will proceed on its original schedule. Investor scrutiny, local opposition and concerns about electricity demand could make the expansion more selective.</p><h2>Infrastructure spending faces new questions</h2><p>In a November 9 analysis, Invesco said voter pushback against data centers could slow parts of the AI infrastructure buildout. The firm argued that a more measured pace could impose greater discipline on spending and ease some pressure on financing costs and valuations.</p><p>That possibility does not mean demand for AI has disappeared. Cloud providers, chipmakers, utilities and data-center operators remain linked to a long-term investment cycle, but the timing, location and economics of individual projects may become more important to investors.</p><h2>What it could mean for markets</h2><p>Invesco's near-term view suggests that defensive equities and higher-quality bonds could attract interest if expectations for rapid infrastructure expansion are revised. Companies with strong balance sheets, reliable cash generation and credible returns on capital may be better positioned if markets become more selective.</p><p>Investors should distinguish a slower pace of construction from a collapse in AI adoption. Earnings, capital-expenditure plans, power availability and project approvals will help show whether the adjustment is temporary or more structural.</p><p><em>This is a summary of third-party market commentary, not a forecast or investment recommendation.</em></p>"
+    },
+    {
+      "id": "u-s-inflation-data-in-focus-as-markets-weigh-fed-rate-outlook-10nov26",
+      "title": "U.S. Inflation Data in Focus as Markets Weigh the Federal Reserve Outlook",
+      "description": "Investors are watching the October consumer-price report for clues about price pressures and the likely path of interest rates after resilient employment data.",
+      "category": "economy",
+      "image": "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+      "pubDate": "2026-11-09T18:30:00.000Z",
+      "source": "US Market Live",
+      "sources": [
+        {
+          "name": "Financial Times — Will US inflation data ease affordability concerns? (November 9, 2026)",
+          "url": "https://www.ft.com/content/3d46dfb4-eef8-4ea0-9264-282bd269647e"
+        },
+        {
+          "name": "Associated Press — U.S. economic reports this week focus on inflation, housing and employment",
+          "url": "https://apnews.com/article/40dba34b39bf5bc08c71547e538e3355"
+        }
+      ],
+      "content": "<p>U.S. inflation data are back in focus as investors assess whether price pressures are easing enough to change the Federal Reserve's policy outlook. The October Consumer Price Index report is scheduled for Tuesday, November 10, and comes after a stronger-than-expected employment report reinforced expectations that interest rates could remain restrictive.</p><h2>Markets look for signs in core prices</h2><p>Economists surveyed ahead of the release expect core consumer prices to rise 0.3% month over month, according to the Financial Times. That figure is a forecast, not a reported result. Investors will examine both the monthly change and the annual rate, as well as components such as shelter, goods and services.</p><p>A hotter reading could strengthen expectations for higher rates for longer, potentially lifting Treasury yields and supporting the U.S. dollar while weighing on interest-rate-sensitive shares. A softer report could ease some of that pressure, though one data point is unlikely to settle the policy debate.</p><h2>Why the report matters</h2><p>The Federal Reserve weighs a range of indicators, including inflation, employment and financial conditions. Recent labor-market resilience has complicated the outlook because strong hiring can support household spending while also giving policymakers less reason to ease monetary policy quickly.</p><p>Investors will compare the published figures with forecasts and prior readings rather than treating expectations as confirmed data. The next producer-price and labor-market releases later in the week will provide additional context.</p><p><em>Figures described as expectations are forecasts, not official outcomes. This article is for information only.</em></p>"
+    },
     {
       "id": "u-s-producer-price-data-and-jobless-claims-next-in-focus-for-markets-d080c6db",
       "title": "U.S. Producer-Price Data and Jobless Claims Next in Focus for Markets",
