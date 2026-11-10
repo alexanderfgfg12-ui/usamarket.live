@@ -147,7 +147,7 @@ jobs:
           summary.append("")
           summary.append(f"Result: **{'FAIL' if failures else 'PASS'}**")
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as file:
-              file.write("\\n".join(summary) + "\\n")
+              file.write("\n".join(summary) + "\n")
 
           if failures:
               raise SystemExit(1)
@@ -184,19 +184,18 @@ jobs:
                 "Open the workflow summary and logs for the exact failing checks. This issue is updated on subsequent failed runs and closed automatically after a fully successful check.",
                 "",
                 "This monitor does not modify production content, Cloudflare settings, affiliate feeds, or secrets."
-              ].join("\\n");
+              ].join("\n");
               if (incident) {
                 await github.rest.issues.update({ owner, repo, issue_number: incident.number, body });
               } else {
                 await github.rest.issues.create({
-                  owner, repo, title, body,
-                  labels: ["automated-monitoring"]
+                  owner, repo, title, body
                 });
               }
             } else if (result === "success" && incident) {
               await github.rest.issues.createComment({
                 owner, repo, issue_number: incident.number,
-                body: `All automated site checks passed. Resolving this incident.\\n\\nWorkflow run: ${runUrl}`
+                body: `All automated site checks passed. Resolving this incident.\n\nWorkflow run: ${runUrl}`
               });
               await github.rest.issues.update({
                 owner, repo, issue_number: incident.number,
