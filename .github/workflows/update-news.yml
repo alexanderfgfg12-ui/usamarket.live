@@ -4,7 +4,6 @@ on:
     paths:
       - 'batch-*.json'
       - 'process-batch.js'
-      - 'homepage.js'
       - '.github/workflows/update-news.yml'
   workflow_dispatch:
 permissions:
