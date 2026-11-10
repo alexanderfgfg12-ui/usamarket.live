@@ -209,11 +209,21 @@ function xmlEscape(value) {
   }[char]));
 }
 
+const shopCategoryDirectory = './shop/c';
+const shopCategoryPages = fs.existsSync(shopCategoryDirectory)
+  ? fs.readdirSync(shopCategoryDirectory)
+      .filter(name => /^[a-z0-9-]+\\.html$/i.test(name))
+      .map(name => `https://usamarket.live/shop/c/${name}`)
+  : [];
+
 const sitePages = [
   'https://usamarket.live/',
   'https://usamarket.live/about.html',
   'https://usamarket.live/privacy.html',
-  'https://usamarket.live/contact.html'
+  'https://usamarket.live/contact.html',
+  'https://usamarket.live/shop/',
+  'https://usamarket.live/shop/categories.html',
+  ...shopCategoryPages
 ];
 
 const sitemapEntries = sitePages.map(url => `<url><loc>${xmlEscape(url)}</loc></url>`);
