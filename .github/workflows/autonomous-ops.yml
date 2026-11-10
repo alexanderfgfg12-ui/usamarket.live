@@ -4,6 +4,15 @@ on:
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/autonomous-ops.yml"
+      - "homepage.js"
+      - "homepage-media.js"
+      - "news-data.json"
+      - "shop/products-manifest.json"
+      - "cloudflare/usamarket-live-worker/**"
 
 permissions:
   contents: read
