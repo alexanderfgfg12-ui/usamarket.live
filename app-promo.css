@@ -1,0 +1,47 @@
+:root{color-scheme:light;--app-ink:#14213d;--app-muted:#637083;--app-blue:#155eef;--app-border:#e5eaf1;--app-bg:#f5f8fc}
+.app-download-page{margin:0;background:#fff;color:var(--app-ink);font-family:Inter,Arial,sans-serif;line-height:1.6}
+.app-page-header{max-width:1120px;margin:auto;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.app-page-header img{display:block;height:auto;max-width:190px}
+.app-header-link,.app-page-footer a{color:#31527f;text-decoration:none;font-weight:650}
+.app-download-main{max-width:1120px;margin:0 auto;padding:20px 24px 64px}
+.app-download-hero{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(220px,.7fr);align-items:center;gap:48px;padding:54px clamp(24px,5vw,64px);border:1px solid var(--app-border);border-radius:28px;background:linear-gradient(135deg,#f3f7ff 0%,#fff 65%,#eef5ff 100%)}
+.app-eyebrow{margin:0 0 12px;color:var(--app-blue);font-size:.78rem;font-weight:800;letter-spacing:.12em}
+.app-hero-copy h1{max-width:680px;margin:0;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1.08;letter-spacing:-.045em}
+.app-hero-description{max-width:650px;margin:20px 0;color:#526176;font-size:1.08rem}
+.app-download-button{display:inline-flex;align-items:center;gap:14px;min-height:64px;padding:10px 18px;border-radius:14px;background:#155eef;color:white;text-decoration:none;box-shadow:0 8px 22px #155eef2b}
+.app-download-button:hover{background:#0d4ed6}
+.app-download-button strong,.app-download-button small{display:block;line-height:1.35}
+.app-download-button strong{font-size:1rem}
+.app-download-button small{font-size:.78rem;opacity:.86}
+.app-download-button-icon{font-size:1.8rem;font-weight:700}
+.app-platform-note{margin:12px 0 0;color:var(--app-muted);font-size:.82rem}
+.app-hero-art{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.app-hero-art img{width:min(220px,70%);height:auto;border-radius:32px;box-shadow:0 18px 48px #102b5030}
+.app-art-label{font-size:.8rem;font-weight:850;letter-spacing:.16em;color:#4e6078}
+.app-benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:28px 0}
+.app-benefits article{padding:22px;border:1px solid var(--app-border);border-radius:18px;background:#fff}
+.app-benefits article>span{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#edf3ff;color:var(--app-blue);font-size:1.25rem}
+.app-benefits h2{margin:12px 0 6px;font-size:1.05rem}
+.app-benefits p,.app-safety-note p{margin:0;color:var(--app-muted);font-size:.92rem}
+.app-install-guide{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(240px,.7fr);gap:30px;padding:34px 0;border-top:1px solid var(--app-border);border-bottom:1px solid var(--app-border)}
+.app-install-guide h2,.app-faq h2,.app-bottom-cta h2{margin:0 0 14px;font-size:1.65rem;letter-spacing:-.025em}
+.app-install-guide ol{padding-left:22px;color:#48566b}
+.app-install-guide li{padding:5px 0}
+.app-safety-note{align-self:start;padding:22px;border-radius:16px;background:var(--app-bg)}
+.app-safety-note strong{display:block;margin-bottom:8px}
+.app-safety-note a{display:inline-block;margin-top:14px;color:var(--app-blue);font-weight:700;text-decoration:none}
+.app-faq{padding:34px 0}
+.app-faq details{padding:16px 0;border-bottom:1px solid var(--app-border)}
+.app-faq summary{cursor:pointer;font-weight:700}
+.app-faq details p{color:var(--app-muted)}
+.app-faq a{color:var(--app-blue)}
+.app-bottom-cta{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:28px;border-radius:20px;background:#f3f7ff}
+.app-bottom-cta h2{margin:0}
+.app-page-footer{max-width:1120px;margin:auto;padding:24px;display:flex;flex-wrap:wrap;align-items:center;gap:20px;border-top:1px solid var(--app-border)}
+.app-page-footer p{width:100%;margin:0;color:var(--app-muted);font-size:.85rem}
+.app-promo-strip{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:0 0 24px;padding:16px 20px;border:1px solid #dbe6fa;border-radius:16px;background:#f4f8ff}
+.app-promo-strip p{margin:0;color:#34445b}
+.app-promo-strip strong{color:#14213d}
+.app-promo-strip a{flex-shrink:0;padding:9px 15px;border-radius:10px;background:#155eef;color:#fff;text-decoration:none;font-weight:750}
+@media(max-width:800px){.app-download-hero{grid-template-columns:1fr;gap:28px;padding:34px 24px}.app-hero-art{grid-row:1}.app-hero-art img{width:140px}.app-benefits{grid-template-columns:repeat(2,minmax(0,1fr))}.app-install-guide{grid-template-columns:1fr}.app-bottom-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){.app-page-header{padding:16px}.app-download-main{padding:12px 16px 42px}.app-benefits{grid-template-columns:1fr}.app-promo-strip{align-items:flex-start;flex-direction:column}.app-promo-strip a{width:100%;text-align:center;box-sizing:border-box}.app-download-button{width:100%;box-sizing:border-box;justify-content:space-between}.app-bottom-cta{padding:22px}}
