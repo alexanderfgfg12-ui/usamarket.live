@@ -212,7 +212,7 @@ function xmlEscape(value) {
 const shopCategoryDirectory = './shop/c';
 const shopCategoryPages = fs.existsSync(shopCategoryDirectory)
   ? fs.readdirSync(shopCategoryDirectory)
-      .filter(name => /^[a-z0-9-]+\\.html$/i.test(name))
+      .filter(name => /^[a-z0-9-]+\.html$/i.test(name))
       .map(name => `https://usamarket.live/shop/c/${name}`)
   : [];
 
