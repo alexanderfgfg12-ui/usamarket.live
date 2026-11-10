@@ -113,7 +113,11 @@ jobs:
             "www.usamarket.live/api/admitad/products",
             "www.usamarket.live/news-sitemap-live.xml",
             "www.usamarket.live/news/live/*",
-            "www.usamarket.live/ar/news/live/*"
+            "www.usamarket.live/ar/news/live/*",
+            "usamarket.live/api/news*",
+            "www.usamarket.live/api/news*",
+            "usamarket.live/api/videos*",
+            "www.usamarket.live/api/videos*"
           ]
           missing_worker_routes = [pattern for pattern in required_worker_routes if f'pattern = "{pattern}"' not in worker_config]
           assert not missing_worker_routes, f"Worker configuration is missing required API/news routes: {missing_worker_routes}"
