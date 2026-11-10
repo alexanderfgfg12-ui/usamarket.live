@@ -5,7 +5,23 @@ workers_dev = true
 
 routes = [
   { pattern = "usamarket.live/index.html", zone_name = "usamarket.live" },
-  { pattern = "www.usamarket.live/index.html", zone_name = "usamarket.live" }
+  { pattern = "www.usamarket.live/index.html", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/videos", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/api/videos", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/news", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/api/news", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/cinema/catalog", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/api/cinema/catalog", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/health", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/api/health", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/api/admitad/products", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/api/admitad/products", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/news-sitemap-live.xml", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/news-sitemap-live.xml", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/news/live/*", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/news/live/*", zone_name = "usamarket.live" },
+  { pattern = "usamarket.live/ar/news/live/*", zone_name = "usamarket.live" },
+  { pattern = "www.usamarket.live/ar/news/live/*", zone_name = "usamarket.live" }
 ]
 
 [assets]
