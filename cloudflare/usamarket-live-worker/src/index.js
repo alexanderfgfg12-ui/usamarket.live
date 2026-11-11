@@ -364,11 +364,13 @@ function parseNewsRss(xml,lang) {
  }
  return out;
 }
-async function refreshNewsLibrary(env) {
+async function refreshNewsLibrary(env, onlyLang = null) {
  if(!env.VIDEOS_KV) throw new Error("news_kv_binding_missing");
  const startedAt=new Date().toISOString();
- const status={startedAt,languages:{}};
- for(const lang of ["en","ar"]) {
+ const previousStatus=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
+ const status={startedAt,languages:{...(previousStatus?.languages||{})}};
+ const languages=onlyLang&&["en","ar"].includes(onlyLang)?[onlyLang]:["en","ar"];
+ for(const lang of languages) {
   const old=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
   const feedResults=await Promise.all(NEWS_FEEDS[lang].map(async (feed,index)=>{
    try {
@@ -421,7 +423,7 @@ async function getNews(request,env) {
  const checkedAt=Date.parse(refreshStatus?.checkedAt||"");
  const statusMissingOrStale=!Number.isFinite(checkedAt)||Date.now()-checkedAt>6*60*60*1000||typeof refreshStatus?.feedsOk!=="number";
  if(!data?.articles?.length||statusMissingOrStale) {
-  await refreshNewsLibrary(env).catch(()=>{});
+  await refreshNewsLibrary(env,lang).catch(()=>{});
   data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
   refresh=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
   refreshStatus=refresh?.languages?.[lang]||null;
