@@ -316,7 +316,7 @@ async function getCinemaCatalog(request, env) {
   return json({items,count:items.length,source},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 
-const NEWS_SOURCE_VERSION = 4;
+const NEWS_SOURCE_VERSION = 5;
 const NEWS_FEEDS = {
  en: [
   {name:"The Wall Street Journal",url:"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain"},
@@ -398,7 +398,11 @@ async function refreshNewsLibrary(env, onlyLang = null) {
    continue;
   }
   const unique=new Map();
-  const retainedOld=(old?.articles||[]).filter(article=>!["MarketWatch","Google News"].includes(article.source));
+  const allowedDomains=lang==="en"?["wsj.com","bloomberg.com","cnbc.com"]:["aljazeera.net","bbc.co.uk","bbc.com","dw.com"];
+  const retainedOld=(old?.articles||[]).filter(article=>{
+   try { const host=new URL(article.link).hostname.toLowerCase(); return allowedDomains.some(domain=>host===domain||host.endsWith("."+domain)); }
+   catch(_) { return false; }
+  });
   for(const a of [...found,...retainedOld]) {
    const k=a.title.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff]+/g,"");
    if(k&&!unique.has(k))unique.set(k,a);
