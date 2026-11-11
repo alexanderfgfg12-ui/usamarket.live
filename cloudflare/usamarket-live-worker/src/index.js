@@ -316,13 +316,12 @@ async function getCinemaCatalog(request, env) {
   return json({items,count:items.length,source},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 
-const NEWS_SOURCE_VERSION = 2;
+const NEWS_SOURCE_VERSION = 3;
 const NEWS_FEEDS = {
  en: [
   {name:"The Wall Street Journal",url:"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain"},
   {name:"Bloomberg",url:"https://feeds.bloomberg.com/markets/news.rss"},
   {name:"CNBC",url:"https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069"},
-  {name:"MarketWatch",url:"https://feeds.content.dowjones.io/public/rss/mw_topstories"}
  ],
  ar: [
   {name:"Al Jazeera Arabic",url:"https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9"},
@@ -407,7 +406,7 @@ async function refreshNewsLibrary(env, onlyLang = null) {
   const updatedAt=checkedAt;
   await env.VIDEOS_KV.put("news:v1:"+lang,JSON.stringify({updatedAt,checkedAt,count:articles.length,articles}),{expirationTtl:345600});
   status.languages[lang]={
-   ok:true,stale:false,feedsOk:feedsWithStories,feedsReachable,feedsWithStories,count:articles.length,
+   ok:true,stale:false,feedsOk:feedsWithStories,feedsReachable,feedsWithStories,feedsTotal:feedResults.length,count:articles.length,
    added:Math.max(0,articles.length-(old?.articles?.length||0)),updatedAt,checkedAt,
    errors:feedResults.filter(result=>!result.ok).map(result=>({feed:result.feed,error:result.error}))
   };
