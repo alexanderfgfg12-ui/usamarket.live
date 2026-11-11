@@ -127,7 +127,20 @@ jobs:
               articles = data.get("articles", [])
               if not isinstance(articles, list) or not articles:
                   raise RuntimeError("Live news API returned no articles")
-              return f"{len(articles)} live articles"
+              refresh = data.get("refreshStatus") or {}
+              if refresh.get("ok") is not True:
+                  raise RuntimeError("Latest RSS refresh failed or has no verified source response")
+              checked_at = data.get("checkedAt") or refresh.get("checkedAt")
+              if not checked_at:
+                  raise RuntimeError("News refresh timestamp is missing")
+              checked_ts = __import__("datetime").datetime.fromisoformat(checked_at.replace("Z", "+00:00")).timestamp()
+              age_minutes = (time.time() - checked_ts) / 60
+              if age_minutes > 360:
+                  raise RuntimeError(f"News refresh is stale: last checked {age_minutes:.0f} minutes ago")
+              feeds_ok = int(refresh.get("feedsOk", 0))
+              if feeds_ok < 1:
+                  raise RuntimeError("No RSS source returned a valid response")
+              return f"{len(articles)} live articles; {feeds_ok}/{refresh.get('feedsTotal', '?')} RSS feeds reachable; checked {age_minutes:.0f} minutes ago"
 
           def check_videos():
               data = json_endpoint("/api/videos?lang=en&category=all")
