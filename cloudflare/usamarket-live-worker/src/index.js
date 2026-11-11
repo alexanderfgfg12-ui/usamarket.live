@@ -417,6 +417,7 @@ async function getNews(request,env) {
  let data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
  let refresh=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
  let refreshStatus=refresh?.languages?.[lang]||null;
+ // A public news request repairs missing/legacy refresh metadata if the scheduled run was missed.
  const checkedAt=Date.parse(refreshStatus?.checkedAt||"");
  const statusMissingOrStale=!Number.isFinite(checkedAt)||Date.now()-checkedAt>6*60*60*1000||typeof refreshStatus?.feedsOk!=="number";
  if(!data?.articles?.length||statusMissingOrStale) {
