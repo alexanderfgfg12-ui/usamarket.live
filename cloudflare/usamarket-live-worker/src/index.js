@@ -316,6 +316,7 @@ async function getCinemaCatalog(request, env) {
   return json({items,count:items.length,source},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 
+const NEWS_SOURCE_VERSION = 2;
 const NEWS_FEEDS = {
  en: [
   {name:"The Wall Street Journal",url:"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain"},
@@ -370,7 +371,7 @@ async function refreshNewsLibrary(env, onlyLang = null) {
  if(!env.VIDEOS_KV) throw new Error("news_kv_binding_missing");
  const startedAt=new Date().toISOString();
  const previousStatus=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
- const status={startedAt,languages:{...(previousStatus?.languages||{})}};
+ const status={startedAt,sourceVersion:NEWS_SOURCE_VERSION,languages:{...(previousStatus?.languages||{})}};
  const languages=onlyLang&&["en","ar"].includes(onlyLang)?[onlyLang]:["en","ar"];
  for(const lang of languages) {
   const old=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
@@ -423,7 +424,7 @@ async function getNews(request,env) {
  let refreshStatus=refresh?.languages?.[lang]||null;
  // A public news request repairs missing/legacy refresh metadata if the scheduled run was missed.
  const checkedAt=Date.parse(refreshStatus?.checkedAt||"");
- const statusMissingOrStale=!Number.isFinite(checkedAt)||Date.now()-checkedAt>6*60*60*1000||typeof refreshStatus?.feedsOk!=="number";
+ const statusMissingOrStale=refresh?.sourceVersion!==NEWS_SOURCE_VERSION||!Number.isFinite(checkedAt)||Date.now()-checkedAt>6*60*60*1000||typeof refreshStatus?.feedsOk!=="number";
  if(!data?.articles?.length||statusMissingOrStale) {
   await refreshNewsLibrary(env,lang).catch(()=>{});
   data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
