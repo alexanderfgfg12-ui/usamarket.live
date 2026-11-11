@@ -380,23 +380,16 @@ async function refreshNewsLibrary(env) {
     return {ok:false,items:[],error:String(error?.name||"fetch_error"),feed:index+1};
    }
   }));
-  const reachable=feedResults.filter(result=>result.ok).length;
+  const feedsReachable=feedResults.filter(result=>result.ok).length;
   const feedsWithStories=feedResults.filter(result=>result.ok&&result.items.length>0).length;
   const found=feedResults.flatMap(result=>result.items);
   const checkedAt=new Date().toISOString();
-  if(!reachable) {
+  if(!feedsWithStories) {
    status.languages[lang]={
-    ok:false,stale:true,feedsOk:0,feedsTotal:feedResults.length,
+    ok:false,stale:true,feedsOk:0,feedsReachable,feedsWithStories:0,feedsTotal:feedResults.length,
     count:old?.articles?.length||0,updatedAt:old?.updatedAt||null,checkedAt,
-    errors:feedResults.filter(result=>!result.ok).map(result=>({feed:result.feed,error:result.error}))
-   };
-   continue;
-  }
-  if(!found.length) {
-   status.languages[lang]={
-    ok:true,stale:false,noNewStories:true,feedsOk:reachable,feedsWithStories:0,
-    feedsTotal:feedResults.length,count:old?.articles?.length||0,
-    updatedAt:old?.updatedAt||null,checkedAt
+    errors:feedResults.filter(result=>!result.ok).map(result=>({feed:result.feed,error:result.error})),
+    reason:feedsReachable?"no_valid_articles_from_reachable_feeds":"all_sources_unreachable"
    };
    continue;
   }
@@ -409,7 +402,7 @@ async function refreshNewsLibrary(env) {
   const updatedAt=checkedAt;
   await env.VIDEOS_KV.put("news:v1:"+lang,JSON.stringify({updatedAt,checkedAt,count:articles.length,articles}),{expirationTtl:345600});
   status.languages[lang]={
-   ok:true,stale:false,feedsOk:reachable,feedsWithStories,count:articles.length,
+   ok:true,stale:false,feedsOk:feedsWithStories,feedsReachable,feedsWithStories,count:articles.length,
    added:Math.max(0,articles.length-(old?.articles?.length||0)),updatedAt,checkedAt,
    errors:feedResults.filter(result=>!result.ok).map(result=>({feed:result.feed,error:result.error}))
   };
@@ -422,9 +415,16 @@ async function getNews(request,env) {
  if(request.method!=="GET") return json({error:"method_not_allowed"},405);
  const lang=new URL(request.url).searchParams.get("lang")==="ar"?"ar":"en";
  let data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
- if(!data?.articles?.length){await refreshNewsLibrary(env).catch(()=>{});data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);}
- const refresh=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
- const refreshStatus=refresh?.languages?.[lang]||null;
+ let refresh=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
+ let refreshStatus=refresh?.languages?.[lang]||null;
+ const checkedAt=Date.parse(refreshStatus?.checkedAt||"");
+ const statusMissingOrStale=!Number.isFinite(checkedAt)||Date.now()-checkedAt>6*60*60*1000||typeof refreshStatus?.feedsOk!=="number";
+ if(!data?.articles?.length||statusMissingOrStale) {
+  await refreshNewsLibrary(env).catch(()=>{});
+  data=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
+  refresh=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
+  refreshStatus=refresh?.languages?.[lang]||null;
+ }
  return json({lang,updatedAt:data?.updatedAt||null,checkedAt:refreshStatus?.checkedAt||data?.checkedAt||null,refreshStatus,count:data?.count||0,articles:data?.articles||[]},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 const newsHtmlEscape=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
