@@ -428,7 +428,7 @@ async function getNews(request,env) {
   refresh=await env.VIDEOS_KV.get("news:v1:status","json").catch(()=>null);
   refreshStatus=refresh?.languages?.[lang]||null;
  }
- return json({lang,updatedAt:data?.updatedAt||null,checkedAt:refreshStatus?.checkedAt||data?.checkedAt||null,refreshStatus,count:data?.count||0,articles:data?.articles||[]},200,{"cache-control":"public, max-age=180, s-maxage=300"});
+ return json({lang,updatedAt:data?.updatedAt||null,checkedAt:refreshStatus?.checkedAt||data?.checkedAt||null,refreshStatus,count:data?.count||0,articles:data?.articles||[]},200,{"cache-control":"no-store"});
 }
 const newsHtmlEscape=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 async function renderLiveNewsPage(id,lang,env) {
