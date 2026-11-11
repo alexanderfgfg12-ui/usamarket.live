@@ -123,7 +123,7 @@ jobs:
               return data.get("service", "Worker active")
 
           def check_live_news():
-              data = json_endpoint("/api/news?lang=en")
+              data = json_endpoint("/api/news?lang=en&healthcheck=1")
               articles = data.get("articles", [])
               if not isinstance(articles, list) or not articles:
                   raise RuntimeError("Live news API returned no articles")
