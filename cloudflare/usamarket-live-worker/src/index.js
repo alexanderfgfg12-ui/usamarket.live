@@ -318,14 +318,15 @@ async function getCinemaCatalog(request, env) {
 
 const NEWS_FEEDS = {
  en: [
-  "https://news.google.com/rss/search?q=US+stock+market+OR+Wall+Street+OR+Federal+Reserve&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=technology+OR+artificial+intelligence+OR+semiconductors&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=cryptocurrency+OR+Bitcoin+OR+business+earnings&hl=en-US&gl=US&ceid=US:en"
+  {name:"The Wall Street Journal",url:"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain"},
+  {name:"Bloomberg",url:"https://feeds.bloomberg.com/markets/news.rss"},
+  {name:"CNBC",url:"https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=15839069"},
+  {name:"MarketWatch",url:"https://feeds.content.dowjones.io/public/rss/mw_topstories"}
  ],
  ar: [
-  "https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%A3%D8%B3%D9%88%D8%A7%D9%82+OR+%D8%A7%D9%84%D8%A7%D9%82%D8%AA%D8%B5%D8%A7%D8%AF+OR+%D9%88%D9%88%D9%84+%D8%B3%D8%AA%D8%B1%D9%8A%D8%AA&hl=ar&gl=US&ceid=US:ar",
-  "https://news.google.com/rss/search?q=%D8%A7%D9%84%D8%AA%D9%83%D9%86%D9%88%D9%84%D9%88%D8%AC%D9%8A%D8%A7+OR+%D8%A7%D9%84%D8%B0%D9%83%D8%A7%D8%A1+%D8%A7%D9%84%D8%A7%D8%B5%D8%B7%D9%86%D8%A7%D8%B9%D9%8A&hl=ar&gl=US&ceid=US:ar",
-  "https://news.google.com/rss/search?q=%D8%A8%D9%8A%D8%AA%D9%83%D9%88%D9%8A%D9%86+OR+%D8%A7%D9%84%D8%B9%D9%85%D9%84%D8%A7%D8%AA+%D8%A7%D9%84%D8%B1%D9%82%D9%85%D9%8A%D8%A9+OR+%D8%A7%D9%84%D8%A3%D8%B9%D9%85%D8%A7%D9%84&hl=ar&gl=US&ceid=US:ar"
+  {name:"Al Jazeera Arabic",url:"https://www.aljazeera.net/aljazeerarss/a7c186be-1baa-4bd4-9d80-a84db769f779/73d0e1b4-532f-45ef-b135-bfdff8b8cab9"},
+  {name:"BBC Arabic",url:"https://feeds.bbci.co.uk/arabic/rss.xml"},
+  {name:"Deutsche Welle Arabic",url:"https://rss.dw.com/rdf/rss-ar-all"}
  ]
 };
 const NEWS_IMAGES = {
@@ -348,7 +349,7 @@ function newsCategory(t,d) {
  return "markets";
 }
 function newsId(t,l) { let h=2166136261; for(const c of(l||t)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);} return "live-"+(h>>>0).toString(36); }
-function parseNewsRss(xml,lang) {
+function parseNewsRss(xml,lang,sourceName) {
  const out=[],blocks=xml.match(/<(?:item|entry)\b[\s\S]*?<\/(?:item|entry)>/gi)||[];
  for(const b of blocks.slice(0,30)) {
   const title=newsTag(b,"title").replace(/\s+-\s+[^-]+$/,"").trim();
@@ -357,10 +358,11 @@ function parseNewsRss(xml,lang) {
   const href=newsTag(b,"link")||(b.match(/<link\b[^>]*href=["']([^"']+)/i)||[])[1]||"";
   const link=safeHttpUrl(href), date=new Date(newsTag(b,"pubDate")||newsTag(b,"published")||newsTag(b,"updated"));
   if(!title||!link||!description||!Number.isFinite(date.getTime())) continue;
+  if(lang==="ar"&&!/(اقتصاد|اقتصادي|أسواق|سوق|بورصة|أسهم|استثمار|بنوك|مصارف|تضخم|فائدة|نفط|غاز|ذهب|دولار|عملات|بيتكوين|شركات|تجارة|موازنة|ميزانية|ديون|نمو|مؤشر|مالية)/i.test(title+" "+description)) continue;
   const category=newsCategory(title,description), id=newsId(title,link);
   const path=(lang==="ar"?"/ar/news/live/":"/news/live/")+id;
   const media=b.match(/<(?:media:content|media:thumbnail|enclosure)\b[^>]*(?:url|href)=["']([^"']+)["']/i);
-  out.push({id,title,description,source:newsTag(b,"source")||"Google News",pubDate:date.toISOString(),category,image:safeHttpUrl(media&&media[1])||NEWS_IMAGES[category],link,lang,path});
+  out.push({id,title,description,source:newsTag(b,"source")||sourceName||"News source",pubDate:date.toISOString(),category,image:safeHttpUrl(media&&media[1])||NEWS_IMAGES[category],link,lang,path});
  }
  return out;
 }
@@ -374,12 +376,12 @@ async function refreshNewsLibrary(env, onlyLang = null) {
   const old=await env.VIDEOS_KV.get("news:v1:"+lang,"json").catch(()=>null);
   const feedResults=await Promise.all(NEWS_FEEDS[lang].map(async (feed,index)=>{
    try {
-    const r=await fetch(feed,{headers:{accept:"application/rss+xml, application/xml, text/xml"},signal:AbortSignal.timeout(12000)});
-    if(!r.ok) return {ok:false,items:[],error:"http_"+r.status,feed:index+1};
-    const items=parseNewsRss(await r.text(),lang);
-    return {ok:true,items,feed:index+1};
+    const r=await fetch(feed.url,{headers:{accept:"application/rss+xml, application/xml, text/xml","user-agent":"USMarketLive/1.0 (+https://usamarket.live)"},signal:AbortSignal.timeout(12000)});
+    if(!r.ok) return {ok:false,items:[],error:"http_"+r.status,feed:index+1,source:feed.name};
+    const items=parseNewsRss(await r.text(),lang,feed.name);
+    return {ok:true,items,feed:index+1,source:feed.name};
    } catch(error) {
-    return {ok:false,items:[],error:String(error?.name||"fetch_error"),feed:index+1};
+    return {ok:false,items:[],error:String(error?.name||"fetch_error"),feed:index+1,source:feed.name};
    }
   }));
   const feedsReachable=feedResults.filter(result=>result.ok).length;
