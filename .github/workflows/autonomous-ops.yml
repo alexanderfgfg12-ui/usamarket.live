@@ -143,6 +143,27 @@ jobs:
                   raise RuntimeError("No RSS source returned a valid market-news feed")
               return f"{len(articles)} live articles; {feeds_ok}/{feeds_total} RSS feeds returned market stories; checked {age_minutes:.0f} minutes ago"
 
+          def check_arabic_market_news():
+              data = json_endpoint("/api/news?lang=ar&healthcheck=1")
+              articles = data.get("articles", [])
+              if not isinstance(articles, list) or not articles:
+                  raise RuntimeError("Arabic live news API returned no articles")
+              refresh = data.get("refreshStatus") or {}
+              if refresh.get("ok") is not True:
+                  raise RuntimeError("Arabic RSS refresh failed; previous articles are not counted as fresh")
+              checked_at = data.get("checkedAt") or refresh.get("checkedAt")
+              if not checked_at:
+                  raise RuntimeError("Arabic news refresh timestamp is missing")
+              checked_ts = __import__("datetime").datetime.fromisoformat(checked_at.replace("Z", "+00:00")).timestamp()
+              age_minutes = (time.time() - checked_ts) / 60
+              if age_minutes > 360:
+                  raise RuntimeError(f"Arabic news refresh is stale: last checked {age_minutes:.0f} minutes ago")
+              feeds_ok = int(refresh.get("feedsOk", 0))
+              feeds_total = int(refresh.get("feedsTotal", 0))
+              if feeds_ok < 1 or feeds_total < 1:
+                  raise RuntimeError("No Arabic RSS source returned market stories")
+              return f"{len(articles)} live Arabic articles; {feeds_ok}/{feeds_total} RSS feeds returned market stories; checked {age_minutes:.0f} minutes ago"
+
           def check_videos():
               data = json_endpoint("/api/videos?lang=en&category=all")
               videos = data.get("videos", [])
@@ -161,6 +182,7 @@ jobs:
           check("Sitemap index", check_sitemap_index)
           check("Cloudflare Worker health", check_worker_health)
           check("Live news feed", check_live_news)
+          check("Live Arabic market news", check_arabic_market_news)
           check("Video feed", check_videos)
           check("Dynamic news sitemap", check_live_news_sitemap)
 
