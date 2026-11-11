@@ -316,7 +316,7 @@ async function getCinemaCatalog(request, env) {
   return json({items,count:items.length,source},200,{"cache-control":"public, max-age=180, s-maxage=300"});
 }
 
-const NEWS_SOURCE_VERSION = 3;
+const NEWS_SOURCE_VERSION = 4;
 const NEWS_FEEDS = {
  en: [
   {name:"The Wall Street Journal",url:"https://feeds.content.dowjones.io/public/rss/RSSMarketsMain"},
@@ -337,7 +337,7 @@ const NEWS_IMAGES = {
  business:"https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80"
 };
 function newsDecode(v) {
- return String(v||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).trim();
+ return String(v||"").replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g,"$1").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#x([0-9a-f]+);/gi,(_,n)=>String.fromCodePoint(parseInt(n,16))).replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(+n)).trim();
 }
 function newsTag(s,t) { const m=s.match(new RegExp("<"+t+"\\b[^>]*>([\\s\\S]*?)<\\/"+t+">","i")); return m?newsDecode(m[1]):""; }
 function newsCategory(t,d) {
@@ -398,7 +398,8 @@ async function refreshNewsLibrary(env, onlyLang = null) {
    continue;
   }
   const unique=new Map();
-  for(const a of [...found,...(old?.articles||[])]) {
+  const retainedOld=(old?.articles||[]).filter(article=>!["MarketWatch","Google News"].includes(article.source));
+  for(const a of [...found,...retainedOld]) {
    const k=a.title.toLowerCase().replace(/[^a-z0-9\u0600-\u06ff]+/g,"");
    if(k&&!unique.has(k))unique.set(k,a);
   }
