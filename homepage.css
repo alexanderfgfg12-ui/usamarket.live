@@ -88,3 +88,15 @@
 .um-mobile-menu .um-affiliate-copy small{font-size:.72rem;color:#d7e8ff;margin-top:3px;}
 .um-mobile-menu .um-affiliate-copy em{font-size:.65rem;color:#a9c8ec;font-style:normal;margin-top:3px;}
 .um-mobile-menu .um-affiliate-arrow{font-size:2rem;color:#fff;padding:0 5px;}
+
+
+/* Compact Atom domain portfolio banner */
+.um-domain-promo{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:12px 0 20px;padding:12px 16px;border:1px solid #dce6f2;border-left:4px solid #0b5ca8;border-radius:7px;background:linear-gradient(100deg,#fff,#f5f8fd);box-shadow:0 2px 8px #102b4e0a}
+.um-domain-promo-copy{display:flex;align-items:center;gap:12px;min-width:0;flex-wrap:wrap}
+.um-domain-promo-label{font-size:.65rem;letter-spacing:.09em;font-weight:900;color:#0b5ca8;background:#e7f1fc;border-radius:4px;padding:4px 7px;white-space:nowrap}
+.um-domain-promo-copy strong{font-size:.95rem;color:#142b49}
+.um-domain-promo-copy>span:last-child{font-size:.82rem;color:#657187}
+.um-domain-promo>a{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:0 0 auto;padding:8px 13px;border-radius:5px;background:#0b4f91;color:#fff;text-decoration:none;font-size:.8rem;font-weight:800;white-space:nowrap;transition:background .2s}
+.um-domain-promo>a:hover{background:#07366f}
+.um-domain-promo>a:focus-visible{outline:3px solid #1685e8;outline-offset:3px}
+@media(max-width:600px){.um-domain-promo{align-items:flex-start;flex-direction:column;gap:10px;margin:10px 0 16px;padding:11px 12px}.um-domain-promo-copy{gap:7px}.um-domain-promo-copy>span:last-child{flex-basis:100%}.um-domain-promo>a{width:100%}}
