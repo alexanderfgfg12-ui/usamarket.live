@@ -14,7 +14,11 @@
   let playbackToken = 0;
   let imaLoaderPromise = null;
 
-  const hilltopAdTags = []; // Unverified third-party ad tags disabled; play the publisher's video directly.
+  // User-approved HilltopAds VAST tags. Try the IMA/GAM tag first, then standard VAST.
+  const hilltopAdTags = [
+    'https://expensive-pollution.com/dNmgFazLd.GdNnvTZKGKUH/Teemt9Cu/Z_U_l/kWPATScW1/O/TnM/1LM/jEEPtnNKzsUy5IM/zAUkyZNSQY',
+    'https://expensive-pollution.com/dcm/F.zGdhGaNAvjZIGiUn/Xe/m/9Ou/ZYUYlNksPoTac/1-OcT/Mx1WMmjyEYteNTz/UV5VMPzCUzy/NlSrZIsLa/Wt1Ap/d/DI0rxG'
+  ];
 
   function loadImaSdk() {
     if (window.google?.ima) return Promise.resolve();
