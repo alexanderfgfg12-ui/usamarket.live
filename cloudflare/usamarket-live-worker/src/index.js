@@ -460,6 +460,86 @@ async function liveNewsSitemap(env) {
 }
 
 
+async function searchRealEstate(request, env, ctx) {
+  if (request.method !== "GET") return json({ error: "method_not_allowed" }, 405, { allow: "GET" });
+  if (!env.UNTERA_API_KEY) {
+    return json({ error: "realestate_api_key_missing", message: "The property data provider is not configured." }, 503);
+  }
+
+  const incoming = new URL(request.url);
+  const location = clean(incoming.searchParams.get("location")).slice(0, 80);
+  const transaction = incoming.searchParams.get("transaction") === "rent" ? "rent" : "sale";
+  const type = clean(incoming.searchParams.get("type")).slice(0, 30);
+  const params = new URLSearchParams({
+    country: "US",
+    transaction,
+    page: String(Math.max(1, Number(incoming.searchParams.get("page")) || 1)),
+    pageSize: String(Math.min(50, Math.max(1, Number(incoming.searchParams.get("pageSize")) || 50))),
+    sort: "newest"
+  });
+  if (location) params.set("location", location);
+  if (type) params.set("type", type);
+
+  const cacheKey = new Request(
+    "https://usamarket-realestate-cache.invalid/listings?" + params.toString(),
+    { method: "GET" }
+  );
+  const cache = caches.default;
+  try {
+    const cached = await cache.match(cacheKey);
+    if (cached) {
+      const headers = new Headers(cached.headers);
+      headers.set("x-realestate-cache", "HIT");
+      return new Response(cached.body, { status: cached.status, headers });
+    }
+  } catch (_) {}
+
+  try {
+    const upstream = await fetch(
+      "https://api.untera.io/api/v1/listings/search?" + params.toString(),
+      {
+        headers: {
+          "X-API-Key": env.UNTERA_API_KEY,
+          "Accept": "application/json"
+        },
+        signal: AbortSignal.timeout(12000),
+        redirect: "follow"
+      }
+    );
+    if (!upstream.ok) {
+      return json({
+        error: "realestate_provider_error",
+        message: "The property provider could not complete the search.",
+        providerStatus: upstream.status
+      }, upstream.status === 429 ? 429 : 502);
+    }
+
+    const data = await upstream.json();
+    const results = Array.isArray(data?.results) ? data.results.slice(0, 50) : [];
+    const response = json({
+      results,
+      count: results.length,
+      country: "US",
+      transaction,
+      location: location || null,
+      provider: "Untera",
+      attribution: "Powered by Untera",
+      updatedAt: new Date().toISOString()
+    }, 200, {
+      "cache-control": "public, max-age=300, s-maxage=900",
+      "access-control-allow-origin": "https://usamarket.live"
+    });
+    try { ctx.waitUntil(cache.put(cacheKey, response.clone())); } catch (_) {}
+    return response;
+  } catch (_) {
+    return json({
+      error: "realestate_upstream_unavailable",
+      message: "Unable to reach the property data provider right now."
+    }, 502);
+  }
+}
+
+
 export default {
   async scheduled(event, env, ctx) {
     if (event.cron === "17 4 * * *") ctx.waitUntil(refreshVideoLibrary(env));
@@ -467,7 +547,7 @@ export default {
       ctx.waitUntil(refreshNewsLibrary(env));
     }
   },
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     // Keep one canonical homepage URL; avoid duplicate indexing of /index.html.
     if ((request.method === "GET" || request.method === "HEAD") && url.pathname === "/index.html") {
@@ -481,6 +561,7 @@ export default {
       return json({ service: "usamarket-live", status: "worker-runtime-active", assets: Boolean(env.ASSETS) });
     }
     if (request.method === "GET" && (url.pathname === "/shop/" || url.pathname === "/shop/index.html")) return env.ASSETS.fetch(request);
+    if (url.pathname === "/api/realestate/listings") return searchRealEstate(request, env, ctx);
     if (url.pathname === "/api/videos") return searchVideos(request, env);
     if (url.pathname === "/api/news") return getNews(request, env);
     if (url.pathname === "/api/cinema/catalog") return getCinemaCatalog(request, env);
